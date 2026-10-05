@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRUNG TÂM GIÁM SÁT ĐIỀU HÀNH ĐÔ THỊ THÔNG MINH XÃ TÂN LONG HỘI (IOC)</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f0f2f5;
+      --navy-header: #0c2d48;
+      --border-color: #dee2e6;
+    }
+    body {
+      background-color: var(--bg-page);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 0.88rem;
+      color: #212529;
+    }
+    /* Thanh bar đầu trang */
+    .top-navbar {
+      background: #fff;
+      padding: 10px 20px;
+      border-bottom: 2px solid #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-title {
+      color: #b02a37;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    /* Nút Home tương tác */
+    .btn-home {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .btn-home:hover {
+      background-color: #e2e8f0;
+      color: #0d6efd !important;
+    }
+    /* Menu bên trái */
+    .ioc-menu-list {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid #f1f3f5;
+      cursor: pointer;
+      font-weight: 500;
+      color: #334155;
+      transition: all 0.15s ease-in-out;
+    }
+    .menu-btn:hover {
+      background-color: #f8fafc;
+      color: #0d6efd;
+    }
+    .menu-btn.active {
+      background-color: #e7f1ff;
+      color: #0d6efd;
+      font-weight: 600;
+    }
+    .badge-num {
+      width: 26px;
+      height: 26px;
+      background-color: #0d6efd;
+      color: #fff;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.82rem;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .badge-moi {
+      background-color: #dc3545;
+      color: #fff;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: 6px;
+    }
+    /* Tiêu đề khung Dashboard */
+    .dashboard-head-bar {
+      background-color: var(--navy-header);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dashboard-card-body {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 18px;
+      min-height: 540px;
+    }
+    /* Thẻ thống kê KPI */
+    .kpi-box {
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: #fafbfc;
+      text-align: left;
+    }
+    .kpi-title {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .kpi-num {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    /* Ô Card của Dashboard tổng thể */
+    .task-overview-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+      height: 100%;
+    }
+    .task-overview-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-color: #0d6efd;
+    }
+    .group-row {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Thanh tiêu đề hệ thống -->
+  <header class="top-navbar shadow-sm">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-sm btn-outline-secondary me-2"><i class="bi bi-list"></i></button>
+      
+      <!-- Nút Home trở về Bảng tổng thể 12 nhiệm vụ -->
+      <div class="btn-home me-3 text-primary" onclick="showHomeDashboard()" title="Về Báo cáo Tổng thể 12 nhiệm vụ">
+        <i class="bi bi-house-door-fill fs-5"></i>
+      </div>
+
+      <h6 class="top-title">PHÒNG GIÁM SÁT, ĐIỀU HÀNH ĐÔ THỊ THÔNG MINH XÃ TÂN LONG HỘI (IOC)</h6>
+    </div>
+    <div class="d-flex align-items-center small text-muted">
+      <i class="bi bi-person-circle fs-5 me-1 text-primary"></i>
+      <span class="fw-semibold">Cán bộ Quản trị hệ thống</span>
+    </div>
+  </header>
+
+  <div class="container-fluid py-3 px-3">
+    <div class="row g-3">
+      
+      <!-- CỘT TRÁI: 12 PHÂN HỆ ĐIỀU HÀNH -->
+      <aside class="col-lg-3 col-md-4">
+        <div class="ioc-menu-list shadow-sm">
+          <div class="menu-btn" id="btn-tab-1" onclick="switchView('view-1')">
+            <span class="badge-num">1</span>
+            <span>Giải ngân vốn đầu tư công</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-2" onclick="switchView('view-2')">
+            <span class="badge-num">2</span>
+            <span>Theo dõi thực hiện nhiệm vụ</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-3" onclick="switchView('view-3')">
+            <span class="badge-num">3</span>
+            <span>Kinh phí Nghị quyết & Đề án</span>
+            <span class="badge-moi">Mới</span>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-4" onclick="switchView('view-4')">
+            <span class="badge-num">4</span>
+            <span>Tiến độ thực hiện TBKL Đảng ủy</span>
+            <span class="badge-moi">Mới</span>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-5" onclick="switchView('view-5')">
+            <span class="badge-num">5</span>
+            <span>Quản lý văn bản điều hành</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-6" onclick="switchView('view-6')">
+            <span class="badge-num">6</span>
+            <span>Tiêu chí Nông thôn mới nâng cao</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-7" onclick="switchView('view-7')">
+            <span class="badge-num">7</span>
+            <span>Điều hành phản ánh, kiến nghị</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-8" onclick="switchView('view-8')">
+            <span class="badge-num">8</span>
+            <span>Tiếp nhận & Xử lý ý kiến người dân</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-9" onclick="switchView('view-9')">
+            <span class="badge-num">9</span>
+            <span>Hệ thống camera giám sát an ninh</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-10" onclick="switchView('view-10')">
+            <span class="badge-num">10</span>
+            <div class="text-truncate" style="max-width: 170px;">
+              <span>Kế hoạch 100 ngày CĐS</span>
+            </div>
+            <span class="badge-moi">Mới</span>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-11" onclick="switchView('view-11')">
+            <span class="badge-num">11</span>
+            <span>Bản đồ số địa chính & GIS</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+          <div class="menu-btn" id="btn-tab-12" onclick="switchView('view-12')">
+            <span class="badge-num">12</span>
+            <span>Thông tin đơn vị sự nghiệp giáo dục</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CỘT PHẢI: KHU VỰC HIỂN THỊ NỘI DUNG -->
+      <main class="col-lg-9 col-md-8">
+
+        <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
+        <div id="view-home-summary" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 12 NHIỆM VỤ CẤP XÃ</div>
+            <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6">
+                <div class="kpi-box border-start border-4 border-primary">
+                  <div class="kpi-title">Tổng lĩnh vực giám sát</div>
+                  <div class="kpi-num text-primary">12 phân hệ</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="kpi-box border-start border-4 border-success">
+                  <div class="kpi-title">Tiến độ hoàn thành chung</div>
+                  <div class="kpi-num text-success">91.4%</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="kpi-box border-start border-4 border-danger">
+                  <div class="kpi-title">Nhiệm vụ trễ hạn / Cảnh báo</div>
+                  <div class="kpi-num text-danger">03 việc</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="kpi-box border-start border-4 border-info">
+                  <div class="kpi-title">Đánh giá hài lòng cử tri</div>
+                  <div class="kpi-num text-info">98.2%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="small fw-bold text-secondary mb-2 text-uppercase">
+              <i class="bi bi-cpu me-1"></i> Tổng hợp tình trạng 12 nhiệm vụ (Bấm vào thẻ để xem chi tiết từng phân hệ):
+            </div>
+
+            <div class="row g-2">
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-1')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 1</span>
+                    <span class="text-success small fw-bold">58,25%</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">1. Giải ngân đầu tư công</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">18 trọng điểm, 40 dự án vướng</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-2')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 2</span>
+                    <span class="text-success small fw-bold">136/142 xong</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">2. Theo dõi nhiệm vụ UBND xã</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">04 đang làm, 02 trễ hạn</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-3')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 3</span>
+                    <span class="text-primary small fw-bold">71,2% giải ngân</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">3. Kinh phí Nghị quyết & Đề án</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Đã chi 8,9 / 12,5 tỷ đồng</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-4')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 4</span>
+                    <span class="text-success small fw-bold">44/48 kết luận</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">4. Thực hiện TBKL Đảng ủy</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">04 nội dung đang đôn đốc</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-5')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 5</span>
+                    <span class="text-success small fw-bold">99.4% ký số</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">5. Quản lý văn bản điều hành</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">1.254 văn bản đến, 0 trễ hạn</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-6')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 6</span>
+                    <span class="text-success small fw-bold">17/19 tiêu chí</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">6. Nông thôn mới nâng cao</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Còn 02 tiêu chí chờ thẩm định</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-7')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 7</span>
+                    <span class="text-success small fw-bold">52/56 vụ việc</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">7. Phản ánh hiện trường</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Hài lòng đạt 98,2%</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-8')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 8</span>
+                    <span class="text-success small fw-bold">30/32 ý kiến</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">8. Ý kiến người dân & Cử tri</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">02 kiến nghị đã chuyển cấp trên</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-9')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 9</span>
+                    <span class="text-success small fw-bold">23/24 mắt</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">9. Camera giám sát an ninh</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Trực ban hoạt động bình thường</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-10')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 10</span>
+                    <span class="text-success small fw-bold">12/15 hoàn thành</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">10. Kế hoạch 100 ngày CĐS</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Đạt tỷ lệ chung 80%</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-11')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 11</span>
+                    <span class="text-primary small fw-bold">6.420 thửa</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">11. Bản đồ số GIS địa chính</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">100% số hóa quy hoạch đất</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="task-overview-card" onclick="switchView('view-12')">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Mục 12</span>
+                    <span class="text-success small fw-bold">2.916 học sinh</span>
+                  </div>
+                  <div class="fw-bold text-dark small text-truncate">12. Đơn vị sự nghiệp GD</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">105 lớp, 03 trường trực thuộc</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 1 -->
+        <!-- ================= PHÂN HỆ 1: GIẢI NGÂN VỐN ĐẦU TƯ CÔNG (CHUẨN THEO GIAO DIỆN) ================= -->
+        <div id="view-1" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold">
+              <i class="bi bi-bar-chart-steps me-1"></i> THỐNG KÊ GIẢI NGÂN — UBND XÃ TÂN LONG HỘI
+            </div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+              <i class="bi bi-house-door"></i> Về trang chủ
+            </button>
+          </div>
+
+          <div class="dashboard-card-body shadow-sm">
+            
+            <!-- TIÊU ĐỀ & THỜI GIAN CẬP NHẬT -->
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1">
+                THỐNG KÊ GIẢI NGÂN — UBND XÃ TÂN LONG HỘI 
+                <span class="badge bg-light text-primary border dropdown-toggle ms-1">2026</span>
+              </h5>
+              <div class="text-muted small">Cập nhật đến ngày 02/10/2026</div>
+              <div class="text-end fst-italic text-secondary small pe-2">Đơn vị tính: Triệu đồng</div>
+            </div>
+
+            <!-- 1. HÀNG 6 THẺ CHỈ TIÊU TRÊN CÙNG -->
+            <div class="row g-2 mb-3 text-start">
+              <!-- Thẻ 1 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary-subtle text-primary" style="width: 42px; height: 42px;">
+                    <i class="bi bi-wallet2 fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Tổng KH vốn được giao</div>
+                    <div class="fw-bold fs-5 text-primary">3.100</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thẻ 2 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-success-subtle text-success" style="width: 42px; height: 42px;">
+                    <i class="bi bi-bank fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Tổng giải ngân KHO BẠC</div>
+                    <div class="fw-bold fs-5 text-success">3.100</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thẻ 3 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-info-subtle text-info" style="width: 42px; height: 42px;">
+                    <i class="bi bi-pie-chart-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Giải ngân (Số CĐT)</div>
+                    <div class="fw-bold fs-5 text-info">3.100</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thẻ 4 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-success-subtle text-success" style="width: 42px; height: 42px;">
+                    <i class="bi bi-bullseye fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Tỷ lệ GN KHO BẠC</div>
+                    <div class="fw-bold fs-5 text-success">100,00%</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thẻ 5 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-success-subtle text-success" style="width: 42px; height: 42px;">
+                    <i class="bi bi-arrow-repeat fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Tỷ lệ GN (Số CĐT)</div>
+                    <div class="fw-bold fs-5 text-success">100,00%</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thẻ 6 -->
+              <div class="col-md-2 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm d-flex align-items-center gap-2">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center bg-info-subtle text-info" style="width: 42px; height: 42px;">
+                    <i class="bi bi-folder-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.68rem;">Tổng số gói thầu</div>
+                    <div class="fw-bold fs-5 text-dark">4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. THANH TRẠNG THÁI NHẬP LIỆU -->
+            <div class="p-2 rounded bg-light border d-flex flex-wrap align-items-center justify-content-between mb-3 small">
+              <div>
+                <span>Tình hình nhập liệu tính đến </span>
+                <b class="text-primary">Thứ 5, ngày 01/10/2026:</b>
+                <span class="badge bg-success ms-2">
+                  <i class="bi bi-check-circle-fill me-1"></i> Đã nhập báo cáo trong tuần (0 lần báo cáo, tổng 4 dự án)
+                </span>
+              </div>
+              <div>
+                <span>Khớp số liệu KHO BẠC & Chủ đầu tư: </span>
+                <span class="badge bg-success-subtle text-success border border-success">✓ 4 gói thầu khớp</span>
+                <span class="badge bg-danger-subtle text-danger border border-danger ms-1">✗ 0 gói thầu chưa khớp</span>
+              </div>
+            </div>
+
+            <!-- 3. HÀNG NÚT BỘ LỌC TRẠNG THÁI GÓI THẦU -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button class="btn btn-sm btn-outline-danger rounded-pill px-3 py-1">
+                <i class="bi bi-circle-fill text-danger me-1" style="font-size: 0.6rem;"></i> Chưa khởi công: <b>0</b> gói thầu
+              </button>
+              <button class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+                <i class="bi bi-circle-fill text-primary me-1" style="font-size: 0.6rem;"></i> Đã khởi công: <b>0</b> gói thầu
+              </button>
+              <button class="btn btn-sm btn-outline-success rounded-pill px-3 py-1 active bg-success text-white">
+                <i class="bi bi-circle-fill me-1" style="font-size: 0.6rem;"></i> Đã hoàn thành: <b>4</b> gói thầu
+              </button>
+              <button class="btn btn-sm btn-outline-warning rounded-pill px-3 py-1 text-dark">
+                <i class="bi bi-circle-fill text-warning me-1" style="font-size: 0.6rem;"></i> Dự án có khó khăn: <b>0</b> gói thầu
+              </button>
+            </div>
+
+            <!-- 4. BẢNG CHI TIẾT DANH MỤC DỰ ÁN VÀ TIẾN ĐỘ GIẢI NGÂN -->
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th style="width: 4%;">STT</th>
+                    <th style="width: 40%;">Tên dự án / Nguồn vốn</th>
+                    <th style="width: 18%;">Kế hoạch vốn (% so với CĐT)</th>
+                    <th style="width: 18%;">Đã giải ngân (Kho bạc)</th>
+                    <th style="width: 18%;">Đã giải ngân (Chủ đầu tư)</th>
+                    <th style="width: 6%;">Khớp dữ liệu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- DỰ ÁN 1 -->
+                  <tr>
+                    <td class="text-center text-primary fw-bold">1</td>
+                    <td class="text-primary fw-bold">
+                      Nâng cấp, cải tạo, sửa chữa Đường huyện 35 (đoạn từ cầu số 8 - đập Cầu Chéo), xã Tân Long Hội
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.950 <span class="badge bg-warning text-dark">62,90%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.950 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.950 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="ps-4">
+                      • NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH
+                    </td>
+                    <td class="text-end">
+                      1.950 <span class="badge bg-warning text-dark">62,90%</span>
+                    </td>
+                    <td class="text-end">
+                      1.950 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      1.950 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square-fill fs-6"></i></td>
+                  </tr>
+
+                  <!-- DỰ ÁN 2 -->
+                  <tr>
+                    <td class="text-center text-primary fw-bold">2</td>
+                    <td class="text-primary fw-bold">
+                      Nâng cấp, cải tạo, sửa chữa đường liên ấp từ Đường tỉnh 903 đến cầu Đồng Bé 2, xã Tân Long Hội
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.100 <span class="badge bg-warning text-dark">33,87%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.100 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      1.100 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="ps-4">
+                      • NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH
+                    </td>
+                    <td class="text-end">
+                      1.050 <span class="badge bg-warning text-dark">33,87%</span>
+                    </td>
+                    <td class="text-end">
+                      1.050 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      1.050 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square-fill fs-6"></i></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="ps-4">
+                      • NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH <span class="badge bg-secondary">Dự án 2025 kéo dài</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-danger">1,61%</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square-fill fs-6"></i></td>
+                  </tr>
+
+                  <!-- DỰ ÁN 3 -->
+                  <tr>
+                    <td class="text-center text-primary fw-bold">3</td>
+                    <td class="text-primary fw-bold">
+                      Nâng cấp, cải tạo, sửa chữa Đường huyện 35 (đoạn từ Cầu số 8 – đập Cầu Chéo), xã Tân Long Hội
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      50 <span class="badge bg-danger">1,61%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end fw-bold text-primary">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="ps-4">
+                      • NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH <span class="badge bg-secondary">Dự án 2025 kéo dài</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-danger">1,61%</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      50 <span class="badge bg-success">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square-fill fs-6"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 2 -->
+        <div id="view-2" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-check2-circle me-1"></i> 2. THEO DÕI THỰC HIỆN NHIỆM VỤ UBND XÃ</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3 mb-3">
+              <div class="col-3"><div class="kpi-box"><div class="kpi-title">Tổng nhiệm vụ</div><div class="kpi-num">142</div></div></div>
+              <div class="col-3"><div class="kpi-box"><div class="kpi-title">Đã xong</div><div class="kpi-num text-success">136</div></div></div>
+              <div class="col-3"><div class="kpi-box"><div class="kpi-title">Đang làm</div><div class="kpi-num text-primary">04</div></div></div>
+              <div class="col-3"><div class="kpi-box"><div class="kpi-title">Quá hạn</div><div class="kpi-num text-danger">02</div></div></div>
+            </div>
+            <div class="alert alert-light border small">Nhiệm vụ rà soát trường lớp học và cơ sở vật chất năm học mới đã hoàn thành 100%.</div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 3 -->
+        <div id="view-3" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-cash-stack me-1"></i> 3. KINH PHÍ THỰC HIỆN NGHỊ QUYẾT & ĐỀ ÁN</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3 mb-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tổng kinh phí</div><div class="kpi-num">12,5 tỷ</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã giải ngân</div><div class="kpi-num text-success">8,9 tỷ</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Còn lại</div><div class="kpi-num text-warning">3,6 tỷ</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 4 -->
+        <div id="view-4" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-journal-text me-1"></i> 4. TIẾN ĐỘ THỰC HIỆN TBKL ĐẢNG ỦY</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3 mb-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tổng kết luận</div><div class="kpi-num">48</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã thực hiện</div><div class="kpi-num text-success">44</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đang đôn đốc</div><div class="kpi-num text-primary">04</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 5 -->
+        <div id="view-5" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-envelope-paper me-1"></i> 5. QUẢN LÝ VĂN BẢN VÀ ĐIỀU HÀNH</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Văn bản đến</div><div class="kpi-num text-primary">1.254</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Văn bản đi</div><div class="kpi-num text-success">542</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tỷ lệ ký số</div><div class="kpi-num text-primary">99.4%</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 6 -->
+        <div id="view-6" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-trophy me-1"></i> 6. GIÁM SÁT TIÊU CHÍ NÔNG THÔN MỚI NÂNG CAO</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tổng số tiêu chí</div><div class="kpi-num">19 / 19</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tiêu chí đã đạt</div><div class="kpi-num text-success">17</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đang hoàn thiện</div><div class="kpi-num text-warning">02</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 7 -->
+        <div id="view-7" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-megaphone me-1"></i> 7. ĐIỀU HÀNH PHẢN ÁNH, KIẾN NGHỊ HIỆN TRƯỜNG</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã tiếp nhận</div><div class="kpi-num text-primary">56</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã giải quyết</div><div class="kpi-num text-success">52</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Tỷ lệ hài lòng</div><div class="kpi-num text-success">98,2%</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 8 -->
+        <div id="view-8" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-chat-heart me-1"></i> 8. TIẾP NHẬN VÀ XỬ LÝ Ý KIẾN CỦA CỬ TRI</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Ý kiến cử tri</div><div class="kpi-num">32</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã trả lời</div><div class="kpi-num text-success">30</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Chuyển cấp trên</div><div class="kpi-num text-info">02</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 9 -->
+        <div id="view-9" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-camera-video me-1"></i> 9. HỆ THỐNG CAMERA GIÁM SÁT AN NINH</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3">
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Mắt camera</div><div class="kpi-num">24</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đang phát hình</div><div class="kpi-num text-success">23</div></div></div>
+              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Cảnh báo vi phạm</div><div class="kpi-num text-warning">01</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHÂN HỆ 10 -->
+       <!-- ================= PHÂN HỆ 10: THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY ================= -->
+<div id="view-10" class="dashboard-panel" style="display:none;">
+  <div class="dashboard-head-bar shadow-sm" style="background-color: #0c2d48;">
+    <div class="fw-bold">
+      <i class="bi bi-kanban me-2"></i> THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY — XÃ TÂN LONG HỘI
+    </div>
+    <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+      <i class="bi bi-arrow-left"></i> Quay lại
+    </button>
+  </div>
+
+  <div class="dashboard-card-body shadow-sm">
+    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+      <div>
+        <h5 class="fw-bold text-dark mb-1">THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY</h5>
+        <div class="text-secondary small">HỆ THỐNG DASHBOARD THỐNG KÊ VÀ GIÁM SÁT BÁO CÁO THỰC HIỆN MỤC TIÊU NHIỆM VỤ</div>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success-subtle text-success border border-success px-2 py-1">• Cập nhật: 03/10/2026</span>
+        <button class="btn btn-sm btn-light border py-1 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-arrow-left"></i> Quay lại</button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+      <div class="fw-bold text-primary small text-uppercase"><i class="bi bi-grid-3x3-gap-fill me-1"></i> THỐNG KÊ CÁC TRẠNG THÁI CỦA NHIỆM VỤ</div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="small fw-semibold text-muted">Đơn vị:</span>
+        <select class="form-select form-select-sm py-0" style="width: 170px;"><option selected>Xã Tân Long Hội</option></select>
+        <button class="btn btn-sm btn-outline-success py-1 px-2"><i class="bi bi-file-earmark-excel me-1"></i> Xuất báo cáo</button>
+      </div>
+    </div>
+
+    <!-- 8 Ô Thẻ KPIs -->
+    <div class="row g-2 mb-3">
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TỔNG SỐ NHIỆM VỤ</div><div class="fw-bold fs-4 text-dark">15</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX ĐÃ BÁO CÁO</div><div class="fw-bold fs-4 text-danger">1</div><div class="text-muted small">6,7%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX CHƯA BÁO CÁO</div><div class="fw-bold fs-4 text-warning">0</div><div class="text-muted small">0,0%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-success">8</div><div class="text-muted small">53,3%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH QUÁ HẠN</div><div class="fw-bold fs-4 text-warning">4</div><div class="text-muted small">26,7%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-primary">2</div><div class="text-muted small">13,3%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH SẮP HẠN</div><div class="fw-bold fs-4 text-info">0</div><div class="text-muted small">0,0%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH QUÁ HẠN</div><div class="fw-bold fs-4 text-danger">0</div><div class="text-muted small">0,0%</div></div></div>
+    </div>
+
+    <!-- Khối Biểu đồ -->
+    <div class="row g-2 mb-3">
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
+          <div class="small fw-bold text-muted mb-2 text-start">TIẾN ĐỘ CHUNG</div>
+          <div class="d-flex align-items-center justify-content-center gap-3">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: conic-gradient(#0d6efd 0% 80%, #e2e8f0 80% 100%); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 62px; height: 62px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0d6efd;">80%</div>
+            </div>
+            <div class="text-start">
+              <div class="text-muted small">Đã hoàn thành</div>
+              <div class="fw-bold fs-5 text-dark"><span class="text-primary">12</span> / 15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3 border rounded bg-white shadow-sm h-100">
+          <div class="small fw-bold text-muted mb-2">PHÂN BỔ TRẠNG THÁI</div>
+          <div class="small" style="font-size: 0.72rem; line-height: 1.4;">
+            <div><span class="text-success">■</span> Hoàn thành đúng hạn: <b>8 (53,3%)</b></div>
+            <div><span class="text-warning">■</span> Hoàn thành quá hạn: <b>4 (26,7%)</b></div>
+            <div><span class="text-primary">■</span> Đang thực hiện: <b>2 (13,3%)</b></div>
+            <div><span class="text-danger">■</span> Thường xuyên đã BC: <b>1 (6,7%)</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3 border rounded bg-white shadow-sm h-100 small" style="font-size: 0.72rem;">
+          <div class="fw-bold text-muted mb-1">TIẾN ĐỘ THEO NHÓM (7)</div>
+          <div class="d-flex justify-content-between"><span>1. Thể chế, chỉ đạo</span><b class="text-success">2/2 (100%)</b></div>
+          <div class="d-flex justify-content-between"><span>2. Hạ tầng số</span><b class="text-success">3/3 (100%)</b></div>
+          <div class="d-flex justify-content-between"><span>3. Nền tảng số</span><b class="text-primary">3/4 (75%)</b></div>
+          <div class="d-flex justify-content-between"><span>4. Xã hội số</span><b class="text-success">2/3 (66.7%)</b></div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
+          <div class="small fw-bold text-muted mb-2 text-start">TOP ĐƠN VỊ HOÀN THÀNH</div>
+          <div class="d-flex justify-content-between align-items-center p-2 rounded bg-light border mt-2">
+            <span class="fw-bold text-dark">Xã Tân Long Hội</span>
+            <span class="badge bg-success rounded-pill px-3 py-2 fs-6">12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Bảng chi tiết nhiệm vụ từ Nhóm I đến Nhóm X -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm small align-middle mb-0">
+        <thead class="table-light text-center">
+          <tr>
+            <th style="width: 5%;">STT</th>
+            <th>TÊN NHIỆM VỤ</th>
+            <th style="width: 15%;">VĂN BẢN GIAO</th>
+            <th style="width: 15%;">CƠ QUAN CHỦ TRÌ</th>
+            <th style="width: 12%;">THỜI HẠN</th>
+            <th style="width: 15%;">TRẠNG THÁI CHUNG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- NHÓM I -->
+          <tr class="group-row"><td class="text-center">I</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> NHÓM THỂ CHẾ, CHỈ ĐẠO, ĐIỀU HÀNH</td></tr>
+          <tr><td class="text-center">I.1</td><td>Ban hành Kế hoạch hành động 100 ngày phát triển KH, CN, ĐMST & CĐS</td><td>Kế hoạch 05-KH/BCĐTW</td><td>Cấp ủy các cơ quan, đơn vị</td><td class="text-center">25/7/2026</td><td class="text-center"><span class="badge bg-warning text-dark">Đã hoàn thành – Quá hạn</span></td></tr>
+          <tr><td class="text-center">I.3</td><td>Thành lập Tổ công tác triển khai KH 100 ngày tại các sở, ban, ngành và UBND cấp xã</td><td>Kế hoạch 05-KH/BCĐTW</td><td>Các cơ quan, đơn vị</td><td class="text-center">31/7/2026</td><td class="text-center"><span class="badge bg-warning text-dark">Đã hoàn thành – Quá hạn</span></td></tr>
+
+          <!-- NHÓM II -->
+          <tr class="group-row"><td class="text-center">II</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> HẠ TẦNG SỐ</td></tr>
+          <tr><td class="text-center">II.7</td><td>Rà soát, đầu tư, mua sắm trang thiết bị đầu cuối phục vụ giải quyết TTHC</td><td class="text-center">-</td><td>Các cơ quan và địa phương</td><td class="text-center">30/11/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">II.9</td><td>Nâng cấp hệ thống mạng LAN, Wifi phục vụ CĐS tại các cơ quan</td><td>Kế hoạch 03-KH/BCĐ</td><td>Các ban ngành, UBND cấp xã</td><td class="text-center">30/9/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">II.10</td><td>Nâng cấp hệ thống phòng họp trực tuyến phục vụ chỉ đạo điều hành</td><td>Kế hoạch 03-KH/BCĐ</td><td>Các cơ quan, đơn vị</td><td class="text-center">30/9/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+
+          <!-- NHÓM III -->
+          <tr class="group-row"><td class="text-center">III</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> DỮ LIỆU SỐ</td></tr>
+          <tr><td class="text-center">III.25</td><td>Đánh giá chất lượng dữ liệu của từng đơn vị theo bộ tiêu chí thống nhất</td><td>Kế hoạch 05-KH/BCĐTW</td><td>Sở ban ngành, UBND cấp xã</td><td class="text-center">20/10/2026</td><td class="text-center"><span class="badge bg-primary">Đang thực hiện – Trong hạn</span></td></tr>
+
+          <!-- NHÓM IV -->
+          <tr class="group-row"><td class="text-center">IV</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> NỀN TẢNG SỐ</td></tr>
+          <tr><td class="text-center">IV.29</td><td>Hoàn thiện hồ sơ đề xuất cấp độ và phương án bảo đảm ATTT</td><td>KH 03-KH/BCĐ</td><td>Sở ngành, các đơn vị</td><td class="text-center">31/8/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">IV.35</td><td>Cập nhật kịp thời kiến nghị, khó khăn vào hệ thống điều hành IOC</td><td>KH 03-KH/BCĐ</td><td>Sở ban ngành, UBND cấp xã</td><td class="text-center">30/9/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">IV.36</td><td>Cập nhật đầy đủ, khai thác dữ liệu trên các phân hệ IOC đã được cấp quyền</td><td class="text-center">-</td><td>Sở ngành, UBND cấp xã</td><td class="text-center">30/9/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">IV.38</td><td>Tỷ lệ hồ sơ công việc cấp xã xử lý trên môi trường mạng và ký số</td><td>KH 03-KH/BCĐ</td><td>UBND cấp xã</td><td class="text-center">Thường xuyên</td><td class="text-center"><span class="badge bg-danger">Thường xuyên – Đã báo cáo</span></td></tr>
+
+          <!-- NHÓM V -->
+          <tr class="group-row"><td class="text-center">V</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> DỊCH VỤ CÔNG TRỰC TUYẾN</td></tr>
+          <tr><td colspan="6" class="text-center text-muted fst-italic py-2">Nhóm này hiện không có nhiệm vụ nào thuộc trạng thái đã chọn.</td></tr>
+
+          <!-- NHÓM VI -->
+          <tr class="group-row"><td class="text-center">VI</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> KINH TẾ SỐ</td></tr>
+          <tr><td class="text-center">VI.42</td><td>Triển khai nhiệm vụ phát triển kinh tế số theo Kế hoạch của tỉnh</td><td>KH 67/KH-UBND</td><td>Sở Công Thương, UBND cấp xã</td><td class="text-center">15/08/2026</td><td class="text-center"><span class="badge bg-warning text-dark">Đã hoàn thành – Quá hạn</span></td></tr>
+
+          <!-- NHÓM VII -->
+          <tr class="group-row"><td class="text-center">VII</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> XÃ HỘI SỐ</td></tr>
+          <tr><td class="text-center">VII.50</td><td>Đề xuất ứng dụng KHCN, ĐMST và CĐS góp phần tăng trưởng địa phương</td><td>Nghị quyết 57-NQ/TW</td><td>Sở ngành, UBND cấp xã</td><td class="text-center">30/07/2026</td><td class="text-center"><span class="badge bg-warning text-dark">Đã hoàn thành – Quá hạn</span></td></tr>
+          <tr><td class="text-center">VII.51</td><td>Triển khai phong trào "Bình dân học vụ số" đến cán bộ, người lao động</td><td>KH 03-KH/BCĐ</td><td>Các cơ quan, địa phương</td><td class="text-center">30/11/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+          <tr><td class="text-center">VII.52</td><td>Tổ chức lớp phổ cập kỹ năng số cơ bản qua Tổ công nghệ số cộng đồng</td><td>KH 03-KH/BCĐ</td><td>UBND cấp xã</td><td class="text-center">30/11/2026</td><td class="text-center"><span class="badge bg-primary">Đang thực hiện – Trong hạn</span></td></tr>
+
+          <!-- NHÓM VIII -->
+          <tr class="group-row"><td class="text-center">VIII</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> NGUỒN NHÂN LỰC</td></tr>
+          <tr><td class="text-center">VIII.56</td><td>Kế hoạch đào tạo nguồn nhân lực phục vụ ĐMST, KHCN và CĐS</td><td>KH 242; KH 244</td><td>Sở KH&CN, UBND cấp xã</td><td class="text-center">31/7/2026</td><td class="text-center"><span class="badge bg-success">Đã hoàn thành – Đúng hạn</span></td></tr>
+
+          <!-- NHÓM IX & X -->
+          <tr class="group-row"><td class="text-center">IX</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> TÀI CHÍNH, GIẢI NGÂN</td></tr>
+          <tr><td colspan="6" class="text-center text-muted fst-italic py-2">Nhóm này hiện không có nhiệm vụ nào thuộc trạng thái đã chọn.</td></tr>
+          <tr class="group-row"><td class="text-center">X</td><td colspan="5"><i class="bi bi-folder2-open text-primary me-1"></i> KỶ LUẬT THỰC THI</td></tr>
+          <tr><td colspan="6" class="text-center text-muted fst-italic py-2">Nhóm này hiện không có nhiệm vụ nào thuộc trạng thái đã chọn.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+        <!-- PHÂN HỆ 11 -->
+        <div id="view-11" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-geo-alt-fill me-1"></i> 11. BẢN ĐỒ NỀN GIS ĐỊA CHÍNH</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm text-center py-5">
+            <i class="bi bi-map text-primary" style="font-size: 3.5rem;"></i>
+            <h6 class="mt-3 fw-bold">Dữ liệu bản đồ số GIS xã Tân Long Hội</h6>
+            <div class="text-muted small">Đã liên thông cổng GIS hạ tầng tỉnh Vĩnh Long.</div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 12: ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC (ĐẦY ĐỦ SỐ LIỆU THỰC TẾ) ================= -->
+        <div id="view-12" class="dashboard-panel" style="display:none;">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold">
+              <i class="bi bi-mortarboard-fill me-2"></i> 12. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027
+            </div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+              <i class="bi bi-house-door"></i> Về trang chủ
+            </button>
+          </div>
+
+          <div class="dashboard-card-body shadow-sm">
+            <!-- 1. Hàng 3 thẻ tổng quan đơn vị -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <div class="kpi-box border-start border-4 border-secondary">
+                  <div class="kpi-title">ĐƠN VỊ ẤP ĐỊA BÀN</div>
+                  <div class="kpi-num text-dark">11 ấp</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="kpi-box border-start border-4 border-primary">
+                  <div class="kpi-title">TRƯỜNG HỌC CÔNG LẬP TRỰC THUỘC</div>
+                  <div class="kpi-num text-primary">03 đơn vị</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="kpi-box border-start border-4 border-success">
+                  <div class="kpi-title">TỔNG BIÊN CHẾ CÁN BỘ - GIÁO VIÊN</div>
+                  <div class="kpi-num text-success">238 người</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Hàng 8 thẻ chỉ tiêu học sinh toàn xã -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2">
+              <i class="bi bi-people-fill text-primary me-1"></i> TỔNG HỢP SỐ LIỆU HỌC SINH SAU KHAI GIẢNG NĂM HỌC 2026 - 2027 (TOÀN XÃ)
+            </div>
+            <div class="row g-2 mb-4 text-center">
+              <div class="col">
+                <div class="p-2 border rounded bg-light">
+                  <i class="bi bi-door-open-fill text-success fs-5"></i>
+                  <div class="fw-bold fs-5 text-dark">105</div>
+                  <div class="text-muted" style="font-size: 0.72rem;">TỔNG SỐ LỚP</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded bg-primary-subtle text-primary">
+                  <i class="bi bi-people-fill fs-5"></i>
+                  <div class="fw-bold fs-5">2.916</div>
+                  <div style="font-size: 0.72rem;">TỔNG SỐ HỌC SINH</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #fdf2f8; color: #be185d;">
+                  <i class="bi bi-gender-female fs-5"></i>
+                  <div class="fw-bold fs-5">1.351</div>
+                  <div style="font-size: 0.72rem;">HỌC SINH NỮ</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #fff7ed; color: #c2410c;">
+                  <i class="bi bi-heart-pulse-fill fs-5"></i>
+                  <div class="fw-bold fs-5">207</div>
+                  <div style="font-size: 0.72rem;">KHÓ KHĂN</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #f0fdf4; color: #15803d;">
+                  <i class="bi bi-house-door-fill fs-5"></i>
+                  <div class="fw-bold fs-5">36</div>
+                  <div style="font-size: 0.72rem;">CẬN NGHÈO</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #fef2f2; color: #b91c1c;">
+                  <i class="bi bi-house-heart-fill fs-5"></i>
+                  <div class="fw-bold fs-5">12</div>
+                  <div style="font-size: 0.72rem;">HỘ NGHÈO</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #faf5ff; color: #7e22ce;">
+                  <i class="bi bi-universal-access fs-5"></i>
+                  <div class="fw-bold fs-5">29</div>
+                  <div style="font-size: 0.72rem;">KHUYẾT TẬT</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-2 border rounded" style="background-color: #ecfeff; color: #0e7490;">
+                  <i class="bi bi-person-heart fs-5"></i>
+                  <div class="fw-bold fs-5">57</div>
+                  <div style="font-size: 0.72rem;">MỒ CÔI</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Bảng 1: Danh sách 3 trường chuẩn quốc gia -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2">
+              <i class="bi bi-building-check text-success me-1"></i> 1. Danh sách các trường học và chuẩn quốc gia
+            </div>
+            <div class="table-responsive mb-4">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th>Tên trường</th>
+                    <th>Cấp học</th>
+                    <th>Số lớp</th>
+                    <th>Học sinh</th>
+                    <th>Học sinh Nữ</th>
+                    <th>Biên chế CB-GV</th>
+                    <th>Đánh giá chuẩn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-bold">Trường Mầm non Oanh Vũ II</td>
+                    <td class="text-center">Mầm non</td>
+                    <td class="text-center fw-bold">27</td>
+                    <td class="text-center text-primary fw-bold">615</td>
+                    <td class="text-center">285</td>
+                    <td class="text-center">69</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Trường Tiểu học Tân Long Hội</td>
+                    <td class="text-center">Tiểu học</td>
+                    <td class="text-center fw-bold">48</td>
+                    <td class="text-center text-primary fw-bold">1.283</td>
+                    <td class="text-center">579</td>
+                    <td class="text-center">88</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">Trường THCS Tân Long Hội</td>
+                    <td class="text-center">THCS</td>
+                    <td class="text-center fw-bold">30</td>
+                    <td class="text-center text-primary fw-bold">1.018</td>
+                    <td class="text-center">487</td>
+                    <td class="text-center">81</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 4. Bảng 2: Chi tiết phân hiệu, điểm trường và khối lớp -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2">
+              <i class="bi bi-diagram-3-fill text-primary me-1"></i> 2. Chi tiết điểm trường, phân hiệu và khối lớp
+            </div>
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th style="width: 5%;">STT</th>
+                    <th>Trường / Điểm trường / Phân hiệu</th>
+                    <th style="width: 10%;">Tổng số lớp</th>
+                    <th style="width: 12%;">Tổng học sinh</th>
+                    <th style="width: 10%;">Nữ</th>
+                    <th>Phân bổ theo nhóm tuổi / Khối lớp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- KHỐI MẦM NON -->
+                  <tr class="group-row">
+                    <td colspan="6"><i class="bi bi-balloon-heart text-danger me-1"></i> I. TRƯỜNG MẦM NON OANH VŨ II (Tổng: 27 lớp - 615 học sinh - 285 nữ)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>Điểm chính Trường MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td>
+                    <td class="text-center">9 lớp</td>
+                    <td class="text-center fw-bold">172</td>
+                    <td class="text-center">76</td>
+                    <td>Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">2</td>
+                    <td>Phân hiệu Tân Long + Điểm Tân Hiệp</td>
+                    <td class="text-center">9 lớp</td>
+                    <td class="text-center fw-bold">229</td>
+                    <td class="text-center">117</td>
+                    <td>Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">3</td>
+                    <td>Phân hiệu Tân Long Hội</td>
+                    <td class="text-center">9 lớp</td>
+                    <td class="text-center fw-bold">214</td>
+                    <td class="text-center">92</td>
+                    <td>Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td>
+                  </tr>
+
+                  <!-- KHỐI TIỂU HỌC -->
+                  <tr class="group-row">
+                    <td colspan="6"><i class="bi bi-book-half text-primary me-1"></i> II. TRƯỜNG TIỂU HỌC TÂN LONG HỘI (Tổng: 48 lớp - 1.283 học sinh - 579 nữ)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>Điểm chính TH Tân Long Hội + Điểm Tân Phong</td>
+                    <td class="text-center">15 lớp</td>
+                    <td class="text-center fw-bold">414</td>
+                    <td class="text-center">186</td>
+                    <td>Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">2</td>
+                    <td>Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng</td>
+                    <td class="text-center">16 lớp</td>
+                    <td class="text-center fw-bold">382</td>
+                    <td class="text-center">156</td>
+                    <td>Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">3</td>
+                    <td>Phân hiệu Tân Long + Điểm Đồng Bé</td>
+                    <td class="text-center">17 lớp</td>
+                    <td class="text-center fw-bold">487</td>
+                    <td class="text-center">237</td>
+                    <td>Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)</td>
+                  </tr>
+
+                  <!-- KHỐI THCS -->
+                  <tr class="group-row">
+                    <td colspan="6"><i class="bi bi-backpack text-success me-1"></i> III. TRƯỜNG THCS TÂN LONG HỘI (Tổng: 30 lớp - 1.018 học sinh - 487 nữ)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td>Điểm chính Trường THCS Tân Long Hội (TAH)</td>
+                    <td class="text-center">9 lớp</td>
+                    <td class="text-center fw-bold">284</td>
+                    <td class="text-center">130</td>
+                    <td>Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">2</td>
+                    <td>Phân hiệu Tân Long Hội</td>
+                    <td class="text-center">9 lớp</td>
+                    <td class="text-center fw-bold">305</td>
+                    <td class="text-center">150</td>
+                    <td>Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">3</td>
+                    <td>Phân hiệu Tân Long</td>
+                    <td class="text-center">12 lớp</td>
+                    <td class="text-center fw-bold">429</td>
+                    <td class="text-center">207</td>
+                    <td>Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ĐIỀU HƯỚNG TẤT CẢ PHÂN HỆ VÀ NÚT HOME -->
+  <script>
+    // Hàm hiển thị Bảng điều hành tổng thể 12 nhiệm vụ khi bấm vào nút Home
+    function showHomeDashboard() {
+      const panels = document.querySelectorAll('.dashboard-panel');
+      panels.forEach(p => p.style.display = 'none');
+
+      const menuBtns = document.querySelectorAll('.menu-btn');
+      menuBtns.forEach(b => b.classList.remove('active'));
+
+      document.getElementById('view-home-summary').style.display = 'block';
+    }
+
+    // Hàm chuyển sang từng phân hệ nhiệm vụ cụ thể từ 1 đến 12
+    function switchView(targetViewId) {
+      const panels = document.querySelectorAll('.dashboard-panel');
+      panels.forEach(p => p.style.display = 'none');
+
+      const menuBtns = document.querySelectorAll('.menu-btn');
+      menuBtns.forEach(b => b.classList.remove('active'));
+
+      const activePanel = document.getElementById(targetViewId);
+      if (activePanel) {
+        activePanel.style.display = 'block';
+      }
+
+      const tabNum = targetViewId.replace('view-', '');
+      const currentBtn = document.getElementById('btn-tab-' + tabNum);
+      if (currentBtn) {
+        currentBtn.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
