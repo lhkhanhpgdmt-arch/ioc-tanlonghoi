@@ -7,6 +7,7 @@
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <style>
     :root {
@@ -992,18 +993,179 @@
           </div>
         </div>
 
-        <!-- PHÂN HỆ 8 -->
+        <!-- ================= PHÂN HỆ 8: THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ ================= -->
         <div id="view-8" class="dashboard-panel" style="display:none;">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-chat-heart me-1"></i> 8. TIẾP NHẬN VÀ XỬ LÝ Ý KIẾN CỦA CỬ TRI</div>
+            <div class="fw-bold"><i class="bi bi-chat-dots-fill me-1"></i> 8. THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ CỦA NGƯỜI DÂN</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
           <div class="dashboard-card-body shadow-sm">
-            <div class="row g-3">
-              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Ý kiến cử tri</div><div class="kpi-num">32</div></div></div>
-              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Đã trả lời</div><div class="kpi-num text-success">30</div></div></div>
-              <div class="col-4"><div class="kpi-box"><div class="kpi-title">Chuyển cấp trên</div><div class="kpi-num text-info">02</div></div></div>
+            
+            <!-- TIÊU ĐỀ HỆ THỐNG -->
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1 text-uppercase" style="letter-spacing: 0.5px;">
+                THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ
+              </h5>
+              <div class="small text-muted mb-1">
+                (Tính đến ngày <strong>30/09/2026</strong>)
+              </div>
             </div>
+
+            <!-- THANH BỘ LỌC TÙY CHỌN -->
+            <div class="row g-2 mb-3 bg-light p-2 rounded border">
+              <div class="col-md-3 col-6">
+                <label class="form-label small fw-bold text-secondary mb-1">Đơn vị</label>
+                <select class="form-select form-select-sm"><option selected>Xã Tân Long Hội</option></select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label small fw-bold text-secondary mb-1">Năm</label>
+                <select class="form-select form-select-sm"><option selected>Năm 2026</option></select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label small fw-bold text-secondary mb-1">Tháng</label>
+                <select class="form-select form-select-sm"><option selected>Tất cả</option></select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label small fw-bold text-secondary mb-1">Quý</label>
+                <select class="form-select form-select-sm"><option selected>Tất cả</option></select>
+              </div>
+            </div>
+
+            <!-- 4 THẺ THỐNG KÊ KPI TRÊN CÙNG -->
+            <div class="row g-2 mb-3 text-center">
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.75rem;">Tổng phản ánh</div>
+                  <div class="fw-bold fs-4 text-primary">7</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.75rem;">Đã xử lý</div>
+                  <div class="fw-bold fs-4 text-primary">7</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.75rem;">Đang xử lý</div>
+                  <div class="fw-bold fs-4 text-primary">0</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.75rem;">Quá hạn</div>
+                  <div class="fw-bold fs-4 text-primary">0</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HÀNG BIỂU ĐỒ 1: TRẠNG THÁI XỬ LÝ & XỬ LÝ THEO THÁNG -->
+            <div class="row g-3 mb-3">
+              <div class="col-lg-4 col-md-5">
+                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
+                  <div class="small fw-bold text-primary mb-2">Trạng thái xử lý</div>
+                  <div class="fw-bold text-dark fs-6 mb-2">Tổng: 7 phản ánh</div>
+                  <div style="max-width: 200px; margin: 0 auto; position: relative;">
+                    <canvas id="chartDonutXuLy"></canvas>
+                  </div>
+                  <div class="mt-2 small text-muted">
+                    <span class="badge" style="background-color: #00897b;">■</span> Đã xử lý: 7 (100%)
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-7">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2 text-center">Xử lý theo tháng</div>
+                  <div style="height: 250px;">
+                    <canvas id="chartBarTheoThang"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HÀNG BIỂU ĐỒ 2: XU HƯỚNG TIẾP NHẬN & TRONG / QUÁ HẠN -->
+            <div class="row g-3 mb-3">
+              <div class="col-lg-6 col-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2">Xu hướng tiếp nhận (tích lũy)</div>
+                  <div style="height: 220px;">
+                    <canvas id="chartLineTichLuy"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2">Trong hạn / Quá hạn</div>
+                  <div style="height: 220px;">
+                    <canvas id="chartBarTrongHan"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BẢNG DANH SÁCH CHI TIẾT 7 NỘI DUNG PHẢN ÁNH -->
+            <div class="mb-2 fw-bold text-primary small text-uppercase">
+              <i class="bi bi-card-checklist me-1"></i> Danh sách phản ánh
+            </div>
+            <div class="table-responsive mb-3">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width: 10%;" class="text-center">Ngày gửi</th>
+                    <th style="width: 78%;">Nội dung</th>
+                    <th style="width: 12%;" class="text-center">Tình trạng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">22/09/2026</td>
+                    <td>Rác sinh hoạt không được thu gom - hướng về Cầu Mới, xã Tân Long Hội</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">17/06/2026</td>
+                    <td>Cần bố trí thùng rác cho người dân (gần đối diện cây xăng Cầu Mới, xã Hòa Hiệp)</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">05/06/2026</td>
+                    <td>Tôi muốn hỏi thời gian ngày nào trong tuần xe đi lấy rác (để tôi canh thời gian đem rác ra tập trung) để xe môi trường lấy, ở quê mà đem ra trước thời gian quá lâu động vật hoang (chó mèo chuột) xé túi làm dơ mất mỹ quan. Nhà tôi ở đường huyện 36 ấp Thâm Bình xã Tân Long Hội tỉnh Vĩnh Long.</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">04/06/2026</td>
+                    <td>Vứt rác ven đường gây mất mỹ quan đô thị, Cần có biển cấm đổ rác. Gần công ty Tân Long, ấp Tân Hiệp, quốc lộ 53, Xã Tân Long Hội. Kinh độ: 106.03509367716; vĩ độ: 10.1435631327177.</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">16/05/2026</td>
+                    <td>Tôi là cán bộ bán chuyên trách công tác từ 4/2012 đến nay tham gia bhxh tự nguyện 2 năm 6 tháng, bhxh bắt buộc 10 năm 5 tháng (Hiện là cán bộ hỗ trợ HLHPN xã) tốt nghiệp Cử nhân Kế toán và cử nhân Lu</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">11/05/2026</td>
+                    <td>Rác thải sinh hoạt vứt lề đường bốc mùi hôi thối - gần nhà trọ Thuận Phát, xã Hòa Hiệp</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">23/03/2026</td>
+                    <td>Bãi rác tự phát ngay quốc lộ 53 dưới chân cầu Mang Thít (gần nhà trọ Thuận Phát), xã Tân Long Hội gây ô nhiễm môi trường, mất mỹ quan đô thị</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- CHÂN TRANG GHI CHÚ BẢN QUYỀN VÀ LƯỢT TRUY CẬP -->
+            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top small text-muted">
+              <div>
+                <i class="bi bi-bank text-primary me-1"></i> Sở Khoa học và Công nghệ – Trung tâm Đổi mới Sáng tạo và Chuyển đổi Số &nbsp;•&nbsp; Phòng Giám sát Điều hành Thông Minh
+              </div>
+              <div>
+                <span class="badge bg-light text-dark border px-3 py-1">Lượt truy cập: <b>499</b></span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -1465,12 +1627,138 @@
 
       document.getElementById('view-home-summary').style.display = 'block';
     }
+let chartInitialized = false;
 
+  // Hàm chuyển sang từng phân hệ nhiệm vụ cụ thể từ 1 đến 12
+  function switchView(targetViewId) {
+    const panels = document.querySelectorAll('.dashboard-panel');
+    panels.forEach(p => p.style.display = 'none');
+
+    const menuBtns = document.querySelectorAll('.menu-btn');
+    menuBtns.forEach(b => b.classList.remove('active'));
+
+    const activePanel = document.getElementById(targetViewId);
+    if (activePanel) {
+      activePanel.style.display = 'block';
+    }
+
+    const tabNum = targetViewId.replace('view-', '');
+    const currentBtn = document.getElementById('btn-tab-' + tabNum);
+    if (currentBtn) {
+      currentBtn.classList.add('active');
+    }
+
+    // --- ĐOẠN MỚI THÊM VÀO ĐÂY: VẼ BIỂU ĐỒ KHI BẤM PHÂN HỆ 8 ---
+    if (targetViewId === 'view-8' && !chartInitialized) {
+      setTimeout(() => {
+        initChartsView8();
+        chartInitialized = true;
+      }, 100);
+    }
+  }
+
+  // --- HÀM KHỞI TẠO 4 BIỂU ĐỒ PHÂN HỆ 8 ---
+  function initChartsView8() {
+    // 1. Biểu đồ tròn Donut
+    const ctx1 = document.getElementById('chartDonutXuLy');
+    if (ctx1) {
+      new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+          labels: ['Đã xử lý'],
+          datasets: [{
+            data: [7],
+            backgroundColor: ['#00897b'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          cutout: '70%',
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // 2. Biểu đồ cột theo tháng
+    const ctx2 = document.getElementById('chartBarTheoThang');
+    if (ctx2) {
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+          datasets: [{
+            label: 'Đã xử lý',
+            data: [1, 2, 3, 1],
+            backgroundColor: '#90caf9'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true, max: 3, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+    }
+
+    // 3. Biểu đồ đường tích lũy
+    const ctx3 = document.getElementById('chartLineTichLuy');
+    if (ctx3) {
+      new Chart(ctx3, {
+        type: 'line',
+        data: {
+          labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+          datasets: [{
+            label: 'Tổng tích lũy',
+            data: [1, 3, 6, 7],
+            fill: true,
+            backgroundColor: 'rgba(144, 202, 249, 0.7)',
+            borderColor: '#42a5f5',
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true, max: 7, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+    }
+
+    // 4. Biểu đồ thanh ngang Trong hạn / Quá hạn
+    const ctx4 = document.getElementById('chartBarTrongHan');
+    if (ctx4) {
+      new Chart(ctx4, {
+        type: 'bar',
+        data: {
+          labels: ['Trong hạn', 'Quá hạn'],
+          datasets: [{
+            label: 'Số lượng',
+            data: [7, 0],
+            backgroundColor: ['#90caf9', '#ef5350'],
+            barThickness: 50
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { beginAtZero: true, max: 7, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+    }
+  }
     // Hàm chuyển sang từng phân hệ nhiệm vụ cụ thể từ 1 đến 12
     function switchView(targetViewId) {
       const panels = document.querySelectorAll('.dashboard-panel');
       panels.forEach(p => p.style.display = 'none');
-
+      
       const menuBtns = document.querySelectorAll('.menu-btn');
       menuBtns.forEach(b => b.classList.remove('active'));
 
