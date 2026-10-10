@@ -954,6 +954,7 @@
 
         <!-- PHÂN HỆ 6 -->
        <!-- ================= PHÂN HỆ 6: NÔNG THÔN MỚI NÂNG CAO ================= -->
+       <!-- ================= PHÂN HỆ 6: NÔNG THÔN MỚI NÂNG CAO ================= -->
         <div id="view-6" class="dashboard-panel" style="display:none;">
           <div class="dashboard-head-bar shadow-sm">
             <div class="fw-bold"><i class="bi bi-tree-fill me-1"></i> 6. TIẾN ĐỘ THỰC HIỆN TIÊU CHÍ NÔNG THÔN MỚI - XÃ TÂN LONG HỘI</div>
@@ -1003,21 +1004,31 @@
               </div>
             </div>
 
-            <!-- BẢNG CHI TIẾT CÁC TIÊU CHÍ HIỂN THỊ TRỰC TIẾP TRÊN TRANG -->
+            <!-- BẢNG ĐÁNH GIÁ CHI TIẾT & BỘ LỌC TRẠNG THÁI -->
             <div class="card border shadow-sm">
-              <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+              <div class="card-header bg-light d-flex flex-wrap justify-content-between align-items-center py-2 gap-2">
                 <div class="fw-bold text-primary small text-uppercase">
-                  <i class="bi bi-card-checklist me-1"></i> BẢNG ĐÁNH GIÁ CHI TIẾT CÁC NHÓM TIÊU CHÍ (XÃ TÂN LONG HỘI)
+                  <i class="bi bi-card-checklist me-1"></i> BẢNG ĐÁNH GIÁ CHI TIẾT 47 TIÊU CHÍ (XÃ TÂN LONG HỘI)
                 </div>
-                <div>
-                  <span class="badge bg-success me-1">28 Đạt</span>
-                  <span class="badge bg-danger">19 Chưa đạt</span>
+                
+                <!-- BỘ LỌC TRẠNG THÁI -->
+                <div class="d-flex align-items-center">
+                  <label for="filter-ntm-status" class="small fw-bold text-muted me-2 mb-0 text-nowrap">
+                    <i class="bi bi-funnel me-1"></i>Lọc trạng thái:
+                  </label>
+                  <select id="filter-ntm-status" class="form-select form-select-sm" style="width: 175px;" onchange="filterNTMTable(this.value)">
+                    <option value="all">Tất cả (47)</option>
+                    <option value="done">✅ Hoàn thành (28)</option>
+                    <option value="undone">❌ Chưa hoàn thành (19)</option>
+                  </select>
                 </div>
               </div>
+
               <div class="card-body p-0">
-                <div class="table-responsive" style="max-height: 520px; overflow-y: auto;">
-                  <table class="table table-bordered table-sm small align-middle mb-0">
-                    <thead class="table-light text-center sticky-top">
+                <!-- KHUNG CUỘN CÓ THANH TRƯỢT DỌC -->
+                <div class="table-responsive" style="max-height: 540px; overflow-y: auto;">
+                  <table class="table table-bordered table-sm small align-middle mb-0" id="table-ntm-criteria">
+                    <thead class="table-light text-center sticky-top" style="z-index: 1;">
                       <tr>
                         <th style="width: 8%;">STT</th>
                         <th style="width: 76%; text-align: left;">Nội dung tiêu chí</th>
@@ -1025,71 +1036,266 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- NHÓM 8 -->
-                      <tr class="table-secondary fw-bold">
-                        <td colspan="3" class="text-start ps-2">8. Môi trường và cảnh quan nông thôn</td>
+                      <!-- 1. QUY HOẠCH -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">1. Quy hoạch</td></tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">1.1</td>
+                        <td>Có quy hoạch chung xã hoặc quy hoạch đô thị được phê duyệt, được công bố công khai đúng thời hạn và ban hành kế hoạch thực hiện quy hoạch</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">1.2</td>
+                        <td>Có quy hoạch chi tiết xây dựng trung tâm xã hoặc quy hoạch chi tiết điểm dân cư mới</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">1.3</td>
+                        <td>Có quy chế quản lý kiến trúc được phê duyệt hoặc được tích hợp trong quy hoạch chung xã</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 2. HẠ TẦNG KINH TẾ - XÃ HỘI -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">2. Hạ tầng kinh tế - xã hội</td></tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.1</td>
+                        <td>Hệ thống đường giao thông nông thôn trên địa bàn xã đảm bảo kết nối và được bảo trì hằng năm; tỷ lệ đường xã đạt chuẩn theo quy hoạch đạt 100%, tỷ lệ km đường xã được trồng cây xanh dọc tuyến đường đạt ≥50%; đường thôn, ngõ, xóm được cứng hóa</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.2</td>
+                        <td>Các công trình thủy lợi do xã quản lý được bảo trì hàng năm, đảm bảo diện tích đất sản xuất nông nghiệp được tưới và tiêu nước chủ động</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.3</td>
+                        <td>Đảm bảo yêu cầu chủ động về phòng, chống thiên tai theo phương châm 4 tại chỗ</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.4</td>
+                        <td>Tỷ lệ hộ có đăng ký trực tiếp và được sử dụng điện sinh hoạt, sản xuất đảm bảo an toàn, tin cậy và ổn định</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.5</td>
+                        <td>Cơ sở hạ tầng thương mại nông thôn</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">2.6</td>
+                        <td>Có hạ tầng viễn thông đảm bảo phủ sóng, internet đến 100% khu dân cư nông thôn, vùng sản xuất</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 3. PHÁT TRIỂN KINH TẾ NÔNG THÔN -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">3. Phát triển kinh tế nông thôn</td></tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.1</td>
+                        <td>Tốc độ tăng thu nhập bình quân đầu người</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">3.2</td>
+                        <td>Vùng nguyên liệu tập trung đối với cây trồng, vật nuôi chủ lực của xã được chứng nhận chất lượng, gắn với chế biến và tiêu thụ sản phẩm</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.3</td>
+                        <td>Có mô hình nông nghiệp ứng dụng công nghệ cao hoặc mô hình kinh tế xanh hoặc mô hình kinh tế tuần hoàn hiệu quả</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">3.4</td>
+                        <td>Có kế hoạch và thực hiện hiệu quả kế hoạch phát triển sản phẩm OCOP gắn với đặc trưng, thế mạnh của địa phương</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.5</td>
+                        <td>Các mô hình du lịch nông thôn (nếu có) trong quy hoạch chung xã được đầu tư hạ tầng đồng bộ kết nối và hoạt động hiệu quả gắn với đặc trưng của địa phương</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">3.6</td>
+                        <td>Xã có hợp tác xã hoạt động hiệu quả</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.7</td>
+                        <td>Có tổ khuyến nông cộng đồng hoạt động hiệu quả</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.8</td>
+                        <td>Tỷ lệ hộ nông dân sản xuất, kinh doanh giỏi theo quy định</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">3.9</td>
+                        <td>Có hoạt động phát triển kinh tế tư nhân trên địa bàn gắn với tạo việc làm, thu nhập cho người lao động địa phương</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">3.10</td>
+                        <td>Có khu công nghiệp hoặc cụm công nghiệp hoặc làng nghề được công nhận hoặc khu vực sản xuất dịch vụ quy mô phù hợp được quy hoạch, đầu tư xây dựng đảm bảo đáp ứng các quy định của pháp luật, cụ thể: - Khu công nghiệp, khu vực sản xuất dịch vụ; - Cụm công nghiệp; - Làng nghề.</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 4. ĐÀO TẠO NGUỒN NHÂN LỰC NÔNG THÔN -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">4. Đào tạo nguồn nhân lực nông thôn</td></tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">4.1</td>
+                        <td>Tỷ lệ lao động qua đào tạo có bằng cấp, chứng chỉ</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">4.2</td>
+                        <td>Tỷ lệ người trong độ tuổi theo học các trình độ sau trung học phổ thông</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 5. VĂN HÓA, GIÁO DỤC, Y TẾ -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">5. Văn hóa, Giáo dục, Y tế</td></tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">5.1</td>
+                        <td>Xã đạt tiêu chí về phát triển văn hóa</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">5.2</td>
+                        <td>Xã đạt tiêu chí về phát triển giáo dục</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">5.3</td>
+                        <td>Xã đạt tiêu chí quốc gia về y tế</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">5.4</td>
+                        <td>Trạm y tế cấp xã theo mô hình đơn vị sự nghiệp công lập, bảo đảm cung ứng dịch vụ cơ bản, thiết yếu về phòng bệnh, chăm sóc sức khỏe ban đầu, khám bệnh, chữa bệnh và các dịch vụ chăm sóc xã hội</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 6. GIẢM NGHÈO VÀ AN SINH XÃ HỘI -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">6. Giảm nghèo và An sinh xã hội</td></tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">6.1</td>
+                        <td>Tỷ lệ nghèo đa chiều</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">6.2</td>
+                        <td>Tỷ lệ hộ có nhà ở kiên cố</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">6.3</td>
+                        <td>Tỷ lệ hộ được sử dụng nước sạch theo quy chuẩn</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">6.4</td>
+                        <td>Tỷ lệ hộ đạt tiêu chuẩn “5 không, 3 sạch, 3 an”</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">6.5</td>
+                        <td>Đảm bảo bình đẳng giới và phòng ngừa, ứng phó với bạo lực trên cơ sở giới</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">6.6</td>
+                        <td>Có hoạt động phòng, chống xâm hại trẻ em; chăm sóc, nuôi dưỡng, trợ giúp trẻ em có hoàn cảnh đặc biệt trên địa bàn (nếu có)</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">6.7</td>
+                        <td>Đảm bảo an toàn thực phẩm, cụ thể: - An toàn thực phẩm thuộc trách nhiệm của Sở Nông nghiệp và Môi trường; - An toàn thực phẩm thuộc trách nhiệm Sở Y tế; - An toàn thực phẩm thuộc trách nhiệm của Sở Công Thương</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 7. CHUYỂN ĐỔI SỐ NÔNG THÔN -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">7. Chuyển đổi số nông thôn</td></tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">7.1</td>
+                        <td>Điểm bưu chính phục vụ công cộng và chính quyền số tại địa bàn</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">7.2</td>
+                        <td>Tỷ lệ số hóa dữ liệu về nông nghiệp và môi trường</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="done">
+                        <td class="text-center">7.3</td>
+                        <td>Triển khai hiệu quả hoạt động thương mại điện tử</td>
+                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
+                      </tr>
+                      <tr class="ntm-row" data-status="undone">
+                        <td class="text-center">7.4</td>
+                        <td>Có mô hình ấp thông minh</td>
+                        <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
+                      </tr>
+
+                      <!-- 8. MÔI TRƯỜNG VÀ CẢNH QUAN NÔNG THÔN -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">8. Môi trường và cảnh quan nông thôn</td></tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">8.1</td>
                         <td>Hệ thống thu gom, vận chuyển, xử lý chất thải rắn (nếu có) trên địa bàn đảm bảo yêu cầu về bảo vệ môi trường; tỷ lệ chất thải rắn sinh hoạt được phân loại, thu gom, xử lý đạt ≥80%; tỷ lệ chất thải rắn sinh hoạt chôn lấp trực tiếp ≤50% tổng lượng chất thải rắn phát sinh.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">8.2</td>
                         <td>Tỷ lệ chất thải chăn nuôi, chất thải hữu cơ, phụ phẩm nông nghiệp được thu gom, xử lý, tái chế thành sản phẩm, nguyên liệu, nhiên liệu, phân bón.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="undone">
                         <td class="text-center">8.3</td>
                         <td>Tỷ lệ cơ sở sản xuất, kinh doanh, dịch vụ, làng nghề (nếu có) theo quy hoạch và tuân thủ quy định của pháp luật về bảo vệ môi trường.</td>
                         <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="undone">
                         <td class="text-center">8.4</td>
                         <td>Có phương án và thực hiện phương án phù hợp về thoát nước, thu gom và xử lý nước thải sinh hoạt tại các khu dân cư nông thôn trên địa bàn xã đảm bảo yêu cầu về bảo vệ môi trường.</td>
                         <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">8.5</td>
                         <td>Cảnh quan, không gian xanh - sạch - đẹp, an toàn; có mô hình cải tạo, phục hồi cảnh quan, xử lý chất lượng nước mặt ao hồ, kênh mương trên địa bàn.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
 
-                      <!-- NHÓM 9 -->
-                      <tr class="table-secondary fw-bold">
-                        <td colspan="3" class="text-start ps-2">9. Xây dựng hệ thống chính trị và Hành chính công</td>
-                      </tr>
-                      <tr>
+                      <!-- 9. XÂY DỰNG HỆ THỐNG CHÍNH TRỊ VÀ HÀNH CHÍNH CÔNG -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">9. Xây dựng hệ thống chính trị và Hành chính công</td></tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">9.1</td>
                         <td>Đảng bộ, chính quyền, Mặt trận Tổ quốc và các tổ chức chính trị - xã hội xã được đánh giá, xếp loại hoàn thành tốt nhiệm vụ trở lên.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="undone">
                         <td class="text-center">9.2</td>
                         <td>Trung tâm phục vụ hành chính công hoạt động hiệu quả, tỷ lệ thủ tục hành chính được thực hiện theo dịch vụ công trực tuyến toàn trình đạt ≥90%.</td>
                         <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
                       </tr>
 
-                      <!-- NHÓM 10 -->
-                      <tr class="table-secondary fw-bold">
-                        <td colspan="3" class="text-start ps-2">10. Tiếp cận pháp luật và An ninh, Quốc phòng</td>
-                      </tr>
-                      <tr>
+                      <!-- 10. TIẾP CẬN PHÁP LUẬT VÀ AN NINH, QUỐC PHÒNG -->
+                      <tr class="table-secondary fw-bold group-header"><td colspan="3" class="text-start ps-2">10. Tiếp cận pháp luật và An ninh, Quốc phòng</td></tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">10.1</td>
                         <td>Xã đạt chuẩn tiếp cận pháp luật.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">10.2</td>
                         <td>An ninh, trật tự được bảo đảm; phong trào toàn dân bảo vệ an ninh Tổ quốc hoạt động hiệu quả; lực lượng tham gia bảo vệ an ninh, trật tự ở cơ sở phát huy hiệu quả, đảm bảo số lượng, chất lượng, điều kiện hoạt động.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="undone">
                         <td class="text-center">10.3</td>
                         <td>Có hệ thống camera AI giám sát an ninh trên địa bàn toàn xã.</td>
                         <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td>
                       </tr>
-                      <tr>
+                      <tr class="ntm-row" data-status="done">
                         <td class="text-center">10.4</td>
                         <td>Xây dựng lực lượng dân quân “vững mạnh, rộng khắp” và hoàn thành các chỉ tiêu quân sự, quốc phòng.</td>
                         <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td>
@@ -1103,6 +1309,36 @@
           </div>
         </div>
 
+        <!-- SCRIPT XỬ LÝ LỌC TRẠNG THÁI TIÊU CHÍ NTM -->
+        <script>
+          function filterNTMTable(filterValue) {
+            const rows = document.querySelectorAll('#table-ntm-criteria tbody tr.ntm-row');
+            const groupHeaders = document.querySelectorAll('#table-ntm-criteria tbody tr.group-header');
+
+            rows.forEach(row => {
+              const status = row.getAttribute('data-status');
+              if (filterValue === 'all' || status === filterValue) {
+                row.style.display = '';
+              } else {
+                row.style.display = 'none';
+              }
+            });
+
+            // Ẩn/hiện tiêu đề nhóm tương ứng nếu nhóm đó không còn dòng nào
+            groupHeaders.forEach(header => {
+              let nextRow = header.nextElementSibling;
+              let hasVisibleRow = false;
+              while (nextRow && !nextRow.classList.contains('group-header')) {
+                if (nextRow.style.display !== 'none') {
+                  hasVisibleRow = true;
+                  break;
+                }
+                nextRow = nextRow.nextElementSibling;
+              }
+              header.style.display = hasVisibleRow ? '' : 'none';
+            });
+          }
+        </script>
         <!-- PHÂN HỆ 7 -->
         <div id="view-7" class="dashboard-panel" style="display:none;">
           <div class="dashboard-head-bar shadow-sm">
