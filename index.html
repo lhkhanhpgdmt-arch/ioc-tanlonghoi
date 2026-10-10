@@ -2435,20 +2435,24 @@ let chartInitialized = false;
       if (dateEl) {
         dateEl.textContent = formattedDate;
       }
-    }
+   }
+  }
 
-    // Gọi hàm chạy ngay khi tải trang
+  // Gọi hàm cập nhật ngày tự động
+  if (typeof setCurrentDateAuto === 'function') {
     setCurrentDateAuto();
-    // --- BỔ SUNG ĐIỀU HƯỚNG PANEL TOÀN CỤC ---
+  }
+
+  // --- HÀM ĐIỀU HƯỚNG CHUYỂN PHÂN HỆ ---
   window.switchView = function(targetViewId) {
-    // 1. Ẩn toàn bộ các panel
+    // 1. Ẩn tất cả các panel
     const panels = document.querySelectorAll('.dashboard-panel');
     panels.forEach(p => {
       p.classList.remove('active');
       p.style.setProperty('display', 'none', 'important');
     });
 
-    // 2. Tắt active của các nút menu trái
+    // 2. Tắt active các nút menu bên trái
     const menuBtns = document.querySelectorAll('.menu-btn');
     menuBtns.forEach(b => b.classList.remove('active'));
 
@@ -2459,7 +2463,7 @@ let chartInitialized = false;
       activePanel.style.setProperty('display', 'block', 'important');
     }
 
-    // 4. Kích hoạt nút menu tương ứng
+    // 4. Bật sáng nút menu tương ứng
     const tabNum = targetViewId.replace('view-', '');
     const currentBtn = document.getElementById('btn-tab-' + tabNum);
     if (currentBtn) {
@@ -2480,7 +2484,7 @@ let chartInitialized = false;
   window.showHomeDashboard = function() {
     window.switchView('view-home-summary');
   };
-  </script> 
-  </body>
-</html> 
+</script>
+</body>
+</html>
 
