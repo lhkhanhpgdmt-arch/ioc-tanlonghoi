@@ -10,8 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <style> 
-    .dashboard-panel { display: none; }
-  .dashboard-panel.active { display: block !important; }
+    .dashboard-panel { display: none !important; }
+.dashboard-panel.active { display: block !important; }
     :root {
       --bg-page: #f0f2f5;
       --navy-header: #0c2d48;
@@ -244,7 +244,7 @@
       <main class="col-lg-9 col-md-8">
         <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
-<div id="view-home-summary" class="dashboard-panel active" style="display: block !important;">
+<div id="view-home-summary" class="dashboard-panel active">
         <div class="dashboard-head-bar shadow-sm">
           <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 7 PHÂN HỆ CẤP XÃ</div>
           <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
@@ -2302,60 +2302,38 @@ let chartInitialized = false;
       p.classList.remove('active');
     });
 
-    // Bật hiện bảng tổng quan 7 phân hệ
-    const homePanel = document.getElementById('view-home-summary');
-    if (homePanel) {
-      homePanel.style.setProperty('display', 'block', 'important');
-      homePanel.classList.add('active');
-    }
-
-    // Tắt sáng các nút menu bên trái
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    menuBtns.forEach(b => b.classList.remove('active'));
-  }
-
-  // Tự động kích hoạt hiển thị bảng tổng quan ngay khi trang vừa tải xong
-  window.addEventListener('load', function() {
-    showHomeDashboard();
-  });
-  // Mặc định mở trang tổng quan khi vừa vào trang
-  document.addEventListener('DOMContentLoaded', function() {
-    showHomeDashboard();
-  });// Hàm chuyển đổi giữa các phân hệ
+   // 1. Hàm chuyển đổi giữa các phân hệ
   function switchView(targetViewId) {
-    // 1. Luôn ép ẩn bảng Home tổng thể trước
+    // Ẩn bảng Home tổng thể
     const homePanel = document.getElementById('view-home-summary');
     if (homePanel) {
-      homePanel.style.setProperty('display', 'none', 'important');
       homePanel.classList.remove('active');
     }
 
-    // 2. Ép ẩn tất cả các panel chi tiết
+    // Ẩn tất cả các panel chi tiết
     const panels = document.querySelectorAll('.dashboard-panel');
     panels.forEach(p => {
-      p.style.setProperty('display', 'none', 'important');
       p.classList.remove('active');
     });
 
-    // 3. Tắt sáng toàn bộ nút menu bên trái
+    // Tắt sáng các nút menu
     const menuBtns = document.querySelectorAll('.menu-btn');
     menuBtns.forEach(b => b.classList.remove('active'));
 
-    // 4. Hiển thị đúng panel được bấm
+    // Hiển thị panel được chọn
     const activePanel = document.getElementById(targetViewId);
     if (activePanel) {
-      activePanel.style.setProperty('display', 'block', 'important');
       activePanel.classList.add('active');
     }
 
-    // 5. Bật sáng nút menu tương ứng
+    // Bật sáng nút menu tương ứng
     const tabNum = targetViewId.replace('view-', '');
     const currentBtn = document.getElementById('btn-tab-' + tabNum);
     if (currentBtn) {
       currentBtn.classList.add('active');
     }
 
-    // 6. Vẽ biểu đồ nếu bấm vào mục tài sản công
+    // Khởi tạo biểu đồ tài sản công nếu bấm vào mục 13
     if (targetViewId === 'view-13' && typeof initChartsView13 === 'function') {
       try {
         initChartsView13();
@@ -2365,28 +2343,12 @@ let chartInitialized = false;
     }
   }
 
-  // Hàm quay về trang chủ tổng thể 7 phân hệ
+  // 2. Hàm quay về trang chủ tổng thể 7 phân hệ
   function showHomeDashboard() {
-    // Ẩn các panel chi tiết
-    const panels = document.querySelectorAll('.dashboard-panel');
-    panels.forEach(p => {
-      p.style.setProperty('display', 'none', 'important');
-      p.classList.remove('active');
-    });
-
-    // Bật hiện riêng bảng Home
-    const homePanel = document.getElementById('view-home-summary');
-    if (homePanel) {
-      homePanel.style.setProperty('display', 'block', 'important');
-      homePanel.classList.add('active');
-    }
-
-    // Tắt sáng nút menu
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    menuBtns.forEach(b => b.classList.remove('active'));
+    switchView('view-home-summary');
   }
 
-  // Mặc định mở trang tổng quan khi vừa vào trang
+  // 3. Mặc định khi tải xong trang thì mở trang tổng quan
   document.addEventListener('DOMContentLoaded', function() {
     showHomeDashboard();
   });
