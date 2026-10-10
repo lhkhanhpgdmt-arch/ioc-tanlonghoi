@@ -244,7 +244,7 @@
       <main class="col-lg-9 col-md-8">
         <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
-<div id="view-home-summary" class="dashboard-panel">
+<div id="view-home-summary" class="dashboard-panel active" style="display: block;">
         <div class="dashboard-head-bar shadow-sm">
           <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 7 PHÂN HỆ CẤP XÃ</div>
           <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
@@ -2144,26 +2144,6 @@
       document.getElementById('view-home-summary').style.display = 'block';
     }
 let chartInitialized = false;
-
-  // Hàm chuyển sang từng phân hệ nhiệm vụ cụ thể từ 1 đến 12
-  function switchView(targetViewId) {
-    const panels = document.querySelectorAll('.dashboard-panel');
-    panels.forEach(p => p.style.display = 'none');
-
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    menuBtns.forEach(b => b.classList.remove('active'));
-
-    const activePanel = document.getElementById(targetViewId);
-    if (activePanel) {
-      activePanel.style.display = 'block';
-    }
-
-    const tabNum = targetViewId.replace('view-', '');
-    const currentBtn = document.getElementById('btn-tab-' + tabNum);
-    if (currentBtn) {
-      currentBtn.classList.add('active');
-    }
-
     // --- ĐOẠN MỚI THÊM VÀO ĐÂY: VẼ BIỂU ĐỒ KHI BẤM PHÂN HỆ 8 ---
     if (targetViewId === 'view-8' && !chartInitialized) {
       setTimeout(() => {
@@ -2316,7 +2296,7 @@ let chartInitialized = false;
   document.addEventListener('DOMContentLoaded', function() {
     showHomeDashboard();
   });
-    } 
+
     let chartView13Initialized = false;
 
   function initChartsView13() {
