@@ -2143,14 +2143,7 @@
       document.getElementById('view-home-summary').style.display = 'block';
     }
 let chartInitialized = false;
-    // --- ĐOẠN MỚI THÊM VÀO ĐÂY: VẼ BIỂU ĐỒ KHI BẤM PHÂN HỆ 8 ---
-    if (targetViewId === 'view-8' && !chartInitialized) {
-      setTimeout(() => {
-        initChartsView8();
-        chartInitialized = true;
-      }, 100);
-    }
-  }
+  
 
   // --- HÀM KHỞI TẠO 4 BIỂU ĐỒ PHÂN HỆ 8 ---
   function initChartsView8() {
