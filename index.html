@@ -1632,7 +1632,9 @@
                 THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI
               </h5>
               <div class="small fst-italic text-muted">
-                (Nguồn: Sở Tài chính cung cấp - Dữ liệu cập nhật đến ngày 07/10/2026)
+               <div class="small fst-italic text-muted">
+  (Nguồn: Sở Tài chính cung cấp - Dữ liệu cập nhật đến ngày <span id="current-date-tai-san"></span>)
+</div>
               </div>
             </div>
 
@@ -2233,6 +2235,22 @@ let chartInitialized = false;
       });
     }
   }
+ // Tự động hiển thị ngày hiện hành định dạng dd/mm/yyyy
+    function setCurrentDateAuto() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      const formattedDate = `${day}/${month}/${year}`;
+
+      const dateEl = document.getElementById('current-date-tai-san');
+      if (dateEl) {
+        dateEl.textContent = formattedDate;
+      }
+    }
+
+    // Gọi hàm chạy ngay khi tải trang
+    setCurrentDateAuto();
   </script> 
   </body>
 </html> 
