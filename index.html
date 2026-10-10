@@ -242,7 +242,7 @@
       <main class="col-lg-9 col-md-8">
         <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
-      <div id="view-home-summary" class="dashboard-panel">
+     <div id="view-home-summary" class="dashboard-panel" style="display: block;">
         <div class="dashboard-head-bar shadow-sm">
           <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 7 PHÂN HỆ CẤP XÃ</div>
           <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
@@ -2268,30 +2268,41 @@ let chartInitialized = false;
       });
     }
   }
-    // Hàm chuyển sang từng phân hệ nhiệm vụ cụ thể từ 1 đến 12
-    function switchView(targetViewId) {
-      const panels = document.querySelectorAll('.dashboard-panel');
-      panels.forEach(p => p.style.display = 'none');
-      
-      const menuBtns = document.querySelectorAll('.menu-btn');
-      menuBtns.forEach(b => b.classList.remove('active'));
+   // Hàm chuyển sang từng phân hệ nhiệm vụ
+  function switchView(targetViewId) {
+    const panels = document.querySelectorAll('.dashboard-panel');
+    panels.forEach(p => p.style.display = 'none');
 
-      const activePanel = document.getElementById(targetViewId);
-      if (activePanel) {
-        activePanel.style.display = 'block';
-      }
+    const menuBtns = document.querySelectorAll('.menu-btn');
+    menuBtns.forEach(b => b.classList.remove('active'));
 
-      const tabNum = targetViewId.replace('view-', '');
-      const currentBtn = document.getElementById('btn-tab-' + tabNum);
-      if (currentBtn) {
-        currentBtn.classList.add('active');
-      } 
-      // Kích hoạt vẽ biểu đồ khi chọn phân hệ 13
-         if (targetViewId === 'view-13' && !chartView13Initialized) {           
-      setTimeout(() => {
+    const activePanel = document.getElementById(targetViewId);
+    if (activePanel) {
+      activePanel.style.display = 'block';
+    }
+
+    const tabNum = targetViewId.replace('view-', '');
+    const currentBtn = document.getElementById('btn-tab-' + tabNum);
+    if (currentBtn) {
+      currentBtn.classList.add('active');
+    }
+
+    // Kích hoạt vẽ biểu đồ khi chọn phân hệ 13 (nếu có hàm)
+    if (targetViewId === 'view-13' && typeof initChartsView13 === 'function') {
+      try {
         initChartsView13();
-        chartView13Initialized = true;
-      }, 100);
+      } catch (e) {
+        console.warn('Lỗi khởi tạo biểu đồ:', e);
+      }
+    }
+  }
+
+  // Hàm trở về trang chủ tổng thể
+  function showHomeDashboard() {
+    switchView('view-home-summary');
+    const menuBtns = document.querySelectorAll('.menu-btn');
+    menuBtns.forEach(b => b.classList.remove('active'));
+  }
     }
     } 
     let chartView13Initialized = false;
