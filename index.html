@@ -244,7 +244,7 @@
       <main class="col-lg-9 col-md-8">
         <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
-<div id="view-home-summary" class="dashboard-panel">
+<div id="view-home-summary" class="dashboard-panel active" style="display: block !important;">
         <div class="dashboard-head-bar shadow-sm">
           <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 7 PHÂN HỆ CẤP XÃ</div>
           <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
@@ -2249,7 +2249,7 @@ let chartInitialized = false;
       });
     }
   }
- // Hàm chuyển đổi giữa các phân hệ
+// Hàm chuyển đổi giữa các phân hệ
   function switchView(targetViewId) {
     // 1. Luôn ép ẩn bảng Home tổng thể trước
     const homePanel = document.getElementById('view-home-summary');
@@ -2295,25 +2295,29 @@ let chartInitialized = false;
 
   // Hàm quay về trang chủ tổng thể 7 phân hệ
   function showHomeDashboard() {
-    // Ẩn các panel chi tiết
+    // Ẩn tất cả các panel chi tiết
     const panels = document.querySelectorAll('.dashboard-panel');
     panels.forEach(p => {
       p.style.setProperty('display', 'none', 'important');
       p.classList.remove('active');
     });
 
-    // Bật hiện riêng bảng Home
+    // Bật hiện bảng tổng quan 7 phân hệ
     const homePanel = document.getElementById('view-home-summary');
     if (homePanel) {
       homePanel.style.setProperty('display', 'block', 'important');
       homePanel.classList.add('active');
     }
 
-    // Tắt sáng nút menu
+    // Tắt sáng các nút menu bên trái
     const menuBtns = document.querySelectorAll('.menu-btn');
     menuBtns.forEach(b => b.classList.remove('active'));
   }
 
+  // Tự động kích hoạt hiển thị bảng tổng quan ngay khi trang vừa tải xong
+  window.addEventListener('load', function() {
+    showHomeDashboard();
+  });
   // Mặc định mở trang tổng quan khi vừa vào trang
   document.addEventListener('DOMContentLoaded', function() {
     showHomeDashboard();
