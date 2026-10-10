@@ -9,7 +9,9 @@
   <!-- Bootstrap Icons -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <style>
+  <style> 
+    .dashboard-panel { display: none; }
+  .dashboard-panel.active { display: block !important; }
     :root {
       --bg-page: #f0f2f5;
       --navy-header: #0c2d48;
@@ -242,7 +244,7 @@
       <main class="col-lg-9 col-md-8">
         <!-- ================= BẢNG HOME: TỔNG THỂ 12 NHIỆM VỤ ================= -->
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
-     <div id="view-home-summary" class="dashboard-panel" style="display: block;">
+<div id="view-home-summary" class="dashboard-panel">
         <div class="dashboard-head-bar shadow-sm">
           <div class="fw-bold"><i class="bi bi-grid-fill me-1"></i> BẢNG ĐIỀU HÀNH TỔNG THỂ 7 PHÂN HỆ CẤP XÃ</div>
           <span class="badge bg-success text-white"><i class="bi bi-check-circle me-1"></i> HOẠT ĐỘNG TOÀN DIỆN</span>
@@ -2268,42 +2270,52 @@ let chartInitialized = false;
       });
     }
   }
-   // Hàm chuyển sang từng phân hệ nhiệm vụ
+   // Hàm chuyển đổi giữa các phân hệ
   function switchView(targetViewId) {
+    // 1. Ẩn tất cả các panel
     const panels = document.querySelectorAll('.dashboard-panel');
-    panels.forEach(p => p.style.display = 'none');
+    panels.forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
 
+    // 2. Bỏ sáng tất cả các nút menu
     const menuBtns = document.querySelectorAll('.menu-btn');
     menuBtns.forEach(b => b.classList.remove('active'));
 
+    // 3. Hiển thị đúng panel được chọn
     const activePanel = document.getElementById(targetViewId);
     if (activePanel) {
+      activePanel.classList.add('active');
       activePanel.style.display = 'block';
     }
 
+    // 4. Bật sáng nút menu tương ứng
     const tabNum = targetViewId.replace('view-', '');
     const currentBtn = document.getElementById('btn-tab-' + tabNum);
     if (currentBtn) {
       currentBtn.classList.add('active');
     }
 
-    // Kích hoạt vẽ biểu đồ khi chọn phân hệ 13 (nếu có hàm)
+    // 5. Khởi tạo biểu đồ tài sản công nếu bấm vào mục 13
     if (targetViewId === 'view-13' && typeof initChartsView13 === 'function') {
       try {
         initChartsView13();
       } catch (e) {
-        console.warn('Lỗi khởi tạo biểu đồ:', e);
+        console.warn('Lỗi vẽ biểu đồ tài sản công:', e);
       }
     }
   }
 
-  // Hàm trở về trang chủ tổng thể
+  // Hàm quay về trang chủ tổng thể 7 phân hệ
   function showHomeDashboard() {
     switchView('view-home-summary');
-    const menuBtns = document.querySelectorAll('.menu-btn');
-    menuBtns.forEach(b => b.classList.remove('active'));
   }
-    }
+
+  // Mặc định khi vừa mở trang web thì hiển thị bảng tổng quan 7 phân hệ
+  document.addEventListener('DOMContentLoaded', function() {
+    showHomeDashboard();
+  });
     } 
     let chartView13Initialized = false;
 
