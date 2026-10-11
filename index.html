@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Thư viện xuất Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <style> 
@@ -934,9 +936,17 @@
         <!-- ================= PHÂN HỆ 6 (VIEW-12): ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
         <div id="view-12" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 6. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
-            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
-          </div>
+              <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 6. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
+              <div class="d-flex align-items-center gap-2">
+                <!-- NÚT XUẤT EXCEL -->
+                <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportEducationExcel()">
+                  <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
+                </button>
+                <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+                  <i class="bi bi-house-door"></i> Về trang chủ
+                </button>
+              </div>
+            </div>
           <div class="dashboard-card-body shadow-sm">
             <!-- 3 thẻ KPI -->
             <div class="row g-3 mb-3">
