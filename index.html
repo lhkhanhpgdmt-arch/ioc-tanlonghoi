@@ -1304,36 +1304,56 @@
     document.addEventListener('DOMContentLoaded', function() {
       window.showHomeDashboard();
     });
-    // --- HÀM XUẤT EXCEL CHO MỤC 6: GIÁO DỤC ---
+  // --- HÀM XUẤT EXCEL CHUẨN THỂ THỨC CHO MỤC 6: GIÁO DỤC ---
   window.exportEducationExcel = function() {
+    if (typeof XLSX === 'undefined') {
+      alert("Đang tải thư viện Excel, vui lòng thử lại sau giây lát!");
+      return;
+    }
+
     const dataExport = [
-      ["BÁO CÁO THỐNG KÊ CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - XÃ TÂN LONG HỘI"],
-      ["Năm học: 2026 - 2027"],
+      ["ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI", "", "", "", "", "", ""],
+      ["PHÒNG GIÁM SÁT ĐIỀU HÀNH THÔNG MINH (IOC)", "", "", "", "", "", ""],
       [],
-      ["I. DANH SÁCH CÁC TRƯỜNG VÀ CHUẨN QUỐC GIA"],
-      ["Tên trường", "Cấp học", "Số lớp", "Tổng số HS", "HS Nữ", "Biên chế CB-GV", "Đánh giá chuẩn"],
-      ["Trường Mầm non Oanh Vũ II", "Mầm non", 27, 615, 285, 69, "Chuẩn QG Mức độ 1"],
-      ["Trường Tiểu học Tân Long Hội", "Tiểu học", 48, 1283, 579, 88, "Chuẩn QG Mức độ 1"],
-      ["Trường THCS Tân Long Hội", "THCS", 30, 1018, 487, 81, "Chuẩn QG Mức độ 1"],
-      ["TỔNG CỘNG TOÀN XÃ", "3 trường", 105, 2916, 1351, 238, "100% Đạt Chuẩn"],
+      ["BÁO CÁO THỐNG KÊ CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC TRÊN ĐỊA BÀN XÃ"],
+      ["NĂM HỌC 2026 - 2027", "", "", "", "", "", ""],
       [],
-      ["II. CHI TIẾT ĐIỂM TRƯỜNG, PHÂN HIỆU VÀ KHỐI LỚP"],
-      ["STT", "Trường / Điểm trường / Phân hiệu", "Số lớp", "Tổng HS", "Nữ", "Phân bổ theo nhóm tuổi / Khối lớp"],
-      ["1", "Điểm chính MN Oanh Vũ II + Điểm Tân Thiềng 1, 2", 9, 172, 76, "Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)"],
-      ["2", "Phân hiệu Tân Long + Điểm Tân Hiệp (MN)", 9, 229, 117, "Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)"],
-      ["3", "Phân hiệu Tân Long Hội (MN)", 9, 214, 92, "Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)"],
-      ["4", "Điểm chính TH Tân Long Hội + Điểm Tân Phong", 15, 414, 186, "Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)"],
-      ["5", "Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng (TH)", 16, 382, 156, "Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)"],
-      ["6", "Phân hiệu Tân Long + Điểm Đồng Bé (TH)", 17, 487, 237, "Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)"],
-      ["7", "Điểm chính Trường THCS Tân Long Hội (TAH)", 9, 284, 130, "Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)"],
-      ["8", "Phân hiệu Tân Long Hội (THCS)", 9, 305, 150, "Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)"],
-      ["9", "Phân hiệu Tân Long (THCS)", 12, 429, 207, "Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)"]
+      ["I. DANH SÁCH CÁC TRƯỜNG VÀ ĐÁNH GIÁ CHUẨN QUỐC GIA"],
+      ["STT", "Tên trường học", "Cấp học", "Số lớp", "Tổng số HS", "HS Nữ", "Biên chế CB-GV", "Đánh giá chuẩn"],
+      [1, "Trường Mầm non Oanh Vũ II", "Mầm non", 27, 615, 285, 69, "Chuẩn QG Mức độ 1"],
+      [2, "Trường Tiểu học Tân Long Hội", "Tiểu học", 48, 1283, 579, 88, "Chuẩn QG Mức độ 1"],
+      [3, "Trường THCS Tân Long Hội", "THCS", 30, 1018, 487, 81, "Chuẩn QG Mức độ 1"],
+      ["", "TỔNG CỘNG TOÀN XÃ", "3 cấp học", 105, 2916, 1351, 238, "100% Đạt Chuẩn"],
+      [],
+      ["II. CHI TIẾT ĐIỂM TRƯỜNG, PHÂN HIỆU VÀ CÁC KHỐI LỚP"],
+      ["STT", "Trường / Điểm trường / Phân hiệu", "Số lớp", "Tổng số HS", "HS Nữ", "Phân bổ theo nhóm tuổi / Khối lớp", ""],
+      ["1", "Điểm chính MN Oanh Vũ II + Điểm Tân Thiềng 1, 2", 9, 172, 76, "Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)", ""],
+      ["2", "Phân hiệu Tân Long + Điểm Tân Hiệp (MN)", 9, 229, 117, "Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)", ""],
+      ["3", "Phân hiệu Tân Long Hội (MN)", 9, 214, 92, "Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)", ""],
+      ["4", "Điểm chính TH Tân Long Hội + Điểm Tân Phong", 15, 414, 186, "Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)", ""],
+      ["5", "Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng (TH)", 16, 382, 156, "Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)", ""],
+      ["6", "Phân hiệu Tân Long + Điểm Đồng Bé (TH)", 17, 487, 237, "Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)", ""],
+      ["7", "Điểm chính Trường THCS Tân Long Hội (TAH)", 9, 284, 130, "Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)", ""],
+      ["8", "Phân hiệu Tân Long Hội (THCS)", 9, 305, 150, "Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)", ""],
+      ["9", "Phân hiệu Tân Long (THCS)", 12, 429, 207, "Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)", ""]
     ];
 
     const ws = XLSX.utils.aoa_to_sheet(dataExport);
+
+    // Tự động giãn cột rộng rãi, chữ hiển thị đầy đủ không bị tràn
+    ws['!cols'] = [
+      { wch: 8 },   // Cột A: STT
+      { wch: 42 },  // Cột B: Tên trường / Phân hiệu (Rộng rãi)
+      { wch: 14 },  // Cột C: Cấp học / Số lớp
+      { wch: 14 },  // Cột D: Tổng số HS
+      { wch: 12 },  // Cột E: HS Nữ
+      { wch: 55 },  // Cột F: Phân bổ nhóm tuổi / Khối lớp (Rất rộng)
+      { wch: 22 }   // Cột G: Đánh giá chuẩn
+    ];
+
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Thong_Ke_Giao_Duc");
-    XLSX.writeFile(wb, "Thong_Ke_Giao_Duc_Xa_Tan_Long_Hoi_2026.xlsx");
+    XLSX.utils.book_append_sheet(wb, ws, "Giao_Duc_Tan_Long_Hoi");
+    XLSX.writeFile(wb, "Bao_Cao_Giao_Duc_Xa_Tan_Long_Hoi_2026.xlsx");
   };
   </script>
 </body>
