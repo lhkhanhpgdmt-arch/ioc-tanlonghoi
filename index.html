@@ -536,4 +536,352 @@
           <div class="dashboard-card-body shadow-sm">
             <div class="text-center mb-3">
               <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ HOẠT ĐỘNG QUẢN LÝ VĂN BẢN ĐIỀU HÀNH CỦA XÃ TÂN LONG HỘI</h5>
-              <div class="small text-muted mb-1"><i class="bi bi-calendar3 me-1"></i> Số liệu từ ngày <strong>01/01
+              <div class="small text-muted mb-1"><i class="bi bi-calendar3 me-1"></i> Số liệu từ ngày <strong>01/01/2026</strong> đến ngày <strong>06/10/2026</strong></div>
+            </div>
+            <!-- 2 KHỐI KPI TỔNG -->
+            <div class="row g-3 justify-content-center mb-4">
+              <div class="col-md-5 col-12">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center">
+                  <div class="text-dark fw-bold mb-1 fs-6">Văn bản đến</div>
+                  <div class="fw-bold text-primary display-6 my-1">36.582</div>
+                  <div class="text-danger fw-semibold small">Đang xử lý: 5.291</div>
+                </div>
+              </div>
+              <div class="col-md-5 col-12">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center">
+                  <div class="text-dark fw-bold mb-1 fs-6">Văn bản đi</div>
+                  <div class="fw-bold text-success display-6 my-1">5.022</div>
+                  <div class="text-warning-emphasis fw-semibold small">Đang xử lý: 4.559</div>
+                </div>
+              </div>
+            </div>
+            <!-- BẢNG SỐ LIỆU ĐƠN VỊ -->
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width: 30%;">Đơn vị</th>
+                    <th>VB đến</th>
+                    <th>Đang xử lý</th>
+                    <th>VB đi</th>
+                    <th>Đang xử lý</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fw-bold">
+                    <td class="text-start">UBND XÃ TÂN LONG HỘI</td>
+                    <td class="text-success">15.445</td>
+                    <td>1.730</td>
+                    <td class="text-success">0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start ps-4">VĂN PHÒNG HĐND VÀ UBND</td>
+                    <td class="text-success fw-bold">15.368</td>
+                    <td>1.563</td>
+                    <td class="text-success fw-bold">3.452</td>
+                    <td>3.146</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start ps-4">PHÒNG VĂN HÓA XÃ HỘI</td>
+                    <td class="text-success fw-bold">3.054</td>
+                    <td>887</td>
+                    <td class="text-success fw-bold">1.098</td>
+                    <td>1.057</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 3 (VIEW-6): TIÊU CHÍ NTM NÂNG CAO ================= -->
+        <div id="view-6" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-tree-fill me-1"></i> 3. TIẾN ĐỘ THỰC HIỆN TIÊU CHÍ NÔNG THÔN MỚI - XÃ TÂN LONG HỘI</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1 text-uppercase">TIẾN ĐỘ THỰC HIỆN BỘ TIÊU CHÍ XÃ NÔNG THÔN MỚI GIAI ĐOẠN 2026-2030</h5>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6"><div class="p-3 border rounded bg-white shadow-sm text-center"><div class="text-muted small fw-semibold">TỔNG TIÊU CHÍ</div><div class="fs-4 fw-bold text-primary">47</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-3 border rounded bg-white shadow-sm text-center"><div class="text-muted small fw-semibold">ĐÃ HOÀN THÀNH</div><div class="fs-4 fw-bold text-success">28</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-3 border rounded bg-white shadow-sm text-center"><div class="text-muted small fw-semibold">CHƯA HOÀN THÀNH</div><div class="fs-4 fw-bold text-danger">19</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-3 border rounded bg-white shadow-sm text-center"><div class="text-muted small fw-semibold">TỶ LỆ ĐẠT</div><div class="fs-4 fw-bold text-warning">59,57 %</div></div></div>
+            </div>
+            <!-- BẢNG TIÊU CHÍ -->
+            <div class="table-responsive" style="max-height: 480px; overflow-y: auto;">
+              <table class="table table-bordered table-sm small align-middle mb-0" id="table-ntm-criteria">
+                <thead class="table-light text-center sticky-top">
+                  <tr>
+                    <th style="width: 10%;">STT</th>
+                    <th>Nội dung tiêu chí</th>
+                    <th style="width: 20%;">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-secondary fw-bold"><td colspan="3">1. Quy hoạch</td></tr>
+                  <tr><td class="text-center">1.1</td><td>Quy hoạch chung xã hoặc quy hoạch đô thị được phê duyệt</td><td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger">Chưa hoàn thành</span></td></tr>
+                  <tr class="table-secondary fw-bold"><td colspan="3">2. Hạ tầng kinh tế - xã hội</td></tr>
+                  <tr><td class="text-center">2.1</td><td>Hệ thống đường giao thông nông thôn bảo trì hằng năm</td><td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td></tr>
+                  <tr><td class="text-center">2.2</td><td>Các công trình thủy lợi đảm bảo tưới tiêu</td><td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Hoàn thành</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 4 (VIEW-8): Ý KIẾN NGƯỜI DÂN ================= -->
+        <div id="view-8" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-chat-dots-fill me-1"></i> 4. TIẾP NHẬN & XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ CỦA NGƯỜI DÂN</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ</h5>
+              <div class="small text-muted mb-1">(Tính đến ngày <strong>30/09/2026</strong>)</div>
+            </div>
+            <div class="row g-2 mb-3 text-center">
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Tổng phản ánh</div><div class="fw-bold fs-4 text-primary">7</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Đã xử lý</div><div class="fw-bold fs-4 text-success">7</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Đang xử lý</div><div class="fw-bold fs-4 text-warning">0</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Quá hạn</div><div class="fw-bold fs-4 text-danger">0</div></div></div>
+            </div>
+            <!-- Biểu đồ phân hệ 8 -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4 text-center">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2">Trạng thái xử lý</div>
+                  <div style="max-width: 180px; margin: 0 auto;"><canvas id="chartDonutXuLy"></canvas></div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2 text-center">Xử lý theo tháng</div>
+                  <div style="height: 200px;"><canvas id="chartBarTheoThang"></canvas></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 5 (VIEW-10): KẾ HOẠCH 100 NGÀY CĐS ================= -->
+        <div id="view-10" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-kanban me-2"></i> 5. THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY CĐS</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-dark mb-0">TIẾN ĐỘ 100 NGÀY CHUYỂN ĐỔI SỐ CẤP XÃ</h5>
+              <span class="badge bg-success-subtle text-success border border-success">• Cập nhật: 03/10/2026</span>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TỔNG NHIỆM VỤ</div><div class="fw-bold fs-4 text-dark">15</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-success">8</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH QUÁ HẠN</div><div class="fw-bold fs-4 text-warning">4</div></div></div>
+              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG THỰC HIỆN</div><div class="fw-bold fs-4 text-primary">2</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 6 (VIEW-12): ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
+        <div id="view-12" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 6. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="row g-3 mb-3">
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-secondary"><div class="kpi-title">ĐƠN VỊ ẤP ĐỊA BÀN</div><div class="kpi-num text-dark">11 ấp</div></div></div>
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-primary"><div class="kpi-title">TRƯỜNG CÔNG LẬP TRỰC THUỘC</div><div class="kpi-num text-primary">03 trường</div></div></div>
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-success"><div class="kpi-title">TỔNG BIÊN CHẾ CB-GV</div><div class="kpi-num text-success">238 người</div></div></div>
+            </div>
+            <!-- BẢNG 3 TRƯỜNG -->
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>Tên trường</th>
+                    <th>Cấp học</th>
+                    <th>Số lớp</th>
+                    <th>Học sinh</th>
+                    <th>Biên chế CB-GV</th>
+                    <th>Đánh giá chuẩn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-start fw-bold">Trường Mầm non Oanh Vũ II</td>
+                    <td>Mầm non</td>
+                    <td>27</td>
+                    <td class="text-primary fw-bold">615</td>
+                    <td>69</td>
+                    <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-start fw-bold">Trường Tiểu học Tân Long Hội</td>
+                    <td>Tiểu học</td>
+                    <td>48</td>
+                    <td class="text-primary fw-bold">1.283</td>
+                    <td>88</td>
+                    <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-start fw-bold">Trường THCS Tân Long Hội</td>
+                    <td>THCS</td>
+                    <td>30</td>
+                    <td class="text-primary fw-bold">1.018</td>
+                    <td>81</td>
+                    <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG ================= -->
+        <div id="view-13" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-buildings-fill me-1"></i> 7. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP</h5>
+              <div class="small fst-italic text-muted">(Dữ liệu cập nhật: <span id="current-date-tai-san">07/10/2026</span>)</div>
+            </div>
+            <!-- BIỂU ĐỒ DONUT TÀI SẢN CÔNG -->
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 border rounded bg-white shadow-sm text-center">
+                  <div class="fw-bold small text-primary mb-2">SỐ CƠ SỞ ĐẤT</div>
+                  <div style="height: 140px;"><canvas id="chartCoSoNhaDat"></canvas></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 border rounded bg-white shadow-sm text-center">
+                  <div class="fw-bold small text-primary mb-2">DIỆN TÍCH ĐẤT (M²)</div>
+                  <div style="height: 140px;"><canvas id="chartDienTichDat"></canvas></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 border rounded bg-white shadow-sm text-center">
+                  <div class="fw-bold small text-primary mb-2">DIỆN TÍCH SÀN (M²)</div>
+                  <div style="height: 140px;"><canvas id="chartDienTichSan"></canvas></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 border rounded bg-white shadow-sm text-center">
+                  <div class="fw-bold small text-primary mb-2">CẤP QUẢN LÝ</div>
+                  <div style="height: 140px;"><canvas id="chartCapQuanLy"></canvas></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ĐIỀU HƯỚNG VÀ VẼ BIỂU ĐỒ ================= -->
+  <script>
+    // 1. Hàm chuyển đổi giữa các phân hệ
+    window.switchView = function(targetViewId) {
+      // Ẩn tất cả panel
+      const panels = document.querySelectorAll('.dashboard-panel');
+      panels.forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
+
+      // Tắt active ở menu
+      const menuBtns = document.querySelectorAll('.menu-btn');
+      menuBtns.forEach(b => b.classList.remove('active'));
+
+      // Hiển thị panel mục tiêu
+      const activePanel = document.getElementById(targetViewId);
+      if (activePanel) {
+        activePanel.classList.add('active');
+        activePanel.style.display = 'block';
+      }
+
+      // Làm sáng nút menu tương ứng
+      const tabNum = targetViewId.replace('view-', '');
+      const currentBtn = document.getElementById('btn-tab-' + tabNum);
+      if (currentBtn) {
+        currentBtn.classList.add('active');
+      }
+
+      // Khởi tạo biểu đồ khi chọn phân hệ tương ứng
+      if (targetViewId === 'view-8') {
+        initChartsView8();
+      } else if (targetViewId === 'view-13') {
+        initChartsView13();
+      }
+    };
+
+    // 2. Hàm quay về màn hình tổng thể
+    window.showHomeDashboard = function() {
+      window.switchView('view-home-summary');
+    };
+
+    // 3. Biểu đồ phân hệ 8
+    let chartsView8Done = false;
+    function initChartsView8() {
+      if (chartsView8Done) return;
+      const ctx1 = document.getElementById('chartDonutXuLy');
+      if (ctx1) {
+        new Chart(ctx1, {
+          type: 'doughnut',
+          data: {
+            labels: ['Đã xử lý'],
+            datasets: [{ data: [7], backgroundColor: ['#00897b'], borderWidth: 0 }]
+          },
+          options: { responsive: true, cutout: '70%', plugins: { legend: { display: false } } }
+        });
+      }
+      const ctx2 = document.getElementById('chartBarTheoThang');
+      if (ctx2) {
+        new Chart(ctx2, {
+          type: 'bar',
+          data: {
+            labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+            datasets: [{ label: 'Đã xử lý', data: [1, 2, 3, 1], backgroundColor: '#90caf9' }]
+          },
+          options: { responsive: true, maintainAspectRatio: false }
+        });
+      }
+      chartsView8Done = true;
+    }
+
+    // 4. Biểu đồ phân hệ 13
+    let chartsView13Done = false;
+    function initChartsView13() {
+      if (chartsView13Done) return;
+      const ctxCoSo = document.getElementById('chartCoSoNhaDat');
+      if (ctxCoSo) {
+        new Chart(ctxCoSo, {
+          type: 'doughnut',
+          data: {
+            labels: ['Giữ lại'],
+            datasets: [{ data: [3], backgroundColor: ['#4b38b3'], borderWidth: 0 }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, cutout: '70%' }
+        });
+      }
+      chartsView13Done = true;
+    }
+
+    // 5. Tự động hiển thị màn hình tổng thể ngay khi tải trang
+    document.addEventListener('DOMContentLoaded', function() {
+      window.showHomeDashboard();
+    });
+  </script>
+</body>
+</html>
