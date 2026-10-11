@@ -159,7 +159,22 @@
       background-color: #f1f5f9;
       font-weight: 700;
       color: #334155;
-    }
+    } 
+    /* ÉP HIỂN THỊ PANEL KHI ĐƯỢC CHỌN */
+  .dashboard-panel {
+    display: none !important;
+  }
+  .dashboard-panel.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  main.col-lg-9 {
+    display: block !important;
+    min-height: 100vh !important;
+  }
   </style>
 </head>
 <body>
