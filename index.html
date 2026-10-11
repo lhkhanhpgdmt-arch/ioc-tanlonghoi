@@ -2444,26 +2444,34 @@ let chartInitialized = false;
   }
 
   // --- HÀM ĐIỀU HƯỚNG CHUYỂN PHÂN HỆ ---
+ // --- HÀM ĐIỀU HƯỚNG CHUYỂN PHÂN HỆ TRIỆT ĐỂ ---
   window.switchView = function(targetViewId) {
-    // 1. Ẩn tất cả các panel
-    const panels = document.querySelectorAll('.dashboard-panel');
-    panels.forEach(p => {
+    console.log("Đang chuyển sang phân hệ:", targetViewId);
+
+    // 1. Ẩn tất cả các panel (cả panel tổng quan lẫn các panel chi tiết)
+    const allPanels = document.querySelectorAll('.dashboard-panel, #view-home-summary');
+    allPanels.forEach(function(p) {
       p.classList.remove('active');
-      p.style.setProperty('display', 'none', 'important');
+      p.style.display = 'none';
     });
 
-    // 2. Tắt active các nút menu bên trái
+    // 2. Tắt trạng thái sáng của các nút menu trái
     const menuBtns = document.querySelectorAll('.menu-btn');
-    menuBtns.forEach(b => b.classList.remove('active'));
+    menuBtns.forEach(function(b) {
+      b.classList.remove('active');
+    });
 
-    // 3. Hiển thị panel được chọn
+    // 3. Tìm và hiển thị panel mục tiêu
     const activePanel = document.getElementById(targetViewId);
     if (activePanel) {
       activePanel.classList.add('active');
-      activePanel.style.setProperty('display', 'block', 'important');
+      activePanel.style.display = 'block';
+      console.log("Đã tìm thấy và hiển thị panel:", targetViewId);
+    } else {
+      console.error("KHÔNG TÌM THẤY thẻ có id là:", targetViewId);
     }
 
-    // 4. Bật sáng nút menu tương ứng
+    // 4. Bật sáng nút menu tương ứng nếu có
     const tabNum = targetViewId.replace('view-', '');
     const currentBtn = document.getElementById('btn-tab-' + tabNum);
     if (currentBtn) {
@@ -2484,6 +2492,11 @@ let chartInitialized = false;
   window.showHomeDashboard = function() {
     window.switchView('view-home-summary');
   };
+
+  // Tự động mở bảng tổng quan khi tải trang
+  document.addEventListener('DOMContentLoaded', function() {
+    window.showHomeDashboard();
+  });
 </script>
 </body>
 </html>
