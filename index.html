@@ -1304,56 +1304,155 @@
     document.addEventListener('DOMContentLoaded', function() {
       window.showHomeDashboard();
     });
-  // --- HÀM XUẤT EXCEL CHUẨN THỂ THỨC CHO MỤC 6: GIÁO DỤC ---
+  // --- HÀM XUẤT BÁO CÁO EXCEL CÓ KẺ KHUNG & ĐỊNH DẠNG CHUẨN THỂ THỨC ---
   window.exportEducationExcel = function() {
-    if (typeof XLSX === 'undefined') {
-      alert("Đang tải thư viện Excel, vui lòng thử lại sau giây lát!");
-      return;
-    }
+    const htmlContent = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--[if gte mso 9]>
+        <xml>
+          <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+              <x:ExcelWorksheet>
+                <x:Name>Thong Ke Giao Duc</x:Name>
+                <x:WorksheetOptions>
+                  <x:DisplayGridlines/>
+                </x:WorksheetOptions>
+              </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+          </x:ExcelWorkbook>
+        </xml>
+        <![endif]-->
+        <style>
+          body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; }
+          .header-org { font-weight: bold; font-size: 11pt; text-align: left; }
+          .title-report { font-weight: bold; font-size: 14pt; text-align: center; color: #0c2d48; }
+          .sub-title { font-style: italic; font-size: 11pt; text-align: center; }
+          .section-title { font-weight: bold; font-size: 12pt; text-align: left; color: #1e3a8a; }
+          table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+          th { background-color: #dbeafe; color: #000; font-weight: bold; text-align: center; border: 1px solid #000000; padding: 6px; }
+          td { border: 1px solid #000000; padding: 5px; vertical-align: middle; }
+          .text-center { text-align: center; }
+          .text-right { text-align: right; }
+          .text-left { text-align: left; }
+          .font-bold { font-weight: bold; }
+          .total-row { background-color: #f1f5f9; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <table>
+          <tr>
+            <td colspan="4" class="header-org" style="border:none;">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI<br>PHÒNG GIÁM SÁT ĐIỀU HÀNH THÔNG MINH (IOC)</td>
+            <td colspan="4" style="border:none; text-align:right; font-style:italic;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc</td>
+          </tr>
+          <tr><td colspan="8" style="border:none;">&nbsp;</td></tr>
+          <tr><td colspan="8" class="title-report" style="border:none;">BÁO CÁO THỐNG KÊ CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC</td></tr>
+          <tr><td colspan="8" class="sub-title" style="border:none;">Năm học: 2026 - 2027 (Sau khai giảng)</td></tr>
+          <tr><td colspan="8" style="border:none;">&nbsp;</td></tr>
+          <tr><td colspan="8" class="section-title" style="border:none;">I. DANH SÁCH CÁC TRƯỜNG VÀ ĐÁNH GIÁ CHUẨN QUỐC GIA</td></tr>
+        </table>
 
-    const dataExport = [
-      ["ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI", "", "", "", "", "", ""],
-      ["PHÒNG GIÁM SÁT ĐIỀU HÀNH THÔNG MINH (IOC)", "", "", "", "", "", ""],
-      [],
-      ["BÁO CÁO THỐNG KÊ CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC TRÊN ĐỊA BÀN XÃ"],
-      ["NĂM HỌC 2026 - 2027", "", "", "", "", "", ""],
-      [],
-      ["I. DANH SÁCH CÁC TRƯỜNG VÀ ĐÁNH GIÁ CHUẨN QUỐC GIA"],
-      ["STT", "Tên trường học", "Cấp học", "Số lớp", "Tổng số HS", "HS Nữ", "Biên chế CB-GV", "Đánh giá chuẩn"],
-      [1, "Trường Mầm non Oanh Vũ II", "Mầm non", 27, 615, 285, 69, "Chuẩn QG Mức độ 1"],
-      [2, "Trường Tiểu học Tân Long Hội", "Tiểu học", 48, 1283, 579, 88, "Chuẩn QG Mức độ 1"],
-      [3, "Trường THCS Tân Long Hội", "THCS", 30, 1018, 487, 81, "Chuẩn QG Mức độ 1"],
-      ["", "TỔNG CỘNG TOÀN XÃ", "3 cấp học", 105, 2916, 1351, 238, "100% Đạt Chuẩn"],
-      [],
-      ["II. CHI TIẾT ĐIỂM TRƯỜNG, PHÂN HIỆU VÀ CÁC KHỐI LỚP"],
-      ["STT", "Trường / Điểm trường / Phân hiệu", "Số lớp", "Tổng số HS", "HS Nữ", "Phân bổ theo nhóm tuổi / Khối lớp", ""],
-      ["1", "Điểm chính MN Oanh Vũ II + Điểm Tân Thiềng 1, 2", 9, 172, 76, "Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)", ""],
-      ["2", "Phân hiệu Tân Long + Điểm Tân Hiệp (MN)", 9, 229, 117, "Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)", ""],
-      ["3", "Phân hiệu Tân Long Hội (MN)", 9, 214, 92, "Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)", ""],
-      ["4", "Điểm chính TH Tân Long Hội + Điểm Tân Phong", 15, 414, 186, "Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)", ""],
-      ["5", "Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng (TH)", 16, 382, 156, "Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)", ""],
-      ["6", "Phân hiệu Tân Long + Điểm Đồng Bé (TH)", 17, 487, 237, "Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)", ""],
-      ["7", "Điểm chính Trường THCS Tân Long Hội (TAH)", 9, 284, 130, "Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)", ""],
-      ["8", "Phân hiệu Tân Long Hội (THCS)", 9, 305, 150, "Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)", ""],
-      ["9", "Phân hiệu Tân Long (THCS)", 12, 429, 207, "Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)", ""]
-    ];
+        <!-- BẢNG 1: 3 TRƯỜNG -->
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 45px;">STT</th>
+              <th style="width: 250px;">Tên trường học</th>
+              <th style="width: 100px;">Cấp học</th>
+              <th style="width: 80px;">Số lớp</th>
+              <th style="width: 100px;">Tổng số HS</th>
+              <th style="width: 90px;">HS Nữ</th>
+              <th style="width: 120px;">Biên chế CB-GV</th>
+              <th style="width: 160px;">Đánh giá chuẩn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center font-bold">1</td>
+              <td class="text-left font-bold">Trường Mầm non Oanh Vũ II</td>
+              <td class="text-center">Mầm non</td>
+              <td class="text-center">27</td>
+              <td class="text-right font-bold">615</td>
+              <td class="text-right">285</td>
+              <td class="text-center">69</td>
+              <td class="text-center">Chuẩn QG Mức độ 1</td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold">2</td>
+              <td class="text-left font-bold">Trường Tiểu học Tân Long Hội</td>
+              <td class="text-center">Tiểu học</td>
+              <td class="text-center">48</td>
+              <td class="text-right font-bold">1.283</td>
+              <td class="text-right">579</td>
+              <td class="text-center">88</td>
+              <td class="text-center">Chuẩn QG Mức độ 1</td>
+            </tr>
+            <tr>
+              <td class="text-center font-bold">3</td>
+              <td class="text-left font-bold">Trường THCS Tân Long Hội</td>
+              <td class="text-center">THCS</td>
+              <td class="text-center">30</td>
+              <td class="text-right font-bold">1.018</td>
+              <td class="text-right">487</td>
+              <td class="text-center">81</td>
+              <td class="text-center">Chuẩn QG Mức độ 1</td>
+            </tr>
+            <tr class="total-row">
+              <td class="text-center font-bold">-</td>
+              <td class="text-left font-bold">TỔNG CỘNG TOÀN XÃ</td>
+              <td class="text-center font-bold">03 trường</td>
+              <td class="text-center font-bold">105</td>
+              <td class="text-right font-bold">2.916</td>
+              <td class="text-right font-bold">1.351</td>
+              <td class="text-center font-bold">238</td>
+              <td class="text-center font-bold">100% Đạt Chuẩn</td>
+            </tr>
+          </tbody>
+        </table>
 
-    const ws = XLSX.utils.aoa_to_sheet(dataExport);
+        <!-- BẢNG 2: CHI TIẾT PHÂN HIỆU -->
+        <table>
+          <tr><td colspan="6" class="section-title" style="border:none;">II. CHI TIẾT ĐIỂM TRƯỜNG, PHÂN HIỆU VÀ KHỐI LỚP</td></tr>
+        </table>
 
-    // Tự động giãn cột rộng rãi, chữ hiển thị đầy đủ không bị tràn
-    ws['!cols'] = [
-      { wch: 8 },   // Cột A: STT
-      { wch: 42 },  // Cột B: Tên trường / Phân hiệu (Rộng rãi)
-      { wch: 14 },  // Cột C: Cấp học / Số lớp
-      { wch: 14 },  // Cột D: Tổng số HS
-      { wch: 12 },  // Cột E: HS Nữ
-      { wch: 55 },  // Cột F: Phân bổ nhóm tuổi / Khối lớp (Rất rộng)
-      { wch: 22 }   // Cột G: Đánh giá chuẩn
-    ];
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 45px;">STT</th>
+              <th style="width: 280px;">Trường / Điểm trường / Phân hiệu</th>
+              <th style="width: 80px;">Số lớp</th>
+              <th style="width: 100px;">Tổng số HS</th>
+              <th style="width: 90px;">Nữ</th>
+              <th style="width: 350px;">Phân bổ theo nhóm tuổi / Khối lớp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="text-center font-bold">1</td><td>Điểm chính MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td><td class="text-center">9</td><td class="text-right font-bold">172</td><td class="text-right">76</td><td>Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td></tr>
+            <tr><td class="text-center font-bold">2</td><td>Phân hiệu Tân Long + Điểm Tân Hiệp (MN)</td><td class="text-center">9</td><td class="text-right font-bold">229</td><td class="text-right">117</td><td>Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td></tr>
+            <tr><td class="text-center font-bold">3</td><td>Phân hiệu Tân Long Hội (MN)</td><td class="text-center">9</td><td class="text-right font-bold">214</td><td class="text-right">92</td><td>Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td></tr>
+            <tr><td class="text-center font-bold">4</td><td>Điểm chính TH Tân Long Hội + Điểm Tân Phong</td><td class="text-center">15</td><td class="text-right font-bold">414</td><td class="text-right">186</td><td>Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td></tr>
+            <tr><td class="text-center font-bold">5</td><td>Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng (TH)</td><td class="text-center">16</td><td class="text-right font-bold">382</td><td class="text-right">156</td><td>Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td></tr>
+            <tr><td class="text-center font-bold">6</td><td>Phân hiệu Tân Long + Điểm Đồng Bé (TH)</td><td class="text-center">17</td><td class="text-right font-bold">487</td><td class="text-right">237</td><td>Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)</td></tr>
+            <tr><td class="text-center font-bold">7</td><td>Điểm chính Trường THCS Tân Long Hội (TAH)</td><td class="text-center">9</td><td class="text-right font-bold">284</td><td class="text-right">130</td><td>Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td></tr>
+            <tr><td class="text-center font-bold">8</td><td>Phân hiệu Tân Long Hội (THCS)</td><td class="text-center">9</td><td class="text-right font-bold">305</td><td class="text-right">150</td><td>Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td></tr>
+            <tr><td class="text-center font-bold">9</td><td>Phân hiệu Tân Long (THCS)</td><td class="text-center">12</td><td class="text-right font-bold">429</td><td class="text-right">207</td><td>Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td></tr>
+          </tbody>
+        </table>
+      </body>
+      </html>
+    `;
 
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Giao_Duc_Tan_Long_Hoi");
-    XLSX.writeFile(wb, "Bao_Cao_Giao_Duc_Xa_Tan_Long_Hoi_2026.xlsx");
+    // Tạo file và kích hoạt tải về
+    const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/vnd.ms-excel;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Bao_Cao_Giao_Duc_Xa_Tan_Long_Hoi_2026.xls";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
   </script>
 </body>
