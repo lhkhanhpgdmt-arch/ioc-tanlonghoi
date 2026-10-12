@@ -258,6 +258,7 @@
         
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
        <!-- ================= BẢNG HOME: BÁO CÁO TỔNG QUAN FORM CHUẨN TỈNH VĨNH LONG ================= -->
+        <!-- ================= BẢNG HOME: BÁO CÁO TỔNG QUAN 8 KHỐI NÂNG CẤP ================= -->
         <div id="view-home-summary" class="dashboard-panel active">
           <!-- Thanh tiêu đề màu Navy chuẩn IOC tỉnh -->
           <div class="dashboard-head-bar shadow-sm" style="background-color: #0c2d48;">
@@ -270,197 +271,248 @@
           </div>
 
           <div class="dashboard-card-body shadow-sm p-3 bg-light">
-            <!-- HÀNG 1: 3 KHỐI DASHBOARD TRÊN -->
-            <div class="row g-3 mb-3">
+            <!-- HÀNG 1: 4 KHỐI DASHBOARD TRÊN -->
+            <div class="row g-2 mb-2">
               
               <!-- Khối 1: Giải ngân đầu tư công -->
-              <div class="col-lg-4 col-md-6">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-1')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-wallet2 me-1"></i> 1. Giải ngân đầu tư công</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-1')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-wallet2 me-1"></i> 1. Giải ngân đầu tư công</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="row g-1 text-center mb-2">
+                  <div class="row g-1 text-center mb-1">
                     <div class="col-4">
                       <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">GIẢI NGÂN KHO BẠC</div>
-                        <div class="fw-bold text-success fs-6">100%</div>
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">GIẢI NGÂN</div>
+                        <div class="fw-bold text-success" style="font-size: 0.75rem;">100%</div>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">DỰ ÁN TRỌNG ĐIỂM</div>
-                        <div class="fw-bold text-primary fs-6">04</div>
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">TRỌNG ĐIỂM</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.75rem;">04</div>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">CÓ KHÓ KHĂN</div>
-                        <div class="fw-bold text-danger fs-6">00</div>
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">KHÓ KHĂN</div>
+                        <div class="fw-bold text-danger" style="font-size: 0.75rem;">00</div>
                       </div>
                     </div>
                   </div>
-                  <div class="small fw-semibold text-secondary mb-1" style="font-size: 0.72rem;">Tiến độ giải ngân nguồn vốn:</div>
-                  <div class="mb-1 small d-flex justify-content-between">
-                    <span class="text-truncate">Đường huyện 35 (Cầu số 8 - Đập Chéo)</span>
-                    <b class="text-success">100% (1,95 tỷ)</b>
+                  <div class="mb-1 text-truncate" style="font-size: 0.68rem;">• Huyện 35 (Cầu 8 - Đập Chéo): <b class="text-success">100% (1,95t)</b></div>
+                  <div class="progress" style="height: 4px; margin-bottom: 2px;"><div class="progress-bar bg-success" style="width: 100%"></div></div>
+                  <div class="text-truncate" style="font-size: 0.68rem;">• Liên ấp ĐT903 - Cầu Bé 2: <b class="text-success">100% (1,10t)</b></div>
+                  <div class="progress" style="height: 4px;"><div class="progress-bar bg-success" style="width: 100%"></div></div>
+                </div>
+              </div>
+
+              <!-- Khối 2: Quản lý văn bản điều hành -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-5')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-file-earmark-text-fill me-1"></i> 2. Quản lý VB điều hành</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="progress mb-2" style="height: 6px;">
-                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">VB ĐẾN</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.75rem;">37.616</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">VB ĐI</div>
+                        <div class="fw-bold text-success" style="font-size: 0.75rem;">5.098</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted text-truncate">TRỄ HẠN</div>
+                        <div class="fw-bold text-danger" style="font-size: 0.75rem;">00</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="mb-1 small d-flex justify-content-between">
-                    <span class="text-truncate">Đường liên ấp ĐT903 - Cầu Đồng Bé 2</span>
-                    <b class="text-success">100% (1,10 tỷ)</b>
-                  </div>
-                  <div class="progress" style="height: 6px;">
-                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• Văn phòng HĐND & UBND: <b class="text-primary">15.791 VB</b></div>
+                    <div>• UBND Xã: <b class="text-success">15.881 VB</b></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Khối 2: Tiêu chí Nông thôn mới nâng cao -->
-              <div class="col-lg-4 col-md-6">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-6')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-tree-fill me-1"></i> 2. Tiêu chí Nông thôn mới</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
+              <!-- Khối 3: Tiêu chí Nông thôn mới nâng cao -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-6')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-tree-fill me-1"></i> 3. Nông thôn mới nâng cao</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="row g-1 text-center mb-2">
-                    <div class="col-3">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">TỔNG SỐ</div>
-                        <div class="fw-bold text-primary fs-6">47</div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">ĐẠT CHUẨN</div>
-                        <div class="fw-bold text-success fs-6">28</div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">CHƯA ĐẠT</div>
-                        <div class="fw-bold text-danger fs-6">19</div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">TỶ LỆ</div>
-                        <div class="fw-bold text-warning fs-6">59.6%</div>
-                      </div>
-                    </div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted text-truncate">TỔNG</div><div class="fw-bold text-primary" style="font-size: 0.75rem;">47</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted text-truncate">ĐẠT</div><div class="fw-bold text-success" style="font-size: 0.75rem;">28</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted text-truncate">CHƯA</div><div class="fw-bold text-danger" style="font-size: 0.75rem;">19</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted text-truncate">TỶ LỆ</div><div class="fw-bold text-warning" style="font-size: 0.70rem;">59.6%</div></div></div>
                   </div>
-                  <div class="p-2 rounded bg-light border small mt-2" style="font-size: 0.72rem;">
-                    <div class="d-flex justify-content-between mb-1"><span>• Hạ tầng giao thông & Thủy lợi:</span><b class="text-success">Đạt chuẩn</b></div>
-                    <div class="d-flex justify-content-between mb-1"><span>• Y tế, Giáo dục, Văn hóa:</span><b class="text-success">Đạt chuẩn</b></div>
-                    <div class="d-flex justify-content-between"><span>• Quy hoạch & Camera AI An ninh:</span><b class="text-danger">Đang hoàn thiện</b></div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• Hạ tầng giao thông: <b class="text-success">Đạt chuẩn</b></div>
+                    <div>• Y tế, Giáo dục, Văn hóa: <b class="text-success">Đạt chuẩn</b></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Khối 3: Thống kê tài sản công sau sáp nhập -->
-              <div class="col-lg-4 col-md-12">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-13')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-buildings-fill me-1"></i> 3. Thống kê tài sản công</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
+              <!-- Khối 4: Tiếp nhận & Xử lý ý kiến người dân -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-8')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-chat-dots-fill me-1"></i> 4. Ý kiến & Kiến nghị</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="row g-1 text-center mb-2">
-                    <div class="col-4">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">TỔNG CƠ SỞ</div>
-                        <div class="fw-bold text-primary fs-6">03</div>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">TỔNG DT ĐẤT</div>
-                        <div class="fw-bold text-success fs-6" style="font-size:0.8rem !important;">4.315 m²</div>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="p-1 rounded bg-light border">
-                        <div style="font-size: 0.65rem;" class="text-muted">TỔNG DT SÀN</div>
-                        <div class="fw-bold text-info fs-6" style="font-size:0.8rem !important;">1.509 m²</div>
-                      </div>
-                    </div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted">NHẬN</div><div class="fw-bold text-primary" style="font-size: 0.75rem;">07</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted">XỬ LÝ</div><div class="fw-bold text-success" style="font-size: 0.75rem;">07</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted">ĐANG</div><div class="fw-bold text-warning" style="font-size: 0.75rem;">00</div></div></div>
+                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size: 0.55rem;" class="text-muted">TRỄ</div><div class="fw-bold text-danger" style="font-size: 0.75rem;">00</div></div></div>
                   </div>
-                  <table class="table table-bordered table-sm mb-0 text-center" style="font-size: 0.72rem;">
-                    <thead class="table-light">
-                      <tr><th>Cơ sở (Trạm Y tế)</th><th>Giữ lại SD</th><th>Chuyển giao</th><th>Thu hồi</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><td class="text-start">CS1 (Ấp Thâm Bình)</td><td class="text-success fw-bold">✓</td><td>-</td><td>-</td></tr>
-                      <tr><td class="text-start">CS2 (Ấp Tân Thắng)</td><td class="text-success fw-bold">✓</td><td>-</td><td>-</td></tr>
-                      <tr><td class="text-start">CS3 (Ấp Tân Qui)</td><td class="text-success fw-bold">✓</td><td>-</td><td>-</td></tr>
-                    </tbody>
-                  </table>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• Tỷ lệ đúng hạn: <b class="text-success">100% (7/7 kiến nghị)</b></div>
+                    <div class="text-muted text-truncate">• Rác thải, ô nhiễm môi trường, BHXH.</div>
+                  </div>
                 </div>
               </div>
 
             </div>
 
-            <!-- HÀNG 2: 3 KHỐI DASHBOARD DƯỚI -->
-            <div class="row g-3">
+            <!-- HÀNG 2: 4 KHỐI DASHBOARD DƯỚI -->
+            <div class="row g-2">
               
-              <!-- Khối 4: Ý kiến phản ánh của người dân -->
-              <div class="col-lg-4 col-md-6">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-8')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-chat-dots-fill me-1"></i> 4. Phản ánh, kiến nghị người dân</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
+              <!-- Khối 5: Kế hoạch 100 ngày CĐS -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-10')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-kanban me-1"></i> 5. Kế hoạch 100 ngày CĐS</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="row g-1 text-center mb-2">
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">TIẾP NHẬN</div><div class="fw-bold text-primary fs-6">07</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">ĐÃ XỬ LÝ</div><div class="fw-bold text-success fs-6">07</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">ĐANG XỬ LÝ</div><div class="fw-bold text-warning fs-6">00</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">QUÁ HẠN</div><div class="fw-bold text-danger fs-6">00</div></div></div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-6">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted">NHIỆM VỤ</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.75rem;">12/15</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted">TIẾN ĐỘ CHUNG</div>
+                        <div class="fw-bold text-success" style="font-size: 0.75rem;">80%</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="p-2 rounded bg-light border small" style="font-size: 0.72rem;">
-                    <div><span class="text-success">■</span> Tỷ lệ giải quyết đúng hạn: <b>100% (7/7 kiến nghị)</b></div>
-                    <div class="mt-1 text-muted">• Nội dung chính: Thu gom rác thải sinh hoạt, ô nhiễm môi trường và thủ tục BHXH.</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Khối 5: Quản lý văn bản chỉ đạo điều hành -->
-              <div class="col-lg-4 col-md-6">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-5')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-file-earmark-text-fill me-1"></i> 5. Văn bản chỉ đạo điều hành</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
-                  </div>
-                  <div class="row g-1 text-center mb-2">
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">VB ĐẾN</div><div class="fw-bold text-primary fs-6">36.582</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">VB ĐI</div><div class="fw-bold text-success fs-6">5.022</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">KÝ SỐ</div><div class="fw-bold text-info fs-6">99.4%</div></div></div>
-                    <div class="col-3"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">TRỄ HẠN</div><div class="fw-bold text-danger fs-6">00</div></div></div>
-                  </div>
-                  <div class="p-2 rounded bg-light border small" style="font-size: 0.72rem;">
-                    <div class="d-flex justify-content-between mb-1"><span>• UBND Xã:</span><b class="text-success">15.445 VB đến</b></div>
-                    <div class="d-flex justify-content-between mb-1"><span>• Văn phòng HĐND & UBND:</span><b class="text-success">15.368 VB đến</b></div>
-                    <div class="d-flex justify-content-between"><span>• Phòng Văn hóa - Xã hội:</span><b class="text-primary">3.054 VB đến</b></div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• LAN, Wifi, Họp trực tuyến: <b class="text-success">Đạt chuẩn</b></div>
+                    <div>• Số liệu IOC cấp xã: <b class="text-success">Đã hoàn thành</b></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Khối 6: Kế hoạch 100 ngày CĐS & Giáo dục -->
-              <div class="col-lg-4 col-md-12">
-                <div class="p-3 border rounded-3 bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-10')">
-                  <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                    <span class="fw-bold text-primary small text-uppercase"><i class="bi bi-kanban me-1"></i> 6. Kế hoạch 100 ngày CĐS & Giáo dục</span>
-                    <i class="bi bi-box-arrow-up-right text-muted small"></i>
+              <!-- Khối 6: Thông tin đơn vị sự nghiệp giáo dục -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-10')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-mortarboard-fill me-1"></i> 6. Sự nghiệp giáo dục</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
                   </div>
-                  <div class="row g-1 text-center mb-2">
-                    <div class="col-4"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">NHIỆM VỤ CĐS</div><div class="fw-bold text-primary fs-6">12/15</div></div></div>
-                    <div class="col-4"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">TIẾN ĐỘ CHUNG</div><div class="fw-bold text-success fs-6">80%</div></div></div>
-                    <div class="col-4"><div class="p-1 rounded bg-light border"><div style="font-size:0.65rem;" class="text-muted">HỌC SINH XÃ</div><div class="fw-bold text-info fs-6">2.916</div></div></div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted">HỌC SINH</div>
+                        <div class="fw-bold text-info" style="font-size: 0.75rem;">2.916</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted">LỚP HỌC</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.75rem;">105</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.58rem;" class="text-muted">TRƯỜNG</div>
+                        <div class="fw-bold text-success" style="font-size: 0.75rem;">03</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="p-2 rounded bg-light border small" style="font-size: 0.72rem;">
-                    <div class="d-flex justify-content-between mb-1"><span>• Mạng LAN, Wifi cơ quan & Họp trực tuyến:</span><b class="text-success">Hoàn thành đúng hạn</b></div>
-                    <div class="d-flex justify-content-between mb-1"><span>• Cập nhật số liệu IOC cấp xã:</span><b class="text-success">Đã hoàn thành</b></div>
-                    <div class="d-flex justify-content-between"><span>• 03 trường học trực thuộc:</span><b class="text-info">100% Chuẩn Quốc gia Mức độ 1</b></div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• 100% Trường đạt Chuẩn quốc gia mức độ 1</div>
+                    <div class="text-muted">• Gồm: 01 Mầm non, 01 Tiểu học, 01 THCS</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Khối 7: Thống kê tài sản công -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-13')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-buildings-fill me-1"></i> 7. Thống kê tài sản công</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
+                  </div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">CƠ SỞ</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.75rem;">10</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">DT ĐẤT</div>
+                        <div class="fw-bold text-success" style="font-size: 0.68rem !important; overflow: hidden;">34.844m²</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">DT SÀN</div>
+                        <div class="fw-bold text-info" style="font-size: 0.68rem !important; overflow: hidden;">9.659m²</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• 03 cơ sở y tế (Trạm Y tế xã)</div>
+                    <div>• Trụ sở hành chính & trường học trên địa bàn.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Khối 8: Kinh phí chuyển đổi số (NQ 57) -->
+              <div class="col-lg-3 col-md-6">
+                <div class="p-2 border rounded bg-white shadow-sm h-100 task-overview-card" onclick="switchView('view-14')">
+                  <div class="d-flex justify-content-between align-items-center mb-1 pb-1 border-bottom">
+                    <span class="fw-bold text-primary text-uppercase" style="font-size: 0.72rem;"><i class="bi bi-cash-stack me-1"></i> 8. Kinh phí CĐS (NQ 57)</span>
+                    <i class="bi bi-box-arrow-up-right text-muted" style="font-size: 0.65rem;"></i>
+                  </div>
+                  <div class="row g-1 text-center mb-1">
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">PHÂN BỔ</div>
+                        <div class="fw-bold text-primary" style="font-size: 0.72rem !important; overflow: hidden;">1.960tr</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">GIẢI NGÂN</div>
+                        <div class="fw-bold text-success" style="font-size: 0.72rem !important; overflow: hidden;">490tr</div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="p-1 rounded bg-light border">
+                        <div style="font-size: 0.55rem;" class="text-muted text-truncate">HOÀN THÀNH</div>
+                        <div class="fw-bold text-info" style="font-size: 0.75rem;">04/14</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="font-size: 0.68rem; line-height: 1.2;">
+                    <div>• Tỷ lệ giải ngân: <b class="text-success">25,02%</b> (Hạng 104/124)</div>
+                    <div>• Khó khăn, cần đôn đốc: <b>04 nhiệm vụ</b></div>
                   </div>
                 </div>
               </div>
