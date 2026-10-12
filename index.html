@@ -170,7 +170,9 @@
   <!-- Thanh tiêu đề hệ thống -->
   <header class="top-navbar shadow-sm">
     <div class="d-flex align-items-center">
-  <button class="btn btn-sm btn-outline-secondary me-2" onclick="showHomeDashboard()" title="Mở Báo cáo tổng quan">
+  <button class="btn btn-sm btn-outline-secondary me-2" onclick="toggleSidebar()" title="Thu gọn / Mở rộng menu">
+  <i class="bi bi-list fs-5"></i>
+</button>
   <i class="bi bi-list fs-5"></i>
 </button>
       
@@ -191,7 +193,7 @@
     <div class="row g-3">
       
       <!-- CỘT TRÁI: 7 PHÂN HỆ ĐIỀU HÀNH -->
-      <aside class="col-lg-3 col-md-4">
+      <aside id="ioc-sidebar" class="col-lg-3 col-md-4" style="transition: all 0.3s ease;">
         <div class="ioc-menu-list shadow-sm">
           <!-- 1. Giải ngân vốn đầu tư công -->
           <div class="menu-btn" id="btn-tab-1" onclick="switchView('view-1')">
@@ -245,7 +247,7 @@
       </aside>
 
       <!-- CỘT PHẢI: KHU VỰC HIỂN THỊ NỘI DUNG -->
-      <main class="col-lg-9 col-md-8">
+     <main id="ioc-main-content" class="col-lg-9 col-md-8" style="transition: all 0.3s ease;">
         
         <!-- ================= BẢNG HOME: TỔNG THỂ 7 PHÂN HỆ ================= -->
        <!-- ================= BẢNG HOME: BÁO CÁO TỔNG QUAN FORM CHUẨN TỈNH VĨNH LONG ================= -->
@@ -1541,6 +1543,23 @@
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  };
+    // --- HÀM THU GỌN / MỞ RỘNG SIDEBAR KHI BẤM NÚT 3 GẠCH ---
+  window.toggleSidebar = function() {
+    const sidebar = document.getElementById('ioc-sidebar');
+    const mainContent = document.getElementById('ioc-main-content');
+    
+    if (!sidebar || !mainContent) return;
+
+    if (sidebar.style.display === 'none') {
+      // Hiện lại menu 7 mục bên trái
+      sidebar.style.display = 'block';
+      mainContent.className = 'col-lg-9 col-md-8';
+    } else {
+      // Ẩn menu sang trái và mở rộng toàn màn hình
+      sidebar.style.display = 'none';
+      mainContent.className = 'col-12';
+    }
   };
   </script>
 </body>
