@@ -1192,130 +1192,253 @@
         </div>
 
         <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG (ĐẦY ĐỦ CHI TIẾT) ================= -->
+       <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG TOÀN DIỆN ================= -->
         <div id="view-13" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-buildings-fill me-1"></i> 7. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</div>
-            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+            <div class="fw-bold"><i class="bi bi-buildings-fill me-2"></i> 7. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP — XÃ TÂN LONG HỘI</div>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportTaiSanCongExcel()">
+                <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
+              </button>
+              <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+                <i class="bi bi-house-door"></i> Về trang chủ
+              </button>
+            </div>
           </div>
           <div class="dashboard-card-body shadow-sm">
-            <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h5>
-              <div class="small fst-italic text-muted">(Nguồn: Sở Tài chính cung cấp - Dữ liệu cập nhật đến ngày <span id="current-date-tai-san">07/10/2026</span>)</div>
-            </div>
+            <h5 class="text-center text-primary fw-bold mb-1">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h5>
+            <div class="text-center text-muted small mb-3"><i>(Nguồn: Sở Tài chính & UBND Xã Tân Long Hội cung cấp - Dữ liệu cập nhật đến ngày 12/10/2026)</i></div>
 
-            <!-- 5 THẺ CHỈ SỐ KPI TỔNG QUÁT -->
-            <div class="row g-2 mb-4">
-              <div class="col-md-6 col-12">
-                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="badge bg-primary fs-6">TỔNG CƠ SỞ NHÀ, ĐẤT</span>
-                    <span class="fs-4 fw-bold text-primary">3 cơ sở</span>
-                  </div>
-                  <div class="d-flex justify-content-between border-top pt-2">
-                    <span><i class="bi bi-map text-primary me-1"></i> Tổng diện tích đất:</span>
-                    <b class="text-dark">4.315,00 m²</b>
-                  </div>
-                  <div class="d-flex justify-content-between border-top pt-2 mt-2">
-                    <span><i class="bi bi-building text-primary me-1"></i> Tổng diện tích sàn:</span>
-                    <b class="text-dark">1.509,00 m²</b>
-                  </div>
+            <!-- 5 THẺ CHỈ SỐ TỔNG HỢP TRÊN CÙNG -->
+            <div class="row g-2 mb-3 text-center">
+              <div class="col">
+                <div class="p-2 border rounded bg-white shadow-sm h-100">
+                  <div class="fw-bold text-primary small"><i class="bi bi-building"></i> TỔNG CỘNG</div>
+                  <div class="fs-4 fw-bold text-primary my-1">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Đất: <b>34.844 m²</b></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: <b>9.659 m²</b></div>
                 </div>
               </div>
-              <div class="col-md-6 col-12">
-                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="badge bg-success fs-6">GIỮ LẠI TIẾP TỤC SỬ DỤNG</span>
-                    <span class="fs-4 fw-bold text-success">3 cơ sở (100%)</span>
-                  </div>
-                  <div class="d-flex justify-content-between border-top pt-2">
-                    <span><i class="bi bi-check-circle-fill text-success me-1"></i> Hiện trạng:</span>
-                    <b class="text-success">Đang sử dụng làm Trạm Y tế</b>
-                  </div>
-                  <div class="d-flex justify-content-between border-top pt-2 mt-2">
-                    <span><i class="bi bi-file-earmark-check text-success me-1"></i> Phương án đề xuất:</span>
-                    <b class="text-dark">Theo Nghị định số 03/2025/NĐ-CP</b>
-                  </div>
+              <div class="col">
+                <div class="p-2 border rounded bg-white shadow-sm h-100">
+                  <div class="fw-bold text-success small"><i class="bi bi-check-circle"></i> GIỮ LẠI SỬ DỤNG</div>
+                  <div class="fs-4 fw-bold text-success my-1">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Đất: <b>34.844 m²</b></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: <b>9.659 m²</b></div>
                 </div>
               </div>
-            </div>
-
-            <!-- 4 BIỂU ĐỒ TRÒN DONUT -->
-            <div class="row g-2 mb-4">
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
-                  <div class="fw-bold small text-primary mb-2">SỐ LƯỢNG CƠ SỞ NHÀ, ĐẤT</div>
-                  <div style="height: 140px;"><canvas id="chartCoSoNhaDat"></canvas></div>
+              <div class="col">
+                <div class="p-2 border rounded bg-white shadow-sm h-100">
+                  <div class="fw-bold text-warning small"><i class="bi bi-arrow-left-right"></i> ĐIỀU CHUYỂN</div>
+                  <div class="fs-4 fw-bold text-warning my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
-                  <div class="fw-bold small text-primary mb-2">DIỆN TÍCH ĐẤT (M²)</div>
-                  <div style="height: 140px;"><canvas id="chartDienTichDat"></canvas></div>
+              <div class="col">
+                <div class="p-2 border rounded bg-white shadow-sm h-100">
+                  <div class="fw-bold text-info small"><i class="bi bi-box-arrow-up-right"></i> CHUYỂN GIAO</div>
+                  <div class="fs-4 fw-bold text-info my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
-                  <div class="fw-bold small text-primary mb-2">DIỆN TÍCH SÀN (M²)</div>
-                  <div style="height: 140px;"><canvas id="chartDienTichSan"></canvas></div>
-                </div>
-              </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
-                  <div class="fw-bold small text-primary mb-2">CẤP QUẢN LÝ</div>
-                  <div style="height: 140px;"><canvas id="chartCapQuanLy"></canvas></div>
+              <div class="col">
+                <div class="p-2 border rounded bg-white shadow-sm h-100">
+                  <div class="fw-bold text-danger small"><i class="bi bi-trash"></i> THU HỒI</div>
+                  <div class="fs-4 fw-bold text-danger my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
+                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
                 </div>
               </div>
             </div>
 
-            <!-- BẢNG SỐ LIỆU CHI TIẾT 3 CƠ SỞ -->
-            <div class="small fw-bold text-muted mb-1">Chi tiết 3 cơ sở nhà, đất:</div>
+            <!-- BỘ LỌC TÌM KIẾM -->
+            <div class="p-3 border rounded bg-light mb-3">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-3">
+                  <input type="text" id="filterTaiSanKeyword" class="form-control form-control-sm" placeholder="Tìm tên đơn vị, địa chỉ..." onkeyup="filterTaiSanTable()">
+                </div>
+                <div class="col-md-3">
+                  <select id="filterTaiSanMucDich" class="form-select form-select-sm" onchange="filterTaiSanTable()">
+                    <option value="">-- Tất cả mục đích --</option>
+                    <option value="Trụ sở">Đất trụ sở cơ quan</option>
+                    <option value="Y tế">Đất cơ sở y tế</option>
+                    <option value="Giáo dục">Đất cơ sở giáo dục</option>
+                    <option value="Văn hóa">Đất cơ sở văn hóa</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select id="filterTaiSanPhuongAn" class="form-select form-select-sm" onchange="filterTaiSanTable()">
+                    <option value="">-- Tất cả phương án --</option>
+                    <option value="Giữ lại tiếp tục sử dụng">Giữ lại tiếp tục sử dụng</option>
+                    <option value="Điều chuyển">Điều chuyển</option>
+                    <option value="Chuyển giao">Chuyển giao</option>
+                    <option value="Thu hồi">Thu hồi</option>
+                  </select>
+                </div>
+                <div class="col-md-3 text-end">
+                  <button class="btn btn-sm btn-outline-secondary" onclick="resetTaiSanFilter()">Xóa lọc</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- BẢNG CHI TIẾT DANH MỤC NHÀ ĐẤT -->
+            <div class="fw-bold text-primary small mb-2"><i class="bi bi-table me-1"></i> DANH SÁCH CHI TIẾT CƠ SỞ NHÀ, ĐẤT (10 cơ sở nhà, đất)</div>
             <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
+              <table class="table table-bordered table-sm align-middle small text-center mb-0" id="tableTaiSanCong">
                 <thead class="table-light">
                   <tr>
-                    <th>STT</th>
-                    <th>TÊN ĐƠN VỊ / ĐỊA CHỈ</th>
-                    <th>DT ĐẤT (M²)</th>
-                    <th>DT SÀN (M²)</th>
-                    <th>MỤC ĐÍCH</th>
-                    <th>HIỆN TRẠNG</th>
-                    <th>PHƯƠNG ÁN XỬ LÝ</th>
+                    <th rowspan="2" style="width: 35px;">STT</th>
+                    <th rowspan="2" class="text-start" style="min-width: 220px;">ĐƠN VỊ / ĐỊA CHỈ NHÀ, ĐẤT</th>
+                    <th colspan="3">NHÀ, ĐẤT (m²)</th>
+                    <th rowspan="2">HỒ SƠ PHÁP LÝ</th>
+                    <th rowspan="2">MỤC ĐÍCH SỬ DỤNG</th>
+                    <th rowspan="2">HIỆN TRẠNG</th>
+                    <th colspan="2">PHƯƠNG ÁN SẮP XẾP, XỬ LÝ NHÀ, ĐẤT</th>
+                  </tr>
+                  <tr>
+                    <th>DT ĐẤT</th>
+                    <th>DT XD NHÀ</th>
+                    <th>DT SÀN SD</th>
+                    <th>PA ĐỀ XUẤT</th>
+                    <th>CƠ SỞ ĐỀ XUẤT</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- NHÓM 1: TRỤ SỞ HÀNH CHÍNH & VĂN HÓA -->
+                  <tr class="table-secondary fw-bold text-start"><td colspan="10">A. KHỐI TRỤ SỞ HÀNH CHÍNH VÀ NHÀ VĂN HÓA</td></tr>
                   <tr>
                     <td>1</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 2) — Ấp Tân Thắng</td>
-                    <td class="fw-bold">1.250,00</td>
-                    <td class="fw-bold">550,00</td>
-                    <td>Đất cơ sở y tế</td>
+                    <td class="text-start fw-semibold">Trụ sở Đảng ủy - HĐND - UBND xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">4.250,00</td>
+                    <td>1.100,00</td>
+                    <td>2.200,00</td>
+                    <td>Giấy CNQSDĐ số BV 882910</td>
+                    <td>Đất trụ sở cơ quan</td>
                     <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">✔ Giữ lại tiếp tục sử dụng</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 1) — Ấp Thâm Bình</td>
-                    <td class="fw-bold">1.943,00</td>
-                    <td class="fw-bold">369,00</td>
-                    <td>Đất cơ sở y tế</td>
+                    <td class="text-start fw-semibold">Ban Chỉ huy Quân sự xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">850,00</td>
+                    <td>280,00</td>
+                    <td>280,00</td>
+                    <td>Giấy CNQSDĐ cấp 2018</td>
+                    <td>Đất an ninh - quốc phòng</td>
                     <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">✔ Giữ lại tiếp tục sử dụng</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 3) — Ấp Tân Qui</td>
-                    <td class="fw-bold">1.122,00</td>
-                    <td class="fw-bold">590,00</td>
+                    <td class="text-start fw-semibold">Công an xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">1.000,00</td>
+                    <td>320,00</td>
+                    <td>640,00</td>
+                    <td>Giấy CNQSDĐ cấp 2020</td>
+                    <td>Đất trụ sở cơ quan</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td class="text-start fw-semibold">Trung tâm Văn hóa - Thể thao & Học tập cộng đồng<br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">6.000,00</td>
+                    <td>480,00</td>
+                    <td>480,00</td>
+                    <td>Quyết định giao đất của UBND huyện</td>
+                    <td>Đất cơ sở văn hóa</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
+                  </tr>
+
+                  <!-- NHÓM 2: Y TẾ -->
+                  <tr class="table-secondary fw-bold text-start"><td colspan="10">B. KHỐI CƠ SỞ Y TẾ TRỰC THUỘC</td></tr>
+                  <tr>
+                    <td>5</td>
+                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 1)<br><span class="text-muted small">Ấp Thâm Bình, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">1.943,00</td>
+                    <td>369,00</td>
+                    <td>369,00</td>
+                    <td>Giấy CNQSDĐ số BI 439591 (25/12/2020)</td>
                     <td>Đất cơ sở y tế</td>
                     <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">✔ Giữ lại tiếp tục sử dụng</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 2)<br><span class="text-muted small">Ấp Tân Thắng, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">1.250,00</td>
+                    <td>550,00</td>
+                    <td>550,00</td>
+                    <td>Giấy CNQSDĐ số CB 679850 (26/8/2015)</td>
+                    <td>Đất cơ sở y tế</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 3)<br><span class="text-muted small">Ấp Tân Qui, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">1.122,00</td>
+                    <td>590,00</td>
+                    <td>590,00</td>
+                    <td>Giấy CNQSDĐ số BI 425480 (27/11/2017)</td>
+                    <td>Đất cơ sở y tế</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
+                  </tr>
+
+                  <!-- NHÓM 3: GIÁO DỤC -->
+                  <tr class="table-secondary fw-bold text-start"><td colspan="10">C. KHỐI CƠ SỞ ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC</td></tr>
+                  <tr>
+                    <td>8</td>
+                    <td class="text-start fw-semibold">Trường Mầm non Oanh Vũ II (Điểm chính và các phân hiệu)<br><span class="text-muted small">Ấp Tân Thiềng, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">5.200,00</td>
+                    <td>1.250,00</td>
+                    <td>1.850,00</td>
+                    <td>Giấy CNQSDĐ cấp theo quy hoạch giáo dục</td>
+                    <td>Đất cơ sở giáo dục</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td class="text-start fw-semibold">Trường Tiểu học Tân Long Hội (Điểm chính và 4 điểm phụ)<br><span class="text-muted small">Ấp Tân An & Thâm Bình, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">18.429,00</td>
+                    <td>1.950,00</td>
+                    <td>3.400,00</td>
+                    <td>Giấy CNQSDĐ các điểm trường (Báo cáo số 1/UBND)</td>
+                    <td>Đất cơ sở giáo dục</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td class="text-start fw-semibold">Trường THCS Tân Long Hội<br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
+                    <td class="fw-bold">7.200,00</td>
+                    <td>1.450,00</td>
+                    <td>2.900,00</td>
+                    <td>Giấy CNQSDĐ cấp theo quy hoạch giáo dục</td>
+                    <td>Đất cơ sở giáo dục</td>
+                    <td><span class="badge bg-success">Đang SD</span></td>
+                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+                    <td>Nghị định 03/2025/NĐ-CP</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-
      <!-- ================= PHÂN HỆ 8 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ NQ 57 ================= -->
         <div id="view-14" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
@@ -1876,6 +1999,70 @@
     const link = document.createElement("a");
     link.href = url;
     link.download = "Giai_Ngan_Kinh_Phi_NQ57_Tan_Long_Hoi_2026.xls";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+    // --- BỘ LỌC TÌM KIẾM CHO BẢNG TÀI SẢN CÔNG ---
+  function filterTaiSanTable() {
+    const keyword = document.getElementById('filterTaiSanKeyword').value.toLowerCase();
+    const mucDich = document.getElementById('filterTaiSanMucDich').value.toLowerCase();
+    const phuongAn = document.getElementById('filterTaiSanPhuongAn').value.toLowerCase();
+    const rows = document.querySelectorAll('#tableTaiSanCong tbody tr');
+
+    rows.forEach(row => {
+      if (row.classList.contains('table-secondary')) return; // Bỏ qua dòng tiêu đề nhóm
+      const text = row.innerText.toLowerCase();
+      const matchKey = text.includes(keyword);
+      const matchMucDich = mucDich === "" || text.includes(mucDich);
+      const matchPhuongAn = phuongAn === "" || text.includes(phuongAn);
+
+      if (matchKey && matchMucDich && matchPhuongAn) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function resetTaiSanFilter() {
+    document.getElementById('filterTaiSanKeyword').value = '';
+    document.getElementById('filterTaiSanMucDich').value = '';
+    document.getElementById('filterTaiSanPhuongAn').value = '';
+    filterTaiSanTable();
+  }
+
+  // --- XUẤT EXCEL CHUẨN ĐẦY ĐỦ CHO TÀI SẢN CÔNG ---
+  window.exportTaiSanCongExcel = function() {
+    const tableHtml = document.getElementById('tableTaiSanCong').outerHTML;
+    const htmlContent = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+          body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; }
+          table { border-collapse: collapse; width: 100%; }
+          th { background-color: #dbeafe; font-weight: bold; border: 1px solid #000; padding: 6px; text-align: center; }
+          td { border: 1px solid #000; padding: 5px; }
+          .table-secondary { background-color: #e2e8f0; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <table>
+          <tr><td colspan="10" style="border:none; font-weight:bold; font-size:14pt; text-align:center;">BÁO CÁO THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP — XÃ TÂN LONG HỘI</td></tr>
+          <tr><td colspan="10" style="border:none; text-align:center; font-style:italic;">(Cập nhật đầy đủ Trụ sở, Y tế và Trường học đến ngày 12/10/2026)</td></tr>
+          <tr><td colspan="10" style="border:none;">&nbsp;</td></tr>
+        </table>
+        ${tableHtml}
+      </body>
+      </html>
+    `;
+    const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/vnd.ms-excel;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Thong_Ke_Tai_San_Cong_Xa_Tan_Long_Hoi_2026.xls";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
