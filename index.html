@@ -649,117 +649,158 @@
         </div>
 
         <!-- ================= PHÂN HỆ 2 (VIEW-5): QUẢN LÝ VĂN BẢN ĐIỀU HÀNH ================= -->
+       <!-- ================= PHÂN HỆ 2 (VIEW-5): QUẢN LÝ VĂN BẢN ĐIỀU HÀNH ================= -->
         <div id="view-5" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-file-earmark-text-fill me-1"></i> 2. THỐNG KÊ HOẠT ĐỘNG QUẢN LÝ VĂN BẢN ĐIỀU HÀNH</div>
+            <div class="fw-bold"><i class="bi bi-file-earmark-text-fill me-2"></i> 2. THỐNG KÊ HOẠT ĐỘNG QUẢN LÝ VĂN BẢN ĐIỀU HÀNH</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
           <div class="dashboard-card-body shadow-sm">
-            <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ HOẠT ĐỘNG QUẢN LÝ VĂN BẢN ĐIỀU HÀNH CỦA XÃ TÂN LONG HỘI</h5>
-              <div class="small text-muted mb-1"><i class="bi bi-calendar3 me-1"></i> Số liệu từ ngày <strong>01/01/2026</strong> đến ngày <strong>06/10/2026</strong></div>
-              <div class="small text-secondary text-end pe-2"><i class="bi bi-clock me-1"></i> Cập nhật: 23:31 06/10/2026</div>
+            <h5 class="text-center text-primary fw-bold mb-1">THỐNG KÊ HOẠT ĐỘNG QUẢN LÝ VĂN BẢN ĐIỀU HÀNH CỦA XÃ TÂN LONG HỘI</h5>
+            <div class="text-center text-muted small mb-2">
+              <i class="bi bi-calendar3"></i> Số liệu từ ngày <b>01/01/2026</b> đến ngày <b>12/10/2026</b>
+            </div>
+            <div class="text-end text-muted small mb-3">
+              <i class="bi bi-clock"></i> Thời gian cập nhật: 09:17 12/10/2026
             </div>
 
-            <!-- 2 KHỐI KPI TỔNG -->
+            <!-- 2 Khối KPI Tổng quát Văn bản Đến & Đi -->
             <div class="row g-3 justify-content-center mb-4">
-              <div class="col-md-5 col-12">
-                <div class="p-3 border rounded-3 bg-white shadow-sm text-center">
-                  <div class="text-dark fw-bold mb-1 fs-6">Văn bản đến</div>
-                  <div class="fw-bold text-primary display-6 my-1">36.582</div>
-                  <div class="text-danger fw-semibold small">Đang xử lý: 5.291</div>
+              <div class="col-md-5">
+                <div class="p-3 border rounded text-center bg-white shadow-sm">
+                  <div class="text-muted fw-bold small">Văn bản đến</div>
+                  <div class="display-6 fw-bold text-primary my-1">37.616</div>
+                  <div class="text-danger small fw-semibold">Đang xử lý: 5.516</div>
                 </div>
               </div>
-              <div class="col-md-5 col-12">
-                <div class="p-3 border rounded-3 bg-white shadow-sm text-center">
-                  <div class="text-dark fw-bold mb-1 fs-6">Văn bản đi</div>
-                  <div class="fw-bold text-success display-6 my-1">5.022</div>
-                  <div class="text-warning-emphasis fw-semibold small">Đang xử lý: 4.559</div>
+              <div class="col-md-5">
+                <div class="p-3 border rounded text-center bg-white shadow-sm">
+                  <div class="text-muted fw-bold small">Văn bản đi</div>
+                  <div class="display-6 fw-bold text-success my-1">5.098</div>
+                  <div class="text-warning small fw-semibold">Đang xử lý: 4.642</div>
                 </div>
               </div>
             </div>
 
-            <!-- BẢNG SỐ LIỆU CHI TIẾT THEO CÁC ĐƠN VỊ -->
+            <div class="mb-2">
+              <a href="#" class="text-decoration-none small fw-bold text-primary"><i class="bi bi-star-fill text-warning me-1"></i>Xem số liệu ký số</a>
+            </div>
+
+            <div class="fw-bold text-center text-primary small mb-2">Bảng số liệu chi tiết</div>
             <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
-                <thead class="table-light align-middle">
+              <table class="table table-bordered table-sm align-middle text-center small mb-0">
+                <thead class="table-light">
                   <tr>
-                    <th rowspan="2" class="text-center" style="width: 24%;">Đơn vị</th>
-                    <th rowspan="2" style="width: 9%;">VB đến</th>
-                    <th rowspan="2" style="width: 10%;">VB đến đang xử lý</th>
-                    <th colspan="2" style="width: 19%;">VB đến chưa xử lý</th>
-                    <th colspan="2" style="width: 19%;">VB đến đang xử lý</th>
-                    <th rowspan="2" style="width: 9%;">VB đi</th>
-                    <th rowspan="2" style="width: 10%;">VB đi đang xử lý</th>
+                    <th rowspan="2" class="text-start" style="min-width: 220px;">Đơn vị</th>
+                    <th rowspan="2">VB đến</th>
+                    <th rowspan="2">VB đến đang xử lý</th>
+                    <th colspan="2">VB đến chưa xử lý</th>
+                    <th colspan="2">VB đến đang xử lý</th>
+                    <th rowspan="2">VB đi</th>
+                    <th rowspan="2">VB đi đang xử lý</th>
                   </tr>
                   <tr>
-                    <th style="font-size: 0.78rem;">(Trong hạn)</th>
-                    <th style="font-size: 0.78rem;">(Quá hạn)</th>
-                    <th style="font-size: 0.78rem;">(Trong hạn)</th>
-                    <th style="font-size: 0.78rem;">(Quá hạn)</th>
+                    <th>(Trong hạn)</th>
+                    <th>(Quá hạn)</th>
+                    <th>(Trong hạn)</th>
+                    <th>(Quá hạn)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="fw-bold" style="background-color: #fafbfc;">
-                    <td class="text-start"><i class="bi bi-dash-circle-fill text-dark me-1"></i> UBND XÃ TÂN LONG HỘI</td>
-                    <td class="text-success fw-bold">15.445</td>
-                    <td>1.730</td>
-                    <td class="text-primary fw-bold">413</td>
-                    <td class="text-danger fw-bold">77</td>
-                    <td class="text-primary fw-bold">963</td>
+                  <tr class="fw-bold bg-light">
+                    <td class="text-start"><i class="bi bi-dash-circle-fill me-1"></i> UBND XÃ TÂN LONG HỘI</td>
+                    <td class="text-success fw-bold">15.881</td>
+                    <td>1.783</td>
+                    <td class="text-primary fw-bold">433</td>
+                    <td class="text-danger fw-bold">79</td>
+                    <td class="text-primary fw-bold">994</td>
                     <td class="text-danger fw-bold">277</td>
                     <td class="text-success fw-bold">0</td>
                     <td>0</td>
                   </tr>
                   <tr>
                     <td class="text-start ps-4">VĂN PHÒNG HĐND VÀ UBND</td>
-                    <td class="text-success fw-bold">15.368</td>
-                    <td>1.563</td>
+                    <td class="text-success fw-bold">15.791</td>
+                    <td>1.616</td>
                     <td class="text-primary fw-bold">1</td>
                     <td class="text-danger fw-bold">0</td>
-                    <td class="text-primary fw-bold">1.223</td>
-                    <td class="text-danger fw-bold">339</td>
-                    <td class="text-success fw-bold">3.452</td>
-                    <td>3.146</td>
+                    <td class="text-primary fw-bold">1.273</td>
+                    <td class="text-danger fw-bold">342</td>
+                    <td class="text-success fw-bold">3.490</td>
+                    <td>3.199</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start ps-4">BAN VĂN HÓA</td>
+                    <td class="text-success fw-bold">5</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="text-success fw-bold">0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start ps-4">BAN KINH TẾ</td>
+                    <td class="text-success fw-bold">2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="text-success fw-bold">0</td>
+                    <td>0</td>
                   </tr>
                   <tr>
                     <td class="text-start ps-4">PHÒNG KINH TẾ</td>
-                    <td class="text-success fw-bold">2.052</td>
-                    <td>781</td>
-                    <td class="text-primary fw-bold">15</td>
+                    <td class="text-success fw-bold">2.098</td>
+                    <td>822</td>
+                    <td class="text-primary fw-bold">29</td>
                     <td class="text-danger fw-bold">0</td>
-                    <td class="text-primary fw-bold">479</td>
-                    <td class="text-danger fw-bold">287</td>
-                    <td class="text-success fw-bold">395</td>
-                    <td>307</td>
+                    <td class="text-primary fw-bold">503</td>
+                    <td class="text-danger fw-bold">290</td>
+                    <td class="text-success fw-bold">400</td>
+                    <td>313</td>
                   </tr>
                   <tr>
                     <td class="text-start ps-4">PHÒNG VĂN HÓA XÃ HỘI</td>
-                    <td class="text-success fw-bold">3.054</td>
-                    <td>887</td>
-                    <td class="text-primary fw-bold">19</td>
-                    <td class="text-danger fw-bold">1</td>
-                    <td class="text-primary fw-bold">653</td>
-                    <td class="text-danger fw-bold">214</td>
-                    <td class="text-success fw-bold">1.098</td>
-                    <td>1.057</td>
+                    <td class="text-success fw-bold">3.141</td>
+                    <td>952</td>
+                    <td class="text-primary fw-bold">15</td>
+                    <td class="text-danger fw-bold">2</td>
+                    <td class="text-primary fw-bold">719</td>
+                    <td class="text-danger fw-bold">216</td>
+                    <td class="text-success fw-bold">1.136</td>
+                    <td>1.078</td>
                   </tr>
                   <tr>
                     <td class="text-start ps-4">TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG</td>
-                    <td class="text-success fw-bold">243</td>
-                    <td>43</td>
-                    <td class="text-primary fw-bold">0</td>
-                    <td class="text-danger fw-bold">0</td>
-                    <td class="text-primary fw-bold">28</td>
-                    <td class="text-danger fw-bold">15</td>
-                    <td class="text-success fw-bold">61</td>
+                    <td class="text-success fw-bold">250</td>
+                    <td>50</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="text-primary fw-bold">33</td>
+                    <td class="text-danger fw-bold">17</td>
+                    <td class="text-success fw-bold">59</td>
                     <td>39</td>
+                  </tr>
+                  <!-- ĐÃ BỎ DÒNG ĐƠN VỊ TẬP HUẤN -->
+                  <tr>
+                    <td class="text-start ps-4">TRUNG TÂM DỊCH VỤ SỰ NGHIỆP CÔNG XÃ TÂN LONG HỘI</td>
+                    <td class="text-success fw-bold">182</td>
+                    <td>30</td>
+                    <td class="text-primary fw-bold">12</td>
+                    <td class="text-danger fw-bold">5</td>
+                    <td class="text-primary fw-bold">9</td>
+                    <td class="text-danger fw-bold">4</td>
+                    <td class="text-success fw-bold">13</td>
+                    <td>13</td>
                   </tr>
                   <tr>
                     <td class="text-start ps-4">QUÂN SỰ XÃ TÂN LONG HỘI</td>
-                    <td class="text-success fw-bold">8</td>
-                    <td>5</td>
-                    <td class="text-primary fw-bold">2</td>
+                    <td class="text-success fw-bold">9</td>
+                    <td>6</td>
+                    <td class="text-primary fw-bold">3</td>
                     <td class="text-danger fw-bold">0</td>
                     <td class="text-primary fw-bold">3</td>
                     <td class="text-danger fw-bold">0</td>
@@ -768,6 +809,11 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top text-muted small" style="font-size: 0.75rem;">
+              <div><i class="bi bi-flask"></i> Sở Khoa học và Công nghệ – Trung tâm Đổi mới Sáng tạo và Chuyển đổi Số · Phòng Giám sát Điều hành Thông Minh</div>
+              <span class="badge bg-light text-dark border">Lượt truy cập: <b class="text-primary">549</b></span>
             </div>
           </div>
         </div>
