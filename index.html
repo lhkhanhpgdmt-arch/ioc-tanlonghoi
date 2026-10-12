@@ -242,6 +242,12 @@
             <span class="badge-num">7</span>
             <span>Thống kê tài sản công</span>
             <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div> 
+          <!-- 8. Kinh phí chuyển đổi số (Nghị quyết 57) -->
+          <div class="menu-btn" id="btn-tab-14" onclick="switchView('view-14')">
+            <span class="badge-num">8</span>
+            <span>Kinh phí chuyển đổi số (NQ 57)</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
           </div>
         </div>
       </aside>
@@ -1606,6 +1612,66 @@
       sidebar.style.display = 'none';
       mainContent.className = 'col-12';
     }
+  };
+  // --- HÀM XUẤT EXCEL CHO MỤC 8: NGHỊ QUYẾT 57 ---
+  window.exportNQ57Excel = function() {
+    const htmlContent = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+          body { font-family: 'Times New Roman', Times, serif; font-size: 11pt; }
+          table { border-collapse: collapse; width: 100%; }
+          th { background-color: #dbeafe; font-weight: bold; border: 1px solid #000; padding: 5px; text-align: center; }
+          td { border: 1px solid #000; padding: 4px; }
+          .text-center { text-align: center; }
+          .text-right { text-align: right; }
+          .text-left { text-align: left; }
+          .fw-bold { font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <table>
+          <tr><td colspan="7" style="border:none; font-weight:bold; font-size:14pt; text-align:center;">TÌNH HÌNH GIẢI NGÂN KINH PHÍ NGHỊ QUYẾT 57 NĂM 2026</td></tr>
+          <tr><td colspan="7" style="border:none; text-align:center; font-style:italic;">UBND XÃ TÂN LONG HỘI (Đơn vị tính: triệu đồng)</td></tr>
+          <tr><td colspan="7" style="border:none;">&nbsp;</td></tr>
+          <thead>
+            <tr>
+              <th>STT</th><th>Tên nhiệm vụ</th><th>Kinh phí</th><th>Đã giải ngân (Tỷ lệ)</th><th>Ngày dự kiến</th><th>Thời gian còn lại</th><th>Tình trạng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #f1f5f9;" class="fw-bold">
+              <td class="text-center">104</td><td>Xã Tân Long Hội (14 nhiệm vụ)</td><td class="text-right">1.960</td><td class="text-right">490 (25,02%)</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-center">-</td>
+            </tr>
+            <tr><td class="text-center">1</td><td>Hỗ trợ hoạt động tổ công nghệ số cộng đồng</td><td class="text-right">80</td><td class="text-right">0 (0,00%)</td><td class="text-center">15/12/2026</td><td class="text-center">Còn 64 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">2</td><td>Hoàn thiện, nâng cấp hạ tầng mạng và trang thiết bị CNTT</td><td class="text-right">180</td><td class="text-right">0 (0,00%)</td><td class="text-center">05/09/2026</td><td class="text-center" style="color:red;">Quá 37 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">3</td><td>Kinh phí đầu tư mua sắm trang thiết bị KH&KT</td><td class="text-right">210</td><td class="text-right fw-bold">200 (95,24%)</td><td class="text-center">15/08/2026</td><td class="text-center">Hoàn thành</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">4</td><td>Kinh phí mua tài khoản sử dụng AI cho CB-CC</td><td class="text-right">25</td><td class="text-right fw-bold">25 (99,80%)</td><td class="text-center">15/08/2026</td><td class="text-center">Hoàn thành</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">5</td><td>Kinh phí vận hành phòng họp trực tuyến</td><td class="text-right">40</td><td class="text-right">25 (61,58%)</td><td class="text-center">15/12/2026</td><td class="text-center">Còn 64 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">6</td><td>Kinh phí vận hành Trang thông tin điện tử xã</td><td class="text-right">25</td><td class="text-right">0 (0,00%)</td><td class="text-center">15/12/2026</td><td class="text-center">Còn 64 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">7</td><td>Lắp đặt hệ thống wifi 5G tại các trụ sở ấp, TTHH...</td><td class="text-right">40</td><td class="text-right">0 (0,00%)</td><td class="text-center">01/10/2026</td><td class="text-center" style="color:red;">Quá 11 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">8</td><td>Mô hình chợ 4.0 (Chợ Tân Long - Số 2)</td><td class="text-right">40</td><td class="text-right fw-bold">40 (100,00%)</td><td class="text-center">05/09/2026</td><td class="text-center">Hoàn thành</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">9</td><td>Nâng cấp mua sắm hạ tầng trang thiết bị</td><td class="text-right">820</td><td class="text-right">0 (0,00%)</td><td class="text-center">05/09/2026</td><td class="text-center" style="color:red;">Quá 37 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">10</td><td>Thuê dịch vụ phần mềm bốc số từ xa qua Zalo OA</td><td class="text-right">80</td><td class="text-right">0 (0,00%)</td><td class="text-center">01/10/2026</td><td class="text-center" style="color:red;">Quá 11 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">11</td><td>Thuê hệ thống loa truyền thanh thông minh</td><td class="text-right">213</td><td class="text-right fw-bold">189 (88,64%)</td><td class="text-center">15/11/2026</td><td class="text-center">Còn 34 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">12</td><td>Truyền thông, tập huấn và nâng cao năng lực CĐS</td><td class="text-right">13</td><td class="text-right">0 (0,00%)</td><td class="text-center">01/12/2026</td><td class="text-center">Còn 50 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">13</td><td>Ứng dụng trí tuệ nhân tạo (AI) và Robot lễ tân</td><td class="text-right">182</td><td class="text-right">0 (0,00%)</td><td class="text-center">30/09/2026</td><td class="text-center" style="color:red;">Quá 12 ngày</td><td class="text-center">Chủ đầu tư</td></tr>
+            <tr><td class="text-center">14</td><td>Viết tin bài, quảng bá sản phẩm OCOP trên sàn TMĐT</td><td class="text-right">12</td><td class="text-right fw-bold">12 (100,00%)</td><td class="text-center">05/09/2026</td><td class="text-center">Hoàn thành</td><td class="text-center">Chủ đầu tư</td></tr>
+          </tbody>
+        </table>
+      </body>
+      </html>
+    `;
+    const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/vnd.ms-excel;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Giai_Ngan_Kinh_Phi_NQ57_Tan_Long_Hoi_2026.xls";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
   </script>
 </body>
