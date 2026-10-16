@@ -197,6 +197,12 @@
       <aside id="ioc-sidebar" class="col-lg-3 col-md-4" style="transition: all 0.3s ease;">
         <div class="ioc-menu-list shadow-sm">
           <!-- 1. Giải ngân vốn đầu tư công -->
+         <!-- 1. Giới thiệu tổng quan xã Tân Long Hội -->
+          <div class="menu-btn" id="btn-tab-0" onclick="switchView('view-0')">
+            <span class="badge-num">1</span>
+            <span>Giới thiệu tổng quan xã Tân Long Hội</span>
+            <i class="bi bi-chevron-right ms-auto text-muted"></i>
+          </div>
           <div class="menu-btn" id="btn-tab-1" onclick="switchView('view-1')">
             <span class="badge-num">1</span>
             <span>Giải ngân vốn đầu tư công</span>
@@ -521,7 +527,80 @@
           </div>
         </div>
         <!-- ================= PHÂN HỆ 1: GIẢI NGÂN VỐN ĐẦU TƯ CÔNG ================= -->
-        <div id="view-1" class="dashboard-panel">
+        <!-- ================= PHÂN HỆ 1 (VIEW-0): GIỚI THIỆU TỔNG QUAN XÃ TÂN LONG HỘI ================= -->
+        <div id="view-0" class="dashboard-panel">
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-info-circle-fill me-2"></i> 1. GIỚI THIỆU TỔNG QUAN XÃ TÂN LONG HỘI</div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+          </div>
+          <div class="dashboard-card-body shadow-sm">
+            <h5 class="text-center text-primary fw-bold mb-1 text-uppercase">TỔNG QUAN ĐỊA GIỚI HÀNH CHÍNH & KINH TẾ - XÃ HỘI XÃ TÂN LONG HỘI</h5>
+            <div class="text-center text-muted small mb-3"><i>(Số liệu cập nhật theo Nghị quyết sắp xếp đơn vị hành chính & Kế hoạch phát triển kinh tế - xã hội địa phương)</i></div>
+
+            <!-- 4 Thẻ chỉ số nổi bật -->
+            <div class="row g-3 mb-4 text-center">
+              <div class="col-md-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="text-muted small fw-semibold"><i class="bi bi-geo-alt-fill text-danger"></i> Diện tích tự nhiên</div>
+                  <div class="fs-4 fw-bold text-primary my-1">36,27 km²</div>
+                  <div class="small text-muted">Địa bàn rộng, kết nối giao thương thuận lợi</div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="text-muted small fw-semibold"><i class="bi bi-people-fill text-success"></i> Quy mô dân số</div>
+                  <div class="fs-4 fw-bold text-success my-1">26.358 người</div>
+                  <div class="small text-muted">Mật độ bình quân ~727 người/km²</div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="text-muted small fw-semibold"><i class="bi bi-diagram-3-fill text-info"></i> Đơn vị trực thuộc</div>
+                  <div class="fs-4 fw-bold text-info my-1">Cơ sở các ấp</div>
+                  <div class="small text-muted">Tổ chức bộ máy chính quyền tinh gọn</div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="text-muted small fw-semibold"><i class="bi bi-upc-scan text-warning"></i> Mã hành chính</div>
+                  <div class="fs-4 fw-bold text-dark my-1">29653</div>
+                  <div class="small text-muted">Trực thuộc tỉnh Vĩnh Long</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Khối nội dung giới thiệu chi tiết -->
+            <div class="row g-3">
+              <div class="col-lg-7">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <h6 class="fw-bold text-primary mb-2"><i class="bi bi-bookmark-star-fill text-warning me-2"></i>Vị trí địa lý & Tiềm năng phát triển</h6>
+                  <p class="small text-muted mb-2" style="text-align: justify; line-height: 1.6;">
+                    Xã Tân Long Hội nằm ở vị trí địa lý thuận lợi về cả giao thông đường bộ và đường thủy, giữ vai trò quan trọng trong việc kết nối giao thương và phát triển kinh tế nông thôn của khu vực. Với diện tích tự nhiên 36,27 km² và quy mô dân số hơn 26.000 người, địa phương sở hữu nguồn nhân lực dồi dào, hệ thống hạ tầng thủy lợi và giao thông nông thôn liên ấp, liên xã từng bước được nhựa hóa, bê tông hóa đồng bộ.
+                  </p>
+                  <p class="small text-muted mb-0" style="text-align: justify; line-height: 1.6;">
+                    Địa phương đang tập trung mọi nguồn lực hoàn thiện các tiêu chí <b>Xã Nông thôn mới nâng cao</b>, đẩy mạnh phát triển nông nghiệp công nghệ cao, thương mại - dịch vụ gắn liền với chuyển đổi số toàn diện trong công tác quản lý chỉ đạo điều hành và phục vụ người dân, doanh nghiệp.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-5">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <h6 class="fw-bold text-primary mb-2"><i class="bi bi-building me-2"></i>Thông tin cơ quan hành chính</h6>
+                  <ul class="list-unstyled small mb-0" style="line-height: 1.8;">
+                    <li><b>Cơ quan:</b> Ủy ban nhân dân xã Tân Long Hội</li>
+                    <li><b>Địa chỉ trụ sở:</b> Ấp Thanh Phong, xã Tân Long Hội, tỉnh Vĩnh Long</li>
+                    <li><b>Số điện thoại:</b> 0270.3941070</li>
+                    <li><b>Cổng thông tin điện tử:</b> tanlonghoi.vinhlong.gov.vn</li>
+                    <li><b>Cơ cấu hành chính:</b> Đảng ủy, HĐND, UBND, UBMTTQ và các đoàn thể</li>
+                    <li><b>Mô hình điều hành:</b> Trung tâm Giám sát, Điều hành Thông minh (IOC)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+       <div id="view-1" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
             <div class="fw-bold">
               <i class="bi bi-bar-chart-steps me-1"></i> THỐNG KÊ GIẢI NGÂN — UBND XÃ TÂN LONG HỘI
