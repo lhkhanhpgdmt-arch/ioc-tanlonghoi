@@ -1416,86 +1416,115 @@
         <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG (ĐẦY ĐỦ CHI TIẾT) ================= -->
        <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG TOÀN DIỆN ================= -->
         <!-- ================= PHÂN HỆ 7 (VIEW-11): THÔNG TIN ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
+        <!-- ================= PHÂN HỆ 7 (VIEW-11): ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
         <div id="view-11" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 7. THÔNG TIN ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC — XÃ TÂN LONG HỘI</div>
-            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
-          </div>
-          <div class="dashboard-card-body shadow-sm">
-            <h5 class="text-center text-primary fw-bold mb-1">THỐNG KÊ ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC SAU SÁP NHẬP</h5>
-            <div class="text-center text-muted small mb-3"><i>(Năm học 2025 - 2026 — Địa bàn xã Tân Long Hội)</i></div>
-
-            <!-- 3 Thẻ chỉ số tổng -->
-            <div class="row g-3 mb-3 text-center">
-              <div class="col-md-4">
-                <div class="p-3 border rounded bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">TỔNG SỐ HỌC SINH</div>
-                  <div class="fs-3 fw-bold text-info my-1">2.916</div>
-                  <div class="small text-muted">Toàn bộ 3 cấp học</div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 border rounded bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">TỔNG SỐ LỚP HỌC</div>
-                  <div class="fs-3 fw-bold text-primary my-1">105</div>
-                  <div class="small text-muted">Bình quân ~28 HS/lớp</div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="p-3 border rounded bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">TRƯỜNG ĐẠT CHUẨN QUỐC GIA</div>
-                  <div class="fs-3 fw-bold text-success my-1">3/3 (100%)</div>
-                  <div class="small text-muted">Chuẩn quốc gia Mức độ 1</div>
-                </div>
+              <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 7. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
+              <div class="d-flex align-items-center gap-2">
+                <!-- NÚT XUẤT EXCEL -->
+                <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportEducationExcel()">
+                  <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
+                </button>
+                <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+                  <i class="bi bi-house-door"></i> Về trang chủ
+                </button>
               </div>
             </div>
-
-            <!-- Bảng danh sách 3 trường -->
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm align-middle small mb-0">
+          <div class="dashboard-card-body shadow-sm">
+            <!-- 3 thẻ KPI -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-secondary"><div class="kpi-title">ĐƠN VỊ ẤP ĐỊA BÀN</div><div class="kpi-num text-dark">11 ấp</div></div></div>
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-primary"><div class="kpi-title">TRƯỜNG HỌC CÔNG LẬP TRỰC THUỘC</div><div class="kpi-num text-primary">03 đơn vị</div></div></div>
+              <div class="col-md-4"><div class="kpi-box border-start border-4 border-success"><div class="kpi-title">TỔNG BIÊN CHẾ CÁN BỘ - GIÁO VIÊN</div><div class="kpi-num text-success">238 người</div></div></div>
+            </div>
+            <!-- Tổng hợp số liệu học sinh -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-people-fill text-primary me-1"></i> TỔNG HỢP SỐ LIỆU HỌC SINH SAU KHAI GIẢNG (TOÀN XÃ)</div>
+            <div class="row g-2 mb-4 text-center">
+              <div class="col"><div class="p-2 border rounded bg-light"><div class="fw-bold fs-5 text-dark">105</div><div class="text-muted" style="font-size: 0.72rem;">TỔNG SỐ LỚP</div></div></div>
+              <div class="col"><div class="p-2 border rounded bg-primary-subtle text-primary"><div class="fw-bold fs-5">2.916</div><div style="font-size: 0.72rem;">TỔNG HỌC SINH</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #fdf2f8; color: #be185d;"><div class="fw-bold fs-5">1.351</div><div style="font-size: 0.72rem;">HỌC SINH NỮ</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #fff7ed; color: #c2410c;"><div class="fw-bold fs-5">207</div><div style="font-size: 0.72rem;">KHÓ KHĂN</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #f0fdf4; color: #15803d;"><div class="fw-bold fs-5">36</div><div style="font-size: 0.72rem;">CẬN NGHÈO</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #fef2f2; color: #b91c1c;"><div class="fw-bold fs-5">12</div><div style="font-size: 0.72rem;">HỘ NGHÈO</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #faf5ff; color: #7e22ce;"><div class="fw-bold fs-5">29</div><div style="font-size: 0.72rem;">KHUYẾT TẬT</div></div></div>
+              <div class="col"><div class="p-2 border rounded" style="background-color: #ecfeff; color: #0e7490;"><div class="fw-bold fs-5">57</div><div style="font-size: 0.72rem;">MỒ CÔI</div></div></div>
+            </div>
+            <!-- Bảng 3 trường chuẩn quốc gia -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-building-check text-success me-1"></i> 1. Danh sách các trường học và chuẩn quốc gia</div>
+            <div class="table-responsive mb-4">
+              <table class="table table-bordered table-sm small align-middle mb-0">
                 <thead class="table-light text-center">
                   <tr>
-                    <th>STT</th>
-                    <th>TÊN ĐƠN VỊ TRƯỜNG HỌC</th>
-                    <th>CẤP HỌC</th>
-                    <th>SỐ LỚP</th>
-                    <th>SỐ HỌC SINH</th>
-                    <th>ĐIỂM TRƯỜNG</th>
-                    <th>CHUẨN QUỐC GIA</th>
+                    <th>Tên trường</th>
+                    <th>Cấp học</th>
+                    <th>Số lớp</th>
+                    <th>Học sinh</th>
+                    <th>Học sinh Nữ</th>
+                    <th>Biên chế CB-GV</th>
+                    <th>Đánh giá chuẩn</th>
                   </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody>
                   <tr>
-                    <td>1</td>
-                    <td class="text-start fw-semibold">Trường Mầm non Oanh Vũ II</td>
-                    <td>Mầm non</td>
-                    <td>18</td>
-                    <td>485</td>
-                    <td>01 điểm chính + điểm phụ</td>
-                    <td><span class="badge bg-success">Mức độ 1</span></td>
+                    <td class="fw-bold">Trường Mầm non Oanh Vũ II</td>
+                    <td class="text-center">Mầm non</td>
+                    <td class="text-center fw-bold">27</td>
+                    <td class="text-center text-primary fw-bold">615</td>
+                    <td class="text-center">285</td>
+                    <td class="text-center">69</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td class="text-start fw-semibold">Trường Tiểu học Tân Long Hội</td>
-                    <td>Tiểu học</td>
-                    <td>54</td>
-                    <td>1.450</td>
-                    <td>Điểm chính & 4 điểm lẻ (18.429 m²)</td>
-                    <td><span class="badge bg-success">Mức độ 1</span></td>
+                    <td class="fw-bold">Trường Tiểu học Tân Long Hội</td>
+                    <td class="text-center">Tiểu học</td>
+                    <td class="text-center fw-bold">48</td>
+                    <td class="text-center text-primary fw-bold">1.283</td>
+                    <td class="text-center">579</td>
+                    <td class="text-center">88</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
                   </tr>
                   <tr>
-                    <td>3</td>
-                    <td class="text-start fw-semibold">Trường THCS Tân Long Hội</td>
-                    <td>THCS</td>
-                    <td>33</td>
-                    <td>981</td>
-                    <td>01 điểm trung tâm</td>
-                    <td><span class="badge bg-success">Mức độ 1</span></td>
+                    <td class="fw-bold">Trường THCS Tân Long Hội</td>
+                    <td class="text-center">THCS</td>
+                    <td class="text-center fw-bold">30</td>
+                    <td class="text-center text-primary fw-bold">1.018</td>
+                    <td class="text-center">487</td>
+                    <td class="text-center">81</td>
+                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
+            <!-- Bảng chi tiết phân hiệu, điểm trường -->
+            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-diagram-3-fill text-primary me-1"></i> 2. Chi tiết điểm trường, phân hiệu và khối lớp</div>
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th style="width: 5%;">STT</th>
+                    <th>Trường / Điểm trường / Phân hiệu</th>
+                    <th style="width: 10%;">Tổng số lớp</th>
+                    <th style="width: 12%;">Tổng học sinh</th>
+                    <th style="width: 10%;">Nữ</th>
+                    <th>Phân bổ theo nhóm tuổi / Khối lớp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="group-row"><td colspan="6"><i class="bi bi-balloon-heart text-danger me-1"></i> I. TRƯỜNG MẦM NON OANH VŨ II (27 lớp - 615 học sinh)</td></tr>
+                  <tr><td class="text-center">1</td><td>Điểm chính Trường MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">172</td><td class="text-center">76</td><td>Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td></tr>
+                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long + Điểm Tân Hiệp</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">229</td><td class="text-center">117</td><td>Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td></tr>
+                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">214</td><td class="text-center">92</td><td>Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td></tr>
+                  <tr class="group-row"><td colspan="6"><i class="bi bi-book-half text-primary me-1"></i> II. TRƯỜNG TIỂU HỌC TÂN LONG HỘI (48 lớp - 1.283 học sinh)</td></tr>
+                  <tr><td class="text-center">1</td><td>Điểm chính TH Tân Long Hội + Điểm Tân Phong</td><td class="text-center">15 lớp</td><td class="text-center fw-bold">414</td><td class="text-center">186</td><td>Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td></tr>
+                  <tr><td class="text-center">2</td><td>Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng</td><td class="text-center">16 lớp</td><td class="text-center fw-bold">382</td><td class="text-center">156</td><td>Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td></tr>
+                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long + Điểm Đồng Bé</td><td class="text-center">17 lớp</td><td class="text-center fw-bold">487</td><td class="text-center">237</td><td>Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)</td></tr>
+                  <tr class="group-row"><td colspan="6"><i class="bi bi-backpack text-success me-1"></i> III. TRƯỜNG THCS TÂN LONG HỘI (30 lớp - 1.018 học sinh)</td></tr>
+                  <tr><td class="text-center">1</td><td>Điểm chính Trường THCS Tân Long Hội (TAH)</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">284</td><td class="text-center">130</td><td>Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td></tr>
+                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">305</td><td class="text-center">150</td><td>Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td></tr>
+                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long</td><td class="text-center">12 lớp</td><td class="text-center fw-bold">429</td><td class="text-center">207</td><td>Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
        <div id="view-13" class="dashboard-panel">
