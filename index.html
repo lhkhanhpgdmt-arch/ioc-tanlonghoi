@@ -184,9 +184,19 @@
 
       <h6 class="top-title">TRUNG TÂM GIÁM SÁT ĐIỀU HÀNH THÔNG MINH XÃ TÂN LONG HỘI (IOC)</h6>
     </div>
-    <div class="d-flex align-items-center small text-muted">
-      <i class="bi bi-person-circle fs-5 me-1 text-primary"></i>
-      <span class="fw-semibold">Cán bộ Quản trị hệ thống</span>
+    <!-- Cụm Ngày giờ thời gian thực & Thông tin Quản trị viên -->
+    <div class="d-flex align-items-center gap-3">
+      <!-- Đồng hồ nhảy thời gian thực -->
+      <div class="d-none d-md-flex align-items-center px-3 py-1 rounded bg-light border text-secondary small shadow-sm">
+        <i class="bi bi-clock-history text-primary me-2 fs-6"></i>
+        <span id="live-datetime" class="fw-semibold font-monospace text-dark">Đang tải thời gian...</span>
+      </div>
+
+      <!-- Cán bộ quản trị -->
+      <div class="d-flex align-items-center small text-muted">
+        <i class="bi bi-person-circle fs-5 me-1 text-primary"></i>
+        <span class="fw-semibold">Cán bộ Quản trị hệ thống</span>
+      </div>
     </div>
   </header>
 
@@ -2416,6 +2426,29 @@
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   };
+// HÀM HIỂN THỊ ĐỒNG HỒ & NGÀY THÁNG THỜI GIAN THỰC CHO THANH HEADER
+    function updateLiveDateTime() {
+      const el = document.getElementById('live-datetime');
+      if (!el) return;
+      
+      const now = new Date();
+      const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+      const dayName = days[now.getDay()];
+      
+      const date = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      
+      el.innerHTML = `${dayName}, ${date}/${month}/${year} | <b class="text-primary">${hours}:${minutes}:${seconds}</b>`;
+    }
+    
+    // Cập nhật ngay lập tức và lặp lại mỗi giây
+    setInterval(updateLiveDateTime, 1000);
+    updateLiveDateTime();
   </script>
 </body>
 </html>
