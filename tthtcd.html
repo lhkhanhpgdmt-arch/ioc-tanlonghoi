@@ -19,7 +19,6 @@
       --border-color: #e2e8f0;
       --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
       --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.06);
-      --shadow-hover: 0 12px 28px rgba(2, 132, 199, 0.12);
     }
 
     * {
@@ -242,15 +241,47 @@
       border-bottom-style: solid;
     }
 
-    .pill-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 6px;
-      background: #f1f5f9;
-      color: #475569;
+    /* FOOTER / CHÂN TRANG */
+    .footer-contact {
+      margin-top: 24px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .footer-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .footer-item strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .footer-item a {
+      color: var(--primary);
+      text-decoration: none;
       font-weight: 500;
-      margin-top: 4px;
+    }
+
+    .footer-item a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-icon {
+      font-size: 1.05rem;
     }
 
     /* RESPONSIVE */
@@ -266,6 +297,11 @@
       }
       .header-banner h1 {
         font-size: 1.15rem;
+      }
+      .footer-contact {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
       }
     }
   </style>
@@ -331,7 +367,7 @@
         </ul>
       </section>
 
-      <!-- KHỐI 3 (CHIẾM TRỌN CHIỀU NGANG) -->
+      <!-- KHỐI 3 -->
       <section class="info-card card-full">
         <div class="card-header">
           <div class="card-icon">💡</div>
@@ -374,6 +410,19 @@
       </section>
 
     </main>
+
+    <!-- CHÂN TRANG THÔNG TIN LIÊN HỆ -->
+    <footer class="footer-contact">
+      <div class="footer-item">
+        <span class="footer-icon">✉️</span>
+        <span><strong>Email:</strong> <a href="mailto:tthtcd.tanlonghoi@vinhlong.gov.vn">tthtcd.tanlonghoi@vinhlong.gov.vn</a></span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-icon">📍</span>
+        <span><strong>Địa chỉ:</strong> ấp Gò Nhum, xã Tân Long Hội, tỉnh Vĩnh Long</span>
+      </div>
+    </footer>
+
   </div>
 
 </body>
