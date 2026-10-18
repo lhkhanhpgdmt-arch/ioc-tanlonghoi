@@ -127,7 +127,7 @@
       z-index: 2;
     }
 
-    /* 4 THẺ TIỆN ÍCH DỊCH VỤ SỐ (ACTION CARDS) */
+    /* 4 THẺ TIỆN ÍCH DỊCH VỤ SỐ TƯƠNG TÁC (ACTION CARDS) */
     .action-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -348,7 +348,7 @@
       border-bottom-style: solid;
     }
 
-    /* KHỐI 3 (KHO HỌC LIỆU DẠNG FOLDER) */
+    /* KHỐI 3: KHO HỌC LIỆU SỐ DẠNG FOLDER */
     .folder-btn-top {
       font-size: 0.8rem;
       background: #eff6ff;
@@ -459,47 +459,133 @@
       border-color: #0284c7;
     }
 
-    /* FOOTER */
-    .footer-contact {
+    /* FOOTER CHUẨN CỔNG THÔNG TIN ĐIỆN TỬ HÀNH CHÍNH */
+    .portal-footer {
       margin-top: 24px;
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 16px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-      gap: 12px;
+      overflow: hidden;
       box-shadow: var(--shadow-sm);
+    }
+
+    .portal-footer-top {
+      background: #0284c7;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.82rem;
+    }
+
+    .portal-footer-top a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.95;
+      transition: opacity 0.2s;
+    }
+
+    .portal-footer-top a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .portal-footer-body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .org-info {
       text-align: center;
     }
 
-    .footer-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .org-info .org-title {
+      color: #dc2626;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .org-info .org-leader {
       font-size: 0.88rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .org-info .org-detail {
+      font-size: 0.84rem;
       color: var(--text-sub);
+      line-height: 1.6;
     }
 
-    .footer-item strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .footer-item a {
-      color: var(--primary);
+    .org-info .org-detail a {
+      color: #0284c7;
       text-decoration: none;
       font-weight: 500;
     }
 
-    .footer-item a:hover {
-      text-decoration: underline;
+    /* BẢNG ĐẾM LƯỢT TRUY CẬP (COUNTERS SỐ ĐỎ) */
+    .stats-counters {
+      border-left: 1px solid #f1f5f9;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-width: 260px;
     }
 
-    .footer-icon {
-      font-size: 1.05rem;
+    .counter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.84rem;
+      color: #334155;
+    }
+
+    .digit-group {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .digit-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 22px;
+      border: 1px solid #ef4444;
+      background: #ffffff;
+      color: #dc2626;
+      font-size: 0.84rem;
+      font-weight: 700;
+      border-radius: 2px;
+      font-family: monospace, sans-serif;
+    }
+
+    .ipv6-badge {
+      margin-top: 4px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .ipv6-badge span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #15803d;
     }
 
     /* RESPONSIVE */
@@ -509,6 +595,15 @@
       }
       .digital-folders-grid {
         grid-template-columns: 1fr;
+      }
+      .portal-footer-body {
+        grid-template-columns: 1fr;
+      }
+      .stats-counters {
+        border-left: none;
+        border-top: 1px solid #f1f5f9;
+        padding-left: 0;
+        padding-top: 16px;
       }
     }
 
@@ -528,11 +623,6 @@
       }
       .header-banner h1 {
         font-size: 1.15rem;
-      }
-      .footer-contact {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
       }
     }
   </style>
@@ -754,15 +844,61 @@
 
     </main>
 
-    <!-- CHÂN TRANG THÔNG TIN LIÊN HỆ -->
-    <footer class="footer-contact">
-      <div class="footer-item">
-        <span class="footer-icon">✉️</span>
-        <span><strong>Email:</strong> <a href="mailto:tthtcd.tanlonghoi@vinhlong.gov.vn">tthtcd.tanlonghoi@vinhlong.gov.vn</a></span>
+    <!-- CHÂN TRANG THEO CHUẨN CỔNG TTĐT XÃ -->
+    <footer class="portal-footer">
+      <div class="portal-footer-top">
+        <a href="#">Trang chủ Cổng TTĐT</a>
+        <a href="#">Sơ đồ hệ thống</a>
+        <a href="#">Thông tin liên hệ</a>
+        <a href="#">Dịch vụ công trực tuyến</a>
       </div>
-      <div class="footer-item">
-        <span class="footer-icon">📍</span>
-        <span><strong>Địa chỉ:</strong> ấp Gò Nhum, xã Tân Long Hội, tỉnh Vĩnh Long</span>
+
+      <div class="portal-footer-body">
+        <!-- Thông tin cơ quan -->
+        <div class="org-info">
+          <div class="org-title">TRUNG TÂM HỌC TẬP CỘNG ĐỒNG XÃ TÂN LONG HỘI</div>
+          <div class="org-leader">Cơ quan chủ quản: Ủy ban nhân dân xã Tân Long Hội</div>
+          <div class="org-detail">
+            <strong>Địa chỉ:</strong> Ấp Tân Hiệp, xã Tân Long Hội, tỉnh Vĩnh Long<br>
+            <strong>Điện thoại:</strong> 02703.933.260 | <strong>Email:</strong> <a href="mailto:tthtcd.tanlonghoi@vinhlong.gov.vn">tthtcd.tanlonghoi@vinhlong.gov.vn</a>
+          </div>
+        </div>
+
+        <!-- Bảng đếm lượt truy cập mô phỏng số đỏ -->
+        <div class="stats-counters">
+          <div class="counter-row">
+            <span>Lượt truy cập tháng:</span>
+            <div class="digit-group">
+              <span class="digit-box">4</span>
+              <span class="digit-box">6</span>
+              <span class="digit-box">4</span>
+              <span class="digit-box">5</span>
+            </div>
+          </div>
+          <div class="counter-row">
+            <span>Lượt truy cập năm:</span>
+            <div class="digit-group">
+              <span class="digit-box">5</span>
+              <span class="digit-box">3</span>
+              <span class="digit-box">1</span>
+              <span class="digit-box">0</span>
+              <span class="digit-box">5</span>
+            </div>
+          </div>
+          <div class="counter-row">
+            <span>Tổng lượt truy cập:</span>
+            <div class="digit-group">
+              <span class="digit-box">7</span>
+              <span class="digit-box">0</span>
+              <span class="digit-box">0</span>
+              <span class="digit-box">3</span>
+              <span class="digit-box">3</span>
+            </div>
+          </div>
+          <div class="ipv6-badge">
+            <span>✅ IPv6 Ready</span>
+          </div>
+        </div>
       </div>
     </footer>
 
