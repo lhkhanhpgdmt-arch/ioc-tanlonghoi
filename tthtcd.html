@@ -64,7 +64,6 @@
       border-radius: 50%;
     }
 
-    /* ĐỒNG HỒ THỜI GIAN THỰC */
     .header-top-bar {
       display: flex;
       justify-content: space-between;
@@ -175,7 +174,7 @@
       font-weight: 600;
     }
 
-    /* DASHBOARD SECTIONS GRID */
+    /* SECTIONS GRID */
     .sections-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -275,7 +274,118 @@
       border-bottom-style: solid;
     }
 
-    /* FOOTER / CHÂN TRANG */
+    /* CSS RIÊNG CHO KHỐI 3 (KHO HỌC LIỆU DẠNG FOLDER) */
+    .folder-btn-top {
+      font-size: 0.8rem;
+      background: #eff6ff;
+      color: #0284c7;
+      border: 1px solid #bfdbfe;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .folder-btn-top:hover {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    .digital-folders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .folder-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .folder-card:hover {
+      background: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .folder-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .folder-title h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0369a1;
+    }
+
+    .folder-emoji {
+      font-size: 1.2rem;
+    }
+
+    .folder-desc {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .sub-list {
+      list-style: none;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sub-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 0.8rem;
+      color: #334155;
+      line-height: 1.4;
+    }
+
+    .sub-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: #0284c7;
+      font-weight: bold;
+    }
+
+    .folder-link-btn {
+      display: block;
+      text-align: center;
+      background: #ffffff;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .folder-link-btn:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+
+    /* FOOTER */
     .footer-contact {
       margin-top: 24px;
       background: #ffffff;
@@ -319,6 +429,12 @@
     }
 
     /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .digital-folders-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
       .header-top-bar {
         flex-direction: column;
@@ -349,7 +465,6 @@
   <div class="container">
     <!-- HEADER -->
     <header class="header-banner">
-      <!-- THANH TRÊN: HUY HIỆU & ĐỒNG HỒ THỜI GIAN THỰC -->
       <div class="header-top-bar">
         <div class="badge-sub">🏛️ Hệ thống học tập trực tuyến</div>
         <div class="live-clock-badge" id="current-clock">
@@ -412,17 +527,78 @@
         </ul>
       </section>
 
-      <!-- KHỐI 3 -->
+      <!-- KHỐI 3: KHO HỌC LIỆU SỐ DẠNG 3 THƯ MỤC LƯU TRỮ -->
       <section class="info-card card-full">
-        <div class="card-header">
-          <div class="card-icon">💡</div>
-          <h2>3. Kho học liệu số & Phổ cập kỹ năng số</h2>
+        <div class="card-header" style="justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="card-icon">💡</div>
+            <h2>3. Kho học liệu số & Phổ cập kỹ năng số</h2>
+          </div>
+          <a href="#" target="_blank" class="folder-btn-top">
+            📂 Mở toàn bộ Kho dữ liệu Drive
+          </a>
         </div>
-        <ul class="card-list">
-          <li><strong>Phong trào "Bình dân học vụ số":</strong> Hướng dẫn cài đặt định danh VNeID, nộp hồ sơ Dịch vụ công trực tuyến, thanh toán không dùng tiền mặt.</li>
-          <li><strong>Nông nghiệp số:</strong> Kỹ thuật trồng trọt - chăn nuôi thích ứng biến đổi khí hậu, phát triển sản phẩm OCOP địa phương.</li>
-          <li><strong>Pháp luật & Đời sống:</strong> Tuyên truyền Luật Đất đai, chính sách BHXH tự nguyện, BHYT hộ gia đình, phòng chống bạo lực gia đình.</li>
-        </ul>
+
+        <div class="digital-folders-grid">
+          
+          <!-- Thư mục con 1 -->
+          <div class="folder-card">
+            <div>
+              <div class="folder-title">
+                <span class="folder-emoji">📱</span>
+                <h3>Bình dân học vụ số</h3>
+              </div>
+              <p class="folder-desc">Phổ cập kỹ năng số căn bản cho người dân và tổ CNSCĐ:</p>
+              <ul class="sub-list">
+                <li>Hướng dẫn cài đặt định danh VNeID mức 2</li>
+                <li>Nộp hồ sơ Dịch vụ công trực tuyến</li>
+                <li>Mở tài khoản thanh toán không dùng tiền mặt</li>
+              </ul>
+            </div>
+            <a href="#" target="_blank" class="folder-link-btn">
+              📁 Xem & Tải tài liệu &rarr;
+            </a>
+          </div>
+
+          <!-- Thư mục con 2 -->
+          <div class="folder-card">
+            <div>
+              <div class="folder-title">
+                <span class="folder-emoji">🌾</span>
+                <h3>Nông nghiệp số & OCOP</h3>
+              </div>
+              <p class="folder-desc">Kỹ thuật canh tác và chuyển giao công nghệ mới:</p>
+              <ul class="sub-list">
+                <li>Kỹ thuật trồng trọt - chăn nuôi thích ứng BĐKH</li>
+                <li>Quy chuẩn & hồ sơ phát triển sản phẩm OCOP</li>
+                <li>Đưa nông sản lên sàn thương mại điện tử</li>
+              </ul>
+            </div>
+            <a href="#" target="_blank" class="folder-link-btn">
+              📁 Xem & Tải tài liệu &rarr;
+            </a>
+          </div>
+
+          <!-- Thư mục con 3 -->
+          <div class="folder-card">
+            <div>
+              <div class="folder-title">
+                <span class="folder-emoji">⚖️</span>
+                <h3>Pháp luật & Đời sống</h3>
+              </div>
+              <p class="folder-desc">Phổ biến giáo dục pháp luật và an sinh xã hội:</p>
+              <ul class="sub-list">
+                <li>Tài liệu tuyên truyền Luật Đất đai mới nhất</li>
+                <li>Chính sách BHXH tự nguyện, BHYT hộ gia đình</li>
+                <li>Phòng chống bạo lực gia đình & pháp luật số</li>
+              </ul>
+            </div>
+            <a href="#" target="_blank" class="folder-link-btn">
+              📁 Xem & Tải tài liệu &rarr;
+            </a>
+          </div>
+
+        </div>
       </section>
 
       <!-- KHỐI 4 -->
@@ -491,7 +667,6 @@
       }
     }
 
-    // Chạy ngay khi tải trang và lặp lại mỗi giây
     updateLiveClock();
     setInterval(updateLiveClock, 1000);
   </script>
