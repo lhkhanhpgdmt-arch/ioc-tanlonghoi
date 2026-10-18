@@ -127,52 +127,126 @@
       z-index: 2;
     }
 
-    /* KPI STATS ROW */
-    .stats-grid {
+    /* 4 THẺ TIỆN ÍCH DỊCH VỤ SỐ (ACTION CARDS) */
+    .action-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
-    .stat-card {
+    .action-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       box-shadow: var(--shadow-sm);
       transition: all 0.25s ease;
       position: relative;
-      border-top: 4px solid var(--primary);
+      overflow: hidden;
     }
 
-    .stat-card:hover {
+    .action-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #0284c7;
+    }
+
+    .action-card.card-green::before { background: #10b981; }
+    .action-card.card-blue::before { background: #0284c7; }
+    .action-card.card-amber::before { background: #f59e0b; }
+    .action-card.card-purple::before { background: #8b5cf6; }
+
+    .action-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
       border-color: #cbd5e1;
     }
 
-    .stat-val {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 4px;
+    .action-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .action-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      font-size: 1.15rem;
     }
 
-    .stat-val.highlight {
-      color: #059669;
+    .card-green .action-icon-circle { background: #d1fae5; color: #059669; }
+    .card-blue .action-icon-circle { background: #e0f2fe; color: #0284c7; }
+    .card-amber .action-icon-circle { background: #fef3c7; color: #d97706; }
+    .card-purple .action-icon-circle { background: #ede9fe; color: #7c3aed; }
+
+    .action-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
 
-    .stat-desc {
-      font-size: 0.8rem;
+    .card-green .action-tag { background: #ecfdf5; color: #059669; }
+    .card-blue .action-tag { background: #f0f9ff; color: #0284c7; }
+    .card-amber .action-tag { background: #fffbeb; color: #b45309; }
+    .card-purple .action-tag { background: #f5f3ff; color: #6d28d9; }
+
+    .action-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .action-card p {
+      font-size: 0.78rem;
       color: var(--text-sub);
-      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 14px;
     }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .card-green .action-btn { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+    .card-green .action-btn:hover { background: #059669; color: #ffffff; }
+
+    .card-blue .action-btn { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+    .card-blue .action-btn:hover { background: #0284c7; color: #ffffff; }
+
+    .card-amber .action-btn { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+    .card-amber .action-btn:hover { background: #d97706; color: #ffffff; }
+
+    .card-purple .action-btn { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+    .card-purple .action-btn:hover { background: #7c3aed; color: #ffffff; }
 
     /* SECTIONS GRID */
     .sections-grid {
@@ -274,7 +348,7 @@
       border-bottom-style: solid;
     }
 
-    /* CSS RIÊNG CHO KHỐI 3 (KHO HỌC LIỆU DẠNG FOLDER) */
+    /* KHỐI 3 (KHO HỌC LIỆU DẠNG FOLDER) */
     .folder-btn-top {
       font-size: 0.8rem;
       background: #eff6ff;
@@ -430,6 +504,9 @@
 
     /* RESPONSIVE */
     @media (max-width: 860px) {
+      .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
       .digital-folders-grid {
         grid-template-columns: 1fr;
       }
@@ -440,8 +517,8 @@
         flex-direction: column;
         gap: 8px;
       }
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .action-grid {
+        grid-template-columns: 1fr;
       }
       .sections-grid {
         grid-template-columns: 1fr;
@@ -476,24 +553,69 @@
       <p>Nền tảng số phục vụ học tập suốt đời — Nâng cao kỹ năng số cho cộng đồng</p>
     </header>
 
-    <!-- 4 THẺ CHỈ SỐ NHANH -->
-    <section class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-val highlight">100%</div>
-        <div class="stat-desc">Ấp có Tổ CNSCĐ</div>
+    <!-- 4 THẺ TIỆN ÍCH DỊCH VỤ SỐ TƯƠNG TÁC (ACTION CARDS) -->
+    <section class="action-grid">
+      
+      <!-- Thẻ 1: Lớp học trực tuyến -->
+      <div class="action-card card-green">
+        <div>
+          <div class="action-top">
+            <div class="action-icon-circle">💻</div>
+            <span class="action-tag">Trực tuyến</span>
+          </div>
+          <h3>Lớp Học Trực Tuyến</h3>
+          <p>Lịch tập huấn 6 chuyên đề, hội thảo số và phòng học trực tiếp của xã.</p>
+        </div>
+        <a href="#" target="_blank" class="action-btn">
+          Vào phòng học &rarr;
+        </a>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">Đang mở</div>
-        <div class="stat-desc">Lớp tập huấn trực tuyến</div>
+
+      <!-- Thẻ 2: Bình dân học vụ số -->
+      <div class="action-card card-blue">
+        <div>
+          <div class="action-top">
+            <div class="action-icon-circle">📱</div>
+            <span class="action-tag">Cẩm nang</span>
+          </div>
+          <h3>Bình Dân Học Vụ Số</h3>
+          <p>Cẩm nang cài đặt VNeID, nộp DVC trực tuyến, thanh toán không tiền mặt.</p>
+        </div>
+        <a href="#" target="_blank" class="action-btn">
+          Xem hướng dẫn &rarr;
+        </a>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">Mẫu số 01</div>
-        <div class="stat-desc">Hồ sơ CĐHT trực tuyến</div>
+
+      <!-- Thẻ 3: Đăng ký mô hình học tập -->
+      <div class="action-card card-amber">
+        <div>
+          <div class="action-top">
+            <div class="action-icon-circle">✍️</div>
+            <span class="action-tag">Biểu mẫu số</span>
+          </div>
+          <h3>Đăng Ký Mô Hình</h3>
+          <p>Nộp hồ sơ trực tuyến: Công dân học tập, Gia đình học tập, Cộng đồng học tập.</p>
+        </div>
+        <a href="#" target="_blank" class="action-btn">
+          Nộp hồ sơ ngay &rarr;
+        </a>
       </div>
-      <div class="stat-card">
-        <div class="stat-val">24/7</div>
-        <div class="stat-desc">Học liệu số cộng đồng</div>
+
+      <!-- Thẻ 4: Thư viện học liệu số -->
+      <div class="action-card card-purple">
+        <div>
+          <div class="action-top">
+            <div class="action-icon-circle">📚</div>
+            <span class="action-tag">Kho số 24/7</span>
+          </div>
+          <h3>Thư Viện Sách & Học Liệu</h3>
+          <p>Kho học liệu mở: Kỹ thuật nông nghiệp số, pháp luật và đời sống nhân dân.</p>
+        </div>
+        <a href="#" target="_blank" class="action-btn">
+          Mở kho tài liệu &rarr;
+        </a>
       </div>
+
     </section>
 
     <!-- 5 KHỐI NỘI DUNG CHÍNH -->
