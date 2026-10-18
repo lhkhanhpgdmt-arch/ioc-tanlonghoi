@@ -12,6 +12,8 @@
       --primary: #0284c7;
       --primary-dark: #0369a1;
       --primary-gradient: linear-gradient(135deg, #0284c7 0%, #1e40af 100%);
+      --vl-orange: #ea580c;
+      --vl-orange-hover: #c2410c;
       --bg-page: #f8fafc;
       --card-bg: #ffffff;
       --text-main: #0f172a;
@@ -28,7 +30,6 @@
       font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* ĐẨY SÁT ĐỈNH TRANG - TRIỆT TIÊU KHOẢNG TRẮNG */
     body {
       background-color: var(--bg-page);
       color: var(--text-main);
@@ -350,13 +351,41 @@
       border-bottom-style: solid;
     }
 
-    /* KHỐI 3: KHO HỌC LIỆU SỐ DẠNG FOLDER */
+    /* KHỐI 3: KHO BÌNH DÂN HỌC VỤ SỐ & KHÓA HỌC TRỰC TUYẾN */
+    .header-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-portal-link {
+      font-size: 0.78rem;
+      background: #fff7ed;
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-portal-link:hover {
+      background: #ea580c;
+      color: #ffffff;
+      border-color: #ea580c;
+    }
+
     .folder-btn-top {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       background: #eff6ff;
       color: #0284c7;
       border: 1px solid #bfdbfe;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
       text-decoration: none;
       font-weight: 600;
@@ -384,6 +413,7 @@
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.25s ease;
+      position: relative;
     }
 
     .folder-card:hover {
@@ -397,7 +427,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .folder-title h3 {
@@ -406,20 +436,20 @@
       color: #0369a1;
     }
 
-    .folder-emoji {
-      font-size: 1.2rem;
-    }
-
-    .folder-desc {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin-bottom: 10px;
-      line-height: 1.4;
+    .folder-badge-source {
+      display: inline-block;
+      font-size: 0.68rem;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .sub-list {
       list-style: none;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -437,27 +467,50 @@
       content: "•";
       position: absolute;
       left: 2px;
-      color: #0284c7;
+      color: #ea580c;
       font-weight: bold;
     }
 
-    .folder-link-btn {
+    .folder-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .btn-learn-orange {
+      display: block;
+      text-align: center;
+      background: #ea580c;
+      color: #ffffff;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-learn-orange:hover {
+      background: #c2410c;
+    }
+
+    .btn-docs-blue {
       display: block;
       text-align: center;
       background: #ffffff;
       color: #0284c7;
       border: 1px solid #bae6fd;
-      padding: 7px 12px;
+      padding: 6px 10px;
       border-radius: 8px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
     }
 
-    .folder-link-btn:hover {
-      background: #0284c7;
-      color: #ffffff;
+    .btn-docs-blue:hover {
+      background: #f0f9ff;
       border-color: #0284c7;
     }
 
@@ -658,7 +711,7 @@
           <h3>Lớp Học Trực Tuyến</h3>
           <p>Lịch tập huấn 6 chuyên đề, hội thảo số và phòng học trực tiếp của xã.</p>
         </div>
-        <a href="#" target="_blank" class="action-btn">
+        <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="action-btn">
           Vào phòng học &rarr;
         </a>
       </div>
@@ -671,9 +724,9 @@
             <span class="action-tag">Cẩm nang</span>
           </div>
           <h3>Bình Dân Học Vụ Số</h3>
-          <p>Cẩm nang cài đặt VNeID, nộp DVC trực tuyến, thanh toán không tiền mặt.</p>
+          <p>Khóa học phổ cập kỹ năng số tỉnh Vĩnh Long, VNeID, nộp hồ sơ DVC.</p>
         </div>
-        <a href="#" target="_blank" class="action-btn">
+        <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="action-btn">
           Xem hướng dẫn &rarr;
         </a>
       </div>
@@ -741,75 +794,98 @@
         </ul>
       </section>
 
-      <!-- KHỐI 3: KHO HỌC LIỆU SỐ DẠNG 3 THƯ MỤC LƯU TRỮ -->
+      <!-- KHỐI 3: KHO HỌC LIỆU SỐ & KHÓA HỌC BÌNH DÂN HỌC VỤ SỐ TỈNH VĨNH LONG -->
       <section class="info-card card-full">
-        <div class="card-header" style="justify-content: space-between;">
+        <div class="card-header" style="justify-content: space-between; flex-wrap: wrap;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <div class="card-icon">💡</div>
-            <h2>3. Kho học liệu số & Phổ cập kỹ năng số</h2>
+            <h2>3. Không gian Bình Dân Học Vụ Số & Khóa học Trực tuyến</h2>
           </div>
-          <a href="#" target="_blank" class="folder-btn-top">
-            📂 Mở toàn bộ Kho dữ liệu Drive
-          </a>
+          <div class="header-actions-group">
+            <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="btn-portal-link">
+              🌐 Cổng Bình Dân Học Vụ Số Tỉnh Vĩnh Long ↗
+            </a>
+            <a href="#" target="_blank" class="folder-btn-top">
+              📂 Kho tài liệu Drive
+            </a>
+          </div>
         </div>
 
         <div class="digital-folders-grid">
           
-          <!-- Thư mục con 1 -->
+          <!-- Nhóm 1: Người dân & Tổ CNSCĐ -->
           <div class="folder-card">
             <div>
               <div class="folder-title">
-                <span class="folder-emoji">📱</span>
-                <h3>Bình dân học vụ số</h3>
+                <span style="font-size: 1.2rem;">📱</span>
+                <h3>Dành Cho Người Dân & Tổ CNSCĐ</h3>
               </div>
-              <p class="folder-desc">Phổ cập kỹ năng số căn bản cho người dân và tổ CNSCĐ:</p>
+              <span class="folder-badge-source">Khóa học Sở KH&CN cấp tỉnh 2026</span>
               <ul class="sub-list">
-                <li>Hướng dẫn cài đặt định danh VNeID mức 2</li>
-                <li>Nộp hồ sơ Dịch vụ công trực tuyến</li>
-                <li>Mở tài khoản thanh toán không dùng tiền mặt</li>
+                <li><strong>Khóa học:</strong> Kỹ năng số cơ bản cho người dân 2026</li>
+                <li><strong>Khóa học:</strong> Bồi dưỡng Tổ công nghệ số cộng đồng 2026</li>
+                <li>Hướng dẫn định danh VNeID mức 2 & Nộp hồ sơ DVC</li>
+                <li>Mở tài khoản thanh toán không dùng tiền mặt an toàn</li>
               </ul>
             </div>
-            <a href="#" target="_blank" class="folder-link-btn">
-              📁 Xem & Tải tài liệu &rarr;
-            </a>
+            <div class="folder-actions">
+              <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="btn-learn-orange">
+                ▶ Bắt đầu học trực tuyến ↗
+              </a>
+              <a href="#" target="_blank" class="btn-docs-blue">
+                📁 Cẩm nang & Hướng dẫn (Drive)
+              </a>
+            </div>
           </div>
 
-          <!-- Thư mục con 2 -->
+          <!-- Nhóm 2: Nông dân, HTX & OCOP -->
           <div class="folder-card">
             <div>
               <div class="folder-title">
-                <span class="folder-emoji">🌾</span>
-                <h3>Nông nghiệp số & OCOP</h3>
+                <span style="font-size: 1.2rem;">🌾</span>
+                <h3>Nông Nghiệp Số, HTX & OCOP</h3>
               </div>
-              <p class="folder-desc">Kỹ thuật canh tác và chuyển giao công nghệ mới:</p>
+              <span class="folder-badge-source">Kinh tế số & Doanh nghiệp địa phương</span>
               <ul class="sub-list">
+                <li><strong>Khóa học:</strong> Kỹ năng số cho NLĐ trong HTX và DN</li>
+                <li>Chuyển đổi số sản phẩm OCOP, truy xuất nguồn gốc</li>
+                <li>Đưa nông sản lên sàn TMĐT (Postmart, Viettel Post)</li>
                 <li>Kỹ thuật trồng trọt - chăn nuôi thích ứng BĐKH</li>
-                <li>Quy chuẩn & hồ sơ phát triển sản phẩm OCOP</li>
-                <li>Đưa nông sản lên sàn thương mại điện tử</li>
               </ul>
             </div>
-            <a href="#" target="_blank" class="folder-link-btn">
-              📁 Xem & Tải tài liệu &rarr;
-            </a>
+            <div class="folder-actions">
+              <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="btn-learn-orange">
+                ▶ Vào khóa học HTX & Doanh nghiệp ↗
+              </a>
+              <a href="#" target="_blank" class="btn-docs-blue">
+                📁 Tài liệu khuyến nông & OCOP
+              </a>
+            </div>
           </div>
 
-          <!-- Thư mục con 3 -->
+          <!-- Nhóm 3: Hội đoàn thể & Cán bộ công chức -->
           <div class="folder-card">
             <div>
               <div class="folder-title">
-                <span class="folder-emoji">⚖️</span>
-                <h3>Pháp luật & Đời sống</h3>
+                <span style="font-size: 1.2rem;">🏛️</span>
+                <h3>Cán Bộ, Hội Đoàn Thể & Pháp Luật</h3>
               </div>
-              <p class="folder-desc">Phổ biến giáo dục pháp luật và an sinh xã hội:</p>
+              <span class="folder-badge-source">Tập huấn công vụ & Phổ biến pháp luật</span>
               <ul class="sub-list">
-                <li>Tài liệu tuyên truyền Luật Đất đai mới nhất</li>
-                <li>Chính sách BHXH tự nguyện, BHYT hộ gia đình</li>
-                <li>Phòng chống bạo lực gia đình & pháp luật số</li>
+                <li><strong>Khóa học:</strong> Kỹ năng CĐS cho Hội, Đoàn thể cấp Xã 2026</li>
+                <li><strong>Khóa học:</strong> Tập huấn kỹ năng số cho CBCCVC & NLĐ</li>
+                <li>Hướng dẫn sử dụng Hệ thống giải quyết TTHC cấp bộ/tỉnh</li>
+                <li>Tài liệu tuyên truyền Luật Đất đai mới, BHXH, BHYT</li>
               </ul>
             </div>
-            <a href="#" target="_blank" class="folder-link-btn">
-              📁 Xem & Tải tài liệu &rarr;
-            </a>
+            <div class="folder-actions">
+              <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank" class="btn-learn-orange">
+                ▶ Lớp tập huấn Đoàn thể & CBCCVC ↗
+              </a>
+              <a href="#" target="_blank" class="btn-docs-blue">
+                📁 Tủ sách pháp luật & Nghiệp vụ
+              </a>
+            </div>
           </div>
 
         </div>
@@ -850,7 +926,7 @@
     <footer class="portal-footer">
       <div class="portal-footer-top">
         <a href="#">Trang chủ Cổng TTĐT</a>
-        <a href="#">Sơ đồ hệ thống</a>
+        <a href="https://binhdanhocvuso.vinhlong.gov.vn/" target="_blank">Cổng Bình dân học vụ số tỉnh Vĩnh Long</a>
         <a href="#">Thông tin liên hệ</a>
         <a href="#">Dịch vụ công trực tuyến</a>
       </div>
@@ -860,7 +936,7 @@
           <div class="org-title">TRUNG TÂM HỌC TẬP CỘNG ĐỒNG XÃ TÂN LONG HỘI</div>
           <div class="org-leader">Cơ quan chủ quản: Ủy ban nhân dân xã Tân Long Hội</div>
           <div class="org-detail">
-            <strong>Địa chỉ:</strong> Ấp Gò Nhum, xã Tân Long Hội, tỉnh Vĩnh Long<br>
+            <strong>Địa chỉ:</strong> Ấp Tân Hiệp, xã Tân Long Hội, tỉnh Vĩnh Long<br>
             <strong>Điện thoại:</strong> 02703.933.260 | <strong>Email:</strong> <a href="mailto:tthtcd.tanlonghoi@vinhlong.gov.vn">tthtcd.tanlonghoi@vinhlong.gov.vn</a>
           </div>
         </div>
@@ -904,7 +980,7 @@
 
   </div>
 
-  <!-- SCRIPT: ĐỒNG HỒ THỜI GIAN THỰC & BỘ ĐẾM TRUY CẬP THẬT -->
+  <!-- SCRIPT: ĐỒNG HỒ & BỘ ĐẾM TRUY CẬP THỰC TẾ -->
   <script>
     function updateLiveClock() {
       const now = new Date();
