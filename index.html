@@ -1804,40 +1804,75 @@
             </div>
 
             <!-- THẺ CHỈ SỐ KPI TỔNG HỢP -->
-            <div class="row g-2 mb-3 text-start">
+            <!-- 5 THẺ CHỈ SỐ KPI THIẾT KẾ MỚI BẮT MẮT -->
+            <div class="row g-3 mb-4 text-start">
+              <!-- Thẻ 1: Tổng kinh phí (Xanh dương pastel) -->
               <div class="col-md col-6">
-                <div class="p-2 border rounded bg-white shadow-sm">
-                  <div class="text-muted small" style="font-size: 0.7rem;">TỔNG KINH PHÍ GIAO</div>
-                  <div class="fw-bold fs-5 text-primary">1.960</div>
-                  <div class="text-muted" style="font-size: 0.65rem;">14 nhiệm vụ</div>
+                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-uppercase fw-bold text-primary" style="font-size: 0.72rem; letter-spacing: 0.5px;">Tổng kinh phí giao</span>
+                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-primary text-white shadow-sm" style="width: 34px; height: 34px;">
+                      <i class="bi bi-wallet2 fs-6"></i>
+                    </div>
+                  </div>
+                  <div class="fs-3 fw-bold text-primary mb-1">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+                  <div class="small text-secondary"><i class="bi bi-layers-fill me-1"></i>14 nhiệm vụ CĐS</div>
                 </div>
               </div>
+
+              <!-- Thẻ 2: Kinh phí đã phân bổ (Tím pastel) -->
               <div class="col-md col-6">
-                <div class="p-2 border rounded bg-white shadow-sm">
-                  <div class="text-muted small" style="font-size: 0.7rem;">KINH PHÍ ĐÃ PHÂN BỔ</div>
-                  <div class="fw-bold fs-5 text-dark">1.960</div>
-                  <div class="text-success small" style="font-size: 0.65rem;">Đạt 100%</div>
+                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-uppercase fw-bold text-indigo" style="font-size: 0.72rem; letter-spacing: 0.5px; color: #6366f1;">Kinh phí đã phân bổ</span>
+                    <div class="d-flex align-items-center justify-content-center rounded-3 text-white shadow-sm" style="width: 34px; height: 34px; background-color: #6366f1;">
+                      <i class="bi bi-pie-chart-fill fs-6"></i>
+                    </div>
+                  </div>
+                  <div class="fs-3 fw-bold mb-1" style="color: #4f46e5;">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+                  <div class="small fw-semibold" style="color: #6366f1;"><i class="bi bi-check-all me-1"></i>Đạt 100% kế hoạch</div>
                 </div>
               </div>
+
+              <!-- Thẻ 3: Đã giải ngân (Cam/Vàng nổi bật) -->
               <div class="col-md col-6">
-                <div class="p-2 border rounded bg-white shadow-sm">
-                  <div class="text-muted small" style="font-size: 0.7rem;">ĐÃ GIẢI NGÂN</div>
-                  <div class="fw-bold fs-5 text-success">672</div>
-                  <div class="badge bg-warning text-dark" style="font-size: 0.68rem;">Tỷ lệ: 34,30%</div>
+                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-uppercase fw-bold text-warning-emphasis" style="font-size: 0.72rem; letter-spacing: 0.5px;">Đã giải ngân</span>
+                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-warning text-dark shadow-sm" style="width: 34px; height: 34px;">
+                      <i class="bi bi-cash-stack fs-6"></i>
+                    </div>
+                  </div>
+                  <div class="fs-3 fw-bold text-dark mb-1">672 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+                  <span class="badge bg-warning text-dark px-2 py-1 fw-bold shadow-sm" style="font-size: 0.72rem;">Tỷ lệ: 34,30%</span>
                 </div>
               </div>
+
+              <!-- Thẻ 4: Đã hoàn thành (Xanh lá pastel) -->
               <div class="col-md col-6">
-                <div class="p-2 border rounded bg-white shadow-sm">
-                  <div class="text-muted small" style="font-size: 0.7rem;">ĐÃ HOÀN THÀNH</div>
-                  <div class="fw-bold fs-5 text-success">5</div>
-                  <div class="text-muted" style="font-size: 0.65rem;">Nhiệm vụ xong</div>
+                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-uppercase fw-bold text-success" style="font-size: 0.72rem; letter-spacing: 0.5px;">Đã hoàn thành</span>
+                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-success text-white shadow-sm" style="width: 34px; height: 34px;">
+                      <i class="bi bi-check-circle-fill fs-6"></i>
+                    </div>
+                  </div>
+                  <div class="fs-3 fw-bold text-success mb-1">5 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
+                  <div class="small text-success fw-semibold"><i class="bi bi-shield-check me-1"></i>Đạt chuẩn nghiệm thu</div>
                 </div>
               </div>
+
+              <!-- Thẻ 5: Cảnh báo quá hạn (Đỏ hồng pastel) -->
               <div class="col-md col-6">
-                <div class="p-2 border rounded bg-white shadow-sm">
-                  <div class="text-muted small" style="font-size: 0.7rem;">CẢNH BÁO QUÁ HẠN</div>
-                  <div class="fw-bold fs-5 text-danger">4</div>
-                  <div class="text-danger small" style="font-size: 0.65rem;">Cần đôn đốc</div>
+                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-uppercase fw-bold text-danger" style="font-size: 0.72rem; letter-spacing: 0.5px;">Cảnh báo quá hạn</span>
+                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-danger text-white shadow-sm" style="width: 34px; height: 34px;">
+                      <i class="bi bi-exclamation-triangle-fill fs-6"></i>
+                    </div>
+                  </div>
+                  <div class="fs-3 fw-bold text-danger mb-1">4 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
+                  <span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fw-bold" style="font-size: 0.7rem;">Cần đôn đốc</span>
                 </div>
               </div>
             </div>
