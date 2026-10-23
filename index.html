@@ -1784,212 +1784,394 @@
           </div>
         </div>
      <!-- ================= PHÂN HỆ 8 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ NQ 57 ================= -->
+        <!-- ================= PHÂN HỆ 9 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ (NQ 57) ================= -->
         <div id="view-14" class="dashboard-panel">
           <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-cash-stack me-2"></i> 8. TÌNH HÌNH GIẢI NGÂN KINH PHÍ NGHỊ QUYẾT 57 NĂM 2026</div>
-            <div class="d-flex align-items-center gap-2">
-              <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportNQ57Excel()">
-                <i class="bi bi-file-earmark-excel-fill me-1"></i> Tải Excel
-              </button>
-              <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
-                <i class="bi bi-house-door"></i> Về trang chủ
-              </button>
+            <div class="fw-bold">
+              <i class="bi bi-currency-exchange me-2"></i> 9. KINH PHÍ CHUYỂN ĐỔI SỐ THEO NGHỊ QUYẾT 57 — XÃ TÂN LONG HỘI
             </div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
+              <i class="bi bi-house-door"></i> Về trang chủ
+            </button>
           </div>
+          
           <div class="dashboard-card-body shadow-sm">
-            <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
-              <div>
-                <h5 class="fw-bold text-primary mb-1">TÌNH HÌNH GIẢI NGÂN KINH PHÍ NGHỊ QUYẾT 57 NĂM 2026 — XÃ TÂN LONG HỘI</h5>
-                <span class="badge bg-secondary">Tổng số: 14 nhiệm vụ</span>
-                <span class="badge bg-primary ms-1">Xếp hạng: 104/124</span>
+            <div class="text-center mb-3">
+              <h5 class="fw-bold text-primary mb-1 text-uppercase">THEO DÕI TIẾN ĐỘ THỰC HIỆN & GIẢI NGÂN KINH PHÍ CĐS (NQ 57)</h5>
+              <div class="text-muted small">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI — TỔNG SỐ 14 NHIỆM VỤ</div>
+              <div class="text-end fst-italic text-secondary small pe-2">Đơn vị tính kinh phí: Triệu đồng</div>
+            </div>
+
+            <!-- 5 THẺ CHỈ SỐ KPI TỔNG HỢP -->
+            <div class="row g-2 mb-3 text-start">
+              <div class="col-md col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.7rem;">TỔNG KINH PHÍ GIAO</div>
+                  <div class="fw-bold fs-5 text-primary">1.960</div>
+                  <div class="text-muted" style="font-size: 0.65rem;">14 nhiệm vụ</div>
+                </div>
               </div>
-              <div class="text-end text-muted small">
-                <i>Đơn vị tính: triệu đồng</i>
+              <div class="col-md col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.7rem;">KINH PHÍ ĐÃ PHÂN BỔ</div>
+                  <div class="fw-bold fs-5 text-dark">1.960</div>
+                  <div class="text-success small" style="font-size: 0.65rem;">Đạt 100%</div>
+                </div>
+              </div>
+              <div class="col-md col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.7rem;">ĐÃ GIẢI NGÂN</div>
+                  <div class="fw-bold fs-5 text-success">672</div>
+                  <div class="badge bg-warning text-dark" style="font-size: 0.68rem;">Tỷ lệ: 34,30%</div>
+                </div>
+              </div>
+              <div class="col-md col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.7rem;">ĐÃ HOÀN THÀNH</div>
+                  <div class="fw-bold fs-5 text-success">5</div>
+                  <div class="text-muted" style="font-size: 0.65rem;">Nhiệm vụ xong</div>
+                </div>
+              </div>
+              <div class="col-md col-6">
+                <div class="p-2 border rounded bg-white shadow-sm">
+                  <div class="text-muted small" style="font-size: 0.7rem;">CẢNH BÁO QUÁ HẠN</div>
+                  <div class="fw-bold fs-5 text-danger">4</div>
+                  <div class="text-danger small" style="font-size: 0.65rem;">Cần đôn đốc</div>
+                </div>
               </div>
             </div>
 
-            <!-- 4 Thẻ KPI Tóm tắt -->
-            <div class="row g-3 mb-3 text-center">
-              <div class="col-md-3">
-                <div class="p-2 border rounded bg-light">
-                  <div class="text-muted small">Tổng kinh phí phân bổ</div>
-                  <div class="fs-4 fw-bold text-primary">1.960 tr.đ</div>
-                </div>
+            <!-- THANH TIẾN ĐỘ GIẢI NGÂN TỔNG THỂ -->
+            <div class="card border mb-3 p-2 bg-light">
+              <div class="d-flex justify-content-between align-items-center mb-1 small fw-semibold">
+                <span>Tiến độ giải ngân kinh phí NQ 57: <b>672 / 1.960 triệu đồng</b></span>
+                <span class="text-primary fw-bold">34,30%</span>
               </div>
-              <div class="col-md-3">
-                <div class="p-2 border rounded bg-light">
-                  <div class="text-muted small">Đã giải ngân</div>
-                  <div class="fs-4 fw-bold text-success">490 tr.đ (25,02%)</div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="p-2 border rounded bg-light">
-                  <div class="text-muted small">Nhiệm vụ hoàn thành</div>
-                  <div class="fs-4 fw-bold text-success">04 / 14</div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="p-2 border rounded bg-light">
-                  <div class="text-muted small">Nhiệm vụ quá hạn cảnh báo</div>
-                  <div class="fs-4 fw-bold text-danger">04 nhiệm vụ</div>
-                </div>
+              <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 34.3%;"></div>
               </div>
             </div>
 
-            <!-- Bảng chi tiết 14 nhiệm vụ -->
+            <!-- BẢNG CHI TIẾT 14 NHIỆM VỤ -->
             <div class="table-responsive">
-              <table class="table table-bordered table-sm align-middle small text-center mb-0">
-                <thead class="table-light">
+              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
+                <thead class="table-light align-middle" style="font-size: 0.75rem;">
                   <tr>
-                    <th style="width: 40px;">STT</th>
-                    <th class="text-start" style="min-width: 250px;">Tên nhiệm vụ</th>
-                    <th>Kinh phí (tr.đ)</th>
-                    <th>Đã giải ngân (Tỷ lệ)</th>
-                    <th>Ngày dự kiến</th>
-                    <th>Thời gian còn lại / Cảnh báo</th>
-                    <th>Tình trạng</th>
+                    <th rowspan="2" style="width: 3%;">STT</th>
+                    <th rowspan="2" style="width: 25%;" class="text-start">Tên nhiệm vụ</th>
+                    <th rowspan="2" style="width: 6%;">Kinh phí</th>
+                    <th rowspan="2" style="width: 6%;">Đã phân bổ</th>
+                    <th rowspan="2" style="width: 8%;">Đã giải ngân (Tỷ lệ)</th>
+                    <th colspan="8" style="width: 24%;">Tiến độ hồ sơ / Quy trình thủ tục</th>
+                    <th rowspan="2" style="width: 8%;">Ngày dự kiến GN</th>
+                    <th rowspan="2" style="width: 10%;">Thời gian còn lại</th>
+                  </tr>
+                  <tr>
+                    <th title="1. Tờ trình chủ trương">1</th>
+                    <th title="2. QĐ PD chủ trương">2</th>
+                    <th title="3. Thẩm định Sở KH&CN">3</th>
+                    <th title="4. Tờ trình PD dự toán">4</th>
+                    <th title="5. QĐ PD dự toán">5</th>
+                    <th title="6. QĐ PD KHLCNT">6</th>
+                    <th title="7. Đã ký hợp đồng">7</th>
+                    <th title="8. Thanh lý HĐ">8</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- Dòng tổng hợp -->
-                  <tr class="table-primary fw-bold">
-                    <td>104</td>
-                    <td class="text-start"><i class="bi bi-building me-1"></i> Xã Tân Long Hội (14 nhiệm vụ)</td>
-                    <td>1.960</td>
-                    <td>490 (25,02%)</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                  </tr>
+                <tbody style="font-size: 0.78rem;">
+                  <!-- 1 -->
                   <tr>
                     <td>1</td>
                     <td class="text-start">Hỗ trợ hoạt động tổ công nghệ số cộng đồng</td>
+                    <td class="fw-semibold">80</td>
                     <td>80</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 64 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
                   </tr>
+
+                  <!-- 2 -->
                   <tr>
                     <td>2</td>
-                    <td class="text-start">Hoàn thiện, nâng cấp hạ tầng mạng và trang thiết bị CNTT</td>
+                    <td class="text-start">Hoàn thiện, nâng cấp hạ tầng mạng và trang thiết bị công nghệ thông tin</td>
+                    <td class="fw-semibold">180</td>
                     <td>180</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>05/09/2026</td>
-                    <td><span class="badge bg-danger">Quá 37 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-danger">Quá 49 ngày</span></td>
                   </tr>
-                  <tr>
+
+                  <!-- 3 -->
+                  <tr class="table-success-subtle">
                     <td>3</td>
-                    <td class="text-start">Kinh phí đầu tư mua sắm trang thiết bị (máy tính, máy scan...), phương tiện KH&KT</td>
+                    <td class="text-start">Kinh phí đầu tư mua sắm trang thiết bị (máy tính, máy scan,...), các phương tiện KH-KT đáp ứng CĐS</td>
+                    <td class="fw-semibold">210</td>
                     <td>210</td>
-                    <td class="fw-bold text-success">200 (95,24%)</td>
+                    <td class="fw-bold text-success">200 <span class="badge bg-success">95,24%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
                     <td>15/08/2026</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
                   </tr>
-                  <tr>
+
+                  <!-- 4 -->
+                  <tr class="table-success-subtle">
                     <td>4</td>
-                    <td class="text-start">Kinh phí mua tài khoản sử dụng AI cho công chức, viên chức phục vụ chuyên môn</td>
+                    <td class="text-start">Kinh phí mua tài khoản sử dụng AI cho cán bộ, CC-VC khai thác phục vụ chuyên môn</td>
+                    <td class="fw-semibold">25</td>
                     <td>25</td>
-                    <td class="fw-bold text-success">25 (99,80%)</td>
+                    <td class="fw-bold text-success">25 <span class="badge bg-success">99,80%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
                     <td>15/08/2026</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
                   </tr>
+
+                  <!-- 5 -->
                   <tr>
                     <td>5</td>
                     <td class="text-start">Kinh phí vận hành phòng họp trực tuyến</td>
+                    <td class="fw-semibold">40</td>
                     <td>40</td>
-                    <td class="fw-bold text-warning">25 (61,58%)</td>
+                    <td>25 <span class="badge bg-warning text-dark">61,58%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 64 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
                   </tr>
+
+                  <!-- 6 -->
                   <tr>
                     <td>6</td>
-                    <td class="text-start">Kinh phí vận hành Trang thông tin điện tử xã (duy trì và nhuận bút)</td>
+                    <td class="text-start">Kinh phí vận hành Trang thông tin điện tử xã (kinh phí duy trì Trang và nhuận bút)</td>
+                    <td class="fw-semibold">25</td>
                     <td>25</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 64 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
                   </tr>
+
+                  <!-- 7 -->
                   <tr>
                     <td>7</td>
-                    <td class="text-start">Lắp đặt hệ thống wifi 5G tại các trụ sở ấp, Nhà văn hoá, TTHH cộng đồng...</td>
+                    <td class="text-start">Lắp đặt hệ thống wifi 5G tại các trụ sở ấp, Nhà văn hóa, Trung tâm HTCĐ</td>
+                    <td class="fw-semibold">40</td>
                     <td>40</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>01/10/2026</td>
-                    <td><span class="badge bg-danger">Quá 11 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-danger">Quá 23 ngày</span></td>
                   </tr>
-                  <tr>
+
+                  <!-- 8 -->
+                  <tr class="table-success-subtle">
                     <td>8</td>
                     <td class="text-start">Mô hình chợ 4.0 (Chợ Tân Long - Số 2)</td>
+                    <td class="fw-semibold">40</td>
                     <td>40</td>
-                    <td class="fw-bold text-success">40 (100,00%)</td>
+                    <td class="fw-bold text-success">40 <span class="badge bg-success">100,00%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
                     <td>05/09/2026</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
                   </tr>
+
+                  <!-- 9 -->
                   <tr>
                     <td>9</td>
                     <td class="text-start">Nâng cấp mua sắm hạ tầng trang thiết bị</td>
+                    <td class="fw-semibold">820</td>
                     <td>820</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>05/09/2026</td>
-                    <td><span class="badge bg-danger">Quá 37 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-danger">Quá 49 ngày</span></td>
                   </tr>
+
+                  <!-- 10 -->
                   <tr>
                     <td>10</td>
                     <td class="text-start">Thuê dịch vụ phần mềm bốc số từ xa qua Zalo OA</td>
+                    <td class="fw-semibold">80</td>
                     <td>80</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>01/10/2026</td>
-                    <td><span class="badge bg-danger">Quá 11 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-danger">Quá 23 ngày</span></td>
                   </tr>
+
+                  <!-- 11 -->
                   <tr>
                     <td>11</td>
                     <td class="text-start">Thuê hệ thống loa truyền thanh thông minh</td>
+                    <td class="fw-semibold">213</td>
                     <td>213</td>
-                    <td class="fw-bold text-success">189 (88,64%)</td>
+                    <td>189 <span class="badge bg-success">88,64%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="small text-muted">Chủ đầu tư</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>15/11/2026</td>
-                    <td><span class="badge bg-success">Còn 34 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-warning text-dark">Còn 22 ngày</span></td>
                   </tr>
+
+                  <!-- 12 -->
                   <tr>
                     <td>12</td>
                     <td class="text-start">Truyền thông, tập huấn và nâng cao năng lực chuyển đổi số</td>
+                    <td class="fw-semibold">13</td>
                     <td>13</td>
-                    <td>0 (0,00%)</td>
+                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
+                    <td class="text-danger fw-bold">✗</td>
                     <td>01/12/2026</td>
-                    <td><span class="badge bg-success">Còn 50 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-success">Còn 38 ngày</span></td>
                   </tr>
-                  <tr>
+
+                  <!-- 13 -->
+                  <tr class="table-success-subtle">
                     <td>13</td>
-                    <td class="text-start">Ứng dụng trí tuệ nhân tạo (AI) và Robot lễ tân thông minh phục vụ người dân tại TTHCC</td>
+                    <td class="text-start">Ứng dụng trí tuệ nhân tạo (AI) và Robot lễ tân thông minh tại Bộ phận một cửa</td>
+                    <td class="fw-semibold">182</td>
                     <td>182</td>
-                    <td>0 (0,00%)</td>
+                    <td class="fw-bold text-success">182 <span class="badge bg-success">99,89%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
                     <td>30/09/2026</td>
-                    <td><span class="badge bg-danger">Quá 12 ngày</span></td>
-                    <td>Chủ đầu tư</td>
+                    <td><span class="badge bg-success">Hoàn thành</span></td>
                   </tr>
-                  <tr>
+
+                  <!-- 14 -->
+                  <tr class="table-success-subtle">
                     <td>14</td>
                     <td class="text-start">Viết tin bài, quảng bá các sản phẩm OCOP, sản phẩm chủ lực trên sàn TMĐT</td>
+                    <td class="fw-semibold">12</td>
                     <td>12</td>
-                    <td class="fw-bold text-success">12 (100,00%)</td>
+                    <td class="fw-bold text-success">12 <span class="badge bg-success">100,00%</span></td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-muted">Bỏ qua</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
+                    <td class="text-success fw-bold">✓</td>
                     <td>05/09/2026</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
                   </tr>
                 </tbody>
+
+                <!-- HÀNG TỔNG CỘNG TOÀN XÃ -->
+                <tfoot class="table-light fw-bold text-center" style="font-size: 0.8rem;">
+                  <tr>
+                    <td colspan="2" class="text-primary text-start ps-3">TỔNG CỘNG XÃ TÂN LONG HỘI (14 NHIỆM VỤ)</td>
+                    <td class="text-primary">1.960</td>
+                    <td class="text-primary">1.960</td>
+                    <td class="text-success">672 <span class="badge bg-warning text-dark ms-1">34,30%</span></td>
+                    <td class="text-primary">9</td>
+                    <td class="text-primary">9</td>
+                    <td class="text-muted">0</td>
+                    <td class="text-primary">7</td>
+                    <td class="text-primary">7</td>
+                    <td class="text-primary">6</td>
+                    <td class="text-primary">6</td>
+                    <td class="text-primary">5</td>
+                    <td colspan="2" class="text-success">Đã hoàn thành 5/14 nhiệm vụ</td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
+
+            <!-- CHÚ THÍCH CÁC BƯỚC THỦ TỤC -->
+            <div class="mt-2 text-muted small" style="font-size: 0.7rem; line-height: 1.5;">
+              <b>* Chú thích quy trình:</b> 
+              (1) Tờ trình chủ trương & dự kiến KP; (2) QĐ PD chủ trương; (3) Thẩm định Sở KH&CN; (4) Tờ trình PD dự toán; (5) QĐ PD dự toán; (6) QĐ PD KHLCNT; (7) Đã ký hợp đồng; (8) Nghiệm thu & Thanh lý HĐ.
+            </div>
+
           </div>
         </div>
      </main>
