@@ -1258,16 +1258,197 @@
       <span class="badge bg-success-subtle text-success border border-success px-2 py-1"><i class="bi bi-circle-fill me-1" style="font-size: 8px;"></i>Cập nhật: 27/10/2026</span>
     </div>
 
-    <!-- 8 Ô THẺ KPIS (CẬP NHẬT CHUẨN THEO ẢNH MỚI) -->
+   <!-- 8 THẺ KPIS THIẾT KẾ PHONG CÁCH IOC HIỆN ĐẠI & ẤN TƯỢNG -->
+    <style>
+      .ioc-kpi-card {
+        border-radius: 10px;
+        padding: 12px 14px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.25s ease-in-out;
+        border: 1px solid transparent;
+        background: #fff;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .ioc-kpi-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08) !important;
+      }
+      .ioc-kpi-title {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .ioc-kpi-val {
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+      .ioc-kpi-sub {
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: 4px;
+      }
+      .ioc-kpi-icon {
+        position: absolute;
+        right: 8px;
+        bottom: 4px;
+        font-size: 38px;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+
+      /* Màu sắc đặc trưng từng trạng thái */
+      .card-total { background: linear-gradient(135deg, #f0f7ff 0%, #e0effe 100%); border-color: #bad9fc; }
+      .card-total .ioc-kpi-title { color: #1e40af; }
+      .card-total .ioc-kpi-val { color: #1d4ed8; }
+      .card-total .ioc-kpi-icon { color: #1d4ed8; }
+
+      .card-tx-done { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fecdd3; }
+      .card-tx-done .ioc-kpi-title { color: #9f1239; }
+      .card-tx-done .ioc-kpi-val { color: #e11d48; }
+      .card-tx-done .ioc-kpi-sub { color: #be123c; }
+      .card-tx-done .ioc-kpi-icon { color: #e11d48; }
+
+      .card-tx-none { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: #fde68a; }
+      .card-tx-none .ioc-kpi-title { color: #92400e; }
+      .card-tx-none .ioc-kpi-val { color: #d97706; }
+      .card-tx-none .ioc-kpi-sub { color: #b45309; }
+      .card-tx-none .ioc-kpi-icon { color: #d97706; }
+
+      .card-done-ontime { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #bbf7d0; }
+      .card-done-ontime .ioc-kpi-title { color: #166534; }
+      .card-done-ontime .ioc-kpi-val { color: #16a34a; }
+      .card-done-ontime .ioc-kpi-sub { color: #15803d; }
+      .card-done-ontime .ioc-kpi-icon { color: #16a34a; }
+
+      .card-done-late { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; }
+      .card-done-late .ioc-kpi-title { color: #9a3412; }
+      .card-done-late .ioc-kpi-val { color: #ea580c; }
+      .card-done-late .ioc-kpi-sub { color: #c2410c; }
+      .card-done-late .ioc-kpi-icon { color: #ea580c; }
+
+      .card-run-ontime { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-color: #bfdbfe; }
+      .card-run-ontime .ioc-kpi-title { color: #1e40af; }
+      .card-run-ontime .ioc-kpi-val { color: #2563eb; }
+      .card-run-ontime .ioc-kpi-sub { color: #1d4ed8; }
+      .card-run-ontime .ioc-kpi-icon { color: #2563eb; }
+
+      .card-run-near { background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-color: #99f6e4; }
+      .card-run-near .ioc-kpi-title { color: #115e59; }
+      .card-run-near .ioc-kpi-val { color: #0d9488; }
+      .card-run-near .ioc-kpi-sub { color: #0f766e; }
+      .card-run-near .ioc-kpi-icon { color: #0d9488; }
+
+      .card-run-late { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-color: #fca5a5; }
+      .card-run-late .ioc-kpi-title { color: #991b1b; }
+      .card-run-late .ioc-kpi-val { color: #dc2626; }
+      .card-run-late .ioc-kpi-sub { color: #b91c1c; }
+      .card-run-late .ioc-kpi-icon { color: #dc2626; }
+    </style>
+
     <div class="row g-2 mb-3">
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TỔNG SỐ NHIỆM VỤ</div><div class="fw-bold fs-4 text-dark">15</div><div class="text-muted small">&nbsp;</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX ĐÃ BÁO CÁO</div><div class="fw-bold fs-4 text-danger">1</div><div class="text-muted small">6,7%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX CHƯA BÁO CÁO</div><div class="fw-bold fs-4 text-warning">0</div><div class="text-muted small">0,0%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-success">8</div><div class="text-muted small">53,3%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH QUÁ HẠN</div><div class="fw-bold fs-4 text-warning">4</div><div class="text-muted small">26,7%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-primary">1</div><div class="text-muted small">6,7%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH SẮP HẠN</div><div class="fw-bold fs-4 text-info">0</div><div class="text-muted small">0,0%</div></div></div>
-      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH QUÁ HẠN</div><div class="fw-bold fs-4 text-danger">1</div><div class="text-muted small">6,7%</div></div></div>
+      <!-- 1. TỔNG SỐ -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-total shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Tổng số nhiệm vụ</div>
+            <div class="ioc-kpi-val">15</div>
+          </div>
+          <div class="ioc-kpi-sub">&nbsp;</div>
+          <i class="bi bi-kanban ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 2. THƯỜNG XUYÊN ĐÃ BÁO CÁO -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-tx-done shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">TX Đã Báo Cáo</div>
+            <div class="ioc-kpi-val">1</div>
+          </div>
+          <div class="ioc-kpi-sub">6,7%</div>
+          <i class="bi bi-arrow-repeat ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 3. THƯỜNG XUYÊN CHƯA BÁO CÁO -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-tx-none shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">TX Chưa Báo Cáo</div>
+            <div class="ioc-kpi-val">0</div>
+          </div>
+          <div class="ioc-kpi-sub">0,0%</div>
+          <i class="bi bi-arrow-clockwise ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 4. HOÀN THÀNH ĐÚNG HẠN -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-done-ontime shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Hoàn thành đúng hạn</div>
+            <div class="ioc-kpi-val">8</div>
+          </div>
+          <div class="ioc-kpi-sub">53,3%</div>
+          <i class="bi bi-check-circle-fill ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 5. HOÀN THÀNH QUÁ HẠN -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-done-late shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Hoàn thành quá hạn</div>
+            <div class="ioc-kpi-val">4</div>
+          </div>
+          <div class="ioc-kpi-sub">26,7%</div>
+          <i class="bi bi-calendar2-x-fill ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 6. ĐANG THỰC HIỆN ĐÚNG HẠN -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-run-ontime shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Đang TH đúng hạn</div>
+            <div class="ioc-kpi-val">1</div>
+          </div>
+          <div class="ioc-kpi-sub">6,7%</div>
+          <i class="bi bi-play-circle-fill ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 7. ĐANG THỰC HIỆN SẮP HẠN -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-run-near shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Đang TH sắp hạn</div>
+            <div class="ioc-kpi-val">0</div>
+          </div>
+          <div class="ioc-kpi-sub">0,0%</div>
+          <i class="bi bi-hourglass-split ioc-kpi-icon"></i>
+        </div>
+      </div>
+
+      <!-- 8. ĐANG THỰC HIỆN QUÁ HẠN -->
+      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
+        <div class="ioc-kpi-card card-run-late shadow-sm">
+          <div>
+            <div class="ioc-kpi-title">Đang TH quá hạn</div>
+            <div class="ioc-kpi-val">1</div>
+          </div>
+          <div class="ioc-kpi-sub">6,7%</div>
+          <i class="bi bi-exclamation-triangle-fill ioc-kpi-icon"></i>
+        </div>
+      </div>
     </div>
 
     <!-- BẢNG CHI TIẾT CÁC NHÓM NHIỆM VỤ THEO KẾ HOẠCH 100 NGÀY -->
