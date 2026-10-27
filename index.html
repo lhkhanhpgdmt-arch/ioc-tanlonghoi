@@ -1192,72 +1192,183 @@
           </div>
         </div>
 
-        <!-- ================= PHÂN HỆ 4 (VIEW-8): TIẾP NHẬN Ý KIẾN NGƯỜI DÂN ================= -->
-        <div id="view-8" class="dashboard-panel">
-          <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-chat-dots-fill me-1"></i> 4. TIẾP NHẬN & XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ CỦA NGƯỜI DÂN</div>
-            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
-          </div>
-          <div class="dashboard-card-body shadow-sm">
-            <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1 text-uppercase">THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ</h5>
-              <div class="small text-muted mb-1">(Tính đến ngày <strong>30/09/2026</strong>)</div>
-            </div>
-
-            <!-- 4 THẺ KPI -->
-            <div class="row g-2 mb-3 text-center">
-              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Tổng phản ánh</div><div class="fw-bold fs-4 text-primary">7</div></div></div>
-              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Đã xử lý</div><div class="fw-bold fs-4 text-primary">7</div></div></div>
-              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Đang xử lý</div><div class="fw-bold fs-4 text-primary">0</div></div></div>
-              <div class="col-md-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">Quá hạn</div><div class="fw-bold fs-4 text-primary">0</div></div></div>
-            </div>
-
-            <!-- BIỂU ĐỒ -->
-            <div class="row g-3 mb-3">
-              <div class="col-lg-4 col-md-5">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
-                  <div class="small fw-bold text-primary mb-2">Trạng thái xử lý</div>
-                  <div style="max-width: 180px; margin: 0 auto;"><canvas id="chartDonutXuLy"></canvas></div>
-                  <div class="mt-2 small text-muted"><span class="badge" style="background-color: #00897b;">■</span> Đã xử lý: 7 (100%)</div>
-                </div>
-              </div>
-              <div class="col-lg-8 col-md-7">
-                <div class="p-3 border rounded bg-white shadow-sm h-100">
-                  <div class="small fw-bold text-primary mb-2 text-center">Xử lý theo tháng</div>
-                  <div style="height: 220px;"><canvas id="chartBarTheoThang"></canvas></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- BẢNG DANH SÁCH CHI TIẾT 7 Ý KIẾN -->
-            <div class="mb-2 fw-bold text-primary small text-uppercase"><i class="bi bi-card-checklist me-1"></i> Danh sách phản ánh</div>
-            <div class="table-responsive mb-3">
-               class="table table-bordered table-sm small align-middle mb-0">
-                <thead class="table-light">
-                  <tr>
-                    <th style="width: 12%;" class="text-center">Ngày gửi</th>
-                    <th style="width: 73%;">Nội dung phản ánh</th>
-                    <th style="width: 15%;" class="text-center">Tình trạng</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td class="text-center">22/09/2026</td><td>Rác sinh hoạt không được thu gom - hướng về Cầu Mới, xã Tân Long Hội</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">17/06/2026</td><td>Cần bố trí thùng rác cho người dân (gần đối diện cây xăng Cầu Mới, xã Hòa Hiệp)</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">05/06/2026</td><td>Tôi muốn hỏi thời gian ngày nào trong tuần xe đi lấy rác (ấp Thâm Bình xã Tân Long Hội)</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">04/06/2026</td><td>Vứt rác ven đường gây mất mỹ quan đô thị, gần công ty Tân Long, ấp Tân Hiệp, quốc lộ 53</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">16/05/2026</td><td>Phản ánh chế độ chính sách BHXH cán bộ bán chuyên trách xã công tác từ 4/2012</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">11/05/2026</td><td>Rác thải sinh hoạt vứt lề đường bốc mùi hôi thối - gần nhà trọ Thuận Phát, xã Hòa Hiệp</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                  <tr><td class="text-center">23/03/2026</td><td>Bãi rác tự phát ngay quốc lộ 53 dưới chân cầu Mang Thít, xã Tân Long Hội</td><td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+     <!-- ==================== PHÂN HỆ 4 (VIEW-7): TIÊU CHÍ NTM NÂNG CAO ==================== -->
+<div id="view-7" class="dashboard-panel">
+  <div class="dashboard-head-bar shadow-sm">
+    <div class="fw-bold"><i class="bi bi-award-fill me-2"></i>4. BỘ TIÊU CHÍ XÃ NÔNG THÔN MỚI NÂNG CAO</div>
+    <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+  </div>
+  <div class="dashboard-card-body shadow-sm">
+    <div class="text-center mb-3">
+      <h5 class="fw-bold text-primary mb-1">TIẾN ĐỘ THỰC HIỆN BỘ TIÊU CHÍ XÃ NÔNG THÔN MỚI NÂNG CAO</h5>
+      <div class="text-muted small">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI — TỔNG SỐ 19 TIÊU CHÍ</div>
+      <div class="text-end text-muted small fst-italic mt-1"><i class="bi bi-clock me-1"></i>Cập nhật: 27/10/2026</div>
+    </div>
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">TỔNG TIÊU CHÍ</div>
+          <div class="display-6 fw-bold text-primary my-1">19</div>
+          <div class="text-muted small">Bộ tiêu chí NTM nâng cao</div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">ĐÃ ĐẠT CHUẨN</div>
+          <div class="display-6 fw-bold text-success my-1">19</div>
+          <div class="text-success small fw-semibold">Đạt 100% kế hoạch</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">CHƯA ĐẠT</div>
+          <div class="display-6 fw-bold text-secondary my-1">0</div>
+          <div class="text-muted small">0,0%</div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm align-middle text-center small mb-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 5%;">STT</th>
+            <th style="width: 35%;" class="text-start">TÊN TIÊU CHÍ</th>
+            <th style="width: 25%;">CHỈ TIÊU ĐÁNH GIÁ</th>
+            <th style="width: 15%;">KẾT QUẢ ĐẠT ĐƯỢC</th>
+            <th style="width: 20%;">ĐÁNH GIÁ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="text-start">Quy hoạch</td>
+            <td>Đạt chuẩn quy hoạch xây dựng NTM</td>
+            <td class="text-success fw-bold">Đạt 100%</td>
+            <td><span class="badge bg-success">Đạt chuẩn NTM nâng cao</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="text-start">Giao thông</td>
+            <td>Tỷ lệ đường liên ấp, ngõ xóm nhựa hóa/bê tông hóa</td>
+            <td class="text-success fw-bold">100%</td>
+            <td><span class="badge bg-success">Đạt chuẩn NTM nâng cao</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="text-start">Thủy lợi và phòng chống thiên tai</td>
+            <td>Hệ thống kênh mương, đê bao khép kín</td>
+            <td class="text-success fw-bold">100%</td>
+            <td><span class="badge bg-success">Đạt chuẩn NTM nâng cao</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="text-start">Thông tin và Truyền thông (Tiêu chí số 8)</td>
+            <td>Có dịch vụ công trực tuyến, Tổ CNSCĐ, wifi công cộng</td>
+            <td class="text-success fw-bold">Đạt chuẩn CĐS</td>
+            <td><span class="badge bg-success">Đạt chuẩn NTM nâng cao</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="text-start">Môi trường và chất lượng môi trường sống</td>
+            <td>Tỷ lệ thu gom rác thải, cảnh quan sáng - xanh - sạch</td>
+            <td class="text-success fw-bold">Đạt chuẩn</td>
+            <td><span class="badge bg-success">Đạt chuẩn NTM nâng cao</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-       <!-- ==================== PHÂN HỆ 5 (VIEW-10): KẾ HOẠCH 100 NGÀY CĐS ==================== -->
+<!-- ==================== PHÂN HỆ 5 (VIEW-8): TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN ==================== -->
+<div id="view-8" class="dashboard-panel">
+  <div class="dashboard-head-bar shadow-sm">
+    <div class="fw-bold"><i class="bi bi-chat-dots-fill me-2"></i>5. TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN (IOC)</div>
+    <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+  </div>
+  <div class="dashboard-card-body shadow-sm">
+    <div class="text-center mb-3">
+      <h5 class="fw-bold text-primary mb-1">TỔNG HỢP TIẾP NHẬN & XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ</h5>
+      <div class="text-muted small">HỆ THỐNG ĐIỀU HÀNH PHẢN ÁNH - KIẾN NGHỊ XÃ TÂN LONG HỘI</div>
+      <div class="text-end text-muted small fst-italic mt-1"><i class="bi bi-clock me-1"></i>Cập nhật: 27/10/2026</div>
+    </div>
+    <div class="row g-3 mb-3">
+      <div class="col-md-3 col-6">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">TỔNG TIẾP NHẬN</div>
+          <div class="fs-3 fw-bold text-primary my-1">48</div>
+          <div class="text-muted small">Phản ánh, kiến nghị</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">ĐÃ XỬ LÝ XONG</div>
+          <div class="fs-3 fw-bold text-success my-1">46</div>
+          <div class="text-success small fw-semibold">Tỷ lệ: 95,8%</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">ĐANG XỬ LÝ (TRONG HẠN)</div>
+          <div class="fs-3 fw-bold text-warning my-1">2</div>
+          <div class="text-warning small fw-semibold">Tỷ lệ: 4,2%</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="p-3 border rounded text-center bg-white shadow-sm">
+          <div class="text-muted fw-bold small">QUÁ HẠN XỬ LÝ</div>
+          <div class="fs-3 fw-bold text-danger my-1">0</div>
+          <div class="text-danger small fw-semibold">0,0%</div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm align-middle text-center small mb-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 5%;">STT</th>
+            <th style="width: 15%;">NGÀY GỬI</th>
+            <th style="width: 35%;" class="text-start">NỘI DUNG PHẢN ÁNH</th>
+            <th style="width: 20%;">LĨNH VỰC</th>
+            <th style="width: 15%;">ĐƠN VỊ XỬ LÝ</th>
+            <th style="width: 10%;">TRẠNG THÁI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>24/10/2026</td>
+            <td class="text-start">Kiến nghị kiểm tra đèn chiếu sáng công cộng tuyến đường liên ấp Gò Nhum</td>
+            <td>Hạ tầng - Đô thị</td>
+            <td>Tổ Quản lý Đô thị & Môi trường</td>
+            <td><span class="badge bg-success">Đã xử lý</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>25/10/2026</td>
+            <td class="text-start">Phản ánh thủ tục cấp đổi giấy chứng nhận QSDĐ tại bộ phận Một cửa</td>
+            <td>Thủ tục hành chính</td>
+            <td>Trung tâm PV Hành chính công</td>
+            <td><span class="badge bg-success">Đã xử lý</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>26/10/2026</td>
+            <td class="text-start">Đề nghị hỗ trợ kích hoạt chữ ký số cá nhân và nộp hồ sơ trực tuyến qua VNeID</td>
+            <td>Chuyển đổi số</td>
+            <td>Tổ CNS cộng đồng</td>
+            <td><span class="badge bg-warning text-dark">Đang xử lý</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PHÂN HỆ 6 (VIEW-10): KẾ HOẠCH 100 NGÀY CĐS ==================== -->
 <div id="view-10" class="dashboard-panel">
   <div class="dashboard-head-bar shadow-sm">
-    <div class="fw-bold"><i class="bi bi-kanban me-2"></i>5. THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY CĐS</div>
+    <div class="fw-bold"><i class="bi bi-kanban me-2"></i>6. THEO DÕI TIẾN ĐỘ THỰC HIỆN KẾ HOẠCH 100 NGÀY CĐS</div>
     <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
   </div>
   <div class="dashboard-card-body shadow-sm">
@@ -1266,213 +1377,32 @@
       <span class="badge bg-success-subtle text-success border border-success px-2 py-1"><i class="bi bi-circle-fill me-1" style="font-size: 8px;"></i>Cập nhật: 27/10/2026</span>
     </div>
 
-   <!-- 8 THẺ KPIS THIẾT KẾ PHONG CÁCH IOC HIỆN ĐẠI & ẤN TƯỢNG -->
-    <style>
-      .ioc-kpi-card {
-        border-radius: 10px;
-        padding: 12px 14px;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.25s ease-in-out;
-        border: 1px solid transparent;
-        background: #fff;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .ioc-kpi-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08) !important;
-      }
-      .ioc-kpi-title {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.4px;
-        margin-bottom: 4px;
-        line-height: 1.3;
-      }
-      .ioc-kpi-val {
-        font-size: 26px;
-        font-weight: 800;
-        line-height: 1.1;
-      }
-      .ioc-kpi-sub {
-        font-size: 11px;
-        font-weight: 600;
-        margin-top: 4px;
-      }
-      .ioc-kpi-icon {
-        position: absolute;
-        right: 8px;
-        bottom: 4px;
-        font-size: 38px;
-        opacity: 0.18;
-        pointer-events: none;
-      }
-
-      /* Màu sắc đặc trưng từng trạng thái */
-      .card-total { background: linear-gradient(135deg, #f0f7ff 0%, #e0effe 100%); border-color: #bad9fc; }
-      .card-total .ioc-kpi-title { color: #1e40af; }
-      .card-total .ioc-kpi-val { color: #1d4ed8; }
-      .card-total .ioc-kpi-icon { color: #1d4ed8; }
-
-      .card-tx-done { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fecdd3; }
-      .card-tx-done .ioc-kpi-title { color: #9f1239; }
-      .card-tx-done .ioc-kpi-val { color: #e11d48; }
-      .card-tx-done .ioc-kpi-sub { color: #be123c; }
-      .card-tx-done .ioc-kpi-icon { color: #e11d48; }
-
-      .card-tx-none { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: #fde68a; }
-      .card-tx-none .ioc-kpi-title { color: #92400e; }
-      .card-tx-none .ioc-kpi-val { color: #d97706; }
-      .card-tx-none .ioc-kpi-sub { color: #b45309; }
-      .card-tx-none .ioc-kpi-icon { color: #d97706; }
-
-      .card-done-ontime { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #bbf7d0; }
-      .card-done-ontime .ioc-kpi-title { color: #166534; }
-      .card-done-ontime .ioc-kpi-val { color: #16a34a; }
-      .card-done-ontime .ioc-kpi-sub { color: #15803d; }
-      .card-done-ontime .ioc-kpi-icon { color: #16a34a; }
-
-      .card-done-late { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; }
-      .card-done-late .ioc-kpi-title { color: #9a3412; }
-      .card-done-late .ioc-kpi-val { color: #ea580c; }
-      .card-done-late .ioc-kpi-sub { color: #c2410c; }
-      .card-done-late .ioc-kpi-icon { color: #ea580c; }
-
-      .card-run-ontime { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-color: #bfdbfe; }
-      .card-run-ontime .ioc-kpi-title { color: #1e40af; }
-      .card-run-ontime .ioc-kpi-val { color: #2563eb; }
-      .card-run-ontime .ioc-kpi-sub { color: #1d4ed8; }
-      .card-run-ontime .ioc-kpi-icon { color: #2563eb; }
-
-      .card-run-near { background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-color: #99f6e4; }
-      .card-run-near .ioc-kpi-title { color: #115e59; }
-      .card-run-near .ioc-kpi-val { color: #0d9488; }
-      .card-run-near .ioc-kpi-sub { color: #0f766e; }
-      .card-run-near .ioc-kpi-icon { color: #0d9488; }
-
-      .card-run-late { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-color: #fca5a5; }
-      .card-run-late .ioc-kpi-title { color: #991b1b; }
-      .card-run-late .ioc-kpi-val { color: #dc2626; }
-      .card-run-late .ioc-kpi-sub { color: #b91c1c; }
-      .card-run-late .ioc-kpi-icon { color: #dc2626; }
-    </style>
-
+    <!-- 8 Ô Thẻ KPIs thiết kế đẹp -->
     <div class="row g-2 mb-3">
-      <!-- 1. TỔNG SỐ -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-total shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Tổng số nhiệm vụ</div>
-            <div class="ioc-kpi-val">15</div>
-          </div>
-          <div class="ioc-kpi-sub">&nbsp;</div>
-          <i class="bi bi-kanban ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 2. THƯỜNG XUYÊN ĐÃ BÁO CÁO -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-tx-done shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">TX Đã Báo Cáo</div>
-            <div class="ioc-kpi-val">1</div>
-          </div>
-          <div class="ioc-kpi-sub">6,7%</div>
-          <i class="bi bi-arrow-repeat ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 3. THƯỜNG XUYÊN CHƯA BÁO CÁO -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-tx-none shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">TX Chưa Báo Cáo</div>
-            <div class="ioc-kpi-val">0</div>
-          </div>
-          <div class="ioc-kpi-sub">0,0%</div>
-          <i class="bi bi-arrow-clockwise ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 4. HOÀN THÀNH ĐÚNG HẠN -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-done-ontime shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Hoàn thành đúng hạn</div>
-            <div class="ioc-kpi-val">8</div>
-          </div>
-          <div class="ioc-kpi-sub">53,3%</div>
-          <i class="bi bi-check-circle-fill ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 5. HOÀN THÀNH QUÁ HẠN -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-done-late shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Hoàn thành quá hạn</div>
-            <div class="ioc-kpi-val">4</div>
-          </div>
-          <div class="ioc-kpi-sub">26,7%</div>
-          <i class="bi bi-calendar2-x-fill ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 6. ĐANG THỰC HIỆN ĐÚNG HẠN -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-run-ontime shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Đang TH đúng hạn</div>
-            <div class="ioc-kpi-val">1</div>
-          </div>
-          <div class="ioc-kpi-sub">6,7%</div>
-          <i class="bi bi-play-circle-fill ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 7. ĐANG THỰC HIỆN SẮP HẠN -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-run-near shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Đang TH sắp hạn</div>
-            <div class="ioc-kpi-val">0</div>
-          </div>
-          <div class="ioc-kpi-sub">0,0%</div>
-          <i class="bi bi-hourglass-split ioc-kpi-icon"></i>
-        </div>
-      </div>
-
-      <!-- 8. ĐANG THỰC HIỆN QUÁ HẠN -->
-      <div class="col-xl-auto col-lg col-md-3 col-sm-4 col-6 flex-fill">
-        <div class="ioc-kpi-card card-run-late shadow-sm">
-          <div>
-            <div class="ioc-kpi-title">Đang TH quá hạn</div>
-            <div class="ioc-kpi-val">1</div>
-          </div>
-          <div class="ioc-kpi-sub">6,7%</div>
-          <i class="bi bi-exclamation-triangle-fill ioc-kpi-icon"></i>
-        </div>
-      </div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TỔNG SỐ NHIỆM VỤ</div><div class="fw-bold fs-4 text-dark">15</div><div class="text-muted small">&nbsp;</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX ĐÃ BÁO CÁO</div><div class="fw-bold fs-4 text-danger">1</div><div class="text-muted small">6,7%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">TX CHƯA BÁO CÁO</div><div class="fw-bold fs-4 text-warning">0</div><div class="text-muted small">0,0%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-success">8</div><div class="text-muted small">53,3%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">HOÀN THÀNH QUÁ HẠN</div><div class="fw-bold fs-4 text-warning">4</div><div class="text-muted small">26,7%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH ĐÚNG HẠN</div><div class="fw-bold fs-4 text-primary">1</div><div class="text-muted small">6,7%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH SẮP HẠN</div><div class="fw-bold fs-4 text-info">0</div><div class="text-muted small">0,0%</div></div></div>
+      <div class="col-md col-sm-3 col-6"><div class="p-2 border rounded bg-white shadow-sm"><div class="text-muted small">ĐANG TH QUÁ HẠN</div><div class="fw-bold fs-4 text-danger">1</div><div class="text-muted small">6,7%</div></div></div>
     </div>
 
-    <!-- BẢNG CHI TIẾT CÁC NHÓM NHIỆM VỤ THEO KẾ HOẠCH 100 NGÀY -->
+    <!-- Bảng Kế hoạch 100 ngày cột Tên nhiệm vụ 36% rộng rãi -->
     <div class="table-responsive">
       <table class="table table-bordered table-sm small align-middle mb-0">
-       <thead class="table-light text-center">
-        <tr>
-          <th style="width: 4%;">STT</th>
-          <th style="width: 36%;">TÊN NHIỆM VỤ</th>
-          <th style="width: 12%;">VĂN BẢN GIAO</th>
-          <th style="width: 13%;">CƠ QUAN CHỦ TRÌ</th>
-          <th style="width: 10%;">THỜI HẠN</th>
-          <th style="width: 12%;">TRẠNG THÁI CHUNG</th>
-          <th style="width: 13%;">TRẠNG THÁI CHI TIẾT</th>
-        </tr>
-      </thead>
+        <thead class="table-light text-center">
+          <tr>
+            <th style="width: 4%;">STT</th>
+            <th style="width: 36%;">TÊN NHIỆM VỤ</th>
+            <th style="width: 12%;">VĂN BẢN GIAO</th>
+            <th style="width: 13%;">CƠ QUAN CHỦ TRÌ</th>
+            <th style="width: 10%;">THỜI HẠN</th>
+            <th style="width: 12%;">TRẠNG THÁI CHUNG</th>
+            <th style="width: 13%;">TRẠNG THÁI CHI TIẾT</th>
+          </tr>
+        </thead>
         <tbody>
           <!-- NHÓM I -->
           <tr class="table-light fw-bold" style="background-color: #f1f5f9;">
@@ -1565,7 +1495,7 @@
             <td>Cập nhật kịp thời các kiến nghị, khó khăn vào hệ thống điều hành phản ánh – kiến nghị trên IOC từng bước thay báo cáo giấy <span class="badge bg-light text-secondary border">1 đơn vị</span></td>
             <td>Theo Kế hoạch số 03-KH/BCĐ</td>
             <td>Sở, ban, ngành; UBND cấp xã</td>
-            <td class="text-center">30/9/2026 giải quyết dứt điểm khó khăn về hạ tầng; 30/10/2026 giải quyết dứt điểm kết nối CSDL (đủ điều kiện)</td>
+            <td class="text-center">30/9/2026 giải quyết khó khăn; 30/10/2026 kết nối CSDL</td>
             <td class="text-center"><span class="badge bg-success-subtle text-success border border-success-subtle">✔ Đã hoàn thành – Đúng hạn</span></td>
             <td class="text-center"><span class="badge bg-success-subtle text-success border border-success-subtle">✔ Đã hoàn thành – Đúng hạn (1 ĐV)</span></td>
           </tr>
@@ -1624,7 +1554,7 @@
             <td>Đề xuất ứng dụng khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số để góp phần tăng trưởng của ngành, địa phương <span class="badge bg-light text-secondary border">1 đơn vị</span></td>
             <td>Theo Nghị quyết số 57-NQ/TW</td>
             <td>Các sở, ban, ngành; UBND cấp xã</td>
-            <td class="text-center">30/07/2026 hoàn thành gửi đề xuất đợt 1</td>
+            <td class="text-center">30/07/2026 hoàn thành đề xuất đợt 1</td>
             <td class="text-center"><span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">✔ Đã hoàn thành – Quá hạn</span></td>
             <td class="text-center"><span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">✔ Đã hoàn thành – Quá hạn (1 ĐV)</span></td>
           </tr>
@@ -1657,7 +1587,7 @@
             <td>Ban hành và tổ chức triển khai kế hoạch đào tạo nguồn nhân lực phục vụ cho ĐMST, KHCN & CĐS <span class="badge bg-light text-secondary border">1 đơn vị</span></td>
             <td>Theo Kế hoạch số 242/KH-UBND; 244/KH-UBND</td>
             <td>Sở KH&CN, các cơ quan, đơn vị và địa phương</td>
-            <td class="text-center">31/7/2026 hoàn thành ban hành KH; tổ chức thực hiện</td>
+            <td class="text-center">31/7/2026</td>
             <td class="text-center"><span class="badge bg-success-subtle text-success border border-success-subtle">✔ Đã hoàn thành – Đúng hạn</span></td>
             <td class="text-center"><span class="badge bg-success-subtle text-success border border-success-subtle">✔ Đã hoàn thành – Đúng hạn (1 ĐV)</span></td>
           </tr>
@@ -1666,746 +1596,500 @@
     </div>
   </div>
 </div>
-          </div>
+
+<!-- ==================== PHÂN HỆ 7 (VIEW-6): THÔNG TIN ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ==================== -->
+<div id="view-6" class="dashboard-panel">
+  <div class="dashboard-head-bar shadow-sm">
+    <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i>7. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
+    <div>
+      <button class="btn btn-sm btn-success py-0 px-2 fw-semibold me-1"><i class="bi bi-file-earmark-excel"></i> Xuất Excel</button>
+      <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+    </div>
+  </div>
+  <div class="dashboard-card-body shadow-sm">
+    <!-- 3 Ô Header Địa bàn, Trường học, Biên chế -->
+    <div class="row g-2 mb-3">
+      <div class="col-md-4">
+        <div class="p-2 border rounded border-dark">
+          <div class="text-muted small fw-semibold">ĐƠN VỊ ẤP ĐỊA BÀN</div>
+          <div class="fs-4 fw-bold text-dark">11 ấp</div>
         </div>
-
-        <!-- ================= PHÂN HỆ 6 (VIEW-12): ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
-        <div id="view-12" class="dashboard-panel">
-          <div class="dashboard-head-bar shadow-sm">
-              <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 6. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
-              <div class="d-flex align-items-center gap-2">
-                <!-- NÚT XUẤT EXCEL -->
-                <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportEducationExcel()">
-                  <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
-                </button>
-                <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
-                  <i class="bi bi-house-door"></i> Về trang chủ
-                </button>
-              </div>
-            </div>
-          <div class="dashboard-card-body shadow-sm">
-            <!-- 3 thẻ KPI -->
-            <div class="row g-3 mb-3">
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-secondary"><div class="kpi-title">ĐƠN VỊ ẤP ĐỊA BÀN</div><div class="kpi-num text-dark">11 ấp</div></div></div>
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-primary"><div class="kpi-title">TRƯỜNG HỌC CÔNG LẬP TRỰC THUỘC</div><div class="kpi-num text-primary">03 đơn vị</div></div></div>
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-success"><div class="kpi-title">TỔNG BIÊN CHẾ CÁN BỘ - GIÁO VIÊN</div><div class="kpi-num text-success">238 người</div></div></div>
-            </div>
-
-            <!-- Tổng hợp số liệu học sinh -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-people-fill text-primary me-1"></i> TỔNG HỢP SỐ LIỆU HỌC SINH SAU KHAI GIẢNG (TOÀN XÃ)</div>
-            <div class="row g-2 mb-4 text-center">
-              <div class="col"><div class="p-2 border rounded bg-light"><div class="fw-bold fs-5 text-dark">105</div><div class="text-muted" style="font-size: 0.72rem;">TỔNG SỐ LỚP</div></div></div>
-              <div class="col"><div class="p-2 border rounded bg-primary-subtle text-primary"><div class="fw-bold fs-5">2.916</div><div style="font-size: 0.72rem;">TỔNG HỌC SINH</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fdf2f8; color: #be185d;"><div class="fw-bold fs-5">1.351</div><div style="font-size: 0.72rem;">HỌC SINH NỮ</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fff7ed; color: #c2410c;"><div class="fw-bold fs-5">207</div><div style="font-size: 0.72rem;">KHÓ KHĂN</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #f0fdf4; color: #15803d;"><div class="fw-bold fs-5">36</div><div style="font-size: 0.72rem;">CẬN NGHÈO</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fef2f2; color: #b91c1c;"><div class="fw-bold fs-5">12</div><div style="font-size: 0.72rem;">HỘ NGHÈO</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #faf5ff; color: #7e22ce;"><div class="fw-bold fs-5">29</div><div style="font-size: 0.72rem;">KHUYẾT TẬT</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #ecfeff; color: #0e7490;"><div class="fw-bold fs-5">57</div><div style="font-size: 0.72rem;">MỒ CÔI</div></div></div>
-            </div>
-
-            <!-- Bảng 3 trường chuẩn quốc gia -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-building-check text-success me-1"></i> 1. Danh sách các trường học và chuẩn quốc gia</div>
-            <div class="table-responsive mb-4">
-              <table class="table table-bordered table-sm small align-middle mb-0">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th>Tên trường</th>
-                    <th>Cấp học</th>
-                    <th>Số lớp</th>
-                    <th>Học sinh</th>
-                    <th>Học sinh Nữ</th>
-                    <th>Biên chế CB-GV</th>
-                    <th>Đánh giá chuẩn</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="fw-bold">Trường Mầm non Oanh Vũ II</td>
-                    <td class="text-center">Mầm non</td>
-                    <td class="text-center fw-bold">27</td>
-                    <td class="text-center text-primary fw-bold">615</td>
-                    <td class="text-center">285</td>
-                    <td class="text-center">69</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold">Trường Tiểu học Tân Long Hội</td>
-                    <td class="text-center">Tiểu học</td>
-                    <td class="text-center fw-bold">48</td>
-                    <td class="text-center text-primary fw-bold">1.283</td>
-                    <td class="text-center">579</td>
-                    <td class="text-center">88</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold">Trường THCS Tân Long Hội</td>
-                    <td class="text-center">THCS</td>
-                    <td class="text-center fw-bold">30</td>
-                    <td class="text-center text-primary fw-bold">1.018</td>
-                    <td class="text-center">487</td>
-                    <td class="text-center">81</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Bảng chi tiết phân hiệu, điểm trường -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-diagram-3-fill text-primary me-1"></i> 2. Chi tiết điểm trường, phân hiệu và khối lớp</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle mb-0">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th style="width: 5%;">STT</th>
-                    <th>Trường / Điểm trường / Phân hiệu</th>
-                    <th style="width: 10%;">Tổng số lớp</th>
-                    <th style="width: 12%;">Tổng học sinh</th>
-                    <th style="width: 10%;">Nữ</th>
-                    <th>Phân bổ theo nhóm tuổi / Khối lớp</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-balloon-heart text-danger me-1"></i> I. TRƯỜNG MẦM NON OANH VŨ II (27 lớp - 615 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính Trường MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">172</td><td class="text-center">76</td><td>Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long + Điểm Tân Hiệp</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">229</td><td class="text-center">117</td><td>Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">214</td><td class="text-center">92</td><td>Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td></tr>
-
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-book-half text-primary me-1"></i> II. TRƯỜNG TIỂU HỌC TÂN LONG HỘI (48 lớp - 1.283 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính TH Tân Long Hội + Điểm Tân Phong</td><td class="text-center">15 lớp</td><td class="text-center fw-bold">414</td><td class="text-center">186</td><td>Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng</td><td class="text-center">16 lớp</td><td class="text-center fw-bold">382</td><td class="text-center">156</td><td>Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long + Điểm Đồng Bé</td><td class="text-center">17 lớp</td><td class="text-center fw-bold">487</td><td class="text-center">237</td><td>Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)</td></tr>
-
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-backpack text-success me-1"></i> III. TRƯỜNG THCS TÂN LONG HỘI (30 lớp - 1.018 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính Trường THCS Tân Long Hội (TAH)</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">284</td><td class="text-center">130</td><td>Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">305</td><td class="text-center">150</td><td>Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long</td><td class="text-center">12 lớp</td><td class="text-center fw-bold">429</td><td class="text-center">207</td><td>Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-2 border rounded border-primary">
+          <div class="text-muted small fw-semibold">TRƯỜNG HỌC CÔNG LẬP TRỰC THUỘC</div>
+          <div class="fs-4 fw-bold text-primary">03 đơn vị</div>
         </div>
-
-        <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG (ĐẦY ĐỦ CHI TIẾT) ================= -->
-       <!-- ================= PHÂN HỆ 7 (VIEW-13): THỐNG KÊ TÀI SẢN CÔNG TOÀN DIỆN ================= -->
-        <!-- ================= PHÂN HỆ 7 (VIEW-11): THÔNG TIN ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
-        <!-- ================= PHÂN HỆ 7 (VIEW-11): ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC ================= -->
-        <div id="view-11" class="dashboard-panel">
-          <div class="dashboard-head-bar shadow-sm">
-              <div class="fw-bold"><i class="bi bi-mortarboard-fill me-2"></i> 7. THÔNG TIN CÁC ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC - NĂM HỌC 2026 - 2027</div>
-              <div class="d-flex align-items-center gap-2">
-                <!-- NÚT XUẤT EXCEL -->
-                <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportEducationExcel()">
-                  <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
-                </button>
-                <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
-                  <i class="bi bi-house-door"></i> Về trang chủ
-                </button>
-              </div>
-            </div>
-          <div class="dashboard-card-body shadow-sm">
-            <!-- 3 thẻ KPI -->
-            <div class="row g-3 mb-3">
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-secondary"><div class="kpi-title">ĐƠN VỊ ẤP ĐỊA BÀN</div><div class="kpi-num text-dark">11 ấp</div></div></div>
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-primary"><div class="kpi-title">TRƯỜNG HỌC CÔNG LẬP TRỰC THUỘC</div><div class="kpi-num text-primary">03 đơn vị</div></div></div>
-              <div class="col-md-4"><div class="kpi-box border-start border-4 border-success"><div class="kpi-title">TỔNG BIÊN CHẾ CÁN BỘ - GIÁO VIÊN</div><div class="kpi-num text-success">238 người</div></div></div>
-            </div>
-            <!-- Tổng hợp số liệu học sinh -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-people-fill text-primary me-1"></i> TỔNG HỢP SỐ LIỆU HỌC SINH SAU KHAI GIẢNG (TOÀN XÃ)</div>
-            <div class="row g-2 mb-4 text-center">
-              <div class="col"><div class="p-2 border rounded bg-light"><div class="fw-bold fs-5 text-dark">105</div><div class="text-muted" style="font-size: 0.72rem;">TỔNG SỐ LỚP</div></div></div>
-              <div class="col"><div class="p-2 border rounded bg-primary-subtle text-primary"><div class="fw-bold fs-5">2.916</div><div style="font-size: 0.72rem;">TỔNG HỌC SINH</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fdf2f8; color: #be185d;"><div class="fw-bold fs-5">1.351</div><div style="font-size: 0.72rem;">HỌC SINH NỮ</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fff7ed; color: #c2410c;"><div class="fw-bold fs-5">207</div><div style="font-size: 0.72rem;">KHÓ KHĂN</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #f0fdf4; color: #15803d;"><div class="fw-bold fs-5">36</div><div style="font-size: 0.72rem;">CẬN NGHÈO</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #fef2f2; color: #b91c1c;"><div class="fw-bold fs-5">12</div><div style="font-size: 0.72rem;">HỘ NGHÈO</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #faf5ff; color: #7e22ce;"><div class="fw-bold fs-5">29</div><div style="font-size: 0.72rem;">KHUYẾT TẬT</div></div></div>
-              <div class="col"><div class="p-2 border rounded" style="background-color: #ecfeff; color: #0e7490;"><div class="fw-bold fs-5">57</div><div style="font-size: 0.72rem;">MỒ CÔI</div></div></div>
-            </div>
-            <!-- Bảng 3 trường chuẩn quốc gia -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-building-check text-success me-1"></i> 1. Danh sách các trường học và chuẩn quốc gia</div>
-            <div class="table-responsive mb-4">
-              <table class="table table-bordered table-sm small align-middle mb-0">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th>Tên trường</th>
-                    <th>Cấp học</th>
-                    <th>Số lớp</th>
-                    <th>Học sinh</th>
-                    <th>Học sinh Nữ</th>
-                    <th>Biên chế CB-GV</th>
-                    <th>Đánh giá chuẩn</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="fw-bold">Trường Mầm non Oanh Vũ II</td>
-                    <td class="text-center">Mầm non</td>
-                    <td class="text-center fw-bold">27</td>
-                    <td class="text-center text-primary fw-bold">615</td>
-                    <td class="text-center">285</td>
-                    <td class="text-center">69</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold">Trường Tiểu học Tân Long Hội</td>
-                    <td class="text-center">Tiểu học</td>
-                    <td class="text-center fw-bold">48</td>
-                    <td class="text-center text-primary fw-bold">1.283</td>
-                    <td class="text-center">579</td>
-                    <td class="text-center">88</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold">Trường THCS Tân Long Hội</td>
-                    <td class="text-center">THCS</td>
-                    <td class="text-center fw-bold">30</td>
-                    <td class="text-center text-primary fw-bold">1.018</td>
-                    <td class="text-center">487</td>
-                    <td class="text-center">81</td>
-                    <td class="text-center"><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- Bảng chi tiết phân hiệu, điểm trường -->
-            <div class="fw-bold text-secondary small text-uppercase mb-2"><i class="bi bi-diagram-3-fill text-primary me-1"></i> 2. Chi tiết điểm trường, phân hiệu và khối lớp</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle mb-0">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th style="width: 5%;">STT</th>
-                    <th>Trường / Điểm trường / Phân hiệu</th>
-                    <th style="width: 10%;">Tổng số lớp</th>
-                    <th style="width: 12%;">Tổng học sinh</th>
-                    <th style="width: 10%;">Nữ</th>
-                    <th>Phân bổ theo nhóm tuổi / Khối lớp</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-balloon-heart text-danger me-1"></i> I. TRƯỜNG MẦM NON OANH VŨ II (27 lớp - 615 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính Trường MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">172</td><td class="text-center">76</td><td>Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long + Điểm Tân Hiệp</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">229</td><td class="text-center">117</td><td>Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">214</td><td class="text-center">92</td><td>Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td></tr>
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-book-half text-primary me-1"></i> II. TRƯỜNG TIỂU HỌC TÂN LONG HỘI (48 lớp - 1.283 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính TH Tân Long Hội + Điểm Tân Phong</td><td class="text-center">15 lớp</td><td class="text-center fw-bold">414</td><td class="text-center">186</td><td>Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân An Hội + Điểm Tân Qui, Tân Thiềng</td><td class="text-center">16 lớp</td><td class="text-center fw-bold">382</td><td class="text-center">156</td><td>Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long + Điểm Đồng Bé</td><td class="text-center">17 lớp</td><td class="text-center fw-bold">487</td><td class="text-center">237</td><td>Khối 1 (95), Khối 2 (91), Khối 3 (96), Khối 4 (109), Khối 5 (96)</td></tr>
-                  <tr class="group-row"><td colspan="6"><i class="bi bi-backpack text-success me-1"></i> III. TRƯỜNG THCS TÂN LONG HỘI (30 lớp - 1.018 học sinh)</td></tr>
-                  <tr><td class="text-center">1</td><td>Điểm chính Trường THCS Tân Long Hội (TAH)</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">284</td><td class="text-center">130</td><td>Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td></tr>
-                  <tr><td class="text-center">2</td><td>Phân hiệu Tân Long Hội</td><td class="text-center">9 lớp</td><td class="text-center fw-bold">305</td><td class="text-center">150</td><td>Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td></tr>
-                  <tr><td class="text-center">3</td><td>Phân hiệu Tân Long</td><td class="text-center">12 lớp</td><td class="text-center fw-bold">429</td><td class="text-center">207</td><td>Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-2 border rounded border-success">
+          <div class="text-muted small fw-semibold">TỔNG BIÊN CHẾ CÁN BỘ - GIÁO VIÊN</div>
+          <div class="fs-4 fw-bold text-success">238 người</div>
         </div>
-       <div id="view-13" class="dashboard-panel">
-          <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold"><i class="bi bi-buildings-fill me-2"></i> 7. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP — XÃ TÂN LONG HỘI</div>
-            <div class="d-flex align-items-center gap-2">
-              <button class="btn btn-sm btn-success py-0 px-2 fw-semibold" onclick="exportTaiSanCongExcel()">
-                <i class="bi bi-file-earmark-excel-fill me-1"></i> Xuất Excel
-              </button>
-              <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
-                <i class="bi bi-house-door"></i> Về trang chủ
-              </button>
-            </div>
-          </div>
-          <div class="dashboard-card-body shadow-sm">
-            <h5 class="text-center text-primary fw-bold mb-1">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h5>
-            <div class="text-center text-muted small mb-3"><i>(Nguồn: Sở Tài chính & UBND Xã Tân Long Hội cung cấp - Dữ liệu cập nhật đến ngày 12/10/2026)</i></div>
+      </div>
+    </div>
 
-            <!-- 5 THẺ CHỈ SỐ TỔNG HỢP TRÊN CÙNG -->
-            <div class="row g-2 mb-3 text-center">
-              <div class="col">
-                <div class="p-2 border rounded bg-white shadow-sm h-100">
-                  <div class="fw-bold text-primary small"><i class="bi bi-building"></i> TỔNG CỘNG</div>
-                  <div class="fs-4 fw-bold text-primary my-1">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Đất: <b>34.844 m²</b></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: <b>9.659 m²</b></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="p-2 border rounded bg-white shadow-sm h-100">
-                  <div class="fw-bold text-success small"><i class="bi bi-check-circle"></i> GIỮ LẠI SỬ DỤNG</div>
-                  <div class="fs-4 fw-bold text-success my-1">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Đất: <b>34.844 m²</b></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: <b>9.659 m²</b></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="p-2 border rounded bg-white shadow-sm h-100">
-                  <div class="fw-bold text-warning small"><i class="bi bi-arrow-left-right"></i> ĐIỀU CHUYỂN</div>
-                  <div class="fs-4 fw-bold text-warning my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="p-2 border rounded bg-white shadow-sm h-100">
-                  <div class="fw-bold text-info small"><i class="bi bi-box-arrow-up-right"></i> CHUYỂN GIAO</div>
-                  <div class="fs-4 fw-bold text-info my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="p-2 border rounded bg-white shadow-sm h-100">
-                  <div class="fw-bold text-danger small"><i class="bi bi-trash"></i> THU HỒI</div>
-                  <div class="fs-4 fw-bold text-danger my-1">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Đất: 0 m²</div>
-                  <div class="small text-muted" style="font-size:0.75rem;">Sàn: 0 m²</div>
-                </div>
-              </div>
-            </div>
+    <!-- Tổng hợp học sinh -->
+    <div class="fw-bold text-primary small mb-2"><i class="bi bi-people-fill me-1"></i>TỔNG HỢP SỐ LIỆU HỌC SINH SAU KHAI GIẢNG (TOÀN XÃ)</div>
+    <div class="row g-2 mb-3 text-center">
+      <div class="col"><div class="p-2 rounded bg-light border"><div class="fw-bold fs-5 text-dark">105</div><div class="small text-muted" style="font-size: 11px;">TỔNG SỐ LỚP</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #dbeafe;"><div class="fw-bold fs-5 text-primary">2.916</div><div class="small text-primary" style="font-size: 11px;">TỔNG HỌC SINH</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #fce7f3;"><div class="fw-bold fs-5 text-danger">1.351</div><div class="small text-danger" style="font-size: 11px;">HỌC SINH NỮ</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #ffedd5;"><div class="fw-bold fs-5 text-warning" style="color: #ea580c !important;">207</div><div class="small text-warning" style="font-size: 11px; color: #ea580c !important;">KHÓ KHĂN</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #ecfdf5;"><div class="fw-bold fs-5 text-success">36</div><div class="small text-success" style="font-size: 11px;">CẬN NGHÈO</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #fee2e2;"><div class="fw-bold fs-5 text-danger">12</div><div class="small text-danger" style="font-size: 11px;">HỘ NGHÈO</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #f3e8ff;"><div class="fw-bold fs-5 text-indigo" style="color: #9333ea;">29</div><div class="small" style="font-size: 11px; color: #9333ea;">KHUYẾT TẬT</div></div></div>
+      <div class="col"><div class="p-2 rounded border" style="background-color: #e0f2fe;"><div class="fw-bold fs-5 text-info">57</div><div class="small text-info" style="font-size: 11px;">MỒ CÔI</div></div></div>
+    </div>
 
-            <!-- BỘ LỌC TÌM KIẾM -->
-            <div class="p-3 border rounded bg-light mb-3">
-              <div class="row g-2 align-items-center">
-                <div class="col-md-3">
-                  <input type="text" id="filterTaiSanKeyword" class="form-control form-control-sm" placeholder="Tìm tên đơn vị, địa chỉ..." onkeyup="filterTaiSanTable()">
-                </div>
-                <div class="col-md-3">
-                  <select id="filterTaiSanMucDich" class="form-select form-select-sm" onchange="filterTaiSanTable()">
-                    <option value="">-- Tất cả mục đích --</option>
-                    <option value="Trụ sở">Đất trụ sở cơ quan</option>
-                    <option value="Y tế">Đất cơ sở y tế</option>
-                    <option value="Giáo dục">Đất cơ sở giáo dục</option>
-                    <option value="Văn hóa">Đất cơ sở văn hóa</option>
-                  </select>
-                </div>
-                <div class="col-md-3">
-                  <select id="filterTaiSanPhuongAn" class="form-select form-select-sm" onchange="filterTaiSanTable()">
-                    <option value="">-- Tất cả phương án --</option>
-                    <option value="Giữ lại tiếp tục sử dụng">Giữ lại tiếp tục sử dụng</option>
-                    <option value="Điều chuyển">Điều chuyển</option>
-                    <option value="Chuyển giao">Chuyển giao</option>
-                    <option value="Thu hồi">Thu hồi</option>
-                  </select>
-                </div>
-                <div class="col-md-3 text-end">
-                  <button class="btn btn-sm btn-outline-secondary" onclick="resetTaiSanFilter()">Xóa lọc</button>
-                </div>
-              </div>
-            </div>
+    <!-- Bảng 1: Danh sách trường -->
+    <div class="fw-bold text-dark small mb-1"><i class="bi bi-card-checklist me-1"></i>1. DANH SÁCH CÁC TRƯỜNG HỌC VÀ CHUẨN QUỐC GIA</div>
+    <div class="table-responsive mb-3">
+      <table class="table table-bordered table-sm align-middle text-center small mb-0">
+        <thead class="table-light">
+          <tr>
+            <th class="text-start">Tên trường</th>
+            <th>Cấp học</th>
+            <th>Số lớp</th>
+            <th>Học sinh</th>
+            <th>Học sinh Nữ</th>
+            <th>Biên chế CB-GV</th>
+            <th>Đánh giá chuẩn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-start fw-semibold">Trường Mầm non Oanh Vũ II</td>
+            <td>Mầm non</td>
+            <td class="fw-bold">27</td>
+            <td class="fw-bold text-primary">615</td>
+            <td>285</td>
+            <td>69</td>
+            <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+          </tr>
+          <tr>
+            <td class="text-start fw-semibold">Trường Tiểu học Tân Long Hội</td>
+            <td>Tiểu học</td>
+            <td class="fw-bold">48</td>
+            <td class="fw-bold text-primary">1.283</td>
+            <td>579</td>
+            <td>88</td>
+            <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+          </tr>
+          <tr>
+            <td class="text-start fw-semibold">Trường THCS Tân Long Hội</td>
+            <td>THCS</td>
+            <td class="fw-bold">30</td>
+            <td class="fw-bold text-primary">1.018</td>
+            <td>487</td>
+            <td>81</td>
+            <td><span class="badge bg-success">Chuẩn QG Mức độ 1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-            <!-- BẢNG CHI TIẾT DANH MỤC NHÀ ĐẤT -->
-            <div class="fw-bold text-primary small mb-2"><i class="bi bi-table me-1"></i> DANH SÁCH CHI TIẾT CƠ SỞ NHÀ, ĐẤT (10 cơ sở nhà, đất)</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm align-middle small text-center mb-0" id="tableTaiSanCong">
-                <thead class="table-light">
-                  <tr>
-                    <th rowspan="2" style="width: 35px;">STT</th>
-                    <th rowspan="2" class="text-start" style="min-width: 220px;">ĐƠN VỊ / ĐỊA CHỈ NHÀ, ĐẤT</th>
-                    <th colspan="3">NHÀ, ĐẤT (m²)</th>
-                    <th rowspan="2">HỒ SƠ PHÁP LÝ</th>
-                    <th rowspan="2">MỤC ĐÍCH SỬ DỤNG</th>
-                    <th rowspan="2">HIỆN TRẠNG</th>
-                    <th colspan="2">PHƯƠNG ÁN SẮP XẾP, XỬ LÝ NHÀ, ĐẤT</th>
-                  </tr>
-                  <tr>
-                    <th>DT ĐẤT</th>
-                    <th>DT XD NHÀ</th>
-                    <th>DT SÀN SD</th>
-                    <th>PA ĐỀ XUẤT</th>
-                    <th>CƠ SỞ ĐỀ XUẤT</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- NHÓM 1: TRỤ SỞ HÀNH CHÍNH & VĂN HÓA -->
-                  <tr class="table-secondary fw-bold text-start"><td colspan="10">A. KHỐI TRỤ SỞ HÀNH CHÍNH VÀ NHÀ VĂN HÓA</td></tr>
-                  <tr>
-                    <td>1</td>
-                    <td class="text-start fw-semibold">Trụ sở Đảng ủy - HĐND - UBND xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">4.250,00</td>
-                    <td>1.100,00</td>
-                    <td>2.200,00</td>
-                    <td>Giấy CNQSDĐ số BV 882910</td>
-                    <td>Đất trụ sở cơ quan</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td class="text-start fw-semibold">Ban Chỉ huy Quân sự xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">850,00</td>
-                    <td>280,00</td>
-                    <td>280,00</td>
-                    <td>Giấy CNQSDĐ cấp 2018</td>
-                    <td>Đất an ninh - quốc phòng</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td class="text-start fw-semibold">Công an xã Tân Long Hội<br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">1.000,00</td>
-                    <td>320,00</td>
-                    <td>640,00</td>
-                    <td>Giấy CNQSDĐ cấp 2020</td>
-                    <td>Đất trụ sở cơ quan</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td class="text-start fw-semibold">Trung tâm Văn hóa - Thể thao & Học tập cộng đồng<br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">6.000,00</td>
-                    <td>480,00</td>
-                    <td>480,00</td>
-                    <td>Quyết định giao đất của UBND huyện</td>
-                    <td>Đất cơ sở văn hóa</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
+    <!-- Bảng 2: Chi tiết điểm trường -->
+    <div class="fw-bold text-dark small mb-1"><i class="bi bi-diagram-3 me-1"></i>2. CHI TIẾT ĐIỂM TRƯỜNG, PHÂN HIỆU VÀ KHỐI LỚP</div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm align-middle text-center small mb-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 5%;">STT</th>
+            <th style="width: 35%;" class="text-start">Trường / Điểm trường / Phân hiệu</th>
+            <th style="width: 12%;">Tổng số lớp</th>
+            <th style="width: 12%;">Tổng học sinh</th>
+            <th style="width: 10%;">Nữ</th>
+            <th style="width: 26%;">Phân bổ theo nhóm tuổi / Khối lớp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-light fw-bold text-start"><td colspan="6"><i class="bi bi-caret-down-fill text-danger me-1"></i>I. TRƯỜNG MẦM NON OANH VŨ II (27 lớp - 615 học sinh)</td></tr>
+          <tr>
+            <td>1</td>
+            <td class="text-start ps-3">Điểm chính Trường MN Oanh Vũ II + Điểm Tân Thiềng 1, 2</td>
+            <td>9 lớp</td>
+            <td class="fw-bold">172</td>
+            <td>76</td>
+            <td class="text-muted" style="font-size: 11px;">Nhà trẻ (15), Mầm (44), Chồi (42), Lá (71)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="text-start ps-3">Phân hiệu Tân Long + Điểm Tân Hiệp</td>
+            <td>9 lớp</td>
+            <td class="fw-bold">229</td>
+            <td>117</td>
+            <td class="text-muted" style="font-size: 11px;">Nhà trẻ (14), Mầm (52), Chồi (77), Lá (86)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="text-start ps-3">Phân hiệu Tân Long Hội</td>
+            <td>9 lớp</td>
+            <td class="fw-bold">214</td>
+            <td>92</td>
+            <td class="text-muted" style="font-size: 11px;">Nhà trẻ (32), Mầm (52), Chồi (59), Lá (71)</td>
+          </tr>
+          <tr class="table-light fw-bold text-start"><td colspan="6"><i class="bi bi-caret-down-fill text-primary me-1"></i>II. TRƯỜNG TIỂU HỌC TÂN LONG HỘI (48 lớp - 1.283 học sinh)</td></tr>
+          <tr>
+            <td>1</td>
+            <td class="text-start ps-3">Điểm chính TH Tân Long Hội + Điểm Tân Phong</td>
+            <td>15 lớp</td>
+            <td class="fw-bold">414</td>
+            <td>186</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 1 (77), Khối 2 (95), Khối 3 (73), Khối 4 (86), Khối 5 (83)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="text-start ps-3">Phân hiệu An Hội + Điểm Tân Quí, Tân Thiềng</td>
+            <td>16 lớp</td>
+            <td class="fw-bold">382</td>
+            <td>156</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 1 (65), Khối 2 (66), Khối 3 (82), Khối 4 (85), Khối 5 (84)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="text-start ps-3">Phân hiệu Tân Long + Điểm Đồng Bé</td>
+            <td>17 lớp</td>
+            <td class="fw-bold">487</td>
+            <td>237</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 1 (95), Khối 2 (91), Khối 3 (98), Khối 4 (109), Khối 5 (96)</td>
+          </tr>
+          <tr class="table-light fw-bold text-start"><td colspan="6"><i class="bi bi-caret-down-fill text-success me-1"></i>III. TRƯỜNG THCS TÂN LONG HỘI (30 lớp - 1.018 học sinh)</td></tr>
+          <tr>
+            <td>1</td>
+            <td class="text-start ps-3">Điểm chính Trường THCS Tân Long Hội (Tân Hiệp)</td>
+            <td>9 lớp</td>
+            <td class="fw-bold">284</td>
+            <td>130</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 6 (70), Khối 7 (67), Khối 8 (55), Khối 9 (92)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="text-start ps-3">Phân hiệu Tân Long Hội</td>
+            <td>9 lớp</td>
+            <td class="fw-bold">305</td>
+            <td>150</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 6 (69), Khối 7 (65), Khối 8 (76), Khối 9 (95)</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="text-start ps-3">Phân hiệu Tân Long</td>
+            <td>12 lớp</td>
+            <td class="fw-bold">429</td>
+            <td>207</td>
+            <td class="text-muted" style="font-size: 11px;">Khối 6 (100), Khối 7 (107), Khối 8 (105), Khối 9 (117)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-                  <!-- NHÓM 2: Y TẾ -->
-                  <tr class="table-secondary fw-bold text-start"><td colspan="10">B. KHỐI CƠ SỞ Y TẾ TRỰC THUỘC</td></tr>
-                  <tr>
-                    <td>5</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 1)<br><span class="text-muted small">Ấp Thâm Bình, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">1.943,00</td>
-                    <td>369,00</td>
-                    <td>369,00</td>
-                    <td>Giấy CNQSDĐ số BI 439591 (25/12/2020)</td>
-                    <td>Đất cơ sở y tế</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 2)<br><span class="text-muted small">Ấp Tân Thắng, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">1.250,00</td>
-                    <td>550,00</td>
-                    <td>550,00</td>
-                    <td>Giấy CNQSDĐ số CB 679850 (26/8/2015)</td>
-                    <td>Đất cơ sở y tế</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td class="text-start fw-semibold">Trạm Y tế xã Tân Long Hội (Cơ sở 3)<br><span class="text-muted small">Ấp Tân Qui, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">1.122,00</td>
-                    <td>590,00</td>
-                    <td>590,00</td>
-                    <td>Giấy CNQSDĐ số BI 425480 (27/11/2017)</td>
-                    <td>Đất cơ sở y tế</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Điều 10, NĐ 03/2025/NĐ-CP</td>
-                  </tr>
+<!-- ==================== PHÂN HỆ 8 (VIEW-9): THỐNG KÊ TÀI SẢN CÔNG ==================== -->
+<div id="view-9" class="dashboard-panel">
+  <div class="dashboard-head-bar shadow-sm">
+    <div class="fw-bold"><i class="bi bi-building-fill me-2"></i>8. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP — XÃ TÂN LONG HỘI</div>
+    <div>
+      <button class="btn btn-sm btn-success py-0 px-2 fw-semibold me-1"><i class="bi bi-file-earmark-excel"></i> Xuất Excel</button>
+      <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+    </div>
+  </div>
+  <div class="dashboard-card-body shadow-sm">
+    <div class="text-center mb-3">
+      <h5 class="fw-bold text-primary mb-1">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h5>
+      <div class="text-muted small fst-italic">(Nguồn: Sở Tài chính & UBND Xã Tân Long Hội cung cấp - Dữ liệu cập nhật đến ngày 12/10/2026)</div>
+    </div>
+    <div class="row g-2 mb-3">
+      <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-primary fw-bold small"><i class="bi bi-buildings me-1"></i>TỔNG CỘNG</div><div class="fs-4 fw-bold text-primary">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 34.844 m²<br>Sàn: 9.659 m²</div></div></div>
+      <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-success fw-bold small"><i class="bi bi-check-circle me-1"></i>GIỮ LẠI SỬ DỤNG</div><div class="fs-4 fw-bold text-success">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 34.844 m²<br>Sàn: 9.659 m²</div></div></div>
+      <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-warning fw-bold small"><i class="bi bi-arrow-left-right me-1"></i>ĐIỀU CHUYỂN</div><div class="fs-4 fw-bold text-warning">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
+      <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-info fw-bold small"><i class="bi bi-box-arrow-up-right me-1"></i>CHUYỂN GIAO</div><div class="fs-4 fw-bold text-info">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
+      <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-danger fw-bold small"><i class="bi bi-trash me-1"></i>THU HỒI</div><div class="fs-4 fw-bold text-danger">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
+    </div>
+    <div class="fw-bold text-primary small mb-2"><i class="bi bi-list-task me-1"></i>DANH SÁCH CHI TIẾT CƠ SỞ NHÀ, ĐẤT (10 cơ sở nhà, đất)</div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm align-middle small mb-0">
+        <thead class="table-light text-center">
+          <tr>
+            <th rowspan="2" style="width: 4%;">STT</th>
+            <th rowspan="2" style="width: 25%;">ĐƠN VỊ / ĐỊA CHỈ NHÀ, ĐẤT</th>
+            <th colspan="3">NHÀ, ĐẤT (m²)</th>
+            <th rowspan="2" style="width: 18%;">HỒ SƠ PHÁP LÝ</th>
+            <th rowspan="2" style="width: 14%;">MỤC ĐÍCH SỬ DỤNG</th>
+            <th rowspan="2" style="width: 8%;">HIỆN TRẠNG</th>
+            <th colspan="2">PHƯƠNG ÁN SẮP XẾP</th>
+          </tr>
+          <tr>
+            <th style="width: 7%;">DT ĐẤT</th>
+            <th style="width: 7%;">DT XD NHÀ</th>
+            <th style="width: 7%;">DT SÀN SD</th>
+            <th style="width: 10%;">PA ĐỀ XUẤT</th>
+            <th style="width: 10%;">CƠ SỞ ĐỀ XUẤT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-light fw-bold"><td colspan="10">A. KHỐI TRỤ SỞ HÀNH CHÍNH VÀ NHÀ VĂN HÓA</td></tr>
+          <tr>
+            <td class="text-center">1</td>
+            <td><strong>Trụ sở Đảng ủy - HĐND - UBND xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+            <td class="text-end fw-bold">4.250,00</td>
+            <td class="text-end">1.100,00</td>
+            <td class="text-end">2.200,00</td>
+            <td>Giấy CNQSDĐ số BV 882910</td>
+            <td>Đất trụ sở cơ quan</td>
+            <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
+            <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+            <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td><strong>Ban Chỉ huy Quân sự xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+            <td class="text-end fw-bold">850,00</td>
+            <td class="text-end">280,00</td>
+            <td class="text-end">280,00</td>
+            <td>Giấy CNQSDĐ cấp 2018</td>
+            <td>Đất an ninh - quốc phòng</td>
+            <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
+            <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+            <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
+          </tr>
+          <tr>
+            <td class="text-center">3</td>
+            <td><strong>Công an xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
+            <td class="text-end fw-bold">1.000,00</td>
+            <td class="text-end">320,00</td>
+            <td class="text-end">640,00</td>
+            <td>Giấy CNQSDĐ cấp 2020</td>
+            <td>Đất trụ sở cơ quan</td>
+            <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
+            <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+            <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
+          </tr>
+          <tr>
+            <td class="text-center">4</td>
+            <td><strong>Trung tâm Văn hóa - Thể thao & Học tập cộng đồng</strong><br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
+            <td class="text-end fw-bold">6.000,00</td>
+            <td class="text-end">480,00</td>
+            <td class="text-end">480,00</td>
+            <td>Quyết định giao đất của UBND huyện</td>
+            <td>Đất cơ sở văn hóa</td>
+            <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
+            <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
+            <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-                  <!-- NHÓM 3: GIÁO DỤC -->
-                  <tr class="table-secondary fw-bold text-start"><td colspan="10">C. KHỐI CƠ SỞ ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC</td></tr>
-                  <tr>
-                    <td>8</td>
-                    <td class="text-start fw-semibold">Trường Mầm non Oanh Vũ II (Điểm chính và các phân hiệu)<br><span class="text-muted small">Ấp Tân Thiềng, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">5.200,00</td>
-                    <td>1.250,00</td>
-                    <td>1.850,00</td>
-                    <td>Giấy CNQSDĐ cấp theo quy hoạch giáo dục</td>
-                    <td>Đất cơ sở giáo dục</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td class="text-start fw-semibold">Trường Tiểu học Tân Long Hội (Điểm chính và 4 điểm phụ)<br><span class="text-muted small">Ấp Tân An & Thâm Bình, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">18.429,00</td>
-                    <td>1.950,00</td>
-                    <td>3.400,00</td>
-                    <td>Giấy CNQSDĐ các điểm trường (Báo cáo số 1/UBND)</td>
-                    <td>Đất cơ sở giáo dục</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td>10</td>
-                    <td class="text-start fw-semibold">Trường THCS Tân Long Hội<br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
-                    <td class="fw-bold">7.200,00</td>
-                    <td>1.450,00</td>
-                    <td>2.900,00</td>
-                    <td>Giấy CNQSDĐ cấp theo quy hoạch giáo dục</td>
-                    <td>Đất cơ sở giáo dục</td>
-                    <td><span class="badge bg-success">Đang SD</span></td>
-                    <td><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td>Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+<!-- ==================== PHÂN HỆ 9 (VIEW-11): KINH PHÍ CĐS NQ 57 ==================== -->
+<div id="view-11" class="dashboard-panel">
+  <div class="dashboard-head-bar shadow-sm">
+    <div class="fw-bold"><i class="bi bi-wallet2 me-2"></i>9. KINH PHÍ CHUYỂN ĐỔI SỐ THEO NGHỊ QUYẾT 57 — XÃ TÂN LONG HỘI</div>
+    <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
+  </div>
+  <div class="dashboard-card-body shadow-sm">
+    <div class="text-center mb-3">
+      <h5 class="fw-bold text-primary mb-1">THEO DÕI TIẾN ĐỘ THỰC HIỆN & GIẢI NGÂN KINH PHÍ CĐS (NQ 57)</h5>
+      <div class="text-muted small">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI — TỔNG SỐ 14 NHIỆM VỤ</div>
+      <div class="text-end text-muted small fst-italic">Đơn vị tính kinh phí: Triệu đồng</div>
+    </div>
+
+    <!-- 5 Khối thẻ màu chuẩn 1.476 tr.đ (75,30%) -->
+    <div class="row g-2 mb-3">
+      <div class="col-md col-sm-6">
+        <div class="p-3 rounded-3 h-100 position-relative" style="background-color: #ebf3ff; border: 1px solid #d0e2ff;">
+          <div class="text-primary fw-semibold small">TỔNG KINH PHÍ GIAO</div>
+          <div class="fs-4 fw-bold text-primary my-1">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+          <div class="small text-muted"><i class="bi bi-layers me-1"></i>14 nhiệm vụ CĐS</div>
+          <span class="position-absolute top-0 end-0 p-3 text-primary"><i class="bi bi-wallet fs-4"></i></span>
         </div>
-     <!-- ================= PHÂN HỆ 8 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ NQ 57 ================= -->
-        <!-- ================= PHÂN HỆ 9 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ (NQ 57) ================= -->
-       <!-- ================= PHÂN HỆ 9 (VIEW-14): KINH PHÍ CHUYỂN ĐỔI SỐ (NQ 57) ================= -->
-        <div id="view-14" class="dashboard-panel">
-          <div class="dashboard-head-bar shadow-sm">
-            <div class="fw-bold">
-              <i class="bi bi-currency-exchange me-2"></i> 9. KINH PHÍ CHUYỂN ĐỔI SỐ THEO NGHỊ QUYẾT 57 — XÃ TÂN LONG HỘI
-            </div>
-            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()">
-              <i class="bi bi-house-door"></i> Về trang chủ
-            </button>
-          </div>
-          
-          <div class="dashboard-card-body shadow-sm">
-            <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1 text-uppercase">THEO DÕI TIẾN ĐỘ THỰC HIỆN & GIẢI NGÂN KINH PHÍ CĐS (NQ 57)</h5>
-              <div class="text-muted small">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI — TỔNG SỐ 14 NHIỆM VỤ</div>
-              <div class="text-end fst-italic text-secondary small pe-2">Đơn vị tính kinh phí: Triệu đồng</div>
-            </div>
-
-            <!-- THẺ CHỈ SỐ KPI TỔNG HỢP -->
-            <!-- 5 THẺ CHỈ SỐ KPI THIẾT KẾ MỚI BẮT MẮT -->
-            <div class="row g-3 mb-4 text-start">
-              <!-- Thẻ 1: Tổng kinh phí (Xanh dương pastel) -->
-              <div class="col-md col-6">
-                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="text-uppercase fw-bold text-primary" style="font-size: 0.72rem; letter-spacing: 0.5px;">Tổng kinh phí giao</span>
-                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-primary text-white shadow-sm" style="width: 34px; height: 34px;">
-                      <i class="bi bi-wallet2 fs-6"></i>
-                    </div>
-                  </div>
-                  <div class="fs-3 fw-bold text-primary mb-1">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <div class="small text-secondary"><i class="bi bi-layers-fill me-1"></i>14 nhiệm vụ CĐS</div>
-                </div>
-              </div>
-
-              <!-- Thẻ 2: Kinh phí đã phân bổ (Tím pastel) -->
-              <div class="col-md col-6">
-                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="text-uppercase fw-bold text-indigo" style="font-size: 0.72rem; letter-spacing: 0.5px; color: #6366f1;">Kinh phí đã phân bổ</span>
-                    <div class="d-flex align-items-center justify-content-center rounded-3 text-white shadow-sm" style="width: 34px; height: 34px; background-color: #6366f1;">
-                      <i class="bi bi-pie-chart-fill fs-6"></i>
-                    </div>
-                  </div>
-                  <div class="fs-3 fw-bold mb-1" style="color: #4f46e5;">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <div class="small fw-semibold" style="color: #6366f1;"><i class="bi bi-check-all me-1"></i>Đạt 100% kế hoạch</div>
-                </div>
-              </div>
-
-              <!-- Thẻ 3: Đã giải ngân (Cam/Vàng nổi bật) -->
-              <div class="col-md col-6">
-                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="text-uppercase fw-bold text-warning-emphasis" style="font-size: 0.72rem; letter-spacing: 0.5px;">Đã giải ngân</span>
-                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-warning text-dark shadow-sm" style="width: 34px; height: 34px;">
-                      <i class="bi bi-cash-stack fs-6"></i>
-                    </div>
-                  </div>
-                  <div class="fs-3 fw-bold text-dark mb-1">1.476 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <span class="badge bg-warning text-dark px-2 py-1 fw-bold shadow-sm" style="font-size: 0.72rem;">Tỷ lệ: 75,30%</span>
-                </div>
-              </div>
-
-              <!-- Thẻ 4: Đã hoàn thành (Xanh lá pastel) -->
-              <div class="col-md col-6">
-                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="text-uppercase fw-bold text-success" style="font-size: 0.72rem; letter-spacing: 0.5px;">Đã hoàn thành</span>
-                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-success text-white shadow-sm" style="width: 34px; height: 34px;">
-                      <i class="bi bi-check-circle-fill fs-6"></i>
-                    </div>
-                  </div>
-                  <div class="fs-3 fw-bold text-success mb-1">5 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
-                  <div class="small text-success fw-semibold"><i class="bi bi-shield-check me-1"></i>Đạt chuẩn nghiệm thu</div>
-                </div>
-              </div>
-
-              <!-- Thẻ 5: Cảnh báo quá hạn (Đỏ hồng pastel) -->
-              <div class="col-md col-6">
-                <div class="p-3 rounded-4 shadow-sm border-0 h-100" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="text-uppercase fw-bold text-danger" style="font-size: 0.72rem; letter-spacing: 0.5px;">Cảnh báo quá hạn</span>
-                    <div class="d-flex align-items-center justify-content-center rounded-3 bg-danger text-white shadow-sm" style="width: 34px; height: 34px;">
-                      <i class="bi bi-exclamation-triangle-fill fs-6"></i>
-                    </div>
-                  </div>
-                  <div class="fs-3 fw-bold text-danger mb-1">4 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
-                  <span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fw-bold" style="font-size: 0.7rem;">Cần đôn đốc</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- THANH TIẾN ĐỘ GIẢI NGÂN -->
-            <div class="card border mb-3 p-2 bg-light">
-              <div class="d-flex justify-content-between align-items-center mb-1 small fw-semibold">
-                <span>Tiến độ giải ngân kinh phí NQ 57: <b>1.476 / 1.960 triệu đồng</b></span>
-                <span class="text-primary fw-bold">75,30%</span>
-              </div>
-              <div class="progress" style="height: 10px;">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 34.3%;"></div>
-              </div>
-            </div>
-
-            <!-- BẢNG CHI TIẾT 14 NHIỆM VỤ GỌN GÀNG -->
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle mb-0 text-center">
-                <thead class="table-light align-middle">
-                  <tr>
-                    <th style="width: 4%;">STT</th>
-                    <th style="width: 44%;" class="text-start">Tên nhiệm vụ</th>
-                    <th style="width: 9%;">Kinh phí</th>
-                    <th style="width: 13%;">Đã giải ngân (Tỷ lệ)</th>
-                    <th style="width: 10%;">Ngày dự kiến GN</th>
-                    <th style="width: 10%;">Thời gian còn lại</th>
-                    <th style="width: 10%;">Tình trạng</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td class="text-start">Hỗ trợ hoạt động tổ công nghệ số cộng đồng</td>
-                    <td>80</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td class="text-start">Hoàn thiện, nâng cấp hạ tầng mạng và trang thiết bị công nghệ thông tin</td>
-                    <td>180</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>05/09/2026</td>
-                    <td><span class="badge bg-danger">Quá 49 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr class="table-success-subtle">
-                    <td>3</td>
-                    <td class="text-start">Kinh phí đầu tư mua sắm trang thiết bị (máy tính, máy scan,...), các phương tiện KH-KT đáp ứng CĐS</td>
-                    <td>210</td>
-                    <td class="fw-bold text-success">200 (95,24%)</td>
-                    <td>15/08/2026</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr class="table-success-subtle">
-                    <td>4</td>
-                    <td class="text-start">Kinh phí mua tài khoản sử dụng AI cho cán bộ, CC-VC khai thác phục vụ chuyên môn</td>
-                    <td>25</td>
-                    <td class="fw-bold text-success">25 (99,80%)</td>
-                    <td>15/08/2026</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td class="text-start">Kinh phí vận hành phòng họp trực tuyến</td>
-                    <td>40</td>
-                    <td>25 (61,58%)</td>
-                    <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td class="text-start">Kinh phí vận hành Trang thông tin điện tử xã (kinh phí duy trì Trang và nhuận bút)</td>
-                    <td>25</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>15/12/2026</td>
-                    <td><span class="badge bg-success">Còn 52 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td class="text-start">Lắp đặt hệ thống wifi 5G tại các trụ sở ấp, Nhà văn hóa, Trung tâm HTCĐ</td>
-                    <td>40</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>01/10/2026</td>
-                    <td><span class="badge bg-danger">Quá 23 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr class="table-success-subtle">
-                    <td>8</td>
-                    <td class="text-start">Mô hình chợ 4.0 (Chợ Tân Long - Số 2)</td>
-                    <td>40</td>
-                    <td class="fw-bold text-success">40 (100,00%)</td>
-                    <td>05/09/2026</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td class="text-start">Nâng cấp mua sắm hạ tầng trang thiết bị</td>
-                    <td>820</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>05/09/2026</td>
-                    <td><span class="badge bg-danger">Quá 49 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>10</td>
-                    <td class="text-start">Thuê dịch vụ phần mềm bốc số từ xa qua Zalo OA</td>
-                    <td>80</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>01/10/2026</td>
-                    <td><span class="badge bg-danger">Quá 23 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>11</td>
-                    <td class="text-start">Thuê hệ thống loa truyền thanh thông minh</td>
-                    <td>213</td>
-                    <td>189 (88,64%)</td>
-                    <td>15/11/2026</td>
-                    <td><span class="badge bg-warning text-dark">Còn 22 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr>
-                    <td>12</td>
-                    <td class="text-start">Truyền thông, tập huấn và nâng cao năng lực chuyển đổi số</td>
-                    <td>13</td>
-                    <td>0 <span class="badge bg-danger-subtle text-danger border">0,00%</span></td>
-                    <td>01/12/2026</td>
-                    <td><span class="badge bg-success">Còn 38 ngày</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr class="table-success-subtle">
-                    <td>13</td>
-                    <td class="text-start">Ứng dụng trí tuệ nhân tạo (AI) và Robot lễ tân thông minh phục vụ người dân tại Trung tâm dịch vụ hành chính công</td>
-                    <td>182</td>
-                    <td class="fw-bold text-success">182 (99,89%)</td>
-                    <td>30/09/2026</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                  <tr class="table-success-subtle">
-                    <td>14</td>
-                    <td class="text-start">Viết tin bài, quảng bá các sản phẩm OCOP, sản phẩm chủ lực trên sàn TMĐT</td>
-                    <td>12</td>
-                    <td class="fw-bold text-success">12 (100,00%)</td>
-                    <td>05/09/2026</td>
-                    <td><span class="badge bg-success">Hoàn thành</span></td>
-                    <td>Chủ đầu tư</td>
-                  </tr>
-                </tbody>
-                <tfoot class="table-light fw-bold text-center">
-                  <tr>
-                    <td colspan="2" class="text-start ps-3 text-primary">TỔNG CỘNG XÃ TÂN LONG HỘI (14 NHIỆM VỤ)</td>
-                    <td class="text-primary">1.960</td>
-                    <td class="text-success">1.476 (75,30%)</td>
-                    <td colspan="3" class="text-success">Đã hoàn thành 7/14 nhiệm vụ</td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-
-          </div>
+      </div>
+      <div class="col-md col-sm-6">
+        <div class="p-3 rounded-3 h-100 position-relative" style="background-color: #f0edff; border: 1px solid #ddd6fe;">
+          <div class="text-indigo fw-semibold small" style="color: #6366f1;">KINH PHÍ ĐÃ PHÂN BỔ</div>
+          <div class="fs-4 fw-bold my-1" style="color: #6366f1;">1.960 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+          <div class="small text-muted"><i class="bi bi-check2-all me-1 text-primary"></i>Đạt 100% kế hoạch</div>
+          <span class="position-absolute top-0 end-0 p-3" style="color: #6366f1;"><i class="bi bi-clock-history fs-4"></i></span>
         </div>
+      </div>
+      <div class="col-md col-sm-6">
+        <div class="p-3 rounded-3 h-100 position-relative" style="background-color: #fef9c3; border: 1px solid #fef08a;">
+          <div class="fw-semibold small" style="color: #854d0e;">ĐÃ GIẢI NGÂN</div>
+          <div class="fs-4 fw-bold my-1" style="color: #854d0e;">1.476 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
+          <span class="badge bg-warning text-dark">Tỷ lệ: 75,30%</span>
+          <span class="position-absolute top-0 end-0 p-3" style="color: #ca8a04;"><i class="bi bi-cash-stack fs-4"></i></span>
+        </div>
+      </div>
+      <div class="col-md col-sm-6">
+        <div class="p-3 rounded-3 h-100 position-relative" style="background-color: #dcfce7; border: 1px solid #bbf7d0;">
+          <div class="text-success fw-semibold small">ĐÃ HOÀN THÀNH</div>
+          <div class="fs-4 fw-bold text-success my-1">7 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
+          <div class="small text-success"><i class="bi bi-check-circle me-1"></i>Đạt chuẩn nghiệm thu</div>
+          <span class="position-absolute top-0 end-0 p-3 text-success"><i class="bi bi-check2-circle fs-4"></i></span>
+        </div>
+      </div>
+      <div class="col-md col-sm-6">
+        <div class="p-3 rounded-3 h-100 position-relative" style="background-color: #fee2e2; border: 1px solid #fecaca;">
+          <div class="text-danger fw-semibold small">CẢNH BÁO QUÁ HẠN</div>
+          <div class="fs-4 fw-bold text-danger my-1">3 <span class="fs-6 fw-normal text-muted">nhiệm vụ</span></div>
+          <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Cần đôn đốc</span>
+          <span class="position-absolute top-0 end-0 p-3 text-danger"><i class="bi bi-exclamation-triangle fs-4"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thanh tiến độ 75.30% -->
+    <div class="mb-3">
+      <div class="d-flex justify-content-between small fw-bold mb-1">
+        <span>Tiến độ giải ngân kinh phí NQ 57: <span class="text-primary">1.476 / 1.960 triệu đồng</span></span>
+        <span class="text-primary">75,30%</span>
+      </div>
+      <div class="progress" style="height: 10px;">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 75.30%;" aria-valuenow="75.30" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+
+    <!-- Bảng chi tiết NQ 57 (Đã lược bỏ cột Tình trạng) -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm small align-middle mb-0">
+        <thead class="table-light text-center">
+          <tr>
+            <th style="width: 5%;">STT</th>
+            <th>Tên nhiệm vụ</th>
+            <th style="width: 10%;">Kinh phí</th>
+            <th style="width: 15%;">Đã giải ngân (Tỷ lệ)</th>
+            <th style="width: 14%;">Ngày dự kiến GN</th>
+            <th style="width: 15%;">Thời gian còn lại</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">1</td>
+            <td>Hỗ trợ hoạt động tổ công nghệ số cộng đồng</td>
+            <td class="text-center">80</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">15/12/2026</td>
+            <td class="text-center"><span class="badge bg-success">Còn 49 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td>Hoàn thiện, nâng cấp hạ tầng mạng và trang thiết bị công nghệ thông tin</td>
+            <td class="text-center">180</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">05/09/2026</td>
+            <td class="text-center"><span class="badge bg-danger">Quá 52 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">3</td>
+            <td>Kinh phí đầu tư mua sắm trang thiết bị (máy tính, máy scan...), các phương tiện KH-KT đáp ứng CĐS</td>
+            <td class="text-center">210</td>
+            <td class="text-center fw-bold text-success">200 (95,24%)</td>
+            <td class="text-center">15/08/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">4</td>
+            <td>Kinh phí mua tài khoản sử dụng AI cho cán bộ, CC-VC khai thác phục vụ chuyên môn</td>
+            <td class="text-center">25</td>
+            <td class="text-center fw-bold text-success">25 (99,80%)</td>
+            <td class="text-center">15/08/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">5</td>
+            <td>Kinh phí vận hành phòng họp trực tuyến</td>
+            <td class="text-center">40</td>
+            <td class="text-center fw-bold text-success">25 (61,58%)</td>
+            <td class="text-center">15/12/2026</td>
+            <td class="text-center"><span class="badge bg-success">Còn 49 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">6</td>
+            <td>Kinh phí vận hành Trang thông tin điện tử xã (kinh phí duy trì Trang và nhuận bút)</td>
+            <td class="text-center">25</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">15/12/2026</td>
+            <td class="text-center"><span class="badge bg-success">Còn 49 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">7</td>
+            <td>Lắp đặt hệ thống wifi 5G tại các trụ sở ấp, Nhà văn hóa, Trung tâm HTCĐ</td>
+            <td class="text-center">40</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">01/10/2026</td>
+            <td class="text-center"><span class="badge bg-danger">Quá 26 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">8</td>
+            <td>Mô hình chợ 4.0 (Chợ Tân Long - Số 2)</td>
+            <td class="text-center">40</td>
+            <td class="text-center fw-bold text-success">40 (100,00%)</td>
+            <td class="text-center">05/09/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">9</td>
+            <td>Nâng cấp mua sắm hạ tầng trang thiết bị</td>
+            <td class="text-center">820</td>
+            <td class="text-center fw-bold text-success">780 (95,12%)</td>
+            <td class="text-center">05/09/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">10</td>
+            <td>Thuê dịch vụ phần mềm bốc số từ xa qua Zalo OA</td>
+            <td class="text-center">80</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">01/10/2026</td>
+            <td class="text-center"><span class="badge bg-danger">Quá 26 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">11</td>
+            <td>Thuê hệ thống loa truyền thanh thông minh</td>
+            <td class="text-center">213</td>
+            <td class="text-center fw-bold text-success">212 (99,72%)</td>
+            <td class="text-center">15/11/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">12</td>
+            <td>Truyền thông, tập huấn và nâng cao năng lực chuyển đổi số</td>
+            <td class="text-center">13</td>
+            <td class="text-center"><span class="badge bg-danger-subtle text-danger border border-danger-subtle">0 (0,00%)</span></td>
+            <td class="text-center">01/12/2026</td>
+            <td class="text-center"><span class="badge bg-success">Còn 35 ngày</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">13</td>
+            <td>Ứng dụng trí tuệ nhân tạo (AI) và Robot lễ tân thông minh phục vụ người dân tại Trung tâm PVHCC</td>
+            <td class="text-center">182</td>
+            <td class="text-center fw-bold text-success">182 (99,89%)</td>
+            <td class="text-center">30/09/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td class="text-center">14</td>
+            <td>Viết tin bài, quảng bá các sản phẩm OCOP, sản phẩm chủ lực trên sàn TMĐT</td>
+            <td class="text-center">12</td>
+            <td class="text-center fw-bold text-success">12 (100,00%)</td>
+            <td class="text-center">05/09/2026</td>
+            <td class="text-center"><span class="badge bg-success">Hoàn thành</span></td>
+          </tr>
+        </tbody>
+        <tfoot class="table-light fw-bold">
+          <tr class="text-primary text-center">
+            <td colspan="2" class="text-start ps-3">TỔNG CỘNG XÃ TÂN LONG HỘI (14 NHIỆM VỤ)</td>
+            <td>1.960</td>
+            <td>1.476 (75,30%)</td>
+            <td colspan="2" class="text-success">Đã hoàn thành 7/14 nhiệm vụ</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
      </main>
     </div>
   </div> 
