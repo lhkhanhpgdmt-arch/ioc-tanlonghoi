@@ -1285,7 +1285,7 @@
 
         <!-- ==================== MỤC 9: KINH PHÍ CĐS NQ 57 ==================== -->
         <!-- ================= PHÂN HỆ 9: KINH PHÍ CĐS THEO NQ 57 ================= -->
-      <div id="view-9" class="dashboard-panel">
+   <div id="view-9" class="dashboard-panel" style="display: none;">
           <div class="dashboard-head-bar shadow-sm">
             <div class="fw-bold"><i class="bi bi-wallet2 me-2"></i>9. KINH PHÍ CHUYỂN ĐỔI SỐ THEO NGHỊ QUYẾT 57 — XÃ TÂN LONG HỘI</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
@@ -1511,34 +1511,32 @@
   <!-- JAVASCRIPT ĐIỀU KHIỂN CHUYỂN PHÂN HỆ & ĐỒNG HỒ THỜI GIAN THỰC -->
   <script>
     // Hàm chuyển đổi qua lại giữa các phân hệ 1 - 9
-    function switchView(viewId, element) {
-      // Ẩn tất cả các panel
+   function switchView(viewId, element) {
+      // 1. Ẩn tất cả các panel
       const panels = document.querySelectorAll('.dashboard-panel');
-      panels.forEach(p => p.classList.remove('active'));
+      panels.forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
+      });
 
-      // Bỏ kích hoạt các mục menu
-      const menuItems = document.querySelectorAll('.menu-item');
+      // 2. Bỏ trạng thái kích hoạt ở tất cả các nút menu
+      const menuItems = document.querySelectorAll('.menu-item, .menu-btn');
       menuItems.forEach(m => m.classList.remove('active'));
 
-      // Hiện panel được chọn
+      // 3. Hiển thị panel mục tiêu được chọn
       const targetPanel = document.getElementById(viewId);
       if (targetPanel) {
         targetPanel.classList.add('active');
+        targetPanel.style.display = 'block';
       }
 
-      // Kích hoạt màu menu tương ứng
+      // 4. Kích hoạt đổi màu nút menu tương ứng
       if (element) {
         element.classList.add('active');
       }
 
-      // Cuộn mượt lên đầu nội dung
+      // 5. Cuộn mượt lên đầu nội dung
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Nút về trang chủ (chuyển về mục 1)
-    function showHomeDashboard() {
-      const firstMenu = document.querySelector('.sidebar-menu .menu-item');
-      switchView('view-1', firstMenu);
     }
 
     // Đồng hồ cập nhật thời gian thực mỗi giây
