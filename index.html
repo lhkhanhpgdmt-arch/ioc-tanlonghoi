@@ -275,88 +275,276 @@
         </div>
 
         <!-- ==================== MỤC 2: GIẢI NGÂN VỐN ĐẦU TƯ CÔNG ==================== -->
+        <!-- ==================== MỤC 2: GIẢI NGÂN VỐN ĐẦU TƯ CÔNG ==================== -->
         <div id="view-2" class="dashboard-panel">
-          <div class="dashboard-head-bar">
-            <div class="fw-bold"><i class="bi bi-cash-coin me-2"></i>2. TÌNH HÌNH GIẢI NGÂN VỐN ĐẦU TƯ CÔNG</div>
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-cash-coin me-2"></i>2. THỐNG KÊ GIẢI NGÂN VỐN ĐẦU TƯ CÔNG</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
-          <div class="dashboard-card-body">
+          <div class="dashboard-card-body shadow-sm">
+
+            <!-- Tiêu đề và Ngày cập nhật -->
             <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1">TIẾN ĐỘ THỰC HIỆN VÀ GIẢI NGÂN NGUỒN VỐN ĐẦU TƯ CÔNG NĂM 2026</h5>
-              <div class="text-muted small">ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI</div>
+              <h5 class="fw-bold text-primary mb-1">
+                THỐNG KÊ GIẢI NGÂN — UBND XÃ TÂN LONG HỘI 
+                <span class="text-primary text-decoration-underline ms-1" style="cursor: pointer;">2026 <i class="bi bi-chevron-down small"></i></span>
+              </h5>
+              <div class="text-muted small fst-italic">Cập nhật đến ngày 26/10/2026</div>
+              <div class="text-end text-muted small fst-italic"><i>Đơn vị tính: Triệu đồng</i></div>
             </div>
-            <div class="row g-3 mb-3">
-              <div class="col-md-4">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">KẾ HOẠCH VỐN GIAO</div>
-                  <div class="display-6 fw-bold text-primary my-1">8.540 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <div class="text-muted small">Tổng các công trình</div>
+
+            <!-- 6 KHỐI THẺ KPI TRÒN BO GÓC (THEO ĐÚNG HÌNH ẢNH) -->
+            <div class="row g-2 mb-3">
+              <!-- 1. Tổng kế hoạch vốn được giao -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #e0f2fe; color: #0284c7;">
+                    <i class="bi bi-wallet2 fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tổng kế hoạch vốn được giao</div>
+                    <div class="fw-bold text-primary fs-5">3.100</div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">ĐÃ GIẢI NGÂN</div>
-                  <div class="display-6 fw-bold text-success my-1">6.950 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <span class="badge bg-success">Tỷ lệ: 81,38%</span>
+
+              <!-- 2. Tổng số giải ngân KHO BẠC -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #ecfdf5; color: #059669;">
+                    <i class="bi bi-bank fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tổng số giải ngân<br><strong class="text-success">KHO BẠC</strong></div>
+                    <div class="fw-bold text-success fs-5">3.100</div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted small fw-semibold">VỐN CÒN LẠI</div>
-                  <div class="display-6 fw-bold text-danger my-1">1.590 <span class="fs-6 fw-normal text-muted">tr.đ</span></div>
-                  <span class="badge bg-warning text-dark">Còn 18,62%</span>
+
+              <!-- 3. Tổng số giải ngân CHỦ ĐẦU TƯ -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #ccfbf1; color: #0d9488;">
+                    <i class="bi bi-pie-chart fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tổng số giải ngân<br>(số liệu chủ đầu tư)</div>
+                    <div class="fw-bold fs-5" style="color: #0f766e;">3.100</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Tỷ lệ giải ngân KHO BẠC -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #f0fdf4; color: #16a34a;">
+                    <i class="bi bi-circle-half fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tỷ lệ giải ngân<br><strong class="text-success">KHO BẠC</strong></div>
+                    <div class="fw-bold text-success fs-5">100,00%</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Tỷ lệ giải ngân CHỦ ĐẦU TƯ -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #f0fdf4; color: #15803d;">
+                    <i class="bi bi-clock-history fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tỷ lệ giải ngân<br>(số liệu chủ đầu tư)</div>
+                    <div class="fw-bold text-success fs-5">100,00%</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Tổng số gói thầu -->
+              <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="p-2 border rounded-3 bg-white shadow-sm d-flex align-items-center h-100">
+                  <div class="rounded-circle d-flex align-items-center justify-content-center me-2 flex-shrink-0" style="width: 44px; height: 44px; background-color: #e0f2fe; color: #0284c7;">
+                    <i class="bi bi-folder-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 11px; line-height: 1.2;">Tổng số gói thầu</div>
+                    <div class="fw-bold text-primary fs-5">4</div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="progress mb-4" style="height: 12px;">
-              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 81.38%;">81,38%</div>
+
+            <!-- DÒNG TRẠNG THÁI NHẬP LIỆU & KHỚP DỮ LIỆU -->
+            <div class="p-2 border rounded-3 bg-light d-flex align-items-center flex-wrap gap-2 mb-3" style="font-size: 12.5px;">
+              <span>Tình hình nhập liệu tính đến <strong class="text-primary">Thứ 3, ngày 27/10/2026:</strong></span>
+              <span class="badge bg-success-subtle text-success border border-success px-2 py-1">
+                <i class="bi bi-check-circle-fill me-1"></i>Đã nhập báo cáo trong tuần (0 lần báo cáo, tổng 4 dự án)
+              </span>
+              <span class="ms-md-auto">
+                Khớp số liệu KHO BẠC & Chủ đầu tư: 
+                <span class="text-success fw-bold"><i class="bi bi-check-square-fill text-success"></i> 4</span> gói thầu khớp, 
+                <span class="text-danger fw-bold"><i class="bi bi-x-square text-danger"></i> 0</span> gói thầu chưa khớp.
+              </span>
             </div>
+
+            <!-- 4 NÚT PILL PHÂN LOẠI TRẠNG THÁI DỰ ÁN -->
+            <div class="d-flex align-items-center gap-2 flex-wrap mb-3" style="font-size: 12.5px;">
+              <span class="badge rounded-pill border border-danger text-danger bg-white px-3 py-2 fw-semibold">
+                <i class="bi bi-circle-fill me-1 text-danger" style="font-size: 8px;"></i>Chưa khởi công: <strong>0</strong> gói thầu
+              </span>
+              <span class="badge rounded-pill border border-primary text-primary bg-white px-3 py-2 fw-semibold">
+                <i class="bi bi-circle-fill me-1 text-primary" style="font-size: 8px;"></i>Đã khởi công: <strong>0</strong> gói thầu
+              </span>
+              <span class="badge rounded-pill border border-success text-success bg-white px-3 py-2 fw-semibold">
+                <i class="bi bi-circle-fill me-1 text-success" style="font-size: 8px;"></i>Đã hoàn thành: <strong>4</strong> gói thầu
+              </span>
+              <span class="badge rounded-pill border border-danger-subtle text-danger bg-white px-3 py-2 fw-semibold">
+                <i class="bi bi-circle-fill me-1 text-danger" style="font-size: 8px;"></i>Dự án có khó khăn: <strong>0</strong> gói thầu
+              </span>
+            </div>
+
+            <!-- BẢNG CHI TIẾT CÁC GÓI THẦU / DỰ ÁN ĐẦU TƯ CÔNG -->
             <div class="table-responsive">
-              <table class="table table-bordered table-sm small align-middle text-center mb-0">
-                <thead class="table-light">
+              <table class="table table-bordered table-sm small align-middle mb-0">
+                <thead class="table-light text-center">
                   <tr>
-                    <th style="width: 5%;">STT</th>
-                    <th style="width: 45%;" class="text-start">TÊN CÔNG TRÌNH / DỰ ÁN</th>
-                    <th style="width: 15%;">KẾ HOẠCH VỐN</th>
-                    <th style="width: 15%;">ĐÃ GIẢI NGÂN</th>
-                    <th style="width: 20%;">TRẠNG THÁI</th>
+                    <th style="width: 4%;">STT</th>
+                    <th style="width: 38%;" class="text-start">Tên dự án / Nguồn vốn</th>
+                    <th style="width: 18%;">Kế hoạch vốn (% so với CĐT)</th>
+                    <th style="width: 18%;">Đã giải ngân (Kho bạc)</th>
+                    <th style="width: 16%;">Đã giải ngân (Chủ đầu tư)</th>
+                    <th style="width: 6%;">Khớp dữ liệu</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- DỰ ÁN 1 -->
                   <tr>
-                    <td>1</td>
-                    <td class="text-start">Nâng cấp, mở rộng đường giao thông nông thôn liên ấp Gò Nhum</td>
-                    <td>3.200</td>
-                    <td class="text-success fw-bold">2.800 (87,5%)</td>
-                    <td><span class="badge bg-success">Đang thi công hoàn thiện</span></td>
+                    <td class="text-center fw-bold text-primary">1</td>
+                    <td class="text-start text-primary fw-semibold">
+                      Nâng cấp, cải tạo, sửa chữa Đường huyện 35 (đoạn từ cầu số 8 – đập Cầu Chéo), xã Tân Long Hội
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.950</span> 
+                      <span class="badge bg-warning text-dark ms-1" style="font-size: 10px;">62,90%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.950</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.950</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td class="text-start">Xây dựng hệ thống kè chống sạt lở kết hợp đường đan ấp Tân Long</td>
-                    <td>2.500</td>
-                    <td class="text-success fw-bold">2.150 (86,0%)</td>
-                    <td><span class="badge bg-success">Đang thi công</span></td>
+                    <td class="text-center text-muted">•</td>
+                    <td class="text-start ps-4 text-muted">NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH</td>
+                    <td class="text-end text-muted">
+                      1.950 <span class="badge bg-warning text-dark ms-1" style="font-size: 10px;">62,90%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      1.950 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      1.950 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square"></i></td>
+                  </tr>
+
+                  <!-- DỰ ÁN 2 -->
+                  <tr>
+                    <td class="text-center fw-bold text-primary">2</td>
+                    <td class="text-start text-primary fw-semibold">
+                      Nâng cấp, cải tạo, sửa chữa đường liên ấp từ Đường tỉnh 903 đến cầu Đồng Bé 2, xã Tân Long Hội
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.100</span> 
+                      <span class="badge bg-warning text-dark ms-1" style="font-size: 10px;">33,87%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.100</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">1.100</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
                   </tr>
                   <tr>
-                    <td>3</td>
-                    <td class="text-start">Sửa chữa, nâng cấp Nhà văn hóa xã và các điểm sinh hoạt cộng đồng</td>
-                    <td>1.840</td>
-                    <td class="text-success fw-bold">1.500 (81,5%)</td>
-                    <td><span class="badge bg-success">Đang hoàn thiện hồ sơ</span></td>
+                    <td class="text-center text-muted">•</td>
+                    <td class="text-start ps-4 text-muted">NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH</td>
+                    <td class="text-end text-muted">
+                      1.050 <span class="badge bg-warning text-dark ms-1" style="font-size: 10px;">33,87%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      1.050 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      1.050 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square"></i></td>
                   </tr>
                   <tr>
-                    <td>4</td>
-                    <td class="text-start">Hạng mục chiếu sáng và an toàn giao thông đường tỉnh qua địa bàn</td>
-                    <td>1.000</td>
-                    <td class="text-warning fw-bold">500 (50,0%)</td>
-                    <td><span class="badge bg-warning text-dark">Đang nghiệm thu đợt 1</span></td>
+                    <td class="text-center text-muted">•</td>
+                    <td class="text-start ps-4 text-muted">
+                      NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH <span class="badge bg-secondary ms-1" style="font-size: 10px;">Dự án 2025 kéo dài</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-danger ms-1" style="font-size: 10px;">1,61%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square"></i></td>
+                  </tr>
+
+                  <!-- DỰ ÁN 3 -->
+                  <tr>
+                    <td class="text-center fw-bold text-primary">3</td>
+                    <td class="text-start text-primary fw-semibold">
+                      Nâng cấp, cải tạo, sửa chữa Đường huyện 35 (đoạn từ Cầu số 8 – đập Cầu Chéo), xã Tân Long Hội
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">50</span> 
+                      <span class="badge bg-danger ms-1" style="font-size: 10px;">1,61%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">50</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end">
+                      <span class="fw-bold text-primary">50</span> 
+                      <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center text-muted">•</td>
+                    <td class="text-start ps-4 text-muted">
+                      NGUỒN VỐN CÂN ĐỐI NGÂN SÁCH <span class="badge bg-secondary ms-1" style="font-size: 10px;">Dự án 2025 kéo dài</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-danger ms-1" style="font-size: 10px;">1,61%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-end text-muted">
+                      50 <span class="badge bg-success ms-1" style="font-size: 10px;">100,00%</span>
+                    </td>
+                    <td class="text-center text-success"><i class="bi bi-check-square"></i></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
           </div>
         </div>
-
         <!-- ==================== MỤC 3: QUẢN LÝ VĂN BẢN ĐIỀU HÀNH ==================== -->
        <!-- ================= PHÂN HỆ 3: QUẢN LÝ VĂN BẢN ĐIỀU HÀNH ================= -->
         <div id="view-5" class="dashboard-panel">
