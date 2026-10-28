@@ -228,52 +228,350 @@
       <div class="col-xl-10 col-lg-9 col-md-8">
 
         <!-- ==================== MỤC 1: GIỚI THIỆU TỔNG QUAN ==================== -->
+      <!-- ==================== MỤC 1: GIỚI THIỆU TỔNG QUAN XÃ TÂN LONG HỘI ==================== -->
         <div id="view-1" class="dashboard-panel active">
-          <div class="dashboard-head-bar">
+          <div class="dashboard-head-bar shadow-sm">
             <div class="fw-bold"><i class="bi bi-info-circle-fill me-2"></i>1. GIỚI THIỆU TỔNG QUAN XÃ TÂN LONG HỘI</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
-          <div class="dashboard-card-body">
-            <div class="text-center mb-4">
-              <h5 class="fw-bold text-primary mb-1">TỔNG QUAN ĐỊA BÀN HÀNH CHÍNH XÃ TÂN LONG HỘI</h5>
-              <div class="text-muted small">TRUNG TÂM GIÁM SÁT, ĐIỀU HÀNH KINH TẾ - XÃ HỘI VÀ CHUYỂN ĐỔI SỐ</div>
+          <div class="dashboard-card-body shadow-sm">
+
+            <style>
+              .overview-metric-card {
+                border-radius: 14px;
+                padding: 16px 18px;
+                height: 100%;
+                border: 1px solid rgba(0,0,0,0.05);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+              }
+              .metric-icon-box {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                margin-bottom: 12px;
+                color: #fff;
+              }
+              .section-banner-header {
+                background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+                color: #fff;
+                padding: 16px 20px;
+                border-radius: 14px 14px 0 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              .border-card-box {
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
+                overflow: hidden;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+              }
+            </style>
+
+            <!-- HÀNG 1: 4 THẺ THỐNG KÊ NHANH (ẢNH 1) -->
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <h5 class="fw-bold text-success mb-0"><i class="bi bi-bar-chart-line-fill me-2"></i>Thống Kê Xã Tân Long Hội</h5>
+              <div class="d-flex align-items-center bg-white border rounded-pill px-3 py-1 shadow-sm small">
+                <span class="text-success fw-bold me-2">Tân Long Hội</span> <span class="text-muted">- Xã</span>
+                <i class="bi bi-chevron-down ms-2 small text-muted"></i>
+              </div>
             </div>
+
             <div class="row g-3 mb-4">
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm h-100">
-                  <div class="text-muted small fw-semibold">ĐƠN VỊ ẤP TRỰC THUỘC</div>
-                  <div class="display-6 fw-bold text-primary my-1">11</div>
-                  <div class="text-muted small">Địa bàn ấp dân cư</div>
+              <!-- 1. Diện tích -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="overview-metric-card" style="background-color: #ecfdf5;">
+                  <div class="metric-icon-box" style="background-color: #059669;">
+                    <i class="bi bi-aspect-ratio"></i>
+                  </div>
+                  <div class="text-muted small fw-semibold">Diện tích</div>
+                  <div class="fs-4 fw-bold text-success my-1">36.27 <span class="fs-6 fw-normal text-muted">km²</span></div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm h-100">
-                  <div class="text-muted small fw-semibold">DÂN SỐ TOÀN XÃ</div>
-                  <div class="display-6 fw-bold text-success my-1">15.820</div>
-                  <div class="text-muted small">Người dân</div>
+
+              <!-- 2. Dân số -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="overview-metric-card" style="background-color: #fdf2f8;">
+                  <div class="metric-icon-box" style="background-color: #db2777;">
+                    <i class="bi bi-people-fill"></i>
+                  </div>
+                  <div class="text-muted small fw-semibold">Dân số (2025)</div>
+                  <div class="fs-4 fw-bold my-1" style="color: #be185d;">26.358 <span class="fs-6 fw-normal text-muted">người</span></div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm h-100">
-                  <div class="text-muted small fw-semibold">DIỆN TÍCH TỰ NHIÊN</div>
-                  <div class="display-6 fw-bold text-warning my-1">24,5</div>
-                  <div class="text-muted small">km²</div>
+
+              <!-- 3. Mật độ dân số -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="overview-metric-card" style="background-color: #fff7ed;">
+                  <div class="metric-icon-box" style="background-color: #ea580c;">
+                    <i class="bi bi-graph-up-arrow"></i>
+                  </div>
+                  <div class="text-muted small fw-semibold">Mật độ dân số</div>
+                  <div class="fs-4 fw-bold my-1" style="color: #c2410c;">727 <span class="fs-6 fw-normal text-muted">người/km²</span></div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm h-100">
-                  <div class="text-muted small fw-semibold">TỔ CÔNG NGHỆ SỐ</div>
-                  <div class="display-6 fw-bold text-info my-1">11</div>
-                  <div class="text-muted small">Tổ CNS cộng đồng</div>
+
+              <!-- 4. Đơn vị sáp nhập -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="overview-metric-card" style="background-color: #eff6ff;">
+                  <div class="metric-icon-box" style="background-color: #2563eb;">
+                    <i class="bi bi-building"></i>
+                  </div>
+                  <div class="text-muted small fw-semibold">Đơn vị sáp nhập</div>
+                  <div class="fs-4 fw-bold text-primary my-1">3 <span class="fs-6 fw-normal text-muted">đơn vị</span></div>
                 </div>
               </div>
             </div>
-            <div class="alert alert-light border shadow-sm">
-              <h6 class="fw-bold text-primary"><i class="bi bi-geo-alt-fill me-1"></i>Vị trí và Đặc điểm:</h6>
-              <p class="mb-0 small text-secondary">
-                Xã Tân Long Hội là đơn vị hành chính thuộc tỉnh Vĩnh Long, đang tập trung đẩy mạnh toàn diện công tác chuyển đổi số chính quyền địa phương 02 cấp, phát triển kinh tế số, xã hội số và hoàn thiện các tiêu chí xã Nông thôn mới nâng cao theo chỉ đạo của Tỉnh ủy và UBND tỉnh.
-              </p>
+
+            <!-- HÀNG 2: THÔNG TIN SÁP NHẬP HÀNH CHÍNH MỚI NHẤT 2026 (ẢNH 1) -->
+            <div class="border-card-box">
+              <div class="section-banner-header">
+                <div>
+                  <div class="fw-bold fs-6"><i class="bi bi-geo-alt-fill me-2"></i>THÔNG TIN XÃ TÂN LONG HỘI</div>
+                  <div class="small text-white-50">CẬP NHẬT SÁP NHẬP HÀNH CHÍNH MỚI NHẤT 2026</div>
+                </div>
+                <span class="badge bg-danger rounded-pill px-3 py-2"><i class="bi bi-stars me-1"></i>Update 2026</span>
+              </div>
+              <div class="p-3">
+                <div class="mb-3">
+                  <h3 class="fw-bold text-success mb-1">Xã Tân Long Hội</h3>
+                  <div class="text-secondary fw-semibold">
+                    <i class="bi bi-bank text-success me-1"></i><strong class="text-danger">Tỉnh Vĩnh Long</strong> 
+                    <span class="text-muted ms-1">• Huyện Mang Thít - Vĩnh Long cũ</span>
+                  </div>
+                </div>
+                <hr class="text-muted opacity-25 my-3">
+                <div class="row g-3 small">
+                  <div class="col-md-3 col-6">
+                    <div class="text-muted text-uppercase fw-semibold" style="font-size: 11px;"><i class="bi bi-globe me-1"></i>Mã định danh (Unit Code)</div>
+                    <div class="fw-bold text-danger fs-5 mt-1">29653</div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="text-muted text-uppercase fw-semibold" style="font-size: 11px;"><i class="bi bi-building me-1"></i>Thuộc tỉnh thành (Province)</div>
+                    <div class="fw-bold text-primary fs-6 mt-1">Tỉnh Vĩnh Long</div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="text-muted text-uppercase fw-semibold" style="font-size: 11px;"><i class="bi bi-layers me-1"></i>Loại đơn vị (Type)</div>
+                    <div class="fw-bold text-success fs-6 mt-1">Xã</div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="text-muted text-uppercase fw-semibold" style="font-size: 11px;"><i class="bi bi-envelope me-1"></i>Mã bưu chính (Postal Code)</div>
+                    <div class="fw-bold text-danger fs-5 mt-1">85818</div>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <div class="text-muted text-uppercase fw-semibold" style="font-size: 11px;"><i class="bi bi-geo-alt-fill me-1"></i>Trụ sở hành chính mới (Admin Center)</div>
+                    <div class="fw-bold text-success fs-6 mt-1">UBND xã Tân Long</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- HÀNG 3: BÀI VIẾT TỔNG QUAN SÁP NHẬP 2026 (ẢNH 2) -->
+            <div class="border-card-box p-4">
+              <h5 class="fw-bold text-success mb-3">
+                <i class="bi bi-file-earmark-text-fill me-2"></i>Tổng quan về xã Tân Long Hội 2026
+              </h5>
+              <div class="text-secondary" style="font-size: 13.5px; line-height: 1.75;">
+                <p>
+                  <strong>Xã Tân Long Hội</strong> được chính thức hình thành trên cơ sở sáp nhập các đơn vị hành chính trước đây bao gồm <strong>Xã Tân An Hội, Xã Tân Long, Xã Tân Long Hội</strong>. Đợt điều chỉnh địa giới này được thực hiện nghiêm túc theo <strong class="text-primary">Nghị quyết số 202/2025/QH15 của Quốc hội</strong> về sắp xếp đơn vị hành chính cấp tỉnh thành.
+                </p>
+                <p>
+                  Sau khi sáp nhập địa giới hành chính, địa bàn hiện sở hữu diện tích tự nhiên rộng khoảng <strong>36.27 km²</strong> với quy mô dân số đạt mốc <strong>26,358 người</strong>. Dữ liệu dân cư và hạ tầng này mở ra tiềm năng phát triển vượt bậc, kế thừa trọn vẹn các thế mạnh kinh tế - xã hội cốt lõi <em>trực thuộc Huyện Mang Thít cũ, Vĩnh Long cũ</em>.
+                </p>
+                <p>
+                  Chính thức vận hành từ ngày <strong>01/07/2025</strong>, bộ máy hành chính mới của <strong>UBND Xã Tân Long Hội</strong> hiện đặt trụ sở làm việc tại <strong>UBND xã Tân Long</strong>, đảm bảo không gian tiếp công dân văn minh và giải quyết nhanh chóng mọi hồ sơ hành chính cho bà con.
+                </p>
+                <p>
+                  Sự ra đời của <strong>Xã Tân Long Hội</strong> không thuần túy là việc thay đổi tên gọi hay bản đồ hành chính, mà đích đến cốt lõi là tối ưu hóa quy trình dịch vụ công, tinh giản thủ tục giấy tờ, từ đó tạo mọi điều kiện thông thoáng và nhanh chóng nhất cho các giao dịch dân sự, giải quyết hồ sơ của bà con nhân dân.
+                </p>
+                <p class="mb-0">
+                  Về mặt phân cấp, <strong>Xã Tân Long Hội</strong> hiện là 1 trong <strong>105 xã</strong> trực thuộc cơ cấu quản lý khu vực, đóng góp vào tổng số <strong class="text-success">124 đơn vị hành chính cấp xã của Tỉnh Vĩnh Long</strong>. Bước chuyển mình mang tính chiến lược này hứa hẹn sẽ khai phóng mọi tiềm năng nội lực, đưa kinh tế toàn tỉnh bứt phá mạnh mẽ, định hình một đô thị văn minh, hiện đại và hòa cùng khát vọng xây dựng một Việt Nam hùng cường.
+                </p>
+              </div>
+            </div>
+
+            <!-- HÀNG 4: DÂN SỐ & BIỂU ĐỒ MẬT ĐỘ DÂN CƯ (ẢNH 3) -->
+            <div class="border-card-box">
+              <div class="section-banner-header">
+                <div>
+                  <div class="fw-bold fs-6"><i class="bi bi-people-fill me-2"></i>DÂN SỐ & BIỂU ĐỒ MẬT ĐỘ DÂN CƯ</div>
+                  <div class="small text-white-50">CHI TIẾT DÂN SỐ XÃ TÂN LONG HỘI, TỈNH VĨNH LONG</div>
+                </div>
+                <span class="badge bg-white text-success rounded-pill px-3 py-1 fw-bold">Mật độ: Thấp</span>
+              </div>
+              <div class="p-3">
+                <div class="row g-3">
+                  <!-- Cột trái: Phân tích -->
+                  <div class="col-lg-7">
+                    <h6 class="fw-bold text-primary mb-2"><i class="bi bi-activity me-1"></i>Phân tích quy mô cư dân xã Tân Long Hội</h6>
+                    <p class="small text-secondary mb-3">
+                      Theo số liệu thống kê hành chính mới nhất, <strong>xã Tân Long Hội</strong> hiện có quy mô dân số là <mark class="bg-warning-subtle fw-bold px-1">26.358 người</mark>. Trên tổng diện tích tự nhiên khoảng <strong>36.27 km²</strong>, mật độ dân cư đạt mức <strong>727 người/km²</strong>.
+                    </p>
+                    <div class="row g-2 mb-3 text-center">
+                      <div class="col-4">
+                        <div class="p-2 rounded border bg-light">
+                          <div class="text-success small fw-semibold"><i class="bi bi-aspect-ratio me-1"></i>DIỆN TÍCH</div>
+                          <div class="fw-bold text-success fs-5">36.27 <span class="fs-6 fw-normal">km²</span></div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="p-2 rounded border bg-light">
+                          <div class="small fw-semibold text-danger"><i class="bi bi-person-fill me-1"></i>DÂN SỐ</div>
+                          <div class="fw-bold text-danger fs-5">26.358</div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="p-2 rounded border bg-light">
+                          <div class="small fw-semibold text-warning"><i class="bi bi-speedometer2 me-1"></i>MẬT ĐỘ</div>
+                          <div class="fw-bold text-warning fs-5">727 <span class="fs-6 fw-normal text-muted" style="font-size:11px;">người/km²</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="small text-secondary" style="line-height: 1.6;">
+                      Với mật độ chỉ 727 người/km², xã Tân Long Hội sở hữu quỹ đất dự trữ dồi dào và không gian sống khoáng đạt. Đây là khu vực tiềm năng cho các mô hình đô thị sinh thái và quy hoạch không gian xanh trọng điểm của tỉnh. Chỉ số này là cơ sở quan trọng để các cấp quản lý và nhà đầu tư đánh giá <strong>tiềm năng khai thác quỹ đất và phát triển kinh tế nông nghiệp</strong> cũng như khả năng đáp ứng của hệ thống hạ tầng giao thông, y tế, giáo dục và an sinh xã hội tại địa phương.
+                    </p>
+                    <div class="alert alert-light border small text-muted p-2 mb-0">
+                      <i class="bi bi-info-circle me-1"></i>Biểu đồ dân số được tính toán dựa trên phương pháp chia quy mô dân số cho diện tích hành chính thực tế của xã Tân Long Hội.
+                    </div>
+                  </div>
+
+                  <!-- Cột phải: Khung trực quan mật độ -->
+                  <div class="col-lg-5">
+                    <div class="p-2 border rounded-3 bg-light text-center mb-2">
+                      <div class="small text-muted fw-semibold">ĐÁNH GIÁ KHÔNG GIAN SỐNG</div>
+                      <div class="fw-bold text-success fs-6"><i class="bi bi-check-circle-fill me-1"></i>Không Gian Sống Thoáng Đãng</div>
+                    </div>
+                    <div class="p-3 border rounded-3 bg-white text-center shadow-sm">
+                      <div class="text-uppercase small fw-bold text-muted mb-2">BIỂU ĐỒ MẬT ĐỘ DÂN CƯ XÃ TÂN LONG HỘI</div>
+                      <!-- Vòng tròn phân bố icon người dân trực quan -->
+                      <div class="position-relative mx-auto my-2 rounded-circle d-flex align-items-center justify-content-center" style="width: 200px; height: 200px; background: radial-gradient(circle, #f0fdf4 0%, #dcfce7 70%, #bbf7d0 100%); border: 1px dashed #16a34a;">
+                        <i class="bi bi-people fs-1 text-success opacity-75"></i>
+                      </div>
+                      <div class="small text-primary fw-semibold mt-2">NGUỒN: TINHTHANHVN.COM</div>
+                      <div class="mt-2 text-muted small">TỈ LỆ BIỂU ĐỒ: <span class="badge bg-light text-dark border"><i class="bi bi-person text-success"></i> ≈ 976 cư dân</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HÀNG 5: ĐỊNH HƯỚNG PHÁT TRIỂN & ĐỐI SOÁT NQ 112 (ẢNH 4) -->
+            <div class="border-card-box">
+              <div class="section-banner-header">
+                <div>
+                  <div class="fw-bold fs-6"><i class="bi bi-compass-fill me-2"></i>ĐỊNH HƯỚNG PHÁT TRIỂN XÃ TÂN LONG HỘI</div>
+                  <div class="small text-white-50"><span class="badge bg-white text-success px-2 py-0 me-1">CẤP XÃ</span> TẦM NHÌN CHIẾN LƯỢC 2026 - 2030</div>
+                </div>
+                <span class="badge bg-white text-success rounded-pill px-3 py-1 fw-bold"><i class="bi bi-check2-circle me-1"></i>ĐỐI SOÁT NQ 112/2025/UBTVQH15</span>
+              </div>
+              <div class="p-3">
+                <div class="row g-3">
+                  <!-- Cột trái: Mốc cải cách & Tổng kết -->
+                  <div class="col-lg-7">
+                    <div class="p-3 rounded-3 mb-3" style="background-color: #fffbeb; border: 1px solid #fef3c7;">
+                      <div class="fw-bold small text-warning mb-1" style="color: #b45309 !important;"><i class="bi bi-flag-fill me-1"></i>MỐC CHIẾN LƯỢC CẢI CÁCH</div>
+                      <p class="small text-secondary mb-0 fst-italic">
+                        "Việc thành lập địa bàn mới từ ngày <strong>01/07/2025</strong> không chỉ là bước ngoặt chiến lược nhằm <strong>tối ưu hóa bộ máy quản lý</strong>, mà còn đảm bảo các <strong>thủ tục hành chính</strong> và <strong>dịch vụ công</strong> của cộng đồng cư dân luôn diễn ra nhanh chóng, thuận tiện và hiện đại nhất."
+                      </p>
+                    </div>
+
+                    <div class="p-3 rounded-3" style="background-color: #f0fdf4; border: 1px solid #dcfce7;">
+                      <div class="fw-bold small text-success mb-1"><i class="bi bi-bullseye me-1"></i>TỔNG KẾT ĐỊNH HƯỚNG</div>
+                      <p class="small text-secondary mb-0" style="line-height: 1.6;">
+                        Kế thừa trọn vẹn tinh hoa văn hóa và nội lực kinh tế từ <strong>Huyện Mang Thít cũ</strong> trước đây, <strong>Xã Tân Long Hội</strong> đang được định vị trở thành hạt nhân phát triển bền vững trong tương lai của <strong>Tỉnh Vĩnh Long</strong>. Đây là đơn vị đạt đầy đủ cả 2 tiêu chuẩn về diện tích và dân số. Nền tảng vững chắc để địa phương tiếp tục ổn định bộ máy quản lý, thu hút đầu tư hạ tầng và mở rộng dịch vụ công trong giai đoạn 2026 - 2030 mà không phải đối mặt với áp lực sáp nhập hay điều chỉnh địa giới trong ngắn hạn.
+                      </p>
+                    </div>
+
+                    <div class="mt-3">
+                      <a href="https://tinhthanhvn.com" target="_blank" class="btn btn-success fw-bold w-100 py-2 shadow-sm rounded-3">
+                        XÃ TÂN LONG HỘI THAY ĐỔI THẾ NÀO SAU SÁP NHẬP?<br>
+                        <span class="fs-5">GIẢI ĐÁP QUY HOẠCH 2026 <i class="bi bi-box-arrow-up-right small"></i></span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Cột phải: Đối soát chuẩn Nghị quyết 112 -->
+                  <div class="col-lg-5">
+                    <div class="p-3 border rounded-3 bg-white shadow-sm h-100 d-flex flex-direction-column justify-content-between">
+                      <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                          <span class="small fw-bold text-dark"><i class="bi bi-shield-check text-success me-1"></i>MỨC ĐẠT CHUẨN NGHỊ QUYẾT 112</span>
+                          <span class="badge bg-success-subtle text-success border border-success">✔ Đạt 2/2 Tiêu Chuẩn</span>
+                        </div>
+
+                        <!-- Tiêu chí Diện tích -->
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between small mb-1">
+                            <span>Diện tích tự nhiên: <strong class="text-success">36,27 km²</strong></span>
+                            <span class="badge bg-success-subtle text-success">121% Định mức</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 100%;"></div>
+                          </div>
+                          <div class="text-muted small fst-italic mt-1" style="font-size: 11px;">• Mức tối thiểu quy định: 30 km²</div>
+                        </div>
+
+                        <!-- Tiêu chí Dân số -->
+                        <div class="mb-3">
+                          <div class="d-flex justify-content-between small mb-1">
+                            <span>Quy mô dân số: <strong class="text-success">26.358 người</strong></span>
+                            <span class="badge bg-success-subtle text-success">165% Định mức</span>
+                          </div>
+                          <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-success" style="width: 100%;"></div>
+                          </div>
+                          <div class="text-muted small fst-italic mt-1" style="font-size: 11px;">• Mức tối thiểu quy định: 16.000 người</div>
+                        </div>
+
+                        <div class="d-flex justify-content-between small text-muted border-top pt-2">
+                          <span>Mã định danh: <strong>29653</strong></span>
+                          <span>Loại hình: <strong>Xã</strong></span>
+                        </div>
+                      </div>
+
+                      <div class="mt-3 d-flex flex-column gap-2">
+                        <button class="btn btn-outline-success fw-bold text-start d-flex justify-content-between align-items-center py-2 px-3 rounded-3">
+                          <span><i class="bi bi-map me-2"></i>BẢN ĐỒ VỆ TINH QUY HOẠCH</span>
+                          <i class="bi bi-box-arrow-up-right"></i>
+                        </button>
+                        <button class="btn btn-warning fw-bold text-white text-start d-flex justify-content-between align-items-center py-2 px-3 rounded-3" style="background-color: #ea580c; border-color: #ea580c;">
+                          <span><i class="bi bi-geo-alt-fill me-2"></i>BẢN ĐỒ HÀNH CHÍNH</span>
+                          <i class="bi bi-chevron-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HÀNG 6: BẢN ĐỒ SỐ XÃ TÂN LONG HỘI (ẢNH 5) -->
+            <div class="border-card-box mb-0">
+              <div class="section-banner-header">
+                <div class="fw-bold fs-6"><i class="bi bi-map-fill me-2"></i>BẢN ĐỒ SỐ XÃ TÂN LONG HỘI - TỈNH VĨNH LONG</div>
+                <span class="badge bg-white text-success px-2 py-1"><i class="bi bi-compass me-1"></i>Hệ thống GIS</span>
+              </div>
+              <div class="p-3">
+                <div class="ratio ratio-21x9 rounded-3 overflow-hidden shadow-sm border" style="min-height: 380px;">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62867.73715367375!2d106.0125439!3d10.1435631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a7f1a30a21cf3%3A0x6b1d4ef6fa1459a9!2zVMOibiBMb25nIEjhu5lpLCBNYW5nIFRow610LCBWxKluaCBMb25nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
