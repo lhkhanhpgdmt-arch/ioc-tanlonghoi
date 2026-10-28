@@ -822,71 +822,169 @@
           </div>
           <div class="dashboard-card-body shadow-sm">
 
+          <!-- ================= KHU VỰC TIÊU ĐỀ & BỘ LỌC & KPI NÂNG CẤP ================= -->
+            <style>
+              .ioc-stat-card {
+                position: relative;
+                border-radius: 12px;
+                padding: 16px 18px;
+                overflow: hidden;
+                transition: all 0.25s ease-in-out;
+                border: 1px solid rgba(0,0,0,0.06);
+                box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+              .ioc-stat-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+              }
+              .ioc-stat-icon-bg {
+                position: absolute;
+                right: 12px;
+                bottom: 8px;
+                font-size: 46px;
+                opacity: 0.14;
+                pointer-events: none;
+                line-height: 1;
+              }
+              .card-gradient-blue {
+                background: linear-gradient(135deg, #f0f7ff 0%, #e0effe 100%);
+                border-color: #bae0fd;
+              }
+              .card-gradient-green {
+                background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+                border-color: #bbf7d0;
+              }
+              .card-gradient-amber {
+                background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+                border-color: #fde68a;
+              }
+              .card-gradient-rose {
+                background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+                border-color: #fecdd3;
+              }
+              .filter-container {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                padding: 12px 14px;
+              }
+            </style>
+
             <!-- Tiêu đề trang -->
-            <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1">
-                <i class="bi bi-globe2 me-1"></i> THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ
-              </h5>
-              <div class="text-muted small fst-italic">(Tính đến ngày 30/09/2026)</div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+              <div>
+                <h5 class="fw-bold text-primary mb-1">
+                  <i class="bi bi-chat-square-quote-fill me-2"></i>THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ
+                </h5>
+                <span class="text-muted small fst-italic">Hệ thống điều hành phản ánh, kiến nghị nhân dân xã Tân Long Hội</span>
+              </div>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold">
+                <i class="bi bi-clock me-1"></i>Tính đến ngày 30/09/2026
+              </span>
             </div>
 
-            <!-- BỘ 4 BỘ LỌC TÌM KIẾM -->
-            <div class="row g-2 mb-3">
-              <div class="col-md-3 col-6">
-                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Đơn vị</label>
-                <select class="form-select form-select-sm small">
-                  <option selected>Xã Tân Long Hội</option>
-                </select>
-              </div>
-              <div class="col-md-3 col-6">
-                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Năm</label>
-                <select class="form-select form-select-sm small">
-                  <option selected>Năm 2026</option>
-                  <option>Năm 2025</option>
-                </select>
-              </div>
-              <div class="col-md-3 col-6">
-                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Tháng</label>
-                <select class="form-select form-select-sm small">
-                  <option selected>Tất cả các tháng</option>
-                  <option>Tháng 1</option><option>Tháng 2</option><option>Tháng 3</option>
-                  <option>Tháng 4</option><option>Tháng 5</option><option>Tháng 6</option>
-                  <option>Tháng 7</option><option>Tháng 8</option><option>Tháng 9</option>
-                </select>
-              </div>
-              <div class="col-md-3 col-6">
-                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Quý</label>
-                <select class="form-select form-select-sm small">
-                  <option selected>Tất cả các quý</option>
-                  <option>Quý I</option><option>Quý II</option><option>Quý III</option><option>Quý IV</option>
-                </select>
+            <!-- BỘ 4 BỘ LỌC THIẾT KẾ TINH TẾ -->
+            <div class="filter-container mb-3 shadow-sm">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-3 col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white text-muted border-end-0"><i class="bi bi-geo-alt"></i></span>
+                    <select class="form-select border-start-0 ps-1 fw-semibold text-secondary">
+                      <option selected>Xã Tân Long Hội</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white text-muted border-end-0"><i class="bi bi-calendar3"></i></span>
+                    <select class="form-select border-start-0 ps-1 fw-semibold text-secondary">
+                      <option selected>Năm 2026</option>
+                      <option>Năm 2025</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white text-muted border-end-0"><i class="bi bi-calendar-month"></i></span>
+                    <select class="form-select border-start-0 ps-1 fw-semibold text-secondary">
+                      <option selected>Tất cả các tháng</option>
+                      <option>Tháng 1</option><option>Tháng 2</option><option>Tháng 3</option>
+                      <option>Tháng 4</option><option>Tháng 5</option><option>Tháng 6</option>
+                      <option>Tháng 7</option><option>Tháng 8</option><option>Tháng 9</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white text-muted border-end-0"><i class="bi bi-grid"></i></span>
+                    <select class="form-select border-start-0 ps-1 fw-semibold text-secondary">
+                      <option selected>Tất cả các quý</option>
+                      <option>Quý I</option><option>Quý II</option><option>Quý III</option><option>Quý IV</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- 4 THẺ THỐNG KÊ KPI CHUẨN GIAO DIỆN -->
-            <div class="row g-2 mb-3">
-              <div class="col-md-3 col-6">
-                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #0284c7 !important;">
-                  <div class="text-muted small" style="font-size: 11px;">Tổng phản ánh</div>
-                  <div class="fw-bold fs-4 text-primary my-1">7</div>
+            <!-- 4 THẺ KPI PHONG CÁCH IOC CHUYÊN NGHIỆP -->
+            <div class="row g-3 mb-3">
+              <!-- Thẻ 1: Tổng phản ánh -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="ioc-stat-card card-gradient-blue">
+                  <div>
+                    <div class="text-primary fw-bold text-uppercase" style="font-size: 11.5px; letter-spacing: 0.4px;">Tổng phản ánh</div>
+                    <div class="display-6 fw-bold text-primary my-1" style="font-size: 32px; line-height: 1.1;">7</div>
+                  </div>
+                  <div class="d-flex align-items-center mt-1">
+                    <span class="badge bg-primary text-white px-2 py-1 rounded-pill" style="font-size: 11px;">100% tiếp nhận</span>
+                  </div>
+                  <i class="bi bi-inbox-fill text-primary ioc-stat-icon-bg"></i>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #16a34a !important;">
-                  <div class="text-muted small" style="font-size: 11px;">Đã xử lý</div>
-                  <div class="fw-bold fs-4 text-success my-1">7</div>
+
+              <!-- Thẻ 2: Đã xử lý -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="ioc-stat-card card-gradient-green">
+                  <div>
+                    <div class="text-success fw-bold text-uppercase" style="font-size: 11.5px; letter-spacing: 0.4px;">Đã xử lý</div>
+                    <div class="display-6 fw-bold text-success my-1" style="font-size: 32px; line-height: 1.1;">7</div>
+                  </div>
+                  <div class="d-flex align-items-center mt-1">
+                    <span class="badge bg-success text-white px-2 py-1 rounded-pill" style="font-size: 11px;">Tỷ lệ: 100%</span>
+                  </div>
+                  <i class="bi bi-check-circle-fill text-success ioc-stat-icon-bg"></i>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #eab308 !important;">
-                  <div class="text-muted small" style="font-size: 11px;">Đang xử lý</div>
-                  <div class="fw-bold fs-4 text-warning my-1" style="color: #ca8a04 !important;">0</div>
+
+              <!-- Thẻ 3: Đang xử lý -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="ioc-stat-card card-gradient-amber">
+                  <div>
+                    <div class="fw-bold text-uppercase" style="color: #b45309; font-size: 11.5px; letter-spacing: 0.4px;">Đang xử lý</div>
+                    <div class="display-6 fw-bold my-1" style="color: #b45309; font-size: 32px; line-height: 1.1;">0</div>
+                  </div>
+                  <div class="d-flex align-items-center mt-1">
+                    <span class="badge bg-warning text-dark px-2 py-1 rounded-pill" style="font-size: 11px;">Trong hạn: 0%</span>
+                  </div>
+                  <i class="bi bi-hourglass-split ioc-stat-icon-bg" style="color: #b45309;"></i>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #dc2626 !important;">
-                  <div class="text-muted small" style="font-size: 11px;">Quá hạn</div>
-                  <div class="fw-bold fs-4 text-danger my-1">0</div>
+
+              <!-- Thẻ 4: Quá hạn -->
+              <div class="col-xl-3 col-sm-6">
+                <div class="ioc-stat-card card-gradient-rose">
+                  <div>
+                    <div class="text-danger fw-bold text-uppercase" style="font-size: 11.5px; letter-spacing: 0.4px;">Quá hạn</div>
+                    <div class="display-6 fw-bold text-danger my-1" style="font-size: 32px; line-height: 1.1;">0</div>
+                  </div>
+                  <div class="d-flex align-items-center mt-1">
+                    <span class="badge bg-danger text-white px-2 py-1 rounded-pill" style="font-size: 11px;">0% vi phạm</span>
+                  </div>
+                  <i class="bi bi-exclamation-octagon-fill text-danger ioc-stat-icon-bg"></i>
                 </div>
               </div>
             </div>
