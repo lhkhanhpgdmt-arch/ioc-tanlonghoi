@@ -998,8 +998,256 @@
               </table>
             </div>
 
-          </div>
-        </div>
+          <!-- TỰ ĐỘNG BẬT VÀ VẼ 4 BIỂU ĐỒ MỤC 5 KHÔNG CẦN CHỈNH SỬA MENU -->
+            <script>
+              (function() {
+                let chartsDrawn = false;
+
+                function drawAllCharts() {
+                  if (chartsDrawn || typeof Chart === 'undefined') return;
+
+                  // 1. Biểu đồ tròn: Trạng thái xử lý
+                  const ctx1 = document.getElementById('chartDonutXuLy');
+                  if (ctx1) {
+                    new Chart(ctx1, {
+                      type: 'doughnut',
+                      data: {
+                        labels: ['Đã xử lý'],
+                        datasets: [{
+                          data: [7],
+                          backgroundColor: ['#17a2b8'],
+                          borderWidth: 0
+                        }]
+                      },
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '65%',
+                        plugins: { legend: { display: false } }
+                      }
+                    });
+                  }
+
+                  // 2. Biểu đồ cột: Xử lý theo tháng
+                  const ctx2 = document.getElementById('chartBarTheoThang');
+                  if (ctx2) {
+                    new Chart(ctx2, {
+                      type: 'bar',
+                      data: {
+                        labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+                        datasets: [
+                          {
+                            label: 'Đã xử lý',
+                            data: [1, 2, 3, 1],
+                            backgroundColor: '#1b8a5a'
+                          },
+                          {
+                            label: 'Đang xử lý',
+                            data: [0, 0, 0, 0],
+                            backgroundColor: '#f59e0b'
+                          }
+                        ]
+                      },
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'top', align: 'end' } },
+                        scales: {
+                          y: { beginAtZero: true, max: 3, ticks: { stepSize: 0.5 } }
+                        }
+                      }
+                    });
+                  }
+
+                  // 3. Biểu đồ đường: Xu hướng tiếp nhận
+                  const ctx3 = document.getElementById('chartLineXuHuong');
+                  if (ctx3) {
+                    new Chart(ctx3, {
+                      type: 'line',
+                      data: {
+                        labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+                        datasets: [{
+                          label: 'Tích lũy',
+                          data: [1, 3, 6, 7],
+                          borderColor: '#007bff',
+                          backgroundColor: 'rgba(0, 123, 255, 0.12)',
+                          fill: true,
+                          tension: 0.25,
+                          pointRadius: 4,
+                          pointBackgroundColor: '#007bff'
+                        }]
+                      },
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                          y: { beginAtZero: true, max: 7, ticks: { stepSize: 2 } }
+                        }
+                      }
+                    });
+                  }
+
+                  // 4. Biểu đồ thanh ngang: Trong hạn / Quá hạn
+                  const ctx4 = document.getElementById('chartBarTrongHan');
+                  if (ctx4) {
+                    new Chart(ctx4, {
+                      type: 'bar',
+                      data: {
+                        labels: ['Trong hạn', 'Quá hạn'],
+                        datasets: [{
+                          data: [7, 0],
+                          backgroundColor: ['#1b8a5a', '#dc2626']
+                        }]
+                      },
+                      options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                          x: { beginAtZero: true, max: 7, ticks: { stepSize: 1 } }
+                        }
+                      }
+                    });
+                  }
+
+                  chartsDrawn = true;
+                }
+
+                // Tự động kiểm tra: hễ Mục 5 hiển thị là vẽ ngay
+                setInterval(function() {
+                  const panel = document.getElementById('view-5');
+                  if (panel && !chartsDrawn) {
+                    const isVisible = panel.classList.contains('active') || 
+                                      panel.style.display === 'block' || 
+                                      window.getComputedStyle(panel).display !== 'none';
+                    if (isVisible) {
+                      drawAllCharts();
+                    }
+                  }
+                }, 300);
+              })();
+            </script></div>
+        <!-- SCRIPT TỰ ĐỘNG VẼ 4 BIỂU ĐỒ MỤC 5 KHI MỞ TRANG -->
+            <script>
+              function renderChartsMuc5() {
+                // Kiểm tra thư viện Chart.js đã sẵn sàng chưa
+                if (typeof Chart === 'undefined') return;
+
+                // 1. Biểu đồ tròn: Trạng thái xử lý
+                const c1 = document.getElementById('chartDonutXuLy');
+                if (c1 && !c1.chartDone) {
+                  new Chart(c1, {
+                    type: 'doughnut',
+                    data: {
+                      labels: ['Đã xử lý'],
+                      datasets: [{
+                        data: [7],
+                        backgroundColor: ['#17a2b8'],
+                        borderWidth: 0
+                      }]
+                    },
+                    options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      cutout: '65%',
+                      plugins: { legend: { display: false } }
+                    }
+                  });
+                  c1.chartDone = true;
+                }
+
+                // 2. Biểu đồ cột: Xử lý theo tháng
+                const c2 = document.getElementById('chartBarTheoThang');
+                if (c2 && !c2.chartDone) {
+                  new Chart(c2, {
+                    type: 'bar',
+                    data: {
+                      labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+                      datasets: [
+                        {
+                          label: 'Đã xử lý',
+                          data: [1, 2, 3, 1],
+                          backgroundColor: '#1b8a5a'
+                        },
+                        {
+                          label: 'Đang xử lý',
+                          data: [0, 0, 0, 0],
+                          backgroundColor: '#f59e0b'
+                        }
+                      ]
+                    },
+                    options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                        legend: { position: 'top', align: 'end' }
+                      },
+                      scales: {
+                        y: { beginAtZero: true, max: 3, ticks: { stepSize: 0.5 } }
+                      }
+                    }
+                  });
+                  c2.chartDone = true;
+                }
+
+                // 3. Biểu đồ đường: Xu hướng tiếp nhận
+                const c3 = document.getElementById('chartLineXuHuong');
+                if (c3 && !c3.chartDone) {
+                  new Chart(c3, {
+                    type: 'line',
+                    data: {
+                      labels: ['Tháng 3', 'Tháng 5', 'Tháng 6', 'Tháng 9'],
+                      datasets: [{
+                        label: 'Tích lũy',
+                        data: [1, 3, 6, 7],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.12)',
+                        fill: true,
+                        tension: 0.25,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#007bff'
+                      }]
+                    },
+                    options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: { legend: { display: false } },
+                      scales: {
+                        y: { beginAtZero: true, max: 7, ticks: { stepSize: 2 } }
+                      }
+                    }
+                  });
+                  c3.chartDone = true;
+                }
+
+                // 4. Biểu đồ thanh ngang: Trong hạn / Quá hạn
+                const c4 = document.getElementById('chartBarTrongHan');
+                if (c4 && !c4.chartDone) {
+                  new Chart(c4, {
+                    type: 'bar',
+                    data: {
+                      labels: ['Trong hạn', 'Quá hạn'],
+                      datasets: [{
+                        data: [7, 0],
+                        backgroundColor: ['#1b8a5a', '#dc2626']
+                      }]
+                    },
+                    options: {
+                      indexAxis: 'y',
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: { legend: { display: false } },
+                      scales: {
+                        x: { beginAtZero: true, max: 7, ticks: { stepSize: 1 } }
+                      }
+                    }
+                  });
+                  c4.chartDone = true;
+                }
+              }
+            </script></div>
 
         <!-- ==================== MỤC 6: KẾ HOẠCH 100 NGÀY CĐS ==================== -->
         <div id="view-6" class="dashboard-panel">
