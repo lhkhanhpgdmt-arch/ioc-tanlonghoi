@@ -811,87 +811,190 @@
         </div>
 
         <!-- ==================== MỤC 5: TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN ==================== -->
+        <!-- ==================== MỤC 5: TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN ==================== -->
         <div id="view-5" class="dashboard-panel">
-          <div class="dashboard-head-bar">
-            <div class="fw-bold"><i class="bi bi-chat-dots-fill me-2"></i>5. TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN (IOC)</div>
+          <div class="dashboard-head-bar shadow-sm">
+            <div class="fw-bold"><i class="bi bi-chat-dots-fill me-2"></i>5. TIẾP NHẬN & XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ CỦA NGƯỜI DÂN</div>
             <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
-          <div class="dashboard-card-body">
+          <div class="dashboard-card-body shadow-sm">
+
+            <!-- Tiêu đề trang -->
             <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1">TỔNG HỢP TIẾP NHẬN & XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ</h5>
-              <div class="text-muted small">HỆ THỐNG ĐIỀU HÀNH PHẢN ÁNH - KIẾN NGHỊ XÃ TÂN LONG HỘI</div>
-              <div class="text-end text-muted small fst-italic mt-1"><i class="bi bi-clock me-1"></i>Cập nhật: 27/10/2026</div>
+              <h5 class="fw-bold text-primary mb-1">
+                <i class="bi bi-globe2 me-1"></i> THỐNG KÊ TÌNH HÌNH XỬ LÝ PHẢN ÁNH, KIẾN NGHỊ
+              </h5>
+              <div class="text-muted small fst-italic">(Tính đến ngày 30/09/2026)</div>
             </div>
+
+            <!-- BỘ 4 BỘ LỌC TÌM KIẾM -->
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6">
+                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Đơn vị</label>
+                <select class="form-select form-select-sm small">
+                  <option selected>Xã Tân Long Hội</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Năm</label>
+                <select class="form-select form-select-sm small">
+                  <option selected>Năm 2026</option>
+                  <option>Năm 2025</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Tháng</label>
+                <select class="form-select form-select-sm small">
+                  <option selected>Tất cả các tháng</option>
+                  <option>Tháng 1</option><option>Tháng 2</option><option>Tháng 3</option>
+                  <option>Tháng 4</option><option>Tháng 5</option><option>Tháng 6</option>
+                  <option>Tháng 7</option><option>Tháng 8</option><option>Tháng 9</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-6">
+                <label class="form-label text-muted small mb-1" style="font-size: 11px;">Quý</label>
+                <select class="form-select form-select-sm small">
+                  <option selected>Tất cả các quý</option>
+                  <option>Quý I</option><option>Quý II</option><option>Quý III</option><option>Quý IV</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 4 THẺ THỐNG KÊ KPI CHUẨN GIAO DIỆN -->
+            <div class="row g-2 mb-3">
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #0284c7 !important;">
+                  <div class="text-muted small" style="font-size: 11px;">Tổng phản ánh</div>
+                  <div class="fw-bold fs-4 text-primary my-1">7</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #16a34a !important;">
+                  <div class="text-muted small" style="font-size: 11px;">Đã xử lý</div>
+                  <div class="fw-bold fs-4 text-success my-1">7</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #eab308 !important;">
+                  <div class="text-muted small" style="font-size: 11px;">Đang xử lý</div>
+                  <div class="fw-bold fs-4 text-warning my-1" style="color: #ca8a04 !important;">0</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-2 border rounded-2 bg-white shadow-sm h-100" style="border-left: 3px solid #dc2626 !important;">
+                  <div class="text-muted small" style="font-size: 11px;">Quá hạn</div>
+                  <div class="fw-bold fs-4 text-danger my-1">0</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DÒNG CẢNH BÁO SẮP ĐẾN HẠN -->
+            <div class="mb-3 p-2 bg-light rounded border" style="font-size: 12px;">
+              <div class="text-primary fw-semibold"><i class="bi bi-clock-history me-1"></i> Danh sách phản ánh sắp đến hạn xử lý</div>
+              <div class="text-muted fst-italic ms-3 mt-1">* Chưa có phản ánh sắp đến hạn.</div>
+            </div>
+
+            <!-- KHỐI 4 BIỂU ĐỒ (HÀNG 1: TRẠNG THÁI & THEO THÁNG; HÀNG 2: XU HƯỚNG & TRONG HẠN) -->
             <div class="row g-3 mb-3">
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted fw-bold small">TỔNG TIẾP NHẬN</div>
-                  <div class="fs-3 fw-bold text-primary my-1">48</div>
-                  <div class="text-muted small">Phản ánh, kiến nghị</div>
+              <!-- Biểu đồ 1: Donut trạng thái -->
+              <div class="col-lg-5 col-md-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100 text-center">
+                  <div class="small fw-bold text-primary mb-1">Trạng thái xử lý</div>
+                  <div class="text-muted small mb-2" style="font-size: 11px;">Tổng: 7 phản ánh</div>
+                  <div style="height: 190px; position: relative;">
+                    <canvas id="chartDonutXuLy"></canvas>
+                  </div>
+                  <div class="mt-2 small text-muted">
+                    <span class="d-inline-block rounded-circle me-1" style="width: 10px; height: 10px; background-color: #00897b;"></span> 
+                    Đã xử lý: <strong>7 (100%)</strong>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted fw-bold small">ĐÃ XỬ LÝ XONG</div>
-                  <div class="fs-3 fw-bold text-success my-1">46</div>
-                  <div class="text-success small fw-semibold">Tỷ lệ: 95,8%</div>
+
+              <!-- Biểu đồ 2: Cột theo tháng -->
+              <div class="col-lg-7 col-md-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2 text-center">Xử lý theo tháng</div>
+                  <div style="height: 220px;">
+                    <canvas id="chartBarTheoThang"></canvas>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted fw-bold small">ĐANG XỬ LÝ (TRONG HẠN)</div>
-                  <div class="fs-3 fw-bold text-warning my-1">2</div>
-                  <div class="text-warning small fw-semibold">Tỷ lệ: 4,2%</div>
+
+              <!-- Biểu đồ 3: Xu hướng tiếp nhận (tích lũy) -->
+              <div class="col-lg-6 col-md-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2">Xu hướng tiếp nhận (tích lũy)</div>
+                  <div style="height: 200px;">
+                    <canvas id="chartLineXuHuong"></canvas>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-3 col-6">
-                <div class="p-3 border rounded text-center bg-white shadow-sm">
-                  <div class="text-muted fw-bold small">QUÁ HẠN XỬ LÝ</div>
-                  <div class="fs-3 fw-bold text-danger my-1">0</div>
-                  <div class="text-danger small fw-semibold">0,0%</div>
+
+              <!-- Biểu đồ 4: Thanh ngang Trong hạn / Quá hạn -->
+              <div class="col-lg-6 col-md-12">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                  <div class="small fw-bold text-primary mb-2">Trong hạn / Quá hạn</div>
+                  <div style="height: 200px;">
+                    <canvas id="chartBarTrongHan"></canvas>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <!-- BẢNG DANH SÁCH CHI TIẾT 7 Ý KIẾN PHẢN ÁNH -->
+            <div class="mb-2 fw-bold text-primary small text-uppercase">
+              <i class="bi bi-card-checklist me-1"></i> Danh sách phản ánh chung
             </div>
             <div class="table-responsive">
-              <table class="table table-bordered table-sm align-middle text-center small mb-0">
+              <table class="table table-bordered table-sm small align-middle mb-0">
                 <thead class="table-light">
                   <tr>
-                    <th style="width: 5%;">STT</th>
-                    <th style="width: 15%;">NGÀY GỬI</th>
-                    <th style="width: 35%;" class="text-start">NỘI DUNG PHẢN ÁNH</th>
-                    <th style="width: 20%;">LĨNH VỰC</th>
-                    <th style="width: 15%;">ĐƠN VỊ XỬ LÝ</th>
-                    <th style="width: 10%;">TRẠNG THÁI</th>
+                    <th style="width: 10%;" class="text-center">NGÀY GỬI</th>
+                    <th style="width: 76%;">NỘI DUNG</th>
+                    <th style="width: 14%;" class="text-center">TÌNH TRẠNG</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>24/10/2026</td>
-                    <td class="text-start">Kiến nghị kiểm tra đèn chiếu sáng công cộng tuyến đường liên ấp Gò Nhum</td>
-                    <td>Hạ tầng - Đô thị</td>
-                    <td>Tổ Quản lý Đô thị & Môi trường</td>
-                    <td><span class="badge bg-success">Đã xử lý</span></td>
+                    <td class="text-center">22/09/2026</td>
+                    <td>Rác sinh hoạt không được thu gom - hướng về Cầu Mới, xã Tân Long Hội</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td>25/10/2026</td>
-                    <td class="text-start">Phản ánh thủ tục cấp đổi giấy chứng nhận QSDĐ tại bộ phận Một cửa</td>
-                    <td>Thủ tục hành chính</td>
-                    <td>Trung tâm PV Hành chính công</td>
-                    <td><span class="badge bg-success">Đã xử lý</span></td>
+                    <td class="text-center">17/06/2026</td>
+                    <td>Cán bộ trí thùng rác cho người dân (gần đối diện cây xăng Cầu Mới, xã Hòa Hiệp)</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
                   </tr>
                   <tr>
-                    <td>3</td>
-                    <td>26/10/2026</td>
-                    <td class="text-start">Đề nghị hỗ trợ kích hoạt chữ ký số cá nhân và nộp hồ sơ trực tuyến qua VNeID</td>
-                    <td>Chuyển đổi số</td>
-                    <td>Tổ CNS cộng đồng</td>
-                    <td><span class="badge bg-warning text-dark">Đang xử lý</span></td>
+                    <td class="text-center">05/06/2026</td>
+                    <td>Tôi muốn hỏi thời gian ngày nào trong tuần xe đi lấy rác (để tôi canh thời gian đem rác ra tập trung) để xe môi trường lấy, ở quê mà đem ra trước thời gian quá lâu động vật hoang (chó mèo chuột) xé túi làm dơ mất mỹ quan. Nhà tôi ở đường huyện 36 ấp Thâm Bình xã Tân Long Hội tỉnh Vĩnh Long.</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">04/06/2026</td>
+                    <td>Vứt rác ven đường gây mất mỹ quan đô thị, cần có biển cấm đổ rác. Gần công ty Tân Long, ấp Tân Hiệp, quốc lộ 53, Xã Tân Long Hội. Kinh độ: 106.03509967716; vĩ độ: 10.1435631327177.</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">16/05/2026</td>
+                    <td>Tôi là cán bộ bán chuyên trách công tác từ 4/2012 đến nay tham gia bhxh tự nguyện 2 năm 6 tháng, bhxh bắt buộc 10 năm 5 tháng (hiện là cán bộ hỗ trợ HLHPN xã) tốt nghiệp Cử nhân Kế toán và cử nhân Lu</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">11/05/2026</td>
+                    <td>Rác thải sinh hoạt vứt lề đường bốc mùi hôi thối - gần nhà trọ Thuận Phát, xã Hòa Hiệp</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">23/03/2026</td>
+                    <td>Bãi rác tự phát ngay quốc lộ 53 dưới chân cầu Mang Thít (gần nhà trọ Thuận Phát), xã Tân Long Hội gây ô nhiễm môi trường, mất mỹ quan đô thị</td>
+                    <td class="text-center"><span class="badge bg-success">Đã xử lý trong hạn</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
           </div>
         </div>
 
