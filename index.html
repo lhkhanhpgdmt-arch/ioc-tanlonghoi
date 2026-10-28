@@ -2112,115 +2112,541 @@
         </div>
 
         <!-- ==================== MỤC 8: THỐNG KÊ TÀI SẢN CÔNG ==================== -->
+       <!-- ==================== MỤC 8: THỐNG KÊ TÀI SẢN CÔNG ==================== -->
         <div id="view-8" class="dashboard-panel">
-          <div class="dashboard-head-bar">
+          <div class="dashboard-head-bar shadow-sm">
             <div class="fw-bold"><i class="bi bi-building-fill me-2"></i>8. THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP — XÃ TÂN LONG HỘI</div>
-            <div>
-              <button class="btn btn-sm btn-success py-0 px-2 fw-semibold me-1"><i class="bi bi-file-earmark-excel"></i> Xuất Excel</button>
-              <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
-            </div>
+            <button class="btn btn-sm btn-light py-0 px-2 fw-semibold" onclick="showHomeDashboard()"><i class="bi bi-house-door"></i> Về trang chủ</button>
           </div>
-          <div class="dashboard-card-body">
+          <div class="dashboard-card-body shadow-sm">
+
+            <style>
+              .asset-kpi-card {
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 14px 16px;
+                height: 100%;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+              .asset-icon-circle {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                margin-right: 6px;
+              }
+              .asset-detail-row {
+                font-size: 11.5px;
+                line-height: 1.4;
+              }
+              .table-asset thead th {
+                font-size: 11.5px;
+                vertical-align: middle;
+                text-align: center;
+                background-color: #f8fafc;
+              }
+              .table-asset tbody td {
+                font-size: 12px;
+              }
+            </style>
+
+            <!-- Tiêu đề và Nguồn cập nhật -->
             <div class="text-center mb-3">
-              <h5 class="fw-bold text-primary mb-1">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h5>
-              <div class="text-muted small fst-italic">(Nguồn: Sở Tài chính & UBND Xã Tân Long Hội cung cấp - Dữ liệu cập nhật đến ngày 12/10/2026)</div>
+              <h4 class="fw-bold text-primary mb-1 text-uppercase" style="letter-spacing: 0.5px;">THỐNG KÊ TÀI SẢN CÔNG SAU SÁP NHẬP - XÃ TÂN LONG HỘI</h4>
+              <div class="text-muted small fst-italic">(Nguồn: Sở Tài chính cung cấp - Dữ liệu cập nhật đến ngày 28/10/2026)</div>
             </div>
+
+            <!-- 5 THẺ KPI TÀI SẢN CÔNG THEO ĐÚNG ẢNH 1 -->
             <div class="row g-2 mb-3">
-              <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-primary fw-bold small"><i class="bi bi-buildings me-1"></i>TỔNG CỘNG</div><div class="fs-4 fw-bold text-primary">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 34.844 m²<br>Sàn: 9.659 m²</div></div></div>
-              <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-success fw-bold small"><i class="bi bi-check-circle me-1"></i>GIỮ LẠI SỬ DỤNG</div><div class="fs-4 fw-bold text-success">10 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 34.844 m²<br>Sàn: 9.659 m²</div></div></div>
-              <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-warning fw-bold small"><i class="bi bi-arrow-left-right me-1"></i>ĐIỀU CHUYỂN</div><div class="fs-4 fw-bold text-warning">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
-              <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-info fw-bold small"><i class="bi bi-box-arrow-up-right me-1"></i>CHUYỂN GIAO</div><div class="fs-4 fw-bold text-info">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
-              <div class="col"><div class="p-3 border rounded bg-white text-center shadow-sm"><div class="text-danger fw-bold small"><i class="bi bi-trash me-1"></i>THU HỒI</div><div class="fs-4 fw-bold text-danger">0 <span class="fs-6 fw-normal text-muted">cơ sở</span></div><div class="text-muted small">Đất: 0 m²<br>Sàn: 0 m²</div></div></div>
+              <!-- 1. TỔNG -->
+              <div class="col-xl col-md-4 col-sm-6">
+                <div class="asset-kpi-card">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="asset-icon-circle" style="background-color: #e0f2fe; color: #0284c7;"><i class="bi bi-buildings"></i></span>
+                    <span class="fw-bold text-primary small">TỔNG</span>
+                  </div>
+                  <div class="text-center my-1">
+                    <div class="fs-2 fw-bold text-primary" style="line-height: 1;">3</div>
+                    <div class="text-muted small" style="font-size: 11px;">cơ sở</div>
+                  </div>
+                  <div class="border-top pt-2 mt-1 asset-detail-row text-muted">
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-aspect-ratio me-1 text-primary"></i> Tổng diện tích đất:
+                    </div>
+                    <div class="fw-bold text-dark ps-3 mb-1">4.315,00 m²</div>
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-building me-1 text-primary"></i> Tổng diện tích sàn:
+                    </div>
+                    <div class="fw-bold text-dark ps-3">1.509,00 m²</div>
+                  </div>
+                  <div class="border-top pt-2 mt-2 asset-detail-row">
+                    <div class="d-flex justify-content-between text-muted"><span>Sở, ban ngành</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Đơn vị sự nghiệp</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Xã, phường</span><span class="fw-bold text-dark">3</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. GIỮ LẠI TIẾP TỤC SỬ DỤNG -->
+              <div class="col-xl col-md-4 col-sm-6">
+                <div class="asset-kpi-card">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="asset-icon-circle" style="background-color: #ede9fe; color: #6366f1;"><i class="bi bi-check-circle-fill"></i></span>
+                    <span class="fw-bold small" style="color: #4f46e5;">GIỮ LẠI TIẾP TỤC SỬ DỤNG</span>
+                  </div>
+                  <div class="text-center my-1">
+                    <div class="fs-2 fw-bold" style="color: #4f46e5; line-height: 1;">3</div>
+                    <div class="text-muted small" style="font-size: 11px;">cơ sở</div>
+                  </div>
+                  <div class="border-top pt-2 mt-1 asset-detail-row text-muted">
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-aspect-ratio me-1 text-indigo"></i> Diện tích đất:
+                    </div>
+                    <div class="fw-bold text-dark ps-3 mb-1">4.315,00 m²</div>
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-building me-1 text-indigo"></i> Diện tích sàn sử dụng:
+                    </div>
+                    <div class="fw-bold text-dark ps-3">1.509,00 m²</div>
+                  </div>
+                  <div class="border-top pt-2 mt-2 asset-detail-row">
+                    <div class="d-flex justify-content-between text-muted"><span>Sở, ban ngành</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Đơn vị sự nghiệp</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Xã, phường</span><span class="fw-bold text-dark">3</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. ĐIỀU CHUYỂN -->
+              <div class="col-xl col-md-4 col-sm-6">
+                <div class="asset-kpi-card">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="asset-icon-circle" style="background-color: #ffedd5; color: #ea580c;"><i class="bi bi-arrow-left-right"></i></span>
+                    <span class="fw-bold small" style="color: #ea580c;">ĐIỀU CHUYỂN</span>
+                  </div>
+                  <div class="text-center my-1">
+                    <div class="fs-2 fw-bold" style="color: #ea580c; line-height: 1;">0</div>
+                    <div class="text-muted small" style="font-size: 11px;">cơ sở</div>
+                  </div>
+                  <div class="border-top pt-2 mt-1 asset-detail-row text-muted">
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-aspect-ratio me-1 text-warning"></i> Diện tích đất:
+                    </div>
+                    <div class="fw-bold text-dark ps-3 mb-1">0,00 m²</div>
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-building me-1 text-warning"></i> Diện tích sàn sử dụng:
+                    </div>
+                    <div class="fw-bold text-dark ps-3">0,00 m²</div>
+                  </div>
+                  <div class="border-top pt-2 mt-2 asset-detail-row">
+                    <div class="d-flex justify-content-between text-muted"><span>Sở, ban ngành</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Đơn vị sự nghiệp</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Xã, phường</span><span class="fw-bold text-dark">0</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. CHUYỂN GIAO -->
+              <div class="col-xl col-md-4 col-sm-6">
+                <div class="asset-kpi-card">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="asset-icon-circle" style="background-color: #e0f2fe; color: #0284c7;"><i class="bi bi-box-arrow-up-right"></i></span>
+                    <span class="fw-bold text-info small">CHUYỂN GIAO</span>
+                  </div>
+                  <div class="text-center my-1">
+                    <div class="fs-2 fw-bold text-info" style="line-height: 1;">0</div>
+                    <div class="text-muted small" style="font-size: 11px;">cơ sở</div>
+                  </div>
+                  <div class="border-top pt-2 mt-1 asset-detail-row text-muted">
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-aspect-ratio me-1 text-info"></i> Diện tích đất:
+                    </div>
+                    <div class="fw-bold text-dark ps-3 mb-1">0,00 m²</div>
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-building me-1 text-info"></i> Diện tích sàn sử dụng:
+                    </div>
+                    <div class="fw-bold text-dark ps-3">0,00 m²</div>
+                  </div>
+                  <div class="border-top pt-2 mt-2 asset-detail-row">
+                    <div class="d-flex justify-content-between text-muted"><span>Sở, ban ngành</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Đơn vị sự nghiệp</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Xã, phường</span><span class="fw-bold text-dark">0</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. THU HỒI -->
+              <div class="col-xl col-md-4 col-sm-6">
+                <div class="asset-kpi-card">
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                    <span class="asset-icon-circle" style="background-color: #fee2e2; color: #dc2626;"><i class="bi bi-trash3"></i></span>
+                    <span class="fw-bold text-danger small">THU HỒI</span>
+                  </div>
+                  <div class="text-center my-1">
+                    <div class="fs-2 fw-bold text-danger" style="line-height: 1;">0</div>
+                    <div class="text-muted small" style="font-size: 11px;">cơ sở</div>
+                  </div>
+                  <div class="border-top pt-2 mt-1 asset-detail-row text-muted">
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-aspect-ratio me-1 text-danger"></i> Diện tích đất:
+                    </div>
+                    <div class="fw-bold text-dark ps-3 mb-1">0,00 m²</div>
+                    <div class="d-flex align-items-center mb-1">
+                      <i class="bi bi-building me-1 text-danger"></i> Diện tích sàn sử dụng:
+                    </div>
+                    <div class="fw-bold text-dark ps-3">0,00 m²</div>
+                  </div>
+                  <div class="border-top pt-2 mt-2 asset-detail-row">
+                    <div class="d-flex justify-content-between text-muted"><span>Sở, ban ngành</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Đơn vị sự nghiệp</span><span class="fw-bold text-dark">0</span></div>
+                    <div class="d-flex justify-content-between text-muted"><span>Xã, phường</span><span class="fw-bold text-dark">0</span></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="fw-bold text-primary small mb-2"><i class="bi bi-list-task me-1"></i>DANH SÁCH CHI TIẾT CƠ SỞ NHÀ, ĐẤT (10 cơ sở nhà, đất)</div>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm align-middle small mb-0">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th rowspan="2" style="width: 4%;">STT</th>
-                    <th rowspan="2" style="width: 25%;">ĐƠN VỊ / ĐỊA CHỈ NHÀ, ĐẤT</th>
-                    <th colspan="3">NHÀ, ĐẤT (m²)</th>
-                    <th rowspan="2" style="width: 18%;">HỒ SƠ PHÁP LÝ</th>
-                    <th rowspan="2" style="width: 14%;">MỤC ĐÍCH SỬ DỤNG</th>
-                    <th rowspan="2" style="width: 8%;">HIỆN TRẠNG</th>
-                    <th colspan="2">PHƯƠNG ÁN SẮP XẾP</th>
-                  </tr>
-                  <tr>
-                    <th style="width: 7%;">DT ĐẤT</th>
-                    <th style="width: 7%;">DT XD NHÀ</th>
-                    <th style="width: 7%;">DT SÀN SD</th>
-                    <th style="width: 10%;">PA ĐỀ XUẤT</th>
-                    <th style="width: 10%;">CƠ SỞ ĐỀ XUẤT</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-light fw-bold"><td colspan="10">A. KHỐI TRỤ SỞ HÀNH CHÍNH VÀ NHÀ VĂN HÓA</td></tr>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td><strong>Trụ sở Đảng ủy - HĐND - UBND xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="text-end fw-bold">4.250,00</td>
-                    <td class="text-end">1.100,00</td>
-                    <td class="text-end">2.200,00</td>
-                    <td>Giấy CNQSDĐ số BV 882910</td>
-                    <td>Đất trụ sở cơ quan</td>
-                    <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
-                    <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td><strong>Ban Chỉ huy Quân sự xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="text-end fw-bold">850,00</td>
-                    <td class="text-end">280,00</td>
-                    <td class="text-end">280,00</td>
-                    <td>Giấy CNQSDĐ cấp 2018</td>
-                    <td>Đất an ninh - quốc phòng</td>
-                    <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
-                    <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">3</td>
-                    <td><strong>Công an xã Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long, xã Tân Long Hội</span></td>
-                    <td class="text-end fw-bold">1.000,00</td>
-                    <td class="text-end">320,00</td>
-                    <td class="text-end">640,00</td>
-                    <td>Giấy CNQSDĐ cấp 2020</td>
-                    <td>Đất trụ sở cơ quan</td>
-                    <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
-                    <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">4</td>
-                    <td><strong>Trung tâm Văn hóa - Thể thao & Học tập cộng đồng</strong><br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
-                    <td class="text-end fw-bold">6.000,00</td>
-                    <td class="text-end">480,00</td>
-                    <td class="text-end">480,00</td>
-                    <td>Quyết định giao đất của UBND huyện</td>
-                    <td>Đất cơ sở văn hóa</td>
-                    <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
-                    <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">5</td>
-                    <td><strong>Trường THCS Tân Long Hội</strong><br><span class="text-muted small">Ấp Tân Long Hội, xã Tân Long Hội</span></td>
-                    <td class="text-end fw-bold">7.200,00</td>
-                    <td class="text-end">1.450,00</td>
-                    <td class="text-end">2.900,00</td>
-                    <td>Giấy CNQSDĐ theo quy hoạch giáo dục</td>
-                    <td>Đất cơ sở giáo dục</td>
-                    <td class="text-center"><span class="badge bg-success">Đang SD</span></td>
-                    <td class="text-center"><span class="badge bg-primary">Giữ lại tiếp tục sử dụng</span></td>
-                    <td class="text-center text-muted" style="font-size: 11px;">Nghị định 03/2025/NĐ-CP</td>
-                  </tr>
-                </tbody>
-              </table>
+
+            <!-- 4 BIỂU ĐỒ DONUT THEO ĐÚNG ẢNH 1 -->
+            <div class="row g-2 mb-3">
+              <!-- Biểu đồ 1 -->
+              <div class="col-xl-3 col-md-6">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center h-100">
+                  <div class="fw-bold small text-uppercase mb-2" style="font-size: 12px;">SỐ LƯỢNG CƠ SỞ NHÀ, ĐẤT</div>
+                  <div style="height: 170px; position: relative;" class="d-flex align-items-center justify-content-center">
+                    <canvas id="chartAssetCount"></canvas>
+                    <div class="position-absolute text-center" style="pointer-events: none;">
+                      <div class="small text-muted" style="font-size: 10px;">TỔNG</div>
+                      <div class="fw-bold fs-6">3 cơ sở</div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-start small d-flex flex-wrap justify-content-center gap-2" style="font-size: 11px;">
+                    <span><span style="color: #4f46e5;">●</span> Giữ lại</span>
+                    <span><span style="color: #ea580c;">●</span> Điều chuyển</span>
+                    <span><span style="color: #0284c7;">●</span> Chuyển giao</span>
+                    <span><span style="color: #dc2626;">●</span> Thu hồi</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ 2 -->
+              <div class="col-xl-3 col-md-6">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center h-100">
+                  <div class="fw-bold small text-uppercase mb-2" style="font-size: 12px;">DIỆN TÍCH ĐẤT (M²)</div>
+                  <div style="height: 170px; position: relative;" class="d-flex align-items-center justify-content-center">
+                    <canvas id="chartAssetLand"></canvas>
+                    <div class="position-absolute text-center" style="pointer-events: none;">
+                      <div class="small text-muted" style="font-size: 10px;">TỔNG</div>
+                      <div class="fw-bold fs-6">4.315 m²</div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-start small d-flex flex-wrap justify-content-center gap-2" style="font-size: 11px;">
+                    <span><span style="color: #4f46e5;">●</span> Giữ lại</span>
+                    <span><span style="color: #ea580c;">●</span> Điều chuyển</span>
+                    <span><span style="color: #0284c7;">●</span> Chuyển giao</span>
+                    <span><span style="color: #dc2626;">●</span> Thu hồi</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ 3 -->
+              <div class="col-xl-3 col-md-6">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center h-100">
+                  <div class="fw-bold small text-uppercase mb-2" style="font-size: 12px;">DIỆN TÍCH SÀN (M²)</div>
+                  <div style="height: 170px; position: relative;" class="d-flex align-items-center justify-content-center">
+                    <canvas id="chartAssetFloor"></canvas>
+                    <div class="position-absolute text-center" style="pointer-events: none;">
+                      <div class="small text-muted" style="font-size: 10px;">TỔNG</div>
+                      <div class="fw-bold fs-6">1.509 m²</div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-start small d-flex flex-wrap justify-content-center gap-2" style="font-size: 11px;">
+                    <span><span style="color: #4f46e5;">●</span> Giữ lại</span>
+                    <span><span style="color: #ea580c;">●</span> Điều chuyển</span>
+                    <span><span style="color: #0284c7;">●</span> Chuyển giao</span>
+                    <span><span style="color: #dc2626;">●</span> Thu hồi</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biểu đồ 4 -->
+              <div class="col-xl-3 col-md-6">
+                <div class="p-3 border rounded-3 bg-white shadow-sm text-center h-100">
+                  <div class="fw-bold small text-uppercase mb-2" style="font-size: 12px;">THỐNG KÊ THEO CẤP QUẢN LÝ</div>
+                  <div style="height: 170px; position: relative;" class="d-flex align-items-center justify-content-center">
+                    <canvas id="chartAssetLevel"></canvas>
+                    <div class="position-absolute text-center" style="pointer-events: none;">
+                      <div class="small text-muted" style="font-size: 10px;">TỔNG</div>
+                      <div class="fw-bold fs-6">3 cơ sở</div>
+                    </div>
+                  </div>
+                  <div class="mt-2 text-start small d-flex flex-wrap justify-content-center gap-2" style="font-size: 11px;">
+                    <span><span style="color: #0284c7;">●</span> Sở, ban ngành</span>
+                    <span><span style="color: #0d9488;">●</span> Đơn vị sự nghiệp</span>
+                    <span><span style="color: #ea580c;">●</span> Xã, phường</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- BẢNG BỘ LỌC VÀ DANH SÁCH CHI TIẾT (THEO ĐÚNG ẢNH 2) -->
+            <div class="border rounded-3 bg-white shadow-sm p-3 mb-2">
+              <div class="d-flex justify-content-between align-items-center flex-wrap mb-3 gap-2">
+                <div class="fw-bold text-dark fs-6">
+                  <i class="bi bi-table text-primary me-2"></i>DANH SÁCH CHI TIẾT CƠ SỞ NHÀ, ĐẤT
+                </div>
+                <button class="btn btn-sm btn-success px-3 fw-semibold" onclick="exportTableToExcel('tableAssetList', 'Danh_Sach_Tai_San_Cong_Tan_Long_Hoi')">
+                  <i class="bi bi-file-earmark-excel me-1"></i>Xuất Excel
+                </button>
+              </div>
+
+              <!-- Thanh Lọc Tìm Kiếm -->
+              <div class="row g-2 mb-3">
+                <div class="col-md-3">
+                  <label class="form-label text-muted small mb-1" style="font-size: 11px;"><i class="bi bi-search me-1"></i>Từ khóa</label>
+                  <input type="text" class="form-control form-control-sm" placeholder="Tìm tên đơn vị, địa chỉ...">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted small mb-1" style="font-size: 11px;"><i class="bi bi-journal-text me-1"></i>Mục đích sử dụng</label>
+                  <select class="form-select form-select-sm">
+                    <option selected>-- Tất cả mục đích --</option>
+                    <option>Đất cơ sở y tế</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label text-muted small mb-1" style="font-size: 11px;"><i class="bi bi-exclamation-triangle me-1"></i>Hiện trạng sử dụng</label>
+                  <select class="form-select form-select-sm">
+                    <option selected>-- Tất cả hiện trạng --</option>
+                    <option>Đang SD</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label text-muted small mb-1" style="font-size: 11px;"><i class="bi bi-check-circle me-1"></i>Phương án đề xuất</label>
+                  <select class="form-select form-select-sm">
+                    <option selected>-- Tất cả phương án --</option>
+                    <option>Giữ lại tiếp tục sử dụng</option>
+                  </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end gap-1">
+                  <button class="btn btn-sm btn-primary w-50 fw-semibold"><i class="bi bi-funnel"></i> Lọc</button>
+                  <button class="btn btn-sm btn-outline-secondary w-50">↺ Xóa lọc</button>
+                </div>
+              </div>
+
+              <div class="text-muted small fw-semibold mb-2">3 cơ sở nhà, đất</div>
+
+              <!-- BẢNG CHI TIẾT 3 TRẠM Y TẾ -->
+              <div class="table-responsive">
+                <table id="tableAssetList" class="table table-bordered table-hover table-sm table-asset align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" style="width: 3%;">STT</th>
+                      <th rowspan="2" style="width: 22%;">ĐƠN VỊ/ĐỊA CHỈ NHÀ, ĐẤT</th>
+                      <th colspan="4">NHÀ, ĐẤT (M²)</th>
+                      <th rowspan="2" style="width: 7%;">CÔNG TRÌNH KHÁC</th>
+                      <th rowspan="2" style="width: 14%;">HỒ SƠ PHÁP LÝ</th>
+                      <th rowspan="2" style="width: 10%;">MỤC ĐÍCH SỬ DỤNG</th>
+                      <th rowspan="2" style="width: 7%;">HIỆN TRẠNG</th>
+                      <th colspan="2">PA SẮP XẾP LẠI, XỬ LÝ NHÀ, ĐẤT</th>
+                      <th rowspan="2" style="width: 5%;">GHI CHÚ</th>
+                    </tr>
+                    <tr>
+                      <th style="width: 7%;">DT ĐẤT</th>
+                      <th style="width: 7%;">DT XD NHÀ</th>
+                      <th style="width: 7%;">DT SÀN XD</th>
+                      <th style="width: 7%;">DT SÀN SD</th>
+                      <th style="width: 11%;">PA ĐỀ XUẤT</th>
+                      <th style="width: 11%;">CƠ SỞ ĐỀ XUẤT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-light fw-bold">
+                      <td class="text-center">C</td>
+                      <td colspan="12">XÃ TÂN LONG HỘI</td>
+                    </tr>
+                    <tr class="table-light fw-semibold text-secondary">
+                      <td class="text-center">I</td>
+                      <td colspan="12">Xã Tân Long Hội</td>
+                    </tr>
+                    <!-- CƠ SỞ 1: TRẠM Y TẾ CƠ SỞ 2 -->
+                    <tr>
+                      <td class="text-center fw-bold">1</td>
+                      <td>
+                        <strong class="text-primary">Trạm Y tế xã Tân Long Hội (Cơ sở 2)</strong><br>
+                        <span class="text-muted small">Ấp Tân Thắng, xã Tân Long Hội, tỉnh Vĩnh Long</span>
+                      </td>
+                      <td class="text-end fw-bold">1.250,00</td>
+                      <td class="text-end">550,00</td>
+                      <td class="text-end">550,00</td>
+                      <td class="text-end fw-bold">550,00</td>
+                      <td class="text-center text-muted">-</td>
+                      <td class="small">Giấy CNQSDĐ số CB 679850, ngày 26/8/2015</td>
+                      <td>Đất cơ sở y tế</td>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Đang SD</span></td>
+                      <td class="text-center">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">
+                          <i class="bi bi-arrow-right-circle me-1"></i>Giữ lại tiếp tục sử dụng
+                        </span>
+                      </td>
+                      <td class="small text-muted">Theo Điều 10, Nghị định số 03/2025/NĐ-CP</td>
+                      <td class="text-center text-muted">-</td>
+                    </tr>
+
+                    <!-- CƠ SỞ 2: TRẠM Y TẾ CƠ SỞ 1 -->
+                    <tr>
+                      <td class="text-center fw-bold">2</td>
+                      <td>
+                        <strong class="text-primary">Trạm Y tế xã Tân Long Hội (Cơ sở 1)</strong><br>
+                        <span class="text-muted small">ấp Thân Bình, xã Tân Long Hội</span>
+                      </td>
+                      <td class="text-end fw-bold">1.943,00</td>
+                      <td class="text-end">369,00</td>
+                      <td class="text-end">369,00</td>
+                      <td class="text-end fw-bold">369,00</td>
+                      <td class="text-center text-muted">-</td>
+                      <td class="small">Giấy CNQSDĐ số BI 439591, ngày 25/12/20</td>
+                      <td>Đất cơ sở y tế</td>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Đang SD</span></td>
+                      <td class="text-center">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">
+                          <i class="bi bi-arrow-right-circle me-1"></i>Giữ lại tiếp tục sử dụng
+                        </span>
+                      </td>
+                      <td class="small text-muted">Theo Điều 10, Nghị định số 03/2025/NĐ-CP</td>
+                      <td class="text-center text-muted">-</td>
+                    </tr>
+
+                    <!-- CƠ SỞ 3: TRẠM Y TẾ CƠ SỞ 3 -->
+                    <tr>
+                      <td class="text-center fw-bold">3</td>
+                      <td>
+                        <strong class="text-primary">Trạm Y tế xã Tân Long Hội (Cơ sở 3)</strong><br>
+                        <span class="text-muted small">Ấp Tân Qui, xã Tân Long Hội, tỉnh Vĩnh Long</span>
+                      </td>
+                      <td class="text-end fw-bold">1.122,00</td>
+                      <td class="text-end">590,00</td>
+                      <td class="text-end">590,00</td>
+                      <td class="text-end fw-bold">590,00</td>
+                      <td class="text-center text-muted">-</td>
+                      <td class="small">Giấy CNQSDĐ số BI 425480, ngày 27/11/2017</td>
+                      <td>Đất cơ sở y tế</td>
+                      <td class="text-center"><span class="badge bg-success-subtle text-success border border-success">Đang SD</span></td>
+                      <td class="text-center">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">
+                          <i class="bi bi-arrow-right-circle me-1"></i>Giữ lại tiếp tục sử dụng
+                        </span>
+                      </td>
+                      <td class="small text-muted">Theo Điều 10, Nghị định số 03/2025/NĐ-CP</td>
+                      <td class="text-center text-muted">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- SCRIPT TỰ ĐỘNG VẼ 4 BIỂU ĐỒ DONUT CHO MỤC 8 -->
+            <script>
+              (function() {
+                let chartsAssetDone = false;
+
+                function renderAssetCharts() {
+                  if (chartsAssetDone || typeof Chart === 'undefined') return;
+
+                  const colors = ['#4f46e5', '#ea580c', '#0284c7', '#dc2626'];
+                  const optCommon = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '72%',
+                    plugins: {
+                      legend: { display: false },
+                      tooltip: { enabled: true }
+                    }
+                  };
+
+                  // 1. Biểu đồ Số lượng cơ sở
+                  const c1 = document.getElementById('chartAssetCount');
+                  if (c1) {
+                    new Chart(c1, {
+                      type: 'doughnut',
+                      data: {
+                        labels: ['Giữ lại', 'Điều chuyển', 'Chuyển giao', 'Thu hồi'],
+                        datasets: [{ data: [3, 0, 0, 0], backgroundColor: colors, borderWidth: 0 }]
+                      },
+                      options: optCommon
+                    });
+                  }
+
+                  // 2. Biểu đồ Diện tích đất
+                  const c2 = document.getElementById('chartAssetLand');
+                  if (c2) {
+                    new Chart(c2, {
+                      type: 'doughnut',
+                      data: {
+                        labels: ['Giữ lại', 'Điều chuyển', 'Chuyển giao', 'Thu hồi'],
+                        datasets: [{ data: [4315, 0, 0, 0], backgroundColor: colors, borderWidth: 0 }]
+                      },
+                      options: optCommon
+                    });
+                  }
+
+                  // 3. Biểu đồ Diện tích sàn
+                  const c3 = document.getElementById('chartAssetFloor');
+                  if (c3) {
+                    new Chart(c3, {
+                      type: 'doughnut',
+                      data: {
+                        labels: ['Giữ lại', 'Điều chuyển', 'Chuyển giao', 'Thu hồi'],
+                        datasets: [{ data: [1509, 0, 0, 0], backgroundColor: colors, borderWidth: 0 }]
+                      },
+                      options: optCommon
+                    });
+                  }
+
+                  // 4. Biểu đồ Cấp quản lý
+                  const c4 = document.getElementById('chartAssetLevel');
+                  if (c4) {
+                    new Chart(c4, {
+                      type: 'doughnut',
+                      data: {
+                        labels: ['Sở, ban ngành', 'Đơn vị sự nghiệp', 'Xã, phường'],
+                        datasets: [{ data: [0, 0, 3], backgroundColor: ['#0284c7', '#0d9488', '#ea580c'], borderWidth: 0 }]
+                      },
+                      options: optCommon
+                    });
+                  }
+
+                  chartsAssetDone = true;
+                }
+
+                // Cảm biến tự động phát hiện khi Mục 8 được bật lên thì vẽ biểu đồ
+                setInterval(function() {
+                  const panel = document.getElementById('view-8');
+                  if (panel && !chartsAssetDone) {
+                    const isVisible = panel.classList.contains('active') || 
+                                      panel.style.display === 'block' || 
+                                      window.getComputedStyle(panel).display !== 'none';
+                    if (isVisible) {
+                      renderAssetCharts();
+                    }
+                  }
+                }, 300);
+              })();
+
+              // Hàm xuất Excel cho bảng tài sản công
+              function exportTableToExcel(tableID, filename = '') {
+                const table = document.getElementById(tableID);
+                if (!table) return;
+                const wb = XLSX.utils.table_to_book(table, { sheet: "Tai_San_Cong" });
+                XLSX.writeFile(wb, (filename ? filename : 'Bao_Cao') + '.xlsx');
+              }
+            </script>
+
           </div>
         </div>
-
         <!-- ==================== MỤC 9: KINH PHÍ CĐS NQ 57 ==================== -->
         <!-- ================= PHÂN HỆ 9: KINH PHÍ CĐS THEO NQ 57 ================= -->
    <div id="view-9" class="dashboard-panel" style="display: none;">
