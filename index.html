@@ -158,25 +158,119 @@
 <body>
 
   <!-- HEADER THANH ĐIỀU HƯỚNG TRÊN CÙNG -->
-  <header class="top-navbar py-2 px-3 mb-3 shadow-sm">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center">
-        <button id="btnToggleSidebar" class="btn btn-primary btn-sm me-2 shadow-sm" onclick="toggleSidebar()" type="button" title="Đóng / Mở Menu">
+ <!-- ==================== HEADER THANH ĐIỀU HƯỚNG TRÊN CÙNG CAO CẤP ==================== -->
+    <style>
+      .ioc-header-premium {
+        background: #ffffff;
+        border-bottom: 2px solid #e2e8f0;
+        box-shadow: 0 4px 18px rgba(0, 31, 63, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+      }
+      .ioc-title-gradient {
+        background: linear-gradient(90deg, #b91c1c 0%, #c2410c 60%, #b45309 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.6px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .ioc-clock-widget {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 30px;
+        padding: 5px 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+      }
+      .ioc-live-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #10b981;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        animation: iocPulse 1.8s infinite;
+      }
+      @keyframes iocPulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      }
+      .ioc-user-badge {
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 30px;
+        padding: 4px 12px;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      .ioc-user-badge:hover {
+        background: #e2e8f0;
+        transform: translateY(-1px);
+      }
+    </style>
+
+    <header class="ioc-header-premium py-2 px-3 mb-3">
+      <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap gap-2">
+        
+        <!-- KHỐI BÊN TRÁI: NÚT TOGGLE 3 GẠCH & LOGO TIÊU ĐỀ 2 TẦNG -->
+        <div class="d-flex align-items-center">
+          <!-- Nút 3 gạch thu phóng menu -->
+          <button id="btnToggleSidebar" class="btn btn-primary btn-sm me-3 shadow-sm px-2 py-1" onclick="toggleSidebar()" type="button" title="Đóng / Mở Menu" style="border-radius: 8px;">
             <i class="bi bi-list fs-5"></i>
           </button>
-        <a href="javascript:showHomeDashboard()" class="text-decoration-none d-flex align-items-center">
-          <i class="bi bi-house-door-fill text-primary fs-4 me-2"></i>
-          <span class="brand-title">TRUNG TÂM GIÁM SÁT ĐIỀU HÀNH THÔNG MINH XÃ TÂN LONG HỘI (IOC)</span>
-        </a>
-      </div>
-      <div class="d-flex align-items-center gap-3">
-        <div id="liveClock" class="small text-muted fw-semibold d-none d-md-block"></div>
-        <div class="small fw-semibold text-secondary">
-          <i class="bi bi-person-circle text-primary me-1"></i>Cán bộ Quản trị hệ thống
+
+          <!-- Logo Quốc huy / Biểu trưng & Tiêu đề IOC -->
+          <a href="javascript:showHomeDashboard()" class="text-decoration-none d-flex align-items-center">
+            <div class="me-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #fee2e2 0%, #fef3c7 100%); border: 1px solid #fecaca;">
+              <i class="bi bi-shield-shaded text-danger fs-4"></i>
+            </div>
+            <div>
+              <div class="text-muted text-uppercase fw-semibold" style="font-size: 10px; letter-spacing: 0.8px; line-height: 1.2;">
+                ỦY BAN NHÂN DÂN XÃ TÂN LONG HỘI
+              </div>
+              <div class="ioc-title-gradient" style="font-size: 16.5px; line-height: 1.2;">
+                TRUNG TÂM GIÁM SÁT ĐIỀU HÀNH THÔNG MINH (IOC)
+              </div>
+            </div>
+          </a>
         </div>
+
+        <!-- KHỐI BÊN PHẢI: TRẠNG THÁI HỆ THỐNG, ĐỒNG HỒ THỰC & TÀI KHOẢN -->
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+          
+          <!-- Huy hiệu trạng thái trực tuyến -->
+          <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 rounded-pill d-none d-lg-inline-flex align-items-center gap-1" style="font-size: 11px;">
+            <span class="ioc-live-dot"></span> VẬN HÀNH 24/7
+          </span>
+
+          <!-- Đồng hồ số thời gian thực -->
+          <div class="ioc-clock-widget">
+            <i class="bi bi-clock-history text-primary"></i>
+            <span id="liveClock" class="fw-bold text-dark" style="font-size: 13px; font-variant-numeric: tabular-nums;">Đang tải giờ...</span>
+          </div>
+
+          <!-- Thông tin cán bộ quản trị -->
+          <div class="ioc-user-badge">
+            <div class="me-2 rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="width: 26px; height: 26px; font-size: 12px;">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="text-start">
+              <span class="fw-bold text-dark" style="font-size: 12px;">Cán bộ Quản trị hệ thống</span>
+            </div>
+            <i class="bi bi-chevron-down ms-2 small text-muted"></i>
+          </div>
+
+        </div>
+
       </div>
-    </div>
-  </header>
+    </header>
 
   <!-- NỘI DUNG CHÍNH (LƯỚI 2 CỘT BOOTSTRAP) -->
   <div class="container-fluid px-3">
