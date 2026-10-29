@@ -183,7 +183,7 @@
     <div class="row g-3">
       
       <!-- CỘT TRÁI: MENU PHÂN HỆ 1 - 9 -->
-      <div class="col-xl-2 col-lg-3 col-md-4">
+     <div id="sidebarCol" class="col-xl-2 col-lg-3 col-md-4">
         <div class="sidebar-menu shadow-sm collapse d-md-block" id="sidebarCollapse">
           <div class="menu-item active" onclick="switchView('view-1', this)">
             <div class="d-flex align-items-center"><span class="menu-badge">1</span>Giới thiệu tổng quan xã</div>
@@ -229,7 +229,7 @@
       </div>
 
       <!-- CỘT PHẢI: KHUNG HIỂN THỊ CÁC PHÂN HỆ NỘI DUNG -->
-      <div class="col-xl-10 col-lg-9 col-md-8">
+    <div id="contentCol" class="col-xl-10 col-lg-9 col-md-8">
         <!-- ==================== MÀN HÌNH CHÍNH: BÁO CÁO TỔNG QUAN (10 LĨNH VỰC) ==================== -->
         <div id="view-home-summary" class="dashboard-panel active">
           
@@ -3694,6 +3694,43 @@
       // 4. Cuộn mượt màn hình lên trên cùng
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+    // HÀM ĐÓNG / MỞ THANH MENU BÊN TRÁI (THU PHÓNG TOÀN MÀN HÌNH)
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebarCol');
+      const content = document.getElementById('contentCol');
+      const btn = document.getElementById('btnToggleSidebar');
+
+      if (!sidebar || !content) return;
+
+      if (sidebar.style.display === 'none') {
+        // MỞ MENU: Cột trái hiện lại, cột phải trở về kích thước ban đầu
+        sidebar.style.display = '';
+        content.className = 'col-xl-10 col-lg-9 col-md-8';
+
+        // Đổi nút 3 gạch sang màu xanh đậm có nền
+        if (btn) {
+          btn.className = 'btn btn-primary btn-sm me-2 shadow-sm';
+        }
+      } else {
+        // ẨN MENU: Cột trái biến mất, cột phải tự dãn chiếm 100% (col-12)
+        sidebar.style.display = 'none';
+        content.className = 'col-12';
+
+        // Đổi nút 3 gạch sang màu trắng viền mờ (như IOC của Tỉnh)
+        if (btn) {
+          btn.className = 'btn btn-light border btn-sm me-2 shadow-sm text-secondary';
+        }
+      }
+
+      // Tự động căn chỉnh lại kích thước các biểu đồ Chart.js khi khung dãn rộng
+      setTimeout(() => {
+        if (typeof Chart !== 'undefined') {
+          Object.values(Chart.instances || {}).forEach(chart => {
+            if (chart) chart.resize();
+          });
+        }
+      }, 150);
+    }
   </script>
 </body>
 </html>
