@@ -325,6 +325,7 @@
       <!-- CỘT PHẢI: KHUNG HIỂN THỊ CÁC PHÂN HỆ NỘI DUNG -->
     <div id="contentCol" class="col-xl-10 col-lg-9 col-md-8">
         <!-- ==================== MÀN HÌNH CHÍNH: BÁO CÁO TỔNG QUAN (10 LĨNH VỰC) ==================== -->
+       <!-- ==================== MÀN HÌNH CHÍNH: BÁO CÁO TỔNG QUAN (KHỚP 10 MỤC MENU) ==================== -->
         <div id="view-home-summary" class="dashboard-panel active">
           
           <style>
@@ -337,29 +338,49 @@
               display: flex;
               flex-direction: column;
               overflow: hidden;
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .summary-card:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
             }
             .summary-card-header {
               background: #f8fafc;
               border-bottom: 1px solid #edf2f7;
-              padding: 10px 14px;
+              padding: 9px 14px;
               font-weight: 700;
-              font-size: 13px;
+              font-size: 12.5px;
               display: flex;
               justify-content: space-between;
               align-items: center;
             }
             .summary-card-body {
-              padding: 14px;
+              padding: 12px 14px;
               flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
             }
             .stat-mini-pill {
               border-radius: 8px;
-              padding: 8px 10px;
+              padding: 7px 8px;
               text-align: center;
               height: 100%;
               display: flex;
               flex-direction: column;
               justify-content: center;
+            }
+            .btn-view-link {
+              background: none;
+              border: none;
+              color: inherit;
+              padding: 0 4px;
+              cursor: pointer;
+              opacity: 0.75;
+              transition: opacity 0.2s ease;
+            }
+            .btn-view-link:hover {
+              opacity: 1;
             }
           </style>
 
@@ -378,54 +399,78 @@
             </div>
           </div>
 
-          <!-- LƯỚI CARD TỔNG HỢP CÁC LĨNH VỰC -->
+          <!-- LƯỚI 10 KHỐI NỘI DUNG TƯƠNG ỨNG TỪNG MỤC TỪ 1 ĐẾN 10 -->
           <div class="row g-3 mb-3">
 
-            <!-- 1. GIẢI NGÂN VỐN ĐẦU TƯ CÔNG -->
+            <!-- 1. GIỚI THIỆU TỔNG QUAN XÃ -->
+            <div class="col-xl-4 col-md-6">
+              <div class="summary-card">
+                <div class="summary-card-header text-success">
+                  <span><i class="bi bi-geo-alt-fill me-1"></i> 1. GIỚI THIỆU TỔNG QUAN XÃ</span>
+                  <button class="btn-view-link" onclick="switchView('view-1')" title="Xem chi tiết Mục 1"><i class="bi bi-box-arrow-up-right"></i></button>
+                </div>
+                <div class="summary-card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="small text-muted">Diện tích: <strong class="text-success">36,27 km²</strong></span>
+                    <span class="badge bg-success-subtle text-success">121% Đ.mức</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted">Dân số: <strong class="text-success">26.358 người</strong></span>
+                    <span class="badge bg-success-subtle text-success">165% Đ.mức</span>
+                  </div>
+                  <div class="small text-muted border-top pt-2 d-flex justify-content-between">
+                    <span>Mã định danh: <strong>29653</strong></span>
+                    <span class="badge bg-primary">Sáp nhập 3 đơn vị</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. GIẢI NGÂN VỐN ĐẦU TƯ CÔNG -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
                 <div class="summary-card-header text-primary">
-                  <span><i class="bi bi-cash-coin me-1"></i> 1. GIẢI NGÂN ĐẦU TƯ CÔNG</span>
-                  <button class="btn btn-sm btn-outline-primary py-0 px-1 border-0" onclick="switchView('view-2')"><i class="bi bi-box-arrow-up-right"></i></button>
+                  <span><i class="bi bi-cash-coin me-1"></i> 2. GIẢI NGÂN VỐN ĐẦU TƯ CÔNG</span>
+                  <button class="btn-view-link" onclick="switchView('view-2')" title="Xem chi tiết Mục 2"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
                   <div class="row g-2 mb-2">
                     <div class="col-4">
                       <div class="stat-mini-pill bg-light border">
-                        <span class="text-muted" style="font-size: 10.5px;">Kế hoạch vốn</span>
+                        <span class="text-muted" style="font-size: 10px;">KH vốn</span>
                         <strong class="text-primary fs-6">3.100</strong>
-                        <span class="text-muted" style="font-size: 9.5px;">triệu đồng</span>
+                        <span class="text-muted" style="font-size: 9px;">tr.đồng</span>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill" style="background-color: #ecfdf5; border: 1px solid #a7f3d0;">
-                        <span class="text-success fw-semibold" style="font-size: 10.5px;">Kho bạc GN</span>
+                        <span class="text-success fw-semibold" style="font-size: 10px;">Kho bạc GN</span>
                         <strong class="text-success fs-6">3.100</strong>
-                        <span class="text-success" style="font-size: 9.5px;">100%</span>
+                        <span class="text-success" style="font-size: 9px;">100%</span>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill" style="background-color: #eff6ff; border: 1px solid #bfdbfe;">
-                        <span class="text-primary fw-semibold" style="font-size: 10.5px;">Hoàn thành</span>
+                        <span class="text-primary fw-semibold" style="font-size: 10px;">Gói thầu</span>
                         <strong class="text-primary fs-6">4/4</strong>
-                        <span class="text-primary" style="font-size: 9.5px;">gói thầu</span>
+                        <span class="text-primary" style="font-size: 9px;">hoàn thành</span>
                       </div>
                     </div>
                   </div>
                   <div class="d-flex justify-content-between small text-muted border-top pt-2">
-                    <span>Đường huyện 35 (2 đợt) & Đ. Liên ấp ĐT903</span>
+                    <span>Đường huyện 35 & Đ. Liên ấp ĐT903</span>
                     <span class="badge bg-success">100% Khớp số liệu</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 2. QUẢN LÝ VĂN BẢN ĐIỀU HÀNH -->
+            <!-- 3. QUẢN LÝ VĂN BẢN ĐIỀU HÀNH -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
-                <div class="summary-card-header text-indigo" style="color: #4f46e5;">
-                  <span><i class="bi bi-file-earmark-text me-1"></i> 2. QUẢN LÝ VĂN BẢN ĐIỀU HÀNH</span>
-                  <button class="btn btn-sm py-0 px-1 border-0" style="color: #4f46e5;" onclick="switchView('view-3')"><i class="bi bi-box-arrow-up-right"></i></button>
+                <div class="summary-card-header" style="color: #4f46e5;">
+                  <span><i class="bi bi-file-earmark-text me-1"></i> 3. QUẢN LÝ VĂN BẢN ĐIỀU HÀNH</span>
+                  <button class="btn-view-link" onclick="switchView('view-3')" title="Xem chi tiết Mục 3"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
                   <div class="row g-2 mb-2">
@@ -445,107 +490,149 @@
                     </div>
                   </div>
                   <div class="small text-muted border-top pt-2 d-flex justify-content-between">
-                    <span>Số liệu từ 01/01/2026 đến 27/10/2026</span>
+                    <span>Dữ liệu đến 27/10/2026</span>
                     <span class="text-success fw-bold">9 đơn vị</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 3. TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN -->
+            <!-- 4. TIÊU CHÍ NÔNG THÔN MỚI NÂNG CAO -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
                 <div class="summary-card-header text-success">
-                  <span><i class="bi bi-chat-square-quote me-1"></i> 3. PHẢN ÁNH, Ý KIẾN NGƯỜI DÂN</span>
-                  <button class="btn btn-sm btn-outline-success py-0 px-1 border-0" onclick="switchView('view-5')"><i class="bi bi-box-arrow-up-right"></i></button>
+                  <span><i class="bi bi-tree-fill me-1"></i> 4. TIÊU CHÍ NTM NÂNG CAO</span>
+                  <button class="btn-view-link" onclick="switchView('view-4')" title="Xem chi tiết Mục 4"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
-                  <div class="row g-2 mb-2">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="small text-muted">Đạt chuẩn bộ tiêu chí:</span>
+                    <strong class="text-success fs-6">19/19 (100%)</strong>
+                  </div>
+                  <div class="progress mb-2" style="height: 7px;">
+                    <div class="progress-bar bg-success" style="width: 100%;"></div>
+                  </div>
+                  <div class="small text-muted border-top pt-2 d-flex justify-content-between">
+                    <span>Tổng số 47 chỉ tiêu thành phần</span>
+                    <span class="badge bg-success-subtle text-success">Đạt chuẩn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. TIẾP NHẬN & XỬ LÝ Ý KIẾN NGƯỜI DÂN -->
+            <div class="col-xl-4 col-md-6">
+              <div class="summary-card">
+                <div class="summary-card-header text-info" style="color: #0284c7 !important;">
+                  <span><i class="bi bi-chat-square-quote-fill me-1"></i> 5. TIẾP NHẬN & XỬ LÝ Ý KIẾN DÂN</span>
+                  <button class="btn-view-link" onclick="switchView('view-5')" title="Xem chi tiết Mục 5"><i class="bi bi-box-arrow-up-right"></i></button>
+                </div>
+                <div class="summary-card-body">
+                  <div class="row g-1 mb-2 text-center">
                     <div class="col-3">
                       <div class="stat-mini-pill bg-light border">
-                        <span class="text-muted" style="font-size: 10px;">Tổng nhận</span>
+                        <span class="text-muted" style="font-size: 9.5px;">Tổng nhận</span>
                         <strong class="text-primary fs-6">7</strong>
                       </div>
                     </div>
                     <div class="col-3">
                       <div class="stat-mini-pill" style="background-color: #ecfdf5; border: 1px solid #bbf7d0;">
-                        <span class="text-success" style="font-size: 10px;">Đã xử lý</span>
+                        <span class="text-success" style="font-size: 9.5px;">Đã xử lý</span>
                         <strong class="text-success fs-6">7</strong>
                       </div>
                     </div>
                     <div class="col-3">
                       <div class="stat-mini-pill" style="background-color: #fffbeb; border: 1px solid #fde68a;">
-                        <span style="color: #b45309; font-size: 10px;">Đang XL</span>
+                        <span style="color: #b45309; font-size: 9.5px;">Đang XL</span>
                         <strong style="color: #b45309;" class="fs-6">0</strong>
                       </div>
                     </div>
                     <div class="col-3">
                       <div class="stat-mini-pill" style="background-color: #fef2f2; border: 1px solid #fecaca;">
-                        <span class="text-danger" style="font-size: 10px;">Quá hạn</span>
+                        <span class="text-danger" style="font-size: 9.5px;">Quá hạn</span>
                         <strong class="text-danger fs-6">0</strong>
                       </div>
                     </div>
                   </div>
                   <div class="small text-muted border-top pt-2 d-flex justify-content-between align-items-center">
-                    <span>Tiến độ xử lý đúng hạn:</span>
+                    <span>Tỷ lệ hoàn thành:</span>
                     <span class="badge bg-success">100% Trong hạn</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 4. KINH PHÍ CĐS (NQ 57) -->
+            <!-- 6. KẾ HOẠCH 100 NGÀY CHUYỂN ĐỔI SỐ -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
-                <div class="summary-card-header" style="color: #0284c7;">
-                  <span><i class="bi bi-wallet2 me-1"></i> 4. KINH PHÍ CHUYỂN ĐỔI SỐ (NQ 57)</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-info" onclick="switchView('view-9')"><i class="bi bi-box-arrow-up-right"></i></button>
+                <div class="summary-card-header text-primary">
+                  <span><i class="bi bi-calendar-check-fill me-1"></i> 6. KẾ HOẠCH 100 NGÀY CĐS</span>
+                  <button class="btn-view-link" onclick="switchView('view-6')" title="Xem chi tiết Mục 6"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
                   <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="small text-muted">Giải ngân: <strong>1.476 / 1.960 tr.đ</strong></span>
-                    <span class="badge bg-warning text-dark fw-bold">75,30%</span>
+                    <span class="small text-muted">Tiến độ chiến dịch:</span>
+                    <strong class="text-primary fs-6">Đang triển khai</strong>
                   </div>
-                  <div class="progress mb-2" style="height: 8px;">
-                    <div class="progress-bar bg-success" style="width: 75.30%;"></div>
+                  <div class="progress mb-2" style="height: 7px;">
+                    <div class="progress-bar bg-info" style="width: 82%;"></div>
                   </div>
-                  <div class="row g-2 border-top pt-2 text-center" style="font-size: 11px;">
-                    <div class="col-4"><span class="text-muted">Tổng nhiệm vụ:</span> <strong class="text-primary">14</strong></div>
-                    <div class="col-4"><span class="text-muted">Hoàn thành:</span> <strong class="text-success">7</strong></div>
-                    <div class="col-4"><span class="text-muted">Cảnh báo chậm:</span> <strong class="text-danger">3</strong></div>
+                  <div class="small text-muted border-top pt-2 d-flex justify-content-between">
+                    <span>Chuyển đổi số cộng đồng</span>
+                    <span class="text-primary fw-semibold">11 Ấp trực thuộc</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 5. THỐNG KÊ TÀI SẢN CÔNG -->
+            <!-- 7. THÔNG TIN ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC -->
+            <div class="col-xl-4 col-md-6">
+              <div class="summary-card">
+                <div class="summary-card-header text-secondary">
+                  <span><i class="bi bi-mortarboard-fill me-1"></i> 7. SỰ NGHIỆP GIÁO DỤC</span>
+                  <button class="btn-view-link" onclick="switchView('view-7')" title="Xem chi tiết Mục 7"><i class="bi bi-box-arrow-up-right"></i></button>
+                </div>
+                <div class="summary-card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted">Hệ thống trường học:</span>
+                    <strong class="text-primary fs-6">4 Trường</strong>
+                  </div>
+                  <div class="small text-muted border-top pt-2 d-flex justify-content-between">
+                    <span>1 Mầm non • 2 Tiểu học • 1 THCS</span>
+                    <span class="badge bg-light text-secondary border">Chuẩn QG</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. THỐNG KÊ TÀI SẢN CÔNG -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
                 <div class="summary-card-header" style="color: #4f46e5;">
-                  <span><i class="bi bi-buildings me-1"></i> 5. TÀI SẢN CÔNG SAU SÁP NHẬP</span>
-                  <button class="btn btn-sm py-0 px-1 border-0" style="color: #4f46e5;" onclick="switchView('view-8')"><i class="bi bi-box-arrow-up-right"></i></button>
+                  <span><i class="bi bi-buildings-fill me-1"></i> 8. THỐNG KÊ TÀI SẢN CÔNG</span>
+                  <button class="btn-view-link" onclick="switchView('view-8')" title="Xem chi tiết Mục 8"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
                   <div class="row g-2 mb-2 text-center">
                     <div class="col-4">
                       <div class="stat-mini-pill" style="background-color: #ede9fe; border: 1px solid #ddd6fe;">
-                        <span class="text-muted" style="font-size: 10px;">Cơ sở nhà đất</span>
+                        <span class="text-muted" style="font-size: 10px;">Cơ sở</span>
                         <strong class="fs-6" style="color: #4f46e5;">3</strong>
-                        <span class="badge bg-primary-subtle text-primary" style="font-size: 9px;">Giữ lại 100%</span>
+                        <span class="badge bg-primary-subtle text-primary" style="font-size: 8.5px;">Giữ lại 100%</span>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill bg-light border">
-                        <span class="text-muted" style="font-size: 10px;">DT Đất (m²)</span>
+                        <span class="text-muted" style="font-size: 10px;">DT Đất</span>
                         <strong class="text-dark fs-6">4.315</strong>
-                        <span class="text-muted" style="font-size: 9px;">Trạm y tế</span>
+                        <span class="text-muted" style="font-size: 9px;">m²</span>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill bg-light border">
-                        <span class="text-muted" style="font-size: 10px;">DT Sàn (m²)</span>
+                        <span class="text-muted" style="font-size: 10px;">DT Sàn</span>
                         <strong class="text-dark fs-6">1.509</strong>
-                        <span class="text-muted" style="font-size: 9px;">Sử dụng</span>
+                        <span class="text-muted" style="font-size: 9px;">m²</span>
                       </div>
                     </div>
                   </div>
@@ -557,122 +644,60 @@
               </div>
             </div>
 
-            <!-- 6. SẢN PHẨM OCOP -->
+            <!-- 9. KINH PHÍ CHUYỂN ĐỔI SỐ (NQ 57) -->
+            <div class="col-xl-4 col-md-6">
+              <div class="summary-card">
+                <div class="summary-card-header text-info">
+                  <span><i class="bi bi-wallet2 me-1"></i> 9. KINH PHÍ CĐS (NQ 57)</span>
+                  <button class="btn-view-link" onclick="switchView('view-9')" title="Xem chi tiết Mục 9"><i class="bi bi-box-arrow-up-right"></i></button>
+                </div>
+                <div class="summary-card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="small text-muted">Giải ngân: <strong>1.476 / 1.960 tr.đ</strong></span>
+                    <span class="badge bg-warning text-dark fw-bold">75,30%</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 7px;">
+                    <div class="progress-bar bg-success" style="width: 75.30%;"></div>
+                  </div>
+                  <div class="row g-1 border-top pt-2 text-center" style="font-size: 11px;">
+                    <div class="col-4"><span class="text-muted">Tổng NV:</span> <strong class="text-primary">14</strong></div>
+                    <div class="col-4"><span class="text-muted">Đạt:</span> <strong class="text-success">7</strong></div>
+                    <div class="col-4"><span class="text-muted">Chậm:</span> <strong class="text-danger">3</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 10. SẢN PHẨM OCOP -->
             <div class="col-xl-4 col-md-6">
               <div class="summary-card">
                 <div class="summary-card-header text-warning" style="color: #d97706 !important;">
-                  <span><i class="bi bi-patch-check me-1"></i> 6. SẢN PHẨM OCOP ĐỊA PHƯƠNG</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-warning" onclick="switchView('view-10')"><i class="bi bi-box-arrow-up-right"></i></button>
+                  <span><i class="bi bi-patch-check-fill me-1"></i> 10. SẢN PHẨM OCOP</span>
+                  <button class="btn-view-link" onclick="switchView('view-10')" title="Xem chi tiết Mục 10"><i class="bi bi-box-arrow-up-right"></i></button>
                 </div>
                 <div class="summary-card-body">
                   <div class="row g-2 mb-2 text-center">
                     <div class="col-4">
                       <div class="stat-mini-pill bg-light border">
-                        <span class="text-muted" style="font-size: 10px;">Tổng sản phẩm</span>
+                        <span class="text-muted" style="font-size: 10px;">Tổng SP</span>
                         <strong class="text-primary fs-6">3</strong>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill" style="background-color: #ecfdf5; border: 1px solid #a7f3d0;">
                         <span class="text-success" style="font-size: 10px;">Chuẩn 3 sao</span>
-                        <strong class="text-success fs-6">3 <span style="font-size: 10px;">(100%)</span></strong>
+                        <strong class="text-success fs-6">3 <span style="font-size: 9px;">(100%)</span></strong>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="stat-mini-pill" style="background-color: #f3e8ff; border: 1px solid #e9d5ff;">
-                        <span style="color: #9333ea; font-size: 10px;">Chủ thể OCOP</span>
+                        <span style="color: #9333ea; font-size: 10px;">Chủ thể</span>
                         <strong class="fs-6" style="color: #9333ea;">3</strong>
                       </div>
                     </div>
                   </div>
                   <div class="small text-muted border-top pt-2">
                     <span>Sản phẩm: <strong>Bưởi da xanh, Mai vàng, Mít thái</strong></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 7. NÔNG THÔN MỚI NÂNG CAO -->
-            <div class="col-xl-3 col-md-6">
-              <div class="summary-card">
-                <div class="summary-card-header text-success">
-                  <span><i class="bi bi-tree me-1"></i> 7. NTM NÂNG CAO</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-success" onclick="switchView('view-4')"><i class="bi bi-box-arrow-up-right"></i></button>
-                </div>
-                <div class="summary-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="small text-muted">Đạt chuẩn bộ tiêu chí:</span>
-                    <strong class="text-success fs-6">19/19 (100%)</strong>
-                  </div>
-                  <div class="progress mb-2" style="height: 6px;">
-                    <div class="progress-bar bg-success" style="width: 100%;"></div>
-                  </div>
-                  <div class="small text-muted border-top pt-1 text-center" style="font-size: 11px;">
-                    Tổng số 47 chỉ tiêu thành phần
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 8. KẾ HOẠCH 100 NGÀY CĐS -->
-            <div class="col-xl-3 col-md-6">
-              <div class="summary-card">
-                <div class="summary-card-header text-primary">
-                  <span><i class="bi bi-calendar-check me-1"></i> 8. KẾ HOẠCH 100 NGÀY CĐS</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-primary" onclick="switchView('view-6')"><i class="bi bi-box-arrow-up-right"></i></button>
-                </div>
-                <div class="summary-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="small text-muted">Tiến độ chiến dịch:</span>
-                    <strong class="text-primary fs-6">Đang triển khai</strong>
-                  </div>
-                  <div class="progress mb-2" style="height: 6px;">
-                    <div class="progress-bar bg-info" style="width: 82%;"></div>
-                  </div>
-                  <div class="small text-muted border-top pt-1 text-center" style="font-size: 11px;">
-                    11 Ấp chuyển đổi số cộng đồng
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 9. ĐƠN VỊ SỰ NGHIỆP GIÁO DỤC -->
-            <div class="col-xl-3 col-md-6">
-              <div class="summary-card">
-                <div class="summary-card-header text-secondary">
-                  <span><i class="bi bi-mortarboard me-1"></i> 9. SỰ NGHIỆP GIÁO DỤC</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-secondary" onclick="switchView('view-7')"><i class="bi bi-box-arrow-up-right"></i></button>
-                </div>
-                <div class="summary-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="small text-muted">Hệ thống trường học:</span>
-                    <strong class="text-primary fs-6">4 Trường</strong>
-                  </div>
-                  <div class="small text-muted border-top pt-1 text-center" style="font-size: 11px;">
-                    1 Mầm non • 2 Tiểu học • 1 THCS
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 10. THÔNG TIN QUY HOẠCH SÁP NHẬP -->
-            <div class="col-xl-3 col-md-6">
-              <div class="summary-card">
-                <div class="summary-card-header text-success">
-                  <span><i class="bi bi-info-circle me-1"></i> 10. TỔNG QUAN ĐỊA BÀN</span>
-                  <button class="btn btn-sm py-0 px-1 border-0 text-success" onclick="switchView('view-1')"><i class="bi bi-box-arrow-up-right"></i></button>
-                </div>
-                <div class="summary-card-body">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="small text-muted">Diện tích: <strong>36,27 km²</strong></span>
-                    <span class="badge bg-success-subtle text-success">121%</span>
-                  </div>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <span class="small text-muted">Dân số: <strong>26.358 người</strong></span>
-                    <span class="badge bg-success-subtle text-success">165%</span>
-                  </div>
-                  <div class="small text-muted border-top pt-1 mt-1 text-center" style="font-size: 11px;">
-                    Mã định danh: <strong>29653</strong>
                   </div>
                 </div>
               </div>
